@@ -19,7 +19,6 @@
                 <h2 class="display-5 fw-bold mb-4">Welcome back, {{ user.username }}!</h2>
                 <p class="lead text-muted mb-4">Here's your personalized dashboard with all the information you need.</p>
                 <div class="d-flex gap-3">
-                    <a href="{% url 'main:protected_home' %}" class="btn btn-primary btn-custom">Protected Home</a>
                     <a href="{% url 'main:logout' %}" class="btn btn-outline-primary btn-custom">Logout</a>
                 </div>
             </div>

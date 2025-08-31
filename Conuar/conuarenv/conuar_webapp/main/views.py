@@ -76,22 +76,6 @@ def logout_view(request):
     messages.success(request, 'You have been successfully logged out.')
     return redirect('main:home')
 
-# Protected views that require authentication
-@login_required(login_url='main:login')
-def protected_home(request):
-    """Protected home page view"""
-    context = {
-        'title': 'Welcome to Conuar WebApp (Protected)',
-        'description': 'This is a protected area of our website.',
-        'user': request.user,
-        'features': [
-            'Secure Access',
-            'User Dashboard',
-            'Personalized Content',
-            'Premium Features'
-        ]
-    }
-    return render(request, 'main/protected_home.html', context)
 
 @login_required(login_url='main:login')
 def dashboard(request):

@@ -244,9 +244,6 @@
                             <a href="{% url 'main:dashboard' %}" class="btn btn-outline-success">
                                 <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
                             </a>
-                            <a href="{% url 'main:protected_home' %}" class="btn btn-outline-info">
-                                <i class="fas fa-shield-alt me-2"></i>Protected Home
-                            </a>
                         </div>
                     </div>
                 </div>
@@ -277,7 +274,8 @@
                              class="card-img-top" 
                              alt="{{ photo.caption|default:'Inspection photo' }}"
                              style="height: 250px; object-fit: cover; cursor: pointer;"
-                             onclick="openPhotoModal('{{ photo.photo.url }}', '{{ photo.caption|default:'Inspection photo' }}')">
+                             onclick="openPhotoModal('{{ photo.photo.url }}', 
+                             '{{ photo.caption|default:Inspection_photo }}')">
                     </div>
                     <div class="card-footer bg-transparent">
                         <h6 class="card-title mb-2">{{ photo.caption|default:'No caption' }}</h6>

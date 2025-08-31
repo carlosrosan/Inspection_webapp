@@ -144,33 +144,16 @@
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'main:home' %}">
                             <i class="fas fa-home me-1"></i>Home
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'main:about' %}">
-                            <i class="fas fa-info-circle me-1"></i>About
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="{% url 'main:contact' %}">
-                            <i class="fas fa-envelope me-1"></i>Contact
-                        </a>
-                    </li>
-                    
+                        </a>                    
                     {% if user.is_authenticated %}
                         <li class="nav-item">
-                            <a class="nav-link" href="{% url 'main:protected_home' %}">
-                                <i class="fas fa-shield-alt me-1"></i>Protected
+                            <a class="nav-link" href="{% url 'main:inspection_list' %}">
+                                <i class="fas fa-clipboard-list me-1"></i>Inspections
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:dashboard' %}">
                                 <i class="fas fa-tachometer-alt me-1"></i>Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="{% url 'main:inspection_list' %}">
-                                <i class="fas fa-clipboard-list me-1"></i>Inspections
                             </a>
                         </li>
                         <li class="nav-item">
@@ -185,6 +168,17 @@
                             </a>
                         </li>
                     {% endif %}
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main:about' %}">
+                        <i class="fas fa-info-circle me-1"></i>About
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'main:contact' %}">
+                        <i class="fas fa-envelope me-1"></i>Contact
+                    </a>
+                </li>
                 </ul>
             </div>
         </div>
