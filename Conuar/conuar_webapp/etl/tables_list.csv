@@ -1,0 +1,14 @@
+table_name
+django_migrations
+sqlite_sequence
+django_content_type
+auth_group_permissions
+auth_permission
+auth_group
+main_user
+main_user_groups
+main_user_user_permissions
+django_admin_log
+django_session
+main_inspection
+main_inspectionphoto

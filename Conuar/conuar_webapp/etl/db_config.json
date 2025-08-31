@@ -1,0 +1,5 @@
+{
+    "ENGINE": "sqlite3",
+    "NAME": "db.sqlite3",
+    "PATH": "C:/Inspection_webapp/Conuar/conuar_webapp"
+}
