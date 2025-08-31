@@ -1,6 +1,6 @@
-# Nuclear Fuel Rod Inspection System
+# Inspection System Reporting Webapp
 
-A Django-based web application for managing nuclear fuel rod inspections with photo documentation and quality control.
+A Django-based web application for managing product inspections with photo documentation and quality control.
 
 ## Features
 
@@ -49,14 +49,6 @@ A Django-based web application for managing nuclear fuel rod inspections with ph
    ```bash
    python manage.py runserver
    ```
-
-## Default Users
-
-The system comes with pre-configured test users:
-
-- **Inspector**: `inspector` / `inspector123`
-- **Supervisor**: `supervisor` / `supervisor123`
-- **Admin**: Use the superuser you created
 
 ## Usage
 
