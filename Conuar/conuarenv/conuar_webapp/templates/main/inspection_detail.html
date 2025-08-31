@@ -274,8 +274,7 @@
                              class="card-img-top" 
                              alt="{{ photo.caption|default:'Inspection photo' }}"
                              style="height: 250px; object-fit: cover; cursor: pointer;"
-                             onclick="openPhotoModal('{{ photo.photo.url }}', 
-                             '{{ photo.caption|default:Inspection_photo }}')">
+                             onclick="openPhotoModal('{{ photo.photo.url|escapejs }}', '{{ photo.caption|default:Inspection_photo|escapejs }}')">
                     </div>
                     <div class="card-footer bg-transparent">
                         <h6 class="card-title mb-2">{{ photo.caption|default:'No caption' }}</h6>
