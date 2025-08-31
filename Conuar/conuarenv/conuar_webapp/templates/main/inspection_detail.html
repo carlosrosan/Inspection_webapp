@@ -1,0 +1,350 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
+        <p class="lead mb-5">{{ description }}</p>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <a href="{% url 'main:inspection_list' %}" class="btn btn-light btn-custom me-3">
+                    <i class="fas fa-arrow-left me-2"></i>Back to List
+                </a>
+                <a href="{% url 'main:dashboard' %}" class="btn btn-outline-light btn-custom">Dashboard</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Inspection Details Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <!-- Main Inspection Information -->
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-primary text-white">
+                        <h4 class="mb-0">
+                            <i class="fas fa-clipboard-check me-2"></i>Inspection Details
+                        </h4>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Basic Information</h5>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td><strong>Title:</strong></td>
+                                        <td>{{ inspection.title }}</td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Type:</strong></td>
+                                        <td>
+                                            <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Status:</strong></td>
+                                        <td>
+                                            {% if inspection.status == 'completed' %}
+                                                <span class="badge bg-success">{{ inspection.get_status_display }}</span>
+                                            {% elif inspection.status == 'failed' %}
+                                                <span class="badge bg-danger">{{ inspection.get_status_display }}</span>
+                                            {% elif inspection.status == 'in_progress' %}
+                                                <span class="badge bg-warning">{{ inspection.get_status_display }}</span>
+                                            {% elif inspection.status == 'approved' %}
+                                                <span class="badge bg-primary">{{ inspection.get_status_display }}</span>
+                                            {% elif inspection.status == 'rejected' %}
+                                                <span class="badge bg-danger">{{ inspection.get_status_display }}</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">{{ inspection.get_status_display }}</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
+                                        <td><strong>Inspector:</strong></td>
+                                        <td>
+                                            <i class="fas fa-user me-2"></i>{{ inspection.inspector.username }}
+                                        </td>
+                                    </tr>
+                                    {% if inspection.supervisor %}
+                                    <tr>
+                                        <td><strong>Supervisor:</strong></td>
+                                        <td>
+                                            <i class="fas fa-user-tie me-2"></i>{{ inspection.supervisor.username }}
+                                        </td>
+                                    </tr>
+                                    {% endif %}
+                                </table>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary">Product Information</h5>
+                                <table class="table table-borderless">
+                                    <tr>
+                                        <td><strong>Product Name:</strong></td>
+                                        <td>{{ inspection.product_name }}</td>
+                                    </tr>
+                                    {% if inspection.product_code %}
+                                    <tr>
+                                        <td><strong>Product Code:</strong></td>
+                                        <td>{{ inspection.product_code }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if inspection.batch_number %}
+                                    <tr>
+                                        <td><strong>Batch Number:</strong></td>
+                                        <td>{{ inspection.batch_number }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if inspection.serial_number %}
+                                    <tr>
+                                        <td><strong>Serial Number:</strong></td>
+                                        <td>{{ inspection.serial_number }}</td>
+                                    </tr>
+                                    {% endif %}
+                                    {% if inspection.location %}
+                                    <tr>
+                                        <td><strong>Location:</strong></td>
+                                        <td>{{ inspection.location }}</td>
+                                    </tr>
+                                    {% endif %}
+                                </table>
+                            </div>
+                        </div>
+                        
+                        {% if inspection.description %}
+                        <div class="mt-4">
+                            <h5 class="text-primary">Description</h5>
+                            <p class="lead">{{ inspection.description }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if inspection.result %}
+                        <div class="mt-4">
+                            <h5 class="text-primary">Results</h5>
+                            <p>{{ inspection.result }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if inspection.notes %}
+                        <div class="mt-4">
+                            <h5 class="text-primary">Notes</h5>
+                            <p>{{ inspection.notes }}</p>
+                        </div>
+                        {% endif %}
+                        
+                        {% if inspection.recommendations %}
+                        <div class="mt-4">
+                            <h5 class="text-primary">Recommendations</h5>
+                            <p>{{ inspection.recommendations }}</p>
+                        </div>
+                        {% endif %}
+                    </div>
+                </div>
+                
+                <!-- Timeline Section -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-clock me-2"></i>Inspection Timeline
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="timeline">
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-calendar-plus"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Inspection Created</h6>
+                                    <p class="text-muted mb-0">{{ inspection.created_at|date:"M d, Y H:i" }}</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-play"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Inspection Started</h6>
+                                    <p class="text-muted mb-0">{{ inspection.inspection_date|date:"M d, Y H:i" }}</p>
+                                </div>
+                            </div>
+                            {% if inspection.completed_date %}
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-check"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Inspection Completed</h6>
+                                    <p class="text-muted mb-0">{{ inspection.completed_date|date:"M d, Y H:i" }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-edit"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Last Updated</h6>
+                                    <p class="text-muted mb-0">{{ inspection.updated_at|date:"M d, Y H:i" }}</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Sidebar Information -->
+            <div class="col-lg-4">
+                <!-- Quick Stats -->
+                <div class="card border-0 shadow-sm mb-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-bar me-2"></i>Quick Stats
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="text-center mb-3">
+                            <i class="fas fa-camera fa-3x text-primary mb-3"></i>
+                            <h4 class="text-primary">{{ photo_count }}</h4>
+                            <p class="text-muted">Photo{{ photo_count|pluralize }}</p>
+                        </div>
+                        
+                        {% if inspection.duration %}
+                        <div class="text-center mb-3">
+                            <i class="fas fa-stopwatch fa-3x text-warning mb-3"></i>
+                            <h4 class="text-warning">{{ inspection.duration|floatformat:0 }}</h4>
+                            <p class="text-muted">Minutes</p>
+                        </div>
+                        {% endif %}
+                        
+                        <div class="text-center">
+                            <i class="fas fa-calendar-check fa-3x text-info mb-3"></i>
+                            <h4 class="text-info">{{ inspection.inspection_date|date:"M d" }}</h4>
+                            <p class="text-muted">{{ inspection.inspection_date|date:"Y" }}</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Actions -->
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="fas fa-tools me-2"></i>Actions
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'main:inspection_list' %}" class="btn btn-outline-primary">
+                                <i class="fas fa-list me-2"></i>View All Inspections
+                            </a>
+                            <a href="{% url 'main:dashboard' %}" class="btn btn-outline-success">
+                                <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                            </a>
+                            <a href="{% url 'main:protected_home' %}" class="btn btn-outline-info">
+                                <i class="fas fa-shield-alt me-2"></i>Protected Home
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Photos Section -->
+{% if photos %}
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">
+                    <i class="fas fa-camera me-3"></i>Inspection Photos
+                </h2>
+                <p class="lead text-muted">Visual documentation of the inspection process</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for photo in photos %}
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body p-0">
+                        <img src="{{ photo.photo.url }}" 
+                             class="card-img-top" 
+                             alt="{{ photo.caption|default:'Inspection photo' }}"
+                             style="height: 250px; object-fit: cover; cursor: pointer;"
+                             onclick="openPhotoModal('{{ photo.photo.url }}', '{{ photo.caption|default:'Inspection photo' }}')">
+                    </div>
+                    <div class="card-footer bg-transparent">
+                        <h6 class="card-title mb-2">{{ photo.caption|default:'No caption' }}</h6>
+                        <div class="d-flex justify-content-between align-items-center">
+                            <small class="text-muted">
+                                <i class="fas fa-tag me-1"></i>{{ photo.photo_type|default:'General' }}
+                            </small>
+                            <small class="text-muted">
+                                <i class="fas fa-calendar me-1"></i>{{ photo.uploaded_at|date:"M d, Y" }}
+                            </small>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+{% else %}
+<!-- No Photos Section -->
+<section class="section-padding bg-light">
+    <div class="container text-center">
+        <i class="fas fa-camera fa-5x text-muted mb-4"></i>
+        <h3 class="text-muted">No Photos Available</h3>
+        <p class="lead text-muted">This inspection doesn't have any photos yet.</p>
+    </div>
+</section>
+{% endif %}
+
+<!-- Photo Modal -->
+<div class="modal fade" id="photoModal" tabindex="-1" aria-labelledby="photoModalLabel" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="photoModalLabel">Inspection Photo</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body text-center">
+                <img id="modalPhoto" src="" alt="Inspection photo" class="img-fluid">
+                <p id="modalCaption" class="mt-3 text-muted"></p>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <a id="downloadPhoto" href="" download class="btn btn-primary">
+                    <i class="fas fa-download me-2"></i>Download
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    function openPhotoModal(photoUrl, caption) {
+        document.getElementById('modalPhoto').src = photoUrl;
+        document.getElementById('modalCaption').textContent = caption;
+        document.getElementById('downloadPhoto').href = photoUrl;
+        
+        const modal = new bootstrap.Modal(document.getElementById('photoModal'));
+        modal.show();
+    }
+    
+    // Initialize tooltips
+    var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+    var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+        return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+</script>
+{% endblock %}

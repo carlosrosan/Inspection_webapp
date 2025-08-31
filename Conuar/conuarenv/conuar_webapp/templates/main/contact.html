@@ -1,0 +1,224 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
+        <p class="lead">{{ description }}</p>
+    </div>
+</section>
+
+<!-- Contact Information -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-4 mb-5">
+                <h3 class="mb-4">Get In Touch</h3>
+                <p class="text-muted mb-4">We'd love to hear from you. Send us a message and we'll respond as soon as possible.</p>
+                
+                <div class="mb-4">
+                    <h5><i class="fas fa-envelope text-primary me-2"></i>Email</h5>
+                    <p class="text-muted">{{ contact_info.email }}</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h5><i class="fas fa-phone text-primary me-2"></i>Phone</h5>
+                    <p class="text-muted">{{ contact_info.phone }}</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h5><i class="fas fa-map-marker-alt text-primary me-2"></i>Address</h5>
+                    <p class="text-muted">{{ contact_info.address }}</p>
+                </div>
+                
+                <div class="mb-4">
+                    <h5><i class="fas fa-clock text-primary me-2"></i>Business Hours</h5>
+                    <p class="text-muted">Monday - Friday: 9:00 AM - 6:00 PM<br>
+                    Saturday: 10:00 AM - 4:00 PM<br>
+                    Sunday: Closed</p>
+                </div>
+            </div>
+            
+            <div class="col-lg-8">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-5">
+                        <h3 class="mb-4">Send Us a Message</h3>
+                        <form>
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="firstName" class="form-label">First Name *</label>
+                                    <input type="text" class="form-control" id="firstName" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="lastName" class="form-label">Last Name *</label>
+                                    <input type="text" class="form-control" id="lastName" required>
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="email" class="form-label">Email *</label>
+                                    <input type="email" class="form-control" id="email" required>
+                                </div>
+                                <div class="col-md-6 mb-3">
+                                    <label for="phone" class="form-label">Phone</label>
+                                    <input type="tel" class="form-control" id="phone">
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="company" class="form-label">Company</label>
+                                <input type="text" class="form-control" id="company">
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="subject" class="form-label">Subject *</label>
+                                <select class="form-select" id="subject" required>
+                                    <option value="">Choose a subject</option>
+                                    <option value="general">General Inquiry</option>
+                                    <option value="project">Project Quote</option>
+                                    <option value="support">Technical Support</option>
+                                    <option value="partnership">Partnership</option>
+                                    <option value="other">Other</option>
+                                </select>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="message" class="form-label">Message *</label>
+                                <textarea class="form-control" id="message" rows="5" required placeholder="Tell us about your project or inquiry..."></textarea>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="newsletter">
+                                    <label class="form-check-label" for="newsletter">
+                                        Subscribe to our newsletter for updates and insights
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-custom btn-lg">
+                                <i class="fas fa-paper-plane me-2"></i>Send Message
+                            </button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Map Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Find Us</h2>
+                <p class="lead text-muted">Visit our office or get in touch with us online.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-0">
+                        <div class="bg-secondary text-white p-5 text-center" style="height: 300px;">
+                            <i class="fas fa-map fa-5x mb-3"></i>
+                            <h4>Interactive Map</h4>
+                            <p class="mb-0">Map integration would go here</p>
+                            <p class="small">(In a real application, you would integrate Google Maps or similar service)</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Frequently Asked Questions</h2>
+                <p class="lead text-muted">Find answers to common questions about our services.</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="accordion" id="faqAccordion">
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq1">
+                            <button class="accordion-button" type="button" data-bs-toggle="collapse" data-bs-target="#collapse1">
+                                How long does a typical project take?
+                            </button>
+                        </h2>
+                        <div id="collapse1" class="accordion-collapse collapse show" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Project timelines vary depending on complexity and scope. A simple website typically takes 2-4 weeks, while complex applications can take 2-6 months. We'll provide a detailed timeline during our initial consultation.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq2">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse2">
+                                What is your pricing structure?
+                            </button>
+                        </h2>
+                        <div id="collapse2" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                We offer flexible pricing based on project requirements. We provide detailed quotes after understanding your needs. We also offer maintenance packages for ongoing support and updates.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq3">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse3">
+                                Do you provide ongoing support?
+                            </button>
+                        </h2>
+                        <div id="collapse3" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Yes, we offer various support packages including maintenance, updates, hosting, and technical support. We believe in building long-term relationships with our clients.
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="accordion-item">
+                        <h2 class="accordion-header" id="faq4">
+                            <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse" data-bs-target="#collapse4">
+                                Can you work with existing systems?
+                            </button>
+                        </h2>
+                        <div id="collapse4" class="accordion-collapse collapse" data-bs-parent="#faqAccordion">
+                            <div class="accordion-body">
+                                Absolutely! We specialize in integrating with existing systems and can work with various technologies and platforms. We'll assess your current setup and recommend the best approach.
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-padding bg-primary text-white">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-4">Ready to Start Your Project?</h2>
+                <p class="lead mb-5">Let's discuss your requirements and create something amazing together.</p>
+                <a href="#contact-form" class="btn btn-light btn-custom btn-lg">Get Started Today</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

@@ -1,0 +1,249 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
+        <p class="lead">{{ description }}</p>
+    </div>
+</section>
+
+<!-- Services Overview -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">What We Offer</h2>
+                <p class="lead text-muted">Comprehensive digital solutions tailored to your business needs and goals.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for service in services %}
+            <div class="col-lg-6 col-md-6">
+                <div class="card service-card h-100">
+                    <div class="card-body">
+                        <div class="service-icon">
+                            <i class="{{ service.icon }}"></i>
+                        </div>
+                        <h4 class="card-title mb-3">{{ service.name }}</h4>
+                        <p class="card-text text-muted mb-4">{{ service.description }}</p>
+                        <ul class="list-unstyled">
+                            {% if forloop.counter == 1 %}
+                                <li><i class="fas fa-check text-success me-2"></i>Custom web applications</li>
+                                <li><i class="fas fa-check text-success me-2"></i>E-commerce solutions</li>
+                                <li><i class="fas fa-check text-success me-2"></i>API development</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Database design</li>
+                            {% elif forloop.counter == 2 %}
+                                <li><i class="fas fa-check text-success me-2"></i>iOS development</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Android development</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Cross-platform apps</li>
+                                <li><i class="fas fa-check text-success me-2"></i>App maintenance</li>
+                            {% elif forloop.counter == 3 %}
+                                <li><i class="fas fa-check text-success me-2"></i>AWS solutions</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Azure deployment</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Server management</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Scalability planning</li>
+                            {% else %}
+                                <li><i class="fas fa-check text-success me-2"></i>Technical strategy</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Architecture review</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Performance optimization</li>
+                                <li><i class="fas fa-check text-success me-2"></i>Security assessment</li>
+                            {% endif %}
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Process Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Our Development Process</h2>
+                <p class="lead text-muted">We follow a proven methodology to ensure successful project delivery.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="h4 mb-0">1</span>
+                    </div>
+                    <h5>Discovery</h5>
+                    <p class="text-muted">We analyze your requirements and create a detailed project plan.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="h4 mb-0">2</span>
+                    </div>
+                    <h5>Design</h5>
+                    <p class="text-muted">Our designers create beautiful, user-friendly interfaces.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="h4 mb-0">3</span>
+                    </div>
+                    <h5>Development</h5>
+                    <p class="text-muted">We build your solution using the latest technologies.</p>
+                </div>
+            </div>
+            <div class="col-lg-3 col-md-6">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <span class="h4 mb-0">4</span>
+                    </div>
+                    <h5>Launch</h5>
+                    <p class="text-muted">We deploy and maintain your solution for optimal performance.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Technologies Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Technologies We Use</h2>
+                <p class="lead text-muted">We leverage cutting-edge technologies to build robust and scalable solutions.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="text-center p-3">
+                    <i class="fab fa-python fa-3x text-primary mb-2"></i>
+                    <h6>Python</h6>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="text-center p-3">
+                    <i class="fab fa-js fa-3x text-primary mb-2"></i>
+                    <h6>JavaScript</h6>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="text-center p-3">
+                    <i class="fab fa-react fa-3x text-primary mb-2"></i>
+                    <h6>React</h6>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="text-center p-3">
+                    <i class="fab fa-node-js fa-3x text-primary mb-2"></i>
+                    <h6>Node.js</h6>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="text-center p-3">
+                    <i class="fab fa-aws fa-3x text-primary mb-2"></i>
+                    <h6>AWS</h6>
+                </div>
+            </div>
+            <div class="col-lg-2 col-md-4 col-sm-6">
+                <div class="text-center p-3">
+                    <i class="fab fa-docker fa-3x text-primary mb-2"></i>
+                    <h6>Docker</h6>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Pricing Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Pricing Plans</h2>
+                <p class="lead text-muted">Choose the plan that best fits your project requirements and budget.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Starter</h5>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-primary">$999</span>
+                            <span class="text-muted">/project</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Basic website</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>5 pages</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Contact form</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Mobile responsive</li>
+                        </ul>
+                        <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-lg h-100 border-primary">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Professional</h5>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-primary">$2,999</span>
+                            <span class="text-muted">/project</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Custom web app</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>10+ pages</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>User authentication</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Database integration</li>
+                        </ul>
+                        <a href="{% url 'main:contact' %}" class="btn btn-primary btn-custom">Get Started</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <h5 class="card-title">Enterprise</h5>
+                        <div class="my-4">
+                            <span class="display-4 fw-bold text-primary">$5,999</span>
+                            <span class="text-muted">/project</span>
+                        </div>
+                        <ul class="list-unstyled mb-4">
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Full-stack solution</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Unlimited pages</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Advanced features</li>
+                            <li class="mb-2"><i class="fas fa-check text-success me-2"></i>Priority support</li>
+                        </ul>
+                        <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">Get Started</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-padding bg-primary text-white">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-4">Ready to Start Your Project?</h2>
+                <p class="lead mb-5">Let's discuss your requirements and create something amazing together.</p>
+                <a href="{% url 'main:contact' %}" class="btn btn-light btn-custom btn-lg">Start Project</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

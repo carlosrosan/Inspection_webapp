@@ -1,0 +1,132 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">Login</h1>
+        <p class="lead">Access your account to continue</p>
+    </div>
+</section>
+
+<!-- Login Form Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row justify-content-center">
+            <div class="col-lg-6 col-md-8">
+                <div class="card border-0 shadow-lg">
+                    <div class="card-body p-5">
+                        <div class="text-center mb-4">
+                            <i class="fas fa-user-circle fa-4x text-primary mb-3"></i>
+                            <h3 class="card-title">Welcome Back</h3>
+                            <p class="text-muted">Please sign in to your account</p>
+                        </div>
+
+                        {% if messages %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message.tags }} alert-dismissible fade show" role="alert">
+                                    {{ message }}
+                                    <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
+                                </div>
+                            {% endfor %}
+                        {% endif %}
+
+                        <form method="post">
+                            {% csrf_token %}
+                            {% if next %}
+                                <input type="hidden" name="next" value="{{ next }}">
+                            {% endif %}
+                            
+                            <div class="mb-3">
+                                <label for="username" class="form-label">Username</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-user"></i>
+                                    </span>
+                                    <input type="text" class="form-control" id="username" name="username" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="password" class="form-label">Password</label>
+                                <div class="input-group">
+                                    <span class="input-group-text">
+                                        <i class="fas fa-lock"></i>
+                                    </span>
+                                    <input type="password" class="form-control" id="password" name="password" required>
+                                </div>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <div class="form-check">
+                                    <input class="form-check-input" type="checkbox" id="remember">
+                                    <label class="form-check-label" for="remember">
+                                        Remember me
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <button type="submit" class="btn btn-primary btn-custom btn-lg w-100 mb-3">
+                                <i class="fas fa-sign-in-alt me-2"></i>Sign In
+                            </button>
+                        </form>
+                        
+                        <hr class="my-4">
+                        
+                        <div class="text-center">
+                            <p class="text-muted mb-0">Don't have an account?</p>
+                            <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">
+                                Contact Us
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Why Create an Account?</h2>
+                <p class="lead text-muted">Unlock exclusive features and personalized content</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-shield-alt fa-2x"></i>
+                    </div>
+                    <h5>Secure Access</h5>
+                    <p class="text-muted">Your data is protected with industry-standard security measures.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-chart-line fa-2x"></i>
+                    </div>
+                    <h5>Personal Dashboard</h5>
+                    <p class="text-muted">Track your projects and access personalized content.</p>
+                </div>
+            </div>
+            <div class="col-md-4">
+                <div class="text-center">
+                    <div class="bg-primary text-white rounded-circle d-inline-flex align-items-center justify-content-center mb-3" style="width: 80px; height: 80px;">
+                        <i class="fas fa-bell fa-2x"></i>
+                    </div>
+                    <h5>Notifications</h5>
+                    <p class="text-muted">Stay updated with important announcements and updates.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}

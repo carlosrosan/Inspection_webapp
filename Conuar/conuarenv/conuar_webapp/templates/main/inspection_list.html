@@ -1,0 +1,324 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
+        <p class="lead mb-5">{{ description }}</p>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom me-3">Dashboard</a>
+                <a href="{% url 'main:protected_home' %}" class="btn btn-outline-light btn-custom">Protected Home</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Filters and Search Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <h5 class="card-title mb-4">
+                            <i class="fas fa-filter me-2"></i>Filters & Search
+                        </h5>
+                        
+                        <form method="get" class="row g-3">
+                            <!-- Search -->
+                            <div class="col-md-4">
+                                <label for="search" class="form-label">Search</label>
+                                <input type="text" class="form-control" id="search" name="search" 
+                                       value="{{ search_query }}" placeholder="Search inspections...">
+                            </div>
+                            
+                            <!-- Status Filter -->
+                            <div class="col-md-3">
+                                <label for="status" class="form-label">Status</label>
+                                <select class="form-select" id="status" name="status">
+                                    <option value="">All Statuses</option>
+                                    {% for status_code, status_name in status_choices %}
+                                        <option value="{{ status_code }}" {% if status_code == current_status %}selected{% endif %}>
+                                            {{ status_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <!-- Type Filter -->
+                            <div class="col-md-3">
+                                <label for="type" class="form-label">Type</label>
+                                <select class="form-select" id="type" name="type">
+                                    <option value="">All Types</option>
+                                    {% for type_code, type_name in type_choices %}
+                                        <option value="{{ type_code }}" {% if type_code == current_type %}selected{% endif %}>
+                                            {{ type_name }}
+                                        </option>
+                                    {% endfor %}
+                                </select>
+                            </div>
+                            
+                            <!-- Filter Button -->
+                            <div class="col-md-2 d-flex align-items-end">
+                                <button type="submit" class="btn btn-primary w-100">
+                                    <i class="fas fa-search me-2"></i>Filter
+                                </button>
+                            </div>
+                        </form>
+                        
+                        <!-- Clear Filters -->
+                        {% if current_status or current_type or search_query %}
+                            <div class="mt-3">
+                                <a href="{% url 'main:inspection_list' %}" class="btn btn-outline-secondary btn-sm">
+                                    <i class="fas fa-times me-2"></i>Clear All Filters
+                                </a>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Inspections List Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-md-6">
+                <h2 class="display-5 fw-bold">
+                    <i class="fas fa-clipboard-list me-3"></i>Inspections
+                </h2>
+                <p class="lead text-muted">Total: {{ total_count }} inspection{{ total_count|pluralize }}</p>
+            </div>
+            <div class="col-md-6 text-md-end">
+                <div class="btn-group" role="group">
+                    <button type="button" class="btn btn-outline-primary" id="viewTable">
+                        <i class="fas fa-table me-2"></i>Table View
+                    </button>
+                    <button type="button" class="btn btn-outline-primary" id="viewCards">
+                        <i class="fas fa-th-large me-2"></i>Card View
+                    </button>
+                </div>
+            </div>
+        </div>
+        
+        {% if inspections %}
+            <!-- Table View -->
+            <div class="table-responsive" id="tableView">
+                <table class="table table-hover table-striped">
+                    <thead class="table-dark">
+                        <tr>
+                            <th>ID</th>
+                            <th>Title</th>
+                            <th>Product</th>
+                            <th>Type</th>
+                            <th>Status</th>
+                            <th>Inspector</th>
+                            <th>Date</th>
+                            <th>Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        {% for inspection in inspections %}
+                        <tr>
+                            <td>
+                                <span class="badge bg-secondary">#{{ inspection.id }}</span>
+                            </td>
+                            <td>
+                                <strong>{{ inspection.title }}</strong>
+                                {% if inspection.description %}
+                                    <br><small class="text-muted">{{ inspection.description|truncatechars:50 }}</small>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <strong>{{ inspection.product_name }}</strong>
+                                {% if inspection.product_code %}
+                                    <br><small class="text-muted">Code: {{ inspection.product_code }}</small>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
+                            </td>
+                            <td>
+                                {% if inspection.status == 'completed' %}
+                                    <span class="badge bg-success">{{ inspection.get_status_display }}</span>
+                                {% elif inspection.status == 'failed' %}
+                                    <span class="badge bg-danger">{{ inspection.get_status_display }}</span>
+                                {% elif inspection.status == 'in_progress' %}
+                                    <span class="badge bg-warning">{{ inspection.get_status_display }}</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">{{ inspection.get_status_display }}</span>
+                                {% endif %}
+                            </td>
+                            <td>
+                                <i class="fas fa-user me-2"></i>{{ inspection.inspector.username }}
+                            </td>
+                            <td>
+                                {{ inspection.inspection_date|date:"M d, Y" }}
+                                <br><small class="text-muted">{{ inspection.inspection_date|date:"H:i" }}</small>
+                            </td>
+                            <td>
+                                <a href="{% url 'main:inspection_detail' inspection.id %}" 
+                                   class="btn btn-primary btn-sm">
+                                    <i class="fas fa-eye me-2"></i>View
+                                </a>
+                            </td>
+                        </tr>
+                        {% endfor %}
+                    </tbody>
+                </table>
+            </div>
+            
+            <!-- Card View -->
+            <div class="row g-4" id="cardView" style="display: none;">
+                {% for inspection in inspections %}
+                <div class="col-lg-4 col-md-6">
+                    <div class="card h-100 border-0 shadow-sm">
+                        <div class="card-header bg-transparent">
+                            <div class="d-flex justify-content-between align-items-center">
+                                <span class="badge bg-secondary">#{{ inspection.id }}</span>
+                                {% if inspection.status == 'completed' %}
+                                    <span class="badge bg-success">{{ inspection.get_status_display }}</span>
+                                {% elif inspection.status == 'failed' %}
+                                    <span class="badge bg-danger">{{ inspection.get_status_display }}</span>
+                                {% elif inspection.status == 'in_progress' %}
+                                    <span class="badge bg-warning">{{ inspection.get_status_display }}</span>
+                                {% else %}
+                                    <span class="badge bg-secondary">{{ inspection.get_status_display }}</span>
+                                {% endif %}
+                            </div>
+                        </div>
+                        <div class="card-body">
+                            <h5 class="card-title">{{ inspection.title }}</h5>
+                            <p class="card-text text-muted">{{ inspection.description|truncatechars:100 }}</p>
+                            
+                            <div class="mb-3">
+                                <strong>Product:</strong> {{ inspection.product_name }}
+                                {% if inspection.product_code %}
+                                    <br><small class="text-muted">Code: {{ inspection.product_code }}</small>
+                                {% endif %}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
+                            </div>
+                            
+                            <div class="mb-3">
+                                <small class="text-muted">
+                                    <i class="fas fa-user me-1"></i>{{ inspection.inspector.username }}
+                                    <br>
+                                    <i class="fas fa-calendar me-1"></i>{{ inspection.inspection_date|date:"M d, Y H:i" }}
+                                </small>
+                            </div>
+                        </div>
+                        <div class="card-footer bg-transparent">
+                            <a href="{% url 'main:inspection_detail' inspection.id %}" 
+                               class="btn btn-primary w-100">
+                                <i class="fas fa-eye me-2"></i>View Details
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                {% endfor %}
+            </div>
+        {% else %}
+            <!-- No Inspections Found -->
+            <div class="text-center py-5">
+                <i class="fas fa-clipboard-list fa-5x text-muted mb-4"></i>
+                <h3 class="text-muted">No Inspections Found</h3>
+                <p class="lead text-muted">
+                    {% if current_status or current_type or search_query %}
+                        Try adjusting your filters or search criteria.
+                    {% else %}
+                        No inspections have been created yet.
+                    {% endif %}
+                </p>
+                <a href="{% url 'main:dashboard' %}" class="btn btn-primary btn-custom">
+                    <i class="fas fa-plus me-2"></i>Go to Dashboard
+                </a>
+            </div>
+        {% endif %}
+    </div>
+</section>
+
+<!-- Quick Stats Section -->
+{% if inspections %}
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-clock fa-3x text-warning mb-3"></i>
+                        <h4 class="card-title">Pending</h4>
+                        <p class="display-6 fw-bold text-warning">
+                            {{ inspections|dictsort:"status"|length }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-spinner fa-3x text-info mb-3"></i>
+                        <h4 class="card-title">In Progress</h4>
+                        <p class="display-6 fw-bold text-info">
+                            {{ inspections|dictsort:"status"|length }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                        <h4 class="card-title">Completed</h4>
+                        <p class="display-6 fw-bold text-success">
+                            {{ inspections|dictsort:"status"|length }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body">
+                        <i class="fas fa-times-circle fa-3x text-danger mb-3"></i>
+                        <h4 class="card-title">Failed</h4>
+                        <p class="display-6 fw-bold text-danger">
+                            {{ inspections|dictsort:"status"|length }}
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endif %}
+{% endblock %}
+
+{% block extra_js %}
+<script>
+    // View toggle functionality
+    document.getElementById('viewTable').addEventListener('click', function() {
+        document.getElementById('tableView').style.display = 'block';
+        document.getElementById('cardView').style.display = 'none';
+        this.classList.add('active');
+        document.getElementById('viewCards').classList.remove('active');
+    });
+    
+    document.getElementById('viewCards').addEventListener('click', function() {
+        document.getElementById('tableView').style.display = 'none';
+        document.getElementById('cardView').style.display = 'block';
+        this.classList.add('active');
+        document.getElementById('viewTable').classList.remove('active');
+    });
+    
+    // Set default view
+    document.getElementById('viewTable').classList.add('active');
+</script>
+{% endblock %}

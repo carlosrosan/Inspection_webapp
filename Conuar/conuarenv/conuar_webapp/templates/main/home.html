@@ -1,0 +1,101 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
+        <p class="lead mb-5">{{ description }}</p>
+        <div class="row">
+            <div class="col-md-6 mx-auto">
+                <a href="{% url 'main:services' %}" class="btn btn-light btn-custom me-3">Our Services</a>
+                <a href="{% url 'main:contact' %}" class="btn btn-outline-light btn-custom">Get Started</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Why Choose Us?</h2>
+                <p class="lead text-muted">We deliver exceptional results with cutting-edge technology and innovative solutions.</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            {% for feature in features %}
+            <div class="col-md-6 col-lg-3">
+                <div class="card feature-card h-100 text-center p-4">
+                    <div class="card-body">
+                        <div class="mb-3">
+                            {% if forloop.counter == 1 %}
+                                <i class="fas fa-mobile-alt fa-3x text-primary"></i>
+                            {% elif forloop.counter == 2 %}
+                                <i class="fas fa-paint-brush fa-3x text-primary"></i>
+                            {% elif forloop.counter == 3 %}
+                                <i class="fas fa-tachometer-alt fa-3x text-primary"></i>
+                            {% else %}
+                                <i class="fas fa-search fa-3x text-primary"></i>
+                            {% endif %}
+                        </div>
+                        <h5 class="card-title">{{ feature }}</h5>
+                        <p class="card-text text-muted">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+            </div>
+            {% endfor %}
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action Section -->
+<section class="section-padding bg-light">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-4">Ready to Get Started?</h2>
+                <p class="lead mb-5">Let's discuss your project and turn your ideas into reality.</p>
+                <a href="{% url 'main:contact' %}" class="btn btn-primary btn-custom btn-lg">Contact Us Today</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row text-center">
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="p-4">
+                    <h2 class="display-4 fw-bold text-primary">100+</h2>
+                    <p class="text-muted">Projects Completed</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="p-4">
+                    <h2 class="display-4 fw-bold text-primary">50+</h2>
+                    <p class="text-muted">Happy Clients</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="p-4">
+                    <h2 class="display-4 fw-bold text-primary">5+</h2>
+                    <p class="text-muted">Years Experience</p>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6 mb-4">
+                <div class="p-4">
+                    <h2 class="display-4 fw-bold text-primary">24/7</h2>
+                    <p class="text-muted">Support Available</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
+

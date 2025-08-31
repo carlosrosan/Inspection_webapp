@@ -1,0 +1,198 @@
+{% extends 'main/base.html' %}
+
+{% block title %}{{ title }}{% endblock %}
+
+{% block content %}
+<!-- Page Header -->
+<section class="hero-section">
+    <div class="container text-center">
+        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
+        <p class="lead">{{ description }}</p>
+    </div>
+</section>
+
+<!-- User Welcome Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row align-items-center mb-5">
+            <div class="col-lg-8">
+                <h2 class="display-5 fw-bold mb-4">Welcome back, {{ user.username }}!</h2>
+                <p class="lead text-muted mb-4">Here's your personalized dashboard with all the information you need.</p>
+                <div class="d-flex gap-3">
+                    <a href="{% url 'main:protected_home' %}" class="btn btn-primary btn-custom">Protected Home</a>
+                    <a href="{% url 'main:logout' %}" class="btn btn-outline-primary btn-custom">Logout</a>
+                </div>
+            </div>
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-lg text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-user-circle fa-5x text-primary mb-3"></i>
+                        <h4 class="card-title">{{ user.username }}</h4>
+                        <p class="card-text text-muted">Premium Member</p>
+                        <span class="badge bg-success fs-6">Active</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Statistics Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Your Statistics</h2>
+                <p class="lead text-muted">Track your activity and engagement</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
+                        <h2 class="display-4 fw-bold text-primary">{{ stats.projects }}</h2>
+                        <p class="text-muted">Active Projects</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
+                        <h2 class="display-4 fw-bold text-primary">{{ stats.messages }}</h2>
+                        <p class="text-muted">New Messages</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-bell fa-3x text-primary mb-3"></i>
+                        <h2 class="display-4 fw-bold text-primary">{{ stats.notifications }}</h2>
+                        <p class="text-muted">Notifications</p>
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-3 col-sm-6">
+                <div class="card border-0 shadow-sm text-center">
+                    <div class="card-body p-4">
+                        <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
+                        <h2 class="display-4 fw-bold text-primary">5</h2>
+                        <p class="text-muted">Days Active</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Quick Actions Section -->
+<section class="section-padding">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Quick Actions</h2>
+                <p class="lead text-muted">Access your most used features</p>
+            </div>
+        </div>
+        
+        <div class="row g-4">
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-edit fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Edit Profile</h5>
+                        <p class="card-text text-muted">Update your personal information and preferences.</p>
+                        <a href="#" class="btn btn-outline-primary btn-custom">Edit Profile</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-cog fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Settings</h5>
+                        <p class="card-text text-muted">Configure your account settings and notifications.</p>
+                        <a href="#" class="btn btn-outline-primary btn-custom">Settings</a>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-4 col-md-6">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
+                        <h5 class="card-title">Help & Support</h5>
+                        <p class="card-text text-muted">Get help and contact our support team.</p>
+                        <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">Get Help</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Recent Activity Section -->
+<section class="section-padding bg-light">
+    <div class="container">
+        <div class="row text-center mb-5">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-3">Recent Activity</h2>
+                <p class="lead text-muted">Your latest interactions and updates</p>
+            </div>
+        </div>
+        
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body p-4">
+                        <div class="timeline">
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-sign-in-alt"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Logged in successfully</h6>
+                                    <p class="text-muted mb-0">Just now</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-user-plus"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Account created</h6>
+                                    <p class="text-muted mb-0">{{ user.date_joined|date:"M d, Y" }}</p>
+                                </div>
+                            </div>
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-star"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Premium features unlocked</h6>
+                                    <p class="text-muted mb-0">Welcome to premium membership!</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- Call to Action -->
+<section class="section-padding bg-primary text-white">
+    <div class="container text-center">
+        <div class="row">
+            <div class="col-lg-8 mx-auto">
+                <h2 class="display-5 fw-bold mb-4">Need Help?</h2>
+                <p class="lead mb-5">Our support team is here to help you get the most out of your account.</p>
+                <a href="{% url 'main:contact' %}" class="btn btn-light btn-custom btn-lg">Contact Support</a>
+            </div>
+        </div>
+    </div>
+</section>
+{% endblock %}
