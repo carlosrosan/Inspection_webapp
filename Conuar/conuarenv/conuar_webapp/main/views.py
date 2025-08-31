@@ -44,35 +44,6 @@ def contact(request):
     }
     return render(request, 'main/contact.html', context)
 
-def services(request):
-    """Services page view"""
-    context = {
-        'title': 'Our Services',
-        'description': 'Discover what we can do for you.',
-        'services': [
-            {
-                'name': 'Web Development',
-                'description': 'Custom websites and web applications',
-                'icon': 'fas fa-code'
-            },
-            {
-                'name': 'Mobile Apps',
-                'description': 'iOS and Android development',
-                'icon': 'fas fa-mobile-alt'
-            },
-            {
-                'name': 'Cloud Solutions',
-                'description': 'Scalable cloud infrastructure',
-                'icon': 'fas fa-cloud'
-            },
-            {
-                'name': 'Consulting',
-                'description': 'Expert technical guidance',
-                'icon': 'fas fa-users'
-            }
-        ]
-    }
-    return render(request, 'main/services.html', context)
 
 def login_view(request):
     """User login view"""
