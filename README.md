@@ -1,10 +1,10 @@
-# 🔍 Nuclear Fuel Rod Inspection System
+# 🔍 Inspection Reporting System
 
-A comprehensive Django-based web application for managing nuclear fuel rod inspections with photo documentation, quality control, and role-based access management.
+A comprehensive Django-based web application for managing industrial inspections with photo documentation, quality control, and role-based access management.
 
 ## 📋 Overview
 
-The Nuclear Fuel Rod Inspection System is a professional-grade web application designed for nuclear industry professionals to:
+The Inspection Reporting System is a professional-grade web application designed for industry professionals to:
 
 - **Create and manage product inspections** with detailed information and metadata
 - **Upload and organize inspection photos** with categorization and captions
@@ -102,16 +102,6 @@ The Nuclear Fuel Rod Inspection System is a professional-grade web application d
    - Main application: http://127.0.0.1:8000/
    - Admin interface: http://127.0.0.1:8000/admin/
    - Inspections: http://127.0.0.1:8000/inspections/
-
-## 👥 Default Users
-
-The system comes with pre-configured test users for development:
-
-| Username | Password | Role |
-|----------|----------|------|
-| `inspector` | `inspector123` | Inspector |
-| `supervisor` | `supervisor123` | Supervisor |
-| `admin` | (create via createsuperuser) | Administrator |
 
 ## 📖 Usage Guide
 
