@@ -1,5 +1,12 @@
 {
-    "ENGINE": "sqlite3",
-    "NAME": "db.sqlite3",
-    "PATH": "C:/Inspection_webapp/Conuar/conuar_webapp"
+    "ENGINE": "mysql",
+    "NAME": "conuar_webapp",
+    "USER": "root",
+    "PASSWORD": "admin",
+    "HOST": "localhost",
+    "PORT": "3306",
+    "OPTIONS": {
+        "charset": "utf8mb4",
+        "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
+    }
 }
