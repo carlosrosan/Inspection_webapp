@@ -113,6 +113,7 @@
                     <thead class="table-dark">
                         <tr>
                             <th>ID</th>
+                            <th>Photo</th>
                             <th>Title</th>
                             <th>Product</th>
                             <th>Type</th>
@@ -127,6 +128,23 @@
                         <tr>
                             <td>
                                 <span class="badge bg-secondary">#{{ inspection.id }}</span>
+                            </td>
+                            <td>
+                                {% if inspection.photos.first %}
+                                    <img src="{{ inspection.photos.first.photo.url }}" 
+                                         alt="{{ inspection.photos.first.caption }}" 
+                                         class="img-thumbnail" 
+                                         style="width: 60px; height: 60px; object-fit: cover;"
+                                         title="{{ inspection.photos.first.caption }}">
+                                    {% if inspection.photos.count > 1 %}
+                                        <br><small class="text-muted">+{{ inspection.photos.count|add:"-1" }} more</small>
+                                    {% endif %}
+                                {% else %}
+                                    <div class="bg-light d-flex align-items-center justify-content-center" 
+                                         style="width: 60px; height: 60px; border: 1px solid #dee2e6;">
+                                        <i class="fas fa-image text-muted"></i>
+                                    </div>
+                                {% endif %}
                             </td>
                             <td>
                                 <strong>{{ inspection.title }}</strong>
@@ -192,6 +210,14 @@
                                 {% endif %}
                             </div>
                         </div>
+                        {% if inspection.photos.first %}
+                        <div class="card-img-top-container" style="height: 200px; overflow: hidden;">
+                            <img src="{{ inspection.photos.first.photo.url }}" 
+                                 alt="{{ inspection.photos.first.caption }}" 
+                                 class="card-img-top" 
+                                 style="width: 100%; height: 100%; object-fit: cover;">
+                        </div>
+                        {% endif %}
                         <div class="card-body">
                             <h5 class="card-title">{{ inspection.title }}</h5>
                             <p class="card-text text-muted">{{ inspection.description|truncatechars:100 }}</p>
@@ -205,6 +231,11 @@
                             
                             <div class="mb-3">
                                 <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
+                                {% if inspection.photos.count > 0 %}
+                                    <span class="badge bg-secondary ms-2">
+                                        <i class="fas fa-camera me-1"></i>{{ inspection.photos.count }} photo{{ inspection.photos.count|pluralize }}
+                                    </span>
+                                {% endif %}
                             </div>
                             
                             <div class="mb-3">
