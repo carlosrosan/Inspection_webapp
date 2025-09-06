@@ -11,9 +11,9 @@
         <div class="row">
             <div class="col-md-6 mx-auto">
                 <a href="{% url 'main:inspection_list' %}" class="btn btn-light btn-custom me-3">
-                    <i class="fas fa-arrow-left me-2"></i>Back to List
+                    <i class="fas fa-arrow-left me-2"></i>Volver a la Lista
                 </a>
-                <a href="{% url 'main:dashboard' %}" class="btn btn-outline-light btn-custom">Dashboard</a>
+                <a href="{% url 'main:dashboard' %}" class="btn btn-outline-light btn-custom">Panel de Control</a>
             </div>
         </div>
     </div>
@@ -28,26 +28,26 @@
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-primary text-white">
                         <h4 class="mb-0">
-                            <i class="fas fa-clipboard-check me-2"></i>Inspection Details
+                            <i class="fas fa-clipboard-check me-2"></i>Detalles de la Inspección
                         </h4>
                     </div>
                     <div class="card-body">
                         <div class="row">
                             <div class="col-md-6">
-                                <h5 class="text-primary">Basic Information</h5>
+                                <h5 class="text-primary">Información Básica</h5>
                                 <table class="table table-borderless">
                                     <tr>
-                                        <td><strong>Title:</strong></td>
+                                        <td><strong>Título:</strong></td>
                                         <td>{{ inspection.title }}</td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Type:</strong></td>
+                                        <td><strong>Tipo:</strong></td>
                                         <td>
                                             <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
                                         </td>
                                     </tr>
                                     <tr>
-                                        <td><strong>Status:</strong></td>
+                                        <td><strong>Estado:</strong></td>
                                         <td>
                                             {% if inspection.status == 'completed' %}
                                                 <span class="badge bg-success">{{ inspection.get_status_display }}</span>
@@ -81,33 +81,33 @@
                                 </table>
                             </div>
                             <div class="col-md-6">
-                                <h5 class="text-primary">Product Information</h5>
+                                <h5 class="text-primary">Información del Producto</h5>
                                 <table class="table table-borderless">
                                     <tr>
-                                        <td><strong>Product Name:</strong></td>
+                                        <td><strong>Nombre del Producto:</strong></td>
                                         <td>{{ inspection.product_name }}</td>
                                     </tr>
                                     {% if inspection.product_code %}
                                     <tr>
-                                        <td><strong>Product Code:</strong></td>
+                                        <td><strong>Código del Producto:</strong></td>
                                         <td>{{ inspection.product_code }}</td>
                                     </tr>
                                     {% endif %}
                                     {% if inspection.batch_number %}
                                     <tr>
-                                        <td><strong>Batch Number:</strong></td>
+                                        <td><strong>Número de Lote:</strong></td>
                                         <td>{{ inspection.batch_number }}</td>
                                     </tr>
                                     {% endif %}
                                     {% if inspection.serial_number %}
                                     <tr>
-                                        <td><strong>Serial Number:</strong></td>
+                                        <td><strong>Número de Serie:</strong></td>
                                         <td>{{ inspection.serial_number }}</td>
                                     </tr>
                                     {% endif %}
                                     {% if inspection.location %}
                                     <tr>
-                                        <td><strong>Location:</strong></td>
+                                        <td><strong>Ubicación:</strong></td>
                                         <td>{{ inspection.location }}</td>
                                     </tr>
                                     {% endif %}
@@ -117,28 +117,28 @@
                         
                         {% if inspection.description %}
                         <div class="mt-4">
-                            <h5 class="text-primary">Description</h5>
+                            <h5 class="text-primary">Descripción</h5>
                             <p class="lead">{{ inspection.description }}</p>
                         </div>
                         {% endif %}
                         
                         {% if inspection.result %}
                         <div class="mt-4">
-                            <h5 class="text-primary">Results</h5>
+                            <h5 class="text-primary">Resultados</h5>
                             <p>{{ inspection.result }}</p>
                         </div>
                         {% endif %}
                         
                         {% if inspection.notes %}
                         <div class="mt-4">
-                            <h5 class="text-primary">Notes</h5>
+                            <h5 class="text-primary">Notas</h5>
                             <p>{{ inspection.notes }}</p>
                         </div>
                         {% endif %}
                         
                         {% if inspection.recommendations %}
                         <div class="mt-4">
-                            <h5 class="text-primary">Recommendations</h5>
+                            <h5 class="text-primary">Recomendaciones</h5>
                             <p>{{ inspection.recommendations }}</p>
                         </div>
                         {% endif %}
@@ -149,7 +149,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-info text-white">
                         <h5 class="mb-0">
-                            <i class="fas fa-clock me-2"></i>Inspection Timeline
+                            <i class="fas fa-clock me-2"></i>Cronología de la Inspección
                         </h5>
                     </div>
                     <div class="card-body">
@@ -159,7 +159,7 @@
                                     <i class="fas fa-calendar-plus"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Inspection Created</h6>
+                                    <h6 class="mb-1">Inspección Creada</h6>
                                     <p class="text-muted mb-0">{{ inspection.created_at|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
@@ -168,7 +168,7 @@
                                     <i class="fas fa-play"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Inspection Started</h6>
+                                    <h6 class="mb-1">Inspección Iniciada</h6>
                                     <p class="text-muted mb-0">{{ inspection.inspection_date|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
@@ -178,7 +178,7 @@
                                     <i class="fas fa-check"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Inspection Completed</h6>
+                                    <h6 class="mb-1">Inspección Completada</h6>
                                     <p class="text-muted mb-0">{{ inspection.completed_date|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
@@ -188,7 +188,7 @@
                                     <i class="fas fa-edit"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Last Updated</h6>
+                                    <h6 class="mb-1">Última Actualización</h6>
                                     <p class="text-muted mb-0">{{ inspection.updated_at|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
@@ -203,21 +203,21 @@
                 <div class="card border-0 shadow-sm mb-4">
                     <div class="card-header bg-success text-white">
                         <h5 class="mb-0">
-                            <i class="fas fa-chart-bar me-2"></i>Quick Stats
+                            <i class="fas fa-chart-bar me-2"></i>Estadísticas Rápidas
                         </h5>
                     </div>
                     <div class="card-body">
                         <div class="text-center mb-3">
                             <i class="fas fa-camera fa-3x text-primary mb-3"></i>
                             <h4 class="text-primary">{{ photo_count }}</h4>
-                            <p class="text-muted">Photo{{ photo_count|pluralize }}</p>
+                            <p class="text-muted">Foto{{ photo_count|pluralize }}</p>
                         </div>
                         
                         {% if inspection.duration %}
                         <div class="text-center mb-3">
                             <i class="fas fa-stopwatch fa-3x text-warning mb-3"></i>
                             <h4 class="text-warning">{{ inspection.duration|floatformat:0 }}</h4>
-                            <p class="text-muted">Minutes</p>
+                            <p class="text-muted">Minutos</p>
                         </div>
                         {% endif %}
                         
@@ -233,16 +233,16 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-header bg-warning text-dark">
                         <h5 class="mb-0">
-                            <i class="fas fa-tools me-2"></i>Actions
+                            <i class="fas fa-tools me-2"></i>Acciones
                         </h5>
                     </div>
                     <div class="card-body">
                         <div class="d-grid gap-2">
                             <a href="{% url 'main:inspection_list' %}" class="btn btn-outline-primary">
-                                <i class="fas fa-list me-2"></i>View All Inspections
+                                <i class="fas fa-list me-2"></i>Ver Todas las Inspecciones
                             </a>
                             <a href="{% url 'main:dashboard' %}" class="btn btn-outline-success">
-                                <i class="fas fa-tachometer-alt me-2"></i>Go to Dashboard
+                                <i class="fas fa-tachometer-alt me-2"></i>Ir al Panel de Control
                             </a>
                         </div>
                     </div>
@@ -259,9 +259,9 @@
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
                 <h2 class="display-5 fw-bold mb-3">
-                    <i class="fas fa-camera me-3"></i>Inspection Photos
+                    <i class="fas fa-camera me-3"></i>Fotos de la Inspección
                 </h2>
-                <p class="lead text-muted">Visual documentation of the inspection process</p>
+                <p class="lead text-muted">Documentación visual del proceso de inspección</p>
             </div>
         </div>
         
@@ -272,12 +272,12 @@
                     <div class="card-body p-0">
                         <img src="{{ photo.photo.url }}" 
                              class="card-img-top" 
-                             alt="{{ photo.caption|default:'Inspection photo' }}"
+                             alt="{{ photo.caption|default:'Foto de inspección' }}"
                              style="height: 250px; object-fit: cover; cursor: pointer;"
-                             onclick="openPhotoModal('{{ photo.photo.url|escapejs }}', '{{ photo.caption|default:Inspection_photo|escapejs }}')">
+                             onclick="openPhotoModal('{{ photo.photo.url|escapejs }}', '{{ photo.caption|default:Foto_de_inspección|escapejs }}')">
                     </div>
                     <div class="card-footer bg-transparent">
-                        <h6 class="card-title mb-2">{{ photo.caption|default:'No caption' }}</h6>
+                        <h6 class="card-title mb-2">{{ photo.caption|default:'Sin descripción' }}</h6>
                         <div class="d-flex justify-content-between align-items-center">
                             <small class="text-muted">
                                 <i class="fas fa-tag me-1"></i>{{ photo.photo_type|default:'General' }}
@@ -298,8 +298,8 @@
 <section class="section-padding bg-light">
     <div class="container text-center">
         <i class="fas fa-camera fa-5x text-muted mb-4"></i>
-        <h3 class="text-muted">No Photos Available</h3>
-        <p class="lead text-muted">This inspection doesn't have any photos yet.</p>
+        <h3 class="text-muted">No hay Fotos Disponibles</h3>
+        <p class="lead text-muted">Esta inspección no tiene fotos aún.</p>
     </div>
 </section>
 {% endif %}
@@ -309,17 +309,17 @@
     <div class="modal-dialog modal-lg modal-dialog-centered">
         <div class="modal-content">
             <div class="modal-header">
-                <h5 class="modal-title" id="photoModalLabel">Inspection Photo</h5>
+                <h5 class="modal-title" id="photoModalLabel">Foto de Inspección</h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
             </div>
             <div class="modal-body text-center">
-                <img id="modalPhoto" src="" alt="Inspection photo" class="img-fluid">
+                <img id="modalPhoto" src="" alt="Foto de inspección" class="img-fluid">
                 <p id="modalCaption" class="mt-3 text-muted"></p>
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
                 <a id="downloadPhoto" href="" download class="btn btn-primary">
-                    <i class="fas fa-download me-2"></i>Download
+                    <i class="fas fa-download me-2"></i>Descargar
                 </a>
             </div>
         </div>

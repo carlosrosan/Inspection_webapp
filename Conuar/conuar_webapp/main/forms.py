@@ -6,14 +6,14 @@ class LoginForm(forms.Form):
         max_length=150,
         widget=forms.TextInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter your username',
+            'placeholder': 'Ingresa tu nombre de usuario',
             'required': True
         })
     )
     password = forms.CharField(
         widget=forms.PasswordInput(attrs={
             'class': 'form-control',
-            'placeholder': 'Enter your password',
+            'placeholder': 'Ingresa tu contraseña',
             'required': True
         })
     )
@@ -24,6 +24,6 @@ class LoginForm(forms.Form):
         password = cleaned_data.get('password')
         
         if not username or not password:
-            raise forms.ValidationError('Both username and password are required.')
+            raise forms.ValidationError('Tanto el nombre de usuario como la contraseña son requeridos.')
         
         return cleaned_data

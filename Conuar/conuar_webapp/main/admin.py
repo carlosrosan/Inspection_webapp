@@ -11,13 +11,13 @@ class CustomUserAdmin(UserAdmin):
     ordering = ('username',)
     
     fieldsets = UserAdmin.fieldsets + (
-        ('Nuclear QC Roles', {
+        ('Roles de Control de Calidad Nuclear', {
             'fields': ('is_inspector', 'is_supervisor')
         }),
     )
     
     add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Nuclear QC Roles', {
+        ('Roles de Control de Calidad Nuclear', {
             'fields': ('is_inspector', 'is_supervisor')
         }),
     )
@@ -32,22 +32,22 @@ class InspectionAdmin(admin.ModelAdmin):
     date_hierarchy = 'inspection_date'
     
     fieldsets = (
-        ('Basic Information', {
+        ('Información Básica', {
             'fields': ('title', 'description', 'inspection_type', 'status')
         }),
-        ('Product Information', {
+        ('Información del Producto', {
             'fields': ('product_name', 'product_code', 'batch_number', 'serial_number')
         }),
-        ('Location and Dates', {
+        ('Ubicación y Fechas', {
             'fields': ('location', 'inspection_date', 'completed_date')
         }),
-        ('Personnel', {
+        ('Personal', {
             'fields': ('inspector', 'supervisor')
         }),
-        ('Results and Notes', {
+        ('Resultados y Notas', {
             'fields': ('result', 'notes', 'recommendations')
         }),
-        ('Timestamps', {
+        ('Marcas de Tiempo', {
             'fields': ('created_at', 'updated_at'),
             'classes': ('collapse',)
         }),
@@ -65,7 +65,7 @@ class InspectionPhotoAdmin(admin.ModelAdmin):
     date_hierarchy = 'uploaded_at'
     
     fieldsets = (
-        ('Photo Information', {
+        ('Información de la Foto', {
             'fields': ('inspection', 'photo', 'photo_type', 'caption')
         }),
         ('Timestamps', {

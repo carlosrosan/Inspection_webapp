@@ -10,7 +10,7 @@
         <p class="lead mb-5">{{ description }}</p>
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom me-3">Dashboard</a>
+                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom me-3">Panel de Control</a>
             </div>
         </div>
     </div>
@@ -24,22 +24,22 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body p-4">
                         <h5 class="card-title mb-4">
-                            <i class="fas fa-filter me-2"></i>Filters & Search
+                            <i class="fas fa-filter me-2"></i>Filtros y Búsqueda
                         </h5>
                         
                         <form method="get" class="row g-3">
                             <!-- Search -->
                             <div class="col-md-4">
-                                <label for="search" class="form-label">Search</label>
+                                <label for="search" class="form-label">Buscar</label>
                                 <input type="text" class="form-control" id="search" name="search" 
-                                       value="{{ search_query }}" placeholder="Search inspections...">
+                                       value="{{ search_query }}" placeholder="Buscar inspecciones...">
                             </div>
                             
                             <!-- Status Filter -->
                             <div class="col-md-3">
-                                <label for="status" class="form-label">Status</label>
+                                <label for="status" class="form-label">Estado</label>
                                 <select class="form-select" id="status" name="status">
-                                    <option value="">All Statuses</option>
+                                    <option value="">Todos los Estados</option>
                                     {% for status_code, status_name in status_choices %}
                                         <option value="{{ status_code }}" {% if status_code == current_status %}selected{% endif %}>
                                             {{ status_name }}
@@ -50,9 +50,9 @@
                             
                             <!-- Type Filter -->
                             <div class="col-md-3">
-                                <label for="type" class="form-label">Type</label>
+                                <label for="type" class="form-label">Tipo</label>
                                 <select class="form-select" id="type" name="type">
-                                    <option value="">All Types</option>
+                                    <option value="">Todos los Tipos</option>
                                     {% for type_code, type_name in type_choices %}
                                         <option value="{{ type_code }}" {% if type_code == current_type %}selected{% endif %}>
                                             {{ type_name }}
@@ -64,7 +64,7 @@
                             <!-- Filter Button -->
                             <div class="col-md-2 d-flex align-items-end">
                                 <button type="submit" class="btn btn-primary w-100">
-                                    <i class="fas fa-search me-2"></i>Filter
+                                    <i class="fas fa-search me-2"></i>Filtrar
                                 </button>
                             </div>
                         </form>
@@ -73,7 +73,7 @@
                         {% if current_status or current_type or search_query %}
                             <div class="mt-3">
                                 <a href="{% url 'main:inspection_list' %}" class="btn btn-outline-secondary btn-sm">
-                                    <i class="fas fa-times me-2"></i>Clear All Filters
+                                    <i class="fas fa-times me-2"></i>Limpiar Todos los Filtros
                                 </a>
                             </div>
                         {% endif %}
@@ -90,17 +90,17 @@
         <div class="row mb-4">
             <div class="col-md-6">
                 <h2 class="display-5 fw-bold">
-                    <i class="fas fa-clipboard-list me-3"></i>Inspections
+                    <i class="fas fa-clipboard-list me-3"></i>Inspecciones
                 </h2>
-                <p class="lead text-muted">Total: {{ total_count }} inspection{{ total_count|pluralize }}</p>
+                <p class="lead text-muted">Total: {{ total_count }} inspección{{ total_count|pluralize }}</p>
             </div>
             <div class="col-md-6 text-md-end">
                 <div class="btn-group" role="group">
                     <button type="button" class="btn btn-outline-primary" id="viewTable">
-                        <i class="fas fa-table me-2"></i>Table View
+                        <i class="fas fa-table me-2"></i>Vista de Tabla
                     </button>
                     <button type="button" class="btn btn-outline-primary" id="viewCards">
-                        <i class="fas fa-th-large me-2"></i>Card View
+                        <i class="fas fa-th-large me-2"></i>Vista de Tarjetas
                     </button>
                 </div>
             </div>
@@ -113,14 +113,14 @@
                     <thead class="table-dark">
                         <tr>
                             <th>ID</th>
-                            <th>Photo</th>
-                            <th>Title</th>
-                            <th>Product</th>
-                            <th>Type</th>
-                            <th>Status</th>
+                            <th>Foto</th>
+                            <th>Título</th>
+                            <th>Producto</th>
+                            <th>Tipo</th>
+                            <th>Estado</th>
                             <th>Inspector</th>
-                            <th>Date</th>
-                            <th>Actions</th>
+                            <th>Fecha</th>
+                            <th>Acciones</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -137,7 +137,7 @@
                                          style="width: 60px; height: 60px; object-fit: cover;"
                                          title="{{ inspection.photos.first.caption }}">
                                     {% if inspection.photos.count > 1 %}
-                                        <br><small class="text-muted">+{{ inspection.photos.count|add:"-1" }} more</small>
+                                        <br><small class="text-muted">+{{ inspection.photos.count|add:"-1" }} más</small>
                                     {% endif %}
                                 {% else %}
                                     <div class="bg-light d-flex align-items-center justify-content-center" 
@@ -155,7 +155,7 @@
                             <td>
                                 <strong>{{ inspection.product_name }}</strong>
                                 {% if inspection.product_code %}
-                                    <br><small class="text-muted">Code: {{ inspection.product_code }}</small>
+                                    <br><small class="text-muted">Código: {{ inspection.product_code }}</small>
                                 {% endif %}
                             </td>
                             <td>
@@ -182,7 +182,7 @@
                             <td>
                                 <a href="{% url 'main:inspection_detail' inspection.id %}" 
                                    class="btn btn-primary btn-sm">
-                                    <i class="fas fa-eye me-2"></i>View
+                                    <i class="fas fa-eye me-2"></i>Ver
                                 </a>
                             </td>
                         </tr>
@@ -223,9 +223,9 @@
                             <p class="card-text text-muted">{{ inspection.description|truncatechars:100 }}</p>
                             
                             <div class="mb-3">
-                                <strong>Product:</strong> {{ inspection.product_name }}
+                                <strong>Producto:</strong> {{ inspection.product_name }}
                                 {% if inspection.product_code %}
-                                    <br><small class="text-muted">Code: {{ inspection.product_code }}</small>
+                                    <br><small class="text-muted">Código: {{ inspection.product_code }}</small>
                                 {% endif %}
                             </div>
                             
@@ -233,7 +233,7 @@
                                 <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
                                 {% if inspection.photos.count > 0 %}
                                     <span class="badge bg-secondary ms-2">
-                                        <i class="fas fa-camera me-1"></i>{{ inspection.photos.count }} photo{{ inspection.photos.count|pluralize }}
+                                        <i class="fas fa-camera me-1"></i>{{ inspection.photos.count }} foto{{ inspection.photos.count|pluralize }}
                                     </span>
                                 {% endif %}
                             </div>
@@ -249,7 +249,7 @@
                         <div class="card-footer bg-transparent">
                             <a href="{% url 'main:inspection_detail' inspection.id %}" 
                                class="btn btn-primary w-100">
-                                <i class="fas fa-eye me-2"></i>View Details
+                                <i class="fas fa-eye me-2"></i>Ver Detalles
                             </a>
                         </div>
                     </div>
@@ -260,16 +260,16 @@
             <!-- No Inspections Found -->
             <div class="text-center py-5">
                 <i class="fas fa-clipboard-list fa-5x text-muted mb-4"></i>
-                <h3 class="text-muted">No Inspections Found</h3>
+                <h3 class="text-muted">No se Encontraron Inspecciones</h3>
                 <p class="lead text-muted">
                     {% if current_status or current_type or search_query %}
-                        Try adjusting your filters or search criteria.
+                        Intenta ajustar tus filtros o criterios de búsqueda.
                     {% else %}
-                        No inspections have been created yet.
+                        No se han creado inspecciones aún.
                     {% endif %}
                 </p>
                 <a href="{% url 'main:dashboard' %}" class="btn btn-primary btn-custom">
-                    <i class="fas fa-plus me-2"></i>Go to Dashboard
+                    <i class="fas fa-plus me-2"></i>Ir al Panel de Control
                 </a>
             </div>
         {% endif %}
@@ -285,7 +285,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <i class="fas fa-clock fa-3x text-warning mb-3"></i>
-                        <h4 class="card-title">Pending</h4>
+                        <h4 class="card-title">Pendientes</h4>
                         <p class="display-6 fw-bold text-warning">
                             {{ inspections|dictsort:"status"|length }}
                         </p>
@@ -296,7 +296,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <i class="fas fa-spinner fa-3x text-info mb-3"></i>
-                        <h4 class="card-title">In Progress</h4>
+                        <h4 class="card-title">En Progreso</h4>
                         <p class="display-6 fw-bold text-info">
                             {{ inspections|dictsort:"status"|length }}
                         </p>
@@ -307,7 +307,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
-                        <h4 class="card-title">Completed</h4>
+                        <h4 class="card-title">Completadas</h4>
                         <p class="display-6 fw-bold text-success">
                             {{ inspections|dictsort:"status"|length }}
                         </p>
@@ -318,7 +318,7 @@
                 <div class="card border-0 shadow-sm">
                     <div class="card-body">
                         <i class="fas fa-times-circle fa-3x text-danger mb-3"></i>
-                        <h4 class="card-title">Failed</h4>
+                        <h4 class="card-title">Fallidas</h4>
                         <p class="display-6 fw-bold text-danger">
                             {{ inspections|dictsort:"status"|length }}
                         </p>

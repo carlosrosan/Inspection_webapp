@@ -7,13 +7,13 @@ from django.db import models
 def home(request):
     """Home page view"""
     context = {
-        'title': 'Welcome to Conuar WebApp',
-        'description': 'A modern Django-based website built with love and care.',
+        'title': 'Bienvenido a la Aplicación Web de Reportes para Conuar',
+        'description': 'Un sitio web moderno basado en Django construido por ArByte/Ingelearn.',
         'features': [
-            'Responsive Design',
-            'Modern UI/UX',
-            'Fast Performance',
-            'SEO Optimized'
+            'Diseño Responsivo',
+            'UI/UX Moderna',
+            'Rendimiento Rápido',
+            'Optimizado para SEO'
         ]
     }
     return render(request, 'main/home.html', context)
@@ -21,12 +21,12 @@ def home(request):
 def about(request):
     """About page view"""
     context = {
-        'title': 'About Us',
-        'description': 'Learn more about our company and mission.',
+        'title': 'Acerca de Nosotros',
+        'description': 'Conoce más sobre nuestra empresa y misión.',
         'company_info': {
-            'name': 'Conuar',
-            'founded': '2024',
-            'mission': 'To create amazing web experiences'
+            'name': 'ArByte/Ingelearn',
+            'founded': '2018',
+            'mission': 'Crear experiencias de automatización.'
         }
     }
     return render(request, 'main/about.html', context)
@@ -34,12 +34,12 @@ def about(request):
 def contact(request):
     """Contact page view"""
     context = {
-        'title': 'Contact Us',
-        'description': 'Get in touch with our team.',
+        'title': 'Contáctanos',
+        'description': 'Ponte en contacto con nuestro equipo.',
         'contact_info': {
-            'email': 'info@conuar.com',
-            'phone': '+1 (555) 123-4567',
-            'address': '123 Web Street, Digital City, DC 12345'
+            'email': 'info@arbyte.com',
+            'phone': '+549 11 6484 4321',
+            'address': 'Pilar, Provincia de Buenos Aires, Argentina.'
         }
     }
     return render(request, 'main/contact.html', context)
@@ -57,15 +57,15 @@ def login_view(request):
         
         if user is not None:
             login(request, user)
-            messages.success(request, f'Welcome back, {user.username}!')
+            messages.success(request, f'¡Bienvenido de vuelta, {user.username}!')
             # Redirect to the page they were trying to access, or home
             next_url = request.GET.get('next', 'main:home')
             return redirect(next_url)
         else:
-            messages.error(request, 'Invalid username or password.')
+            messages.error(request, 'Nombre de usuario o contraseña inválidos.')
     
     context = {
-        'title': 'Login - Conuar WebApp',
+        'title': 'Iniciar Sesión - Aplicación Web Conuar',
         'next': request.GET.get('next', '')
     }
     return render(request, 'main/login.html', context)
@@ -73,7 +73,7 @@ def login_view(request):
 def logout_view(request):
     """User logout view"""
     logout(request)
-    messages.success(request, 'You have been successfully logged out.')
+    messages.success(request, 'Has cerrado sesión exitosamente.')
     return redirect('main:home')
 
 
@@ -81,8 +81,8 @@ def logout_view(request):
 def dashboard(request):
     """User dashboard view"""
     context = {
-        'title': 'Dashboard',
-        'description': 'Welcome to your personal dashboard.',
+        'title': 'Panel de Control',
+        'description': 'Bienvenido a tu panel de control personal.',
         'user': request.user,
         'stats': {
             'projects': 5,
@@ -126,8 +126,8 @@ def inspection_list(request):
     type_choices = Inspection.INSPECTION_TYPE_CHOICES
     
     context = {
-        'title': 'Inspection List',
-        'description': 'View all product inspections',
+        'title': 'Lista de Inspecciones',
+        'description': 'Ver todas las inspecciones de productos',
         'inspections': inspections,
         'status_choices': status_choices,
         'type_choices': type_choices,
@@ -149,8 +149,8 @@ def inspection_detail(request, inspection_id):
     photos = inspection.photos.all()
     
     context = {
-        'title': f'Inspection: {inspection.title}',
-        'description': f'Detailed view of {inspection.product_name} inspection',
+        'title': f'Inspección: {inspection.title}',
+        'description': f'Vista detallada de la inspección de {inspection.product_name}',
         'inspection': inspection,
         'photos': photos,
         'photo_count': photos.count(),

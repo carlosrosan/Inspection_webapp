@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="es">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Conuar WebApp{% endblock %}</title>
+    <title>{% block title %}Aplicación Web Conuar{% endblock %}</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -132,7 +132,7 @@
         <div class="container">
             <a class="navbar-brand" href="{% url 'main:home' %}">
                 <i class="fas fa-cube text-primary me-2"></i>
-                Conuar WebApp
+                Aplicación Web Conuar
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -143,40 +143,40 @@
                 <ul class="navbar-nav ms-auto">
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'main:home' %}">
-                            <i class="fas fa-home me-1"></i>Home
+                            <i class="fas fa-home me-1"></i>Inicio
                         </a>                    
                     {% if user.is_authenticated %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:inspection_list' %}">
-                                <i class="fas fa-clipboard-list me-1"></i>Inspections
+                                <i class="fas fa-clipboard-list me-1"></i>Inspecciones
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:dashboard' %}">
-                                <i class="fas fa-tachometer-alt me-1"></i>Dashboard
+                                <i class="fas fa-tachometer-alt me-1"></i>Panel de Control
                             </a>
                         </li>
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:logout' %}">
-                                <i class="fas fa-sign-out-alt me-1"></i>Logout
+                                <i class="fas fa-sign-out-alt me-1"></i>Cerrar Sesión
                             </a>
                         </li>
                     {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:login' %}">
-                                <i class="fas fa-sign-in-alt me-1"></i>Login
+                                <i class="fas fa-sign-in-alt me-1"></i>Iniciar Sesión
                             </a>
                         </li>
                     {% endif %}
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'main:about' %}">
-                        <i class="fas fa-info-circle me-1"></i>About
+                        <i class="fas fa-info-circle me-1"></i>Acerca de
                     </a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="{% url 'main:contact' %}">
-                        <i class="fas fa-envelope me-1"></i>Contact
+                        <i class="fas fa-envelope me-1"></i>Contacto
                     </a>
                 </li>
                 </ul>
@@ -207,11 +207,11 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5><i class="fas fa-cube me-2"></i>Conuar WebApp</h5>
-                    <p class="text-muted">Building innovative solutions for tomorrow's challenges.</p>
+                    <h5><i class="fas fa-cube me-2"></i>Aplicación Web Conuar</h5>
+                    <p class="text-muted">Construyendo soluciones innovadoras para los desafíos del mañana.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <h6>Connect With Us</h6>
+                    <h6>Conéctate con Nosotros</h6>
                     <div class="social-links">
                         <a href="#" class="text-white me-3"><i class="fab fa-facebook-f"></i></a>
                         <a href="#" class="text-white me-3"><i class="fab fa-twitter"></i></a>
@@ -223,12 +223,12 @@
             <hr class="my-4">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="text-muted mb-0">&copy; 2025 Conuar WebApp. All rights reserved.</p>
+                    <p class="text-muted mb-0">&copy; 2025 Aplicación Web Conuar. Todos los derechos reservados.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
-                    <a href="#" class="text-muted me-3">Privacy Policy</a>
-                    <a href="#" class="text-muted me-3">Terms of Service</a>
-                    <a href="#" class="text-muted">Contact</a>
+                    <a href="#" class="text-muted me-3">Política de Privacidad</a>
+                    <a href="#" class="text-muted me-3">Términos de Servicio</a>
+                    <a href="#" class="text-muted">Contacto</a>
                 </div>
             </div>
         </div>

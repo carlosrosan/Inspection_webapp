@@ -16,10 +16,10 @@
     <div class="container">
         <div class="row align-items-center mb-5">
             <div class="col-lg-8">
-                <h2 class="display-5 fw-bold mb-4">Welcome back, {{ user.username }}!</h2>
-                <p class="lead text-muted mb-4">Here's your personalized dashboard with all the information you need.</p>
+                <h2 class="display-5 fw-bold mb-4">¡Bienvenido de nuevo, {{ user.username }}!</h2>
+                <p class="lead text-muted mb-4">Aquí está tu panel de control personalizado con toda la información que necesitas.</p>
                 <div class="d-flex gap-3">
-                    <a href="{% url 'main:logout' %}" class="btn btn-outline-primary btn-custom">Logout</a>
+                    <a href="{% url 'main:logout' %}" class="btn btn-outline-primary btn-custom">Cerrar Sesión</a>
                 </div>
             </div>
             <div class="col-lg-4">
@@ -27,8 +27,8 @@
                     <div class="card-body p-4">
                         <i class="fas fa-user-circle fa-5x text-primary mb-3"></i>
                         <h4 class="card-title">{{ user.username }}</h4>
-                        <p class="card-text text-muted">Premium Member</p>
-                        <span class="badge bg-success fs-6">Active</span>
+                        <p class="card-text text-muted">Miembro Premium</p>
+                        <span class="badge bg-success fs-6">Activo</span>
                     </div>
                 </div>
             </div>
@@ -41,8 +41,8 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Your Statistics</h2>
-                <p class="lead text-muted">Track your activity and engagement</p>
+                <h2 class="display-5 fw-bold mb-3">Tus Estadísticas</h2>
+                <p class="lead text-muted">Rastrea tu actividad y participación</p>
             </div>
         </div>
         
@@ -52,7 +52,7 @@
                     <div class="card-body p-4">
                         <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
                         <h2 class="display-4 fw-bold text-primary">{{ stats.projects }}</h2>
-                        <p class="text-muted">Active Projects</p>
+                        <p class="text-muted">Proyectos Activos</p>
                     </div>
                 </div>
             </div>
@@ -61,7 +61,7 @@
                     <div class="card-body p-4">
                         <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
                         <h2 class="display-4 fw-bold text-primary">{{ stats.messages }}</h2>
-                        <p class="text-muted">New Messages</p>
+                        <p class="text-muted">Mensajes Nuevos</p>
                     </div>
                 </div>
             </div>
@@ -70,7 +70,7 @@
                     <div class="card-body p-4">
                         <i class="fas fa-bell fa-3x text-primary mb-3"></i>
                         <h2 class="display-4 fw-bold text-primary">{{ stats.notifications }}</h2>
-                        <p class="text-muted">Notifications</p>
+                        <p class="text-muted">Notificaciones</p>
                     </div>
                 </div>
             </div>
@@ -79,7 +79,7 @@
                     <div class="card-body p-4">
                         <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
                         <h2 class="display-4 fw-bold text-primary">5</h2>
-                        <p class="text-muted">Days Active</p>
+                        <p class="text-muted">Días Activos</p>
                     </div>
                 </div>
             </div>
@@ -92,8 +92,8 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Quick Actions</h2>
-                <p class="lead text-muted">Access your most used features</p>
+                <h2 class="display-5 fw-bold mb-3">Acciones Rápidas</h2>
+                <p class="lead text-muted">Accede a tus funciones más utilizadas</p>
             </div>
         </div>
         
@@ -102,9 +102,9 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
                         <i class="fas fa-edit fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Edit Profile</h5>
-                        <p class="card-text text-muted">Update your personal information and preferences.</p>
-                        <a href="#" class="btn btn-outline-primary btn-custom">Edit Profile</a>
+                        <h5 class="card-title">Editar Perfil</h5>
+                        <p class="card-text text-muted">Actualiza tu información personal y preferencias.</p>
+                        <a href="#" class="btn btn-outline-primary btn-custom">Editar Perfil</a>
                     </div>
                 </div>
             </div>
@@ -112,9 +112,9 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
                         <i class="fas fa-cog fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Settings</h5>
-                        <p class="card-text text-muted">Configure your account settings and notifications.</p>
-                        <a href="#" class="btn btn-outline-primary btn-custom">Settings</a>
+                        <h5 class="card-title">Configuración</h5>
+                        <p class="card-text text-muted">Configura las opciones de tu cuenta y notificaciones.</p>
+                        <a href="#" class="btn btn-outline-primary btn-custom">Configuración</a>
                     </div>
                 </div>
             </div>
@@ -122,9 +122,9 @@
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body text-center p-4">
                         <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Help & Support</h5>
-                        <p class="card-text text-muted">Get help and contact our support team.</p>
-                        <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">Get Help</a>
+                        <h5 class="card-title">Ayuda y Soporte</h5>
+                        <p class="card-text text-muted">Obtén ayuda y contacta a nuestro equipo de soporte.</p>
+                        <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">Obtener Ayuda</a>
                     </div>
                 </div>
             </div>
@@ -137,8 +137,8 @@
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Recent Activity</h2>
-                <p class="lead text-muted">Your latest interactions and updates</p>
+                <h2 class="display-5 fw-bold mb-3">Actividad Reciente</h2>
+                <p class="lead text-muted">Tus últimas interacciones y actualizaciones</p>
             </div>
         </div>
         
@@ -152,8 +152,8 @@
                                     <i class="fas fa-sign-in-alt"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Logged in successfully</h6>
-                                    <p class="text-muted mb-0">Just now</p>
+                                    <h6 class="mb-1">Inicio de sesión exitoso</h6>
+                                    <p class="text-muted mb-0">Ahora mismo</p>
                                 </div>
                             </div>
                             <div class="timeline-item d-flex mb-3">
@@ -161,7 +161,7 @@
                                     <i class="fas fa-user-plus"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Account created</h6>
+                                    <h6 class="mb-1">Cuenta creada</h6>
                                     <p class="text-muted mb-0">{{ user.date_joined|date:"M d, Y" }}</p>
                                 </div>
                             </div>
@@ -170,8 +170,8 @@
                                     <i class="fas fa-star"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Premium features unlocked</h6>
-                                    <p class="text-muted mb-0">Welcome to premium membership!</p>
+                                    <h6 class="mb-1">Funciones premium desbloqueadas</h6>
+                                    <p class="text-muted mb-0">¡Bienvenido a la membresía premium!</p>
                                 </div>
                             </div>
                         </div>
@@ -187,9 +187,9 @@
     <div class="container text-center">
         <div class="row">
             <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-4">Need Help?</h2>
-                <p class="lead mb-5">Our support team is here to help you get the most out of your account.</p>
-                <a href="{% url 'main:contact' %}" class="btn btn-light btn-custom btn-lg">Contact Support</a>
+                <h2 class="display-5 fw-bold mb-4">¿Necesitas Ayuda?</h2>
+                <p class="lead mb-5">Nuestro equipo de soporte está aquí para ayudarte a aprovechar al máximo tu cuenta.</p>
+                <a href="{% url 'main:contact' %}" class="btn btn-light btn-custom btn-lg">Contactar Soporte</a>
             </div>
         </div>
     </div>

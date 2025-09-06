@@ -94,17 +94,17 @@ class AutoLogout {
                     <div class="modal-header bg-warning">
                         <h5 class="modal-title">
                             <i class="fas fa-exclamation-triangle me-2"></i>
-                            Session Timeout Warning
+                            Advertencia de Tiempo de Sesión
                         </h5>
                         <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
                     </div>
                     <div class="modal-body">
-                        <p>Your session will expire in <strong>${this.warningMinutes} minute</strong> due to inactivity.</p>
-                        <p>Click "Stay Logged In" to continue your session, or you will be automatically logged out.</p>
+                        <p>Tu sesión expirará en <strong>${this.warningMinutes} minuto</strong> debido a la inactividad.</p>
+                        <p>Haz clic en "Mantenerse Conectado" para continuar tu sesión, o serás desconectado automáticamente.</p>
                     </div>
                     <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Stay Logged In</button>
-                        <button type="button" class="btn btn-primary" onclick="autoLogout.logout()">Logout Now</button>
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Mantenerse Conectado</button>
+                        <button type="button" class="btn btn-primary" onclick="autoLogout.logout()">Cerrar Sesión Ahora</button>
                     </div>
                 </div>
             </div>
@@ -172,7 +172,7 @@ class AutoLogout {
         notification.style.cssText = 'top: 20px; right: 20px; z-index: 9999; min-width: 300px;';
         notification.innerHTML = `
             <i class="fas fa-info-circle me-2"></i>
-            <strong>Session Expired:</strong> You have been automatically logged out due to inactivity.
+            <strong>Sesión Expirada:</strong> Has sido desconectado automáticamente debido a la inactividad.
             <button type="button" class="btn-close" data-bs-dismiss="alert"></button>
         `;
         
