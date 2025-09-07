@@ -11,24 +11,83 @@
     </div>
 </section>
 
-<!-- User Welcome Section -->
+<!-- Machine Status Overview -->
 <section class="section-padding">
     <div class="container">
-        <div class="row align-items-center mb-5">
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold mb-3">
+                    <i class="fas fa-cogs me-3"></i>Estado de la Máquina
+                </h2>
+            </div>
+        </div>
+        
+        <!-- Machine Status Card -->
+        <div class="row mb-5">
             <div class="col-lg-8">
-                <h2 class="display-5 fw-bold mb-4">¡Bienvenido de nuevo, {{ user.username }}!</h2>
-                <p class="lead text-muted mb-4">Aquí está tu panel de control personalizado con toda la información que necesitas.</p>
-                <div class="d-flex gap-3">
-                    <a href="{% url 'main:logout' %}" class="btn btn-outline-primary btn-custom">Cerrar Sesión</a>
+                <div class="card border-0 shadow-lg">
+                    <div class="card-header bg-{{ machine.status_color }} text-white">
+                        <div class="d-flex justify-content-between align-items-center">
+                            <h4 class="mb-0">
+                                <i class="fas fa-microchip me-2"></i>{{ machine.name }}
+                            </h4>
+                            <span class="badge bg-light text-dark fs-6">{{ machine.machine_id }}</span>
+                        </div>
+                    </div>
+                    <div class="card-body">
+                        <div class="row">
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Estado Actual</h5>
+                                <div class="d-flex align-items-center mb-3">
+                                    <div class="status-indicator bg-{{ machine.status_color }} me-3"></div>
+                                    <div>
+                                        <h6 class="mb-1">{{ machine.get_status_display }}</h6>
+                                        <small class="text-muted">
+                                            {% if machine.current_stage %}
+                                                Etapa: {{ machine.get_current_stage_display }}
+                                            {% else %}
+                                                Sistema en espera
+                                            {% endif %}
+                                        </small>
+                                    </div>
+                                </div>
+                                
+                                <div class="mb-3">
+                                    <strong>Modelo:</strong> {{ machine.model }} {{ machine.version }}<br>
+                                    <strong>Última actualización:</strong> {{ machine.last_status_change|date:"d/m/Y H:i" }}
+                                </div>
+                            </div>
+                            <div class="col-md-6">
+                                <h5 class="text-primary mb-3">Métricas de Rendimiento</h5>
+                                <div class="row text-center">
+                                    <div class="col-6">
+                                        <h3 class="text-success">{{ machine.success_rate|floatformat:1 }}%</h3>
+                                        <small class="text-muted">Tasa de Éxito</small>
+                                    </div>
+                                    <div class="col-6">
+                                        <h3 class="text-info">{{ machine.average_inspection_time|floatformat:1 }}m</h3>
+                                        <small class="text-muted">Tiempo Promedio</small>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="col-lg-4">
-                <div class="card border-0 shadow-lg text-center">
-                    <div class="card-body p-4">
-                        <i class="fas fa-user-circle fa-5x text-primary mb-3"></i>
-                        <h4 class="card-title">{{ user.username }}</h4>
-                        <p class="card-text text-muted">Miembro Premium</p>
-                        <span class="badge bg-success fs-6">Activo</span>
+                <div class="card border-0 shadow-lg h-100">
+                    <div class="card-body text-center">
+                        <i class="fas fa-chart-line fa-4x text-primary mb-3"></i>
+                        <h4 class="card-title">Eficiencia del Sistema</h4>
+                        <div class="progress mb-3" style="height: 20px;">
+                            <div class="progress-bar bg-success" role="progressbar" 
+                                 style="width: {{ stats.machine_efficiency }}%" 
+                                 aria-valuenow="{{ stats.machine_efficiency }}" 
+                                 aria-valuemin="0" aria-valuemax="100">
+                                {{ stats.machine_efficiency }}%
+                            </div>
+                        </div>
+                        <p class="text-muted">Rendimiento actual del sistema</p>
                     </div>
                 </div>
             </div>
@@ -36,13 +95,13 @@
     </div>
 </section>
 
-<!-- Statistics Section -->
+<!-- KPIs Section -->
 <section class="section-padding bg-light">
     <div class="container">
         <div class="row text-center mb-5">
             <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Tus Estadísticas</h2>
-                <p class="lead text-muted">Rastrea tu actividad y participación</p>
+                <h2 class="display-5 fw-bold mb-3">Indicadores Clave de Rendimiento</h2>
+                <p class="lead text-muted">Métricas importantes del sistema de inspección</p>
             </div>
         </div>
         
@@ -50,36 +109,48 @@
             <div class="col-md-3 col-sm-6">
                 <div class="card border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <i class="fas fa-project-diagram fa-3x text-primary mb-3"></i>
-                        <h2 class="display-4 fw-bold text-primary">{{ stats.projects }}</h2>
-                        <p class="text-muted">Proyectos Activos</p>
+                        <i class="fas fa-tasks fa-3x text-primary mb-3"></i>
+                        <h2 class="display-4 fw-bold text-primary">{{ machine.total_inspections }}</h2>
+                        <p class="text-muted">Total de Inspecciones</p>
+                        <small class="text-success">
+                            <i class="fas fa-arrow-up me-1"></i>+{{ machine.inspections_today }} hoy
+                        </small>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="card border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <i class="fas fa-envelope fa-3x text-primary mb-3"></i>
-                        <h2 class="display-4 fw-bold text-primary">{{ stats.messages }}</h2>
-                        <p class="text-muted">Mensajes Nuevos</p>
+                        <i class="fas fa-clock fa-3x text-warning mb-3"></i>
+                        <h2 class="display-4 fw-bold text-warning">{{ machine.uptime_hours|floatformat:1 }}h</h2>
+                        <p class="text-muted">Tiempo de Funcionamiento</p>
+                        <small class="text-info">
+                            <i class="fas fa-percentage me-1"></i>{{ stats.uptime_percentage }}% disponibilidad
+                        </small>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="card border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <i class="fas fa-bell fa-3x text-primary mb-3"></i>
-                        <h2 class="display-4 fw-bold text-primary">{{ stats.notifications }}</h2>
-                        <p class="text-muted">Notificaciones</p>
+                        <i class="fas fa-check-circle fa-3x text-success mb-3"></i>
+                        <h2 class="display-4 fw-bold text-success">{{ machine.success_rate|floatformat:1 }}%</h2>
+                        <p class="text-muted">Tasa de Éxito</p>
+                        <small class="text-success">
+                            <i class="fas fa-thumbs-up me-1"></i>Excelente rendimiento
+                        </small>
                     </div>
                 </div>
             </div>
             <div class="col-md-3 col-sm-6">
                 <div class="card border-0 shadow-sm text-center">
                     <div class="card-body p-4">
-                        <i class="fas fa-calendar-check fa-3x text-primary mb-3"></i>
-                        <h2 class="display-4 fw-bold text-primary">5</h2>
-                        <p class="text-muted">Días Activos</p>
+                        <i class="fas fa-calendar-week fa-3x text-info mb-3"></i>
+                        <h2 class="display-4 fw-bold text-info">{{ stats.inspections_this_week }}</h2>
+                        <p class="text-muted">Esta Semana</p>
+                        <small class="text-info">
+                            <i class="fas fa-chart-line me-1"></i>Inspecciones realizadas
+                        </small>
                     </div>
                 </div>
             </div>
@@ -87,44 +158,72 @@
     </div>
 </section>
 
-<!-- Quick Actions Section -->
+<!-- Charts Section -->
 <section class="section-padding">
     <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Acciones Rápidas</h2>
-                <p class="lead text-muted">Accede a tus funciones más utilizadas</p>
+        <div class="row mb-5">
+            <div class="col-12">
+                <h2 class="display-5 fw-bold mb-3">
+                    <i class="fas fa-chart-bar me-3"></i>Análisis de Rendimiento
+                </h2>
             </div>
         </div>
         
         <div class="row g-4">
-            <div class="col-lg-4 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center p-4">
-                        <i class="fas fa-edit fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Editar Perfil</h5>
-                        <p class="card-text text-muted">Actualiza tu información personal y preferencias.</p>
-                        <a href="#" class="btn btn-outline-primary btn-custom">Editar Perfil</a>
+            <!-- Daily Inspections Chart -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-line me-2"></i>Inspecciones Diarias (Últimos 7 días)
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="dailyInspectionsChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center p-4">
-                        <i class="fas fa-cog fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Configuración</h5>
-                        <p class="card-text text-muted">Configura las opciones de tu cuenta y notificaciones.</p>
-                        <a href="#" class="btn btn-outline-primary btn-custom">Configuración</a>
+            
+            <!-- Success Rate Chart -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-chart-pie me-2"></i>Tasa de Éxito (Últimos 7 días)
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="successRateChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
-            <div class="col-lg-4 col-md-6">
-                <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body text-center p-4">
-                        <i class="fas fa-question-circle fa-3x text-primary mb-3"></i>
-                        <h5 class="card-title">Ayuda y Soporte</h5>
-                        <p class="card-text text-muted">Obtén ayuda y contacta a nuestro equipo de soporte.</p>
-                        <a href="{% url 'main:contact' %}" class="btn btn-outline-primary btn-custom">Obtener Ayuda</a>
+        </div>
+        
+        <div class="row g-4 mt-4">
+            <!-- Inspection Time Chart -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-info text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-stopwatch me-2"></i>Tiempo de Inspección (Minutos)
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="inspectionTimeChart" width="400" height="200"></canvas>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- System Status Pie Chart -->
+            <div class="col-lg-6">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-warning text-dark">
+                        <h5 class="mb-0">
+                            <i class="fas fa-pie-chart me-2"></i>Distribución de Estados
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <canvas id="statusDistributionChart" width="400" height="200"></canvas>
                     </div>
                 </div>
             </div>
@@ -132,48 +231,93 @@
     </div>
 </section>
 
-<!-- Recent Activity Section -->
+<!-- Recent Activity and Logs -->
 <section class="section-padding bg-light">
     <div class="container">
-        <div class="row text-center mb-5">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-3">Actividad Reciente</h2>
-                <p class="lead text-muted">Tus últimas interacciones y actualizaciones</p>
-            </div>
-        </div>
-        
         <div class="row">
-            <div class="col-lg-8 mx-auto">
+            <div class="col-lg-8">
                 <div class="card border-0 shadow-sm">
-                    <div class="card-body p-4">
+                    <div class="card-header bg-dark text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-list me-2"></i>Registro de Actividad Reciente
+                        </h5>
+                    </div>
+                    <div class="card-body">
                         <div class="timeline">
+                            {% for log in recent_logs %}
                             <div class="timeline-item d-flex mb-3">
-                                <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-sign-in-alt"></i>
+                                <div class="timeline-icon bg-{{ log.log_type|default:'primary' }} text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-{% if log.log_type == 'inspection_complete' %}check{% elif log.log_type == 'error' %}exclamation-triangle{% elif log.log_type == 'maintenance' %}wrench{% else %}info-circle{% endif %}"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Inicio de sesión exitoso</h6>
-                                    <p class="text-muted mb-0">Ahora mismo</p>
+                                    <h6 class="mb-1">{{ log.get_log_type_display }}</h6>
+                                    <p class="text-muted mb-0">{{ log.message }}</p>
+                                    <small class="text-muted">{{ log.timestamp|date:"d/m/Y H:i" }}</small>
                                 </div>
                             </div>
-                            <div class="timeline-item d-flex mb-3">
-                                <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-user-plus"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1">Cuenta creada</h6>
-                                    <p class="text-muted mb-0">{{ user.date_joined|date:"M d, Y" }}</p>
-                                </div>
+                            {% empty %}
+                            <div class="text-center py-4">
+                                <i class="fas fa-info-circle fa-3x text-muted mb-3"></i>
+                                <p class="text-muted">No hay registros de actividad reciente</p>
                             </div>
-                            <div class="timeline-item d-flex mb-3">
-                                <div class="timeline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-star"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1">Funciones premium desbloqueadas</h6>
-                                    <p class="text-muted mb-0">¡Bienvenido a la membresía premium!</p>
-                                </div>
-                            </div>
+                            {% endfor %}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-header bg-primary text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-tools me-2"></i>Acciones Rápidas
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="d-grid gap-2">
+                            <a href="{% url 'main:inspection_list' %}" class="btn btn-outline-primary btn-custom">
+                                <i class="fas fa-list me-2"></i>Ver Inspecciones
+                            </a>
+                            <a href="#" class="btn btn-outline-success btn-custom">
+                                <i class="fas fa-play me-2"></i>Iniciar Inspección
+                            </a>
+                            <a href="#" class="btn btn-outline-warning btn-custom">
+                                <i class="fas fa-wrench me-2"></i>Calibrar Máquina
+                            </a>
+                            <a href="#" class="btn btn-outline-info btn-custom">
+                                <i class="fas fa-download me-2"></i>Descargar Reporte
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="card border-0 shadow-sm mt-4">
+                    <div class="card-header bg-success text-white">
+                        <h5 class="mb-0">
+                            <i class="fas fa-info-circle me-2"></i>Información del Sistema
+                        </h5>
+                    </div>
+                    <div class="card-body">
+                        <div class="mb-3">
+                            <strong>Usuario:</strong> {{ user.username }}<br>
+                            <strong>Rol:</strong> Inspector<br>
+                            <strong>Sesión:</strong> Activa
+                        </div>
+                        <div class="mb-3">
+                            <strong>Última Inspección:</strong><br>
+                            {% if machine.last_inspection %}
+                                {{ machine.last_inspection|date:"d/m/Y H:i" }}
+                            {% else %}
+                                No disponible
+                            {% endif %}
+                        </div>
+                        <div>
+                            <strong>Último Mantenimiento:</strong><br>
+                            {% if machine.last_maintenance %}
+                                {{ machine.last_maintenance|date:"d/m/Y H:i" }}
+                            {% else %}
+                                No disponible
+                            {% endif %}
                         </div>
                     </div>
                 </div>
@@ -181,17 +325,224 @@
         </div>
     </div>
 </section>
+{% endblock %}
 
-<!-- Call to Action -->
-<section class="section-padding bg-primary text-white">
-    <div class="container text-center">
-        <div class="row">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-5 fw-bold mb-4">¿Necesitas Ayuda?</h2>
-                <p class="lead mb-5">Nuestro equipo de soporte está aquí para ayudarte a aprovechar al máximo tu cuenta.</p>
-                <a href="{% url 'main:contact' %}" class="btn btn-light btn-custom btn-lg">Contactar Soporte</a>
-            </div>
-        </div>
-    </div>
-</section>
+{% block extra_js %}
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script>
+    // Chart.js configuration
+    Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
+    Chart.defaults.color = '#ffffff';
+
+    // Daily Inspections Chart
+    const dailyInspectionsCtx = document.getElementById('dailyInspectionsChart').getContext('2d');
+    new Chart(dailyInspectionsCtx, {
+        type: 'line',
+        data: {
+            labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                label: 'Inspecciones',
+                data: {{ chart_data.daily_inspections|safe }},
+                borderColor: '#CBFC02',
+                backgroundColor: 'rgba(203, 252, 2, 0.1)',
+                borderWidth: 3,
+                fill: true,
+                tension: 0.4
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#b0b0b0'
+                    },
+                    grid: {
+                        color: '#404040'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#b0b0b0'
+                    },
+                    grid: {
+                        color: '#404040'
+                    }
+                }
+            }
+        }
+    });
+
+    // Success Rate Chart
+    const successRateCtx = document.getElementById('successRateChart').getContext('2d');
+    new Chart(successRateCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                label: 'Tasa de Éxito (%)',
+                data: {{ chart_data.success_rates|safe }},
+                backgroundColor: 'rgba(40, 167, 69, 0.8)',
+                borderColor: '#28a745',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    max: 100,
+                    ticks: {
+                        color: '#b0b0b0'
+                    },
+                    grid: {
+                        color: '#404040'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#b0b0b0'
+                    },
+                    grid: {
+                        color: '#404040'
+                    }
+                }
+            }
+        }
+    });
+
+    // Inspection Time Chart
+    const inspectionTimeCtx = document.getElementById('inspectionTimeChart').getContext('2d');
+    new Chart(inspectionTimeCtx, {
+        type: 'bar',
+        data: {
+            labels: ['Lun', 'Mar', 'Mié', 'Jue', 'Vie', 'Sáb', 'Dom'],
+            datasets: [{
+                label: 'Tiempo (min)',
+                data: {{ chart_data.inspection_times|safe }},
+                backgroundColor: 'rgba(23, 162, 184, 0.8)',
+                borderColor: '#17a2b8',
+                borderWidth: 1
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            },
+            scales: {
+                y: {
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#b0b0b0'
+                    },
+                    grid: {
+                        color: '#404040'
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#b0b0b0'
+                    },
+                    grid: {
+                        color: '#404040'
+                    }
+                }
+            }
+        }
+    });
+
+    // Status Distribution Chart
+    const statusDistributionCtx = document.getElementById('statusDistributionChart').getContext('2d');
+    new Chart(statusDistributionCtx, {
+        type: 'doughnut',
+        data: {
+            labels: ['Completadas', 'En Progreso', 'Pendientes', 'Fallidas'],
+            datasets: [{
+                data: [75, 15, 8, 2],
+                backgroundColor: [
+                    '#28a745',
+                    '#ffc107',
+                    '#17a2b8',
+                    '#dc3545'
+                ],
+                borderWidth: 2,
+                borderColor: '#2d2d2d'
+            }]
+        },
+        options: {
+            responsive: true,
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff'
+                    }
+                }
+            }
+        }
+    });
+
+    // Auto-refresh every 30 seconds
+    setInterval(function() {
+        location.reload();
+    }, 30000);
+</script>
+
+<style>
+    .status-indicator {
+        width: 12px;
+        height: 12px;
+        border-radius: 50%;
+        display: inline-block;
+    }
+    
+    .timeline-item {
+        position: relative;
+        padding-left: 20px;
+    }
+    
+    .timeline-item::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 0;
+        width: 2px;
+        height: 100%;
+        background: #CBFC02;
+    }
+    
+    .timeline-icon {
+        position: absolute;
+        left: -20px;
+        top: 0;
+        width: 40px;
+        height: 40px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background: #CBFC02;
+        color: #1a1a1a;
+    }
+</style>
 {% endblock %}

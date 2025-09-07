@@ -1,8 +1,28 @@
-/* Custom CSS for Conuar WebApp */
+/* Custom CSS for ArByte Fuel Inspection System - Dark Theme */
+
+/* CSS Variables for Dark Theme */
+:root {
+    --primary-color: #CBFC02;
+    --dark-bg: #1a1a1a;
+    --darker-bg: #0d0d0d;
+    --card-bg: #2d2d2d;
+    --text-primary: #ffffff;
+    --text-secondary: #b0b0b0;
+    --text-muted: #808080;
+    --border-color: #404040;
+    --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+    --shadow-hover: 0 8px 30px rgba(0, 0, 0, 0.4);
+}
 
 /* Smooth scrolling */
 html {
     scroll-behavior: smooth;
+}
+
+/* Dark theme base */
+body {
+    background-color: var(--dark-bg);
+    color: var(--text-primary);
 }
 
 /* Custom animations */
@@ -57,11 +77,17 @@ html {
     transition: all 0.3s ease;
     position: relative;
     overflow: hidden;
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border: 2px solid var(--primary-color);
+    font-weight: 600;
 }
 
 .btn-custom:hover {
     transform: translateY(-2px);
-    box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+    box-shadow: 0 5px 15px rgba(203, 252, 2, 0.3);
+    background-color: transparent;
+    color: var(--primary-color);
 }
 
 .btn-custom::before {
@@ -71,7 +97,7 @@ html {
     left: -100%;
     width: 100%;
     height: 100%;
-    background: linear-gradient(90deg, transparent, rgba(255,255,255,0.2), transparent);
+    background: linear-gradient(90deg, transparent, rgba(203, 252, 2, 0.2), transparent);
     transition: left 0.5s;
 }
 
@@ -82,14 +108,17 @@ html {
 /* Enhanced card styles */
 .feature-card, .service-card {
     transition: all 0.3s ease;
-    border: none;
+    border: 1px solid var(--border-color);
     border-radius: 15px;
     overflow: hidden;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+    box-shadow: var(--shadow);
 }
 
 .feature-card:hover, .service-card:hover {
     transform: translateY(-10px);
-    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    box-shadow: var(--shadow-hover);
 }
 
 .feature-card::before, .service-card::before {
@@ -99,7 +128,7 @@ html {
     left: 0;
     right: 0;
     height: 4px;
-    background: linear-gradient(90deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(90deg, var(--primary-color), #a8d000);
     transform: scaleX(0);
     transition: transform 0.3s ease;
 }
@@ -112,19 +141,32 @@ html {
 .navbar {
     transition: all 0.3s ease;
     backdrop-filter: blur(10px);
+    background-color: var(--darker-bg) !important;
+    border-bottom: 1px solid var(--border-color);
 }
 
 .navbar-brand {
     transition: all 0.3s ease;
+    color: var(--primary-color) !important;
 }
 
 .navbar-brand:hover {
     transform: scale(1.05);
 }
 
+.navbar-brand img {
+    height: 40px;
+    margin-right: 10px;
+}
+
 .nav-link {
     position: relative;
     transition: all 0.3s ease;
+    color: var(--text-primary) !important;
+}
+
+.nav-link:hover {
+    color: var(--primary-color) !important;
 }
 
 .nav-link::after {
@@ -145,9 +187,10 @@ html {
 
 /* Enhanced hero section */
 .hero-section {
-    background: linear-gradient(135deg, var(--primary-color), var(--accent-color));
+    background: linear-gradient(135deg, var(--darker-bg), #2a2a2a);
     position: relative;
     overflow: hidden;
+    color: var(--text-primary);
 }
 
 .hero-section::before {
@@ -157,42 +200,59 @@ html {
     left: 0;
     right: 0;
     bottom: 0;
-    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="rgba(255,255,255,0.1)"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+    background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23CBFC02" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
     opacity: 0.3;
 }
 
 /* Enhanced form styles */
 .form-control, .form-select {
     border-radius: 10px;
-    border: 2px solid #e9ecef;
+    border: 2px solid var(--border-color);
     transition: all 0.3s ease;
+    background-color: var(--card-bg);
+    color: var(--text-primary);
 }
 
 .form-control:focus, .form-select:focus {
     border-color: var(--primary-color);
-    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.2rem rgba(203, 252, 2, 0.25);
     transform: translateY(-2px);
+    background-color: var(--card-bg);
+    color: var(--text-primary);
+}
+
+.form-label {
+    color: var(--text-primary);
+}
+
+.input-group-text {
+    background-color: var(--card-bg);
+    border: 2px solid var(--border-color);
+    color: var(--text-secondary);
 }
 
 /* Enhanced accordion */
 .accordion-button:not(.collapsed) {
-    background-color: rgba(0, 123, 255, 0.1);
+    background-color: rgba(203, 252, 2, 0.1);
     color: var(--primary-color);
     border-color: var(--primary-color);
 }
 
 .accordion-button:focus {
-    box-shadow: 0 0 0 0.25rem rgba(0, 123, 255, 0.25);
+    box-shadow: 0 0 0 0.25rem rgba(203, 252, 2, 0.25);
 }
 
 /* Enhanced footer */
 .footer {
-    background: linear-gradient(135deg, var(--dark-color), #495057);
+    background: var(--darker-bg);
+    color: var(--text-primary);
+    border-top: 1px solid var(--border-color);
 }
 
 .social-links a {
     transition: all 0.3s ease;
     display: inline-block;
+    color: var(--text-secondary);
 }
 
 .social-links a:hover {
@@ -233,7 +293,7 @@ html {
 }
 
 ::-webkit-scrollbar-track {
-    background: #f1f1f1;
+    background: var(--darker-bg);
 }
 
 ::-webkit-scrollbar-thumb {
@@ -242,7 +302,68 @@ html {
 }
 
 ::-webkit-scrollbar-thumb:hover {
-    background: var(--accent-color);
+    background: #a8d000;
+}
+
+/* Additional dark theme styles */
+.card {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.card-body {
+    color: var(--text-primary);
+}
+
+.alert {
+    background-color: var(--card-bg);
+    border: 1px solid var(--border-color);
+    color: var(--text-primary);
+}
+
+.text-muted {
+    color: var(--text-muted) !important;
+}
+
+.text-primary {
+    color: var(--primary-color) !important;
+}
+
+.bg-light {
+    background-color: var(--darker-bg) !important;
+}
+
+.bg-primary {
+    background-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+}
+
+.badge.bg-success {
+    background-color: var(--primary-color) !important;
+    color: var(--dark-bg) !important;
+}
+
+/* Button variants for dark theme */
+.btn-outline-primary {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-primary:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
+    border-color: var(--primary-color);
+}
+
+.btn-outline-light {
+    border-color: var(--primary-color);
+    color: var(--primary-color);
+}
+
+.btn-outline-light:hover {
+    background-color: var(--primary-color);
+    color: var(--dark-bg);
 }
 
 /* Print styles */

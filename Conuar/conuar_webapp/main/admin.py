@@ -1,6 +1,6 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
-from .models import User, Inspection, InspectionPhoto
+from .models import User, Inspection, InspectionPhoto, InspectionMachine, MachineLog
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
@@ -75,3 +75,53 @@ class InspectionPhotoAdmin(admin.ModelAdmin):
     )
     
     readonly_fields = ('uploaded_at',)
+
+@admin.register(InspectionMachine)
+class InspectionMachineAdmin(admin.ModelAdmin):
+    """Admin interface for InspectionMachine model"""
+    list_display = ('machine_id', 'name', 'model', 'version', 'status', 'current_stage', 'total_inspections', 'success_rate')
+    list_filter = ('status', 'current_stage', 'model', 'version')
+    search_fields = ('machine_id', 'name', 'model')
+    ordering = ('machine_id',)
+    
+    fieldsets = (
+        ('Información de la Máquina', {
+            'fields': ('machine_id', 'name', 'model', 'version')
+        }),
+        ('Estado Actual', {
+            'fields': ('status', 'current_stage')
+        }),
+        ('Métricas de Rendimiento', {
+            'fields': ('total_inspections', 'inspections_today', 'uptime_hours', 'success_rate', 'average_inspection_time')
+        }),
+        ('Fechas Importantes', {
+            'fields': ('last_inspection', 'last_maintenance', 'last_status_change')
+        }),
+        ('Timestamps', {
+            'fields': ('created_at', 'updated_at'),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    readonly_fields = ('created_at', 'updated_at', 'last_status_change')
+
+@admin.register(MachineLog)
+class MachineLogAdmin(admin.ModelAdmin):
+    """Admin interface for MachineLog model"""
+    list_display = ('id', 'machine', 'log_type', 'message', 'timestamp')
+    list_filter = ('log_type', 'timestamp', 'machine')
+    search_fields = ('machine__name', 'machine__machine_id', 'message')
+    ordering = ('-timestamp',)
+    date_hierarchy = 'timestamp'
+    
+    fieldsets = (
+        ('Información del Registro', {
+            'fields': ('machine', 'log_type', 'message')
+        }),
+        ('Timestamp', {
+            'fields': ('timestamp',),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    readonly_fields = ('timestamp',)

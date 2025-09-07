@@ -129,3 +129,113 @@ class InspectionPhoto(models.Model):
     @property
     def filename(self):
         return self.photo.name.split('/')[-1]
+
+class InspectionMachine(models.Model):
+    """Model for inspection machine status and metrics"""
+    
+    MACHINE_STATUS_CHOICES = [
+        ('offline', 'Desconectada'),
+        ('idle', 'En Espera'),
+        ('calibrating', 'Calibrando'),
+        ('inspecting', 'Inspeccionando'),
+        ('maintenance', 'En Mantenimiento'),
+        ('error', 'Error'),
+    ]
+    
+    MACHINE_STAGE_CHOICES = [
+        ('initialization', 'Inicialización'),
+        ('sample_preparation', 'Preparación de Muestra'),
+        ('analysis', 'Análisis en Progreso'),
+        ('quality_check', 'Verificación de Calidad'),
+        ('report_generation', 'Generación de Reporte'),
+        ('completion', 'Finalización'),
+    ]
+    
+    # Machine Information
+    machine_id = models.CharField(max_length=50, unique=True, default='MAQ-001')
+    name = models.CharField(max_length=100, default='Analizador de Combustible ArByte-3000')
+    model = models.CharField(max_length=50, default='AB-3000')
+    version = models.CharField(max_length=20, default='v2.1.3')
+    
+    # Current Status
+    status = models.CharField(
+        max_length=20,
+        choices=MACHINE_STATUS_CHOICES,
+        default='offline',
+        help_text="Estado actual de la máquina"
+    )
+    current_stage = models.CharField(
+        max_length=30,
+        choices=MACHINE_STAGE_CHOICES,
+        blank=True,
+        null=True,
+        help_text="Etapa actual del proceso de inspección"
+    )
+    
+    # Metrics
+    total_inspections = models.PositiveIntegerField(default=0, help_text="Total de inspecciones realizadas")
+    inspections_today = models.PositiveIntegerField(default=0, help_text="Inspecciones realizadas hoy")
+    uptime_hours = models.FloatField(default=0.0, help_text="Horas de funcionamiento")
+    last_inspection = models.DateTimeField(null=True, blank=True, help_text="Última inspección realizada")
+    last_maintenance = models.DateTimeField(null=True, blank=True, help_text="Último mantenimiento")
+    
+    # Performance Metrics
+    success_rate = models.FloatField(default=100.0, help_text="Tasa de éxito de inspecciones (%)")
+    average_inspection_time = models.FloatField(default=0.0, help_text="Tiempo promedio de inspección (minutos)")
+    
+    # Timestamps
+    last_status_change = models.DateTimeField(auto_now=True)
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name = 'Máquina de Inspección'
+        verbose_name_plural = 'Máquinas de Inspección'
+    
+    def __str__(self):
+        return f"{self.name} - {self.get_status_display()}"
+    
+    @property
+    def is_online(self):
+        return self.status != 'offline'
+    
+    @property
+    def is_busy(self):
+        return self.status in ['calibrating', 'inspecting']
+    
+    @property
+    def status_color(self):
+        status_colors = {
+            'offline': 'danger',
+            'idle': 'warning',
+            'calibrating': 'info',
+            'inspecting': 'success',
+            'maintenance': 'secondary',
+            'error': 'danger',
+        }
+        return status_colors.get(self.status, 'secondary')
+
+class MachineLog(models.Model):
+    """Model for machine operation logs"""
+    
+    LOG_TYPE_CHOICES = [
+        ('status_change', 'Cambio de Estado'),
+        ('inspection_start', 'Inicio de Inspección'),
+        ('inspection_complete', 'Inspección Completada'),
+        ('maintenance', 'Mantenimiento'),
+        ('error', 'Error'),
+        ('calibration', 'Calibración'),
+    ]
+    
+    machine = models.ForeignKey(InspectionMachine, on_delete=models.CASCADE, related_name='logs')
+    log_type = models.CharField(max_length=20, choices=LOG_TYPE_CHOICES)
+    message = models.TextField()
+    timestamp = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        ordering = ['-timestamp']
+        verbose_name = 'Registro de Máquina'
+        verbose_name_plural = 'Registros de Máquina'
+    
+    def __str__(self):
+        return f"{self.machine.name} - {self.get_log_type_display()} - {self.timestamp}"

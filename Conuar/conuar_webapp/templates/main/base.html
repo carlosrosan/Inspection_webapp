@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>{% block title %}Aplicación Web Conuar{% endblock %}</title>
+    <title>{% block title %}Inspección de combustible - ArByte{% endblock %}</title>
     
     <!-- Bootstrap 5 CSS -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
@@ -14,15 +14,41 @@
     <link rel="stylesheet" href="{% static 'css/custom.css' %}">
     
     <style>
+        /* Dark theme CSS variables */
+        :root {
+            --primary-color: #CBFC02;
+            --dark-bg: #1a1a1a;
+            --darker-bg: #0d0d0d;
+            --card-bg: #2d2d2d;
+            --text-primary: #ffffff;
+            --text-secondary: #b0b0b0;
+            --text-muted: #808080;
+            --border-color: #404040;
+            --shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+        }
+
+        /* Dark theme base styles */
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
         /* Custom styles for enhanced appearance */
         .navbar-brand {
             font-weight: bold;
             font-size: 1.5rem;
+            color: var(--primary-color) !important;
+        }
+        
+        .navbar-brand img {
+            height: 40px;
+            margin-right: 10px;
         }
         
         .hero-section {
-            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
-            color: white;
+            background: linear-gradient(135deg, var(--darker-bg) 0%, #2a2a2a 100%);
+            color: var(--text-primary);
             padding: 100px 0;
             position: relative;
             overflow: hidden;
@@ -35,7 +61,7 @@
             left: 0;
             right: 0;
             bottom: 0;
-            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="white" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100"><defs><pattern id="grain" width="100" height="100" patternUnits="userSpaceOnUse"><circle cx="50" cy="50" r="1" fill="%23CBFC02" opacity="0.1"/></pattern></defs><rect width="100" height="100" fill="url(%23grain)"/></svg>');
             opacity: 0.3;
         }
         
@@ -48,51 +74,81 @@
             padding: 12px 30px;
             font-weight: 600;
             transition: all 0.3s ease;
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
+            border: 2px solid var(--primary-color);
         }
         
         .btn-custom:hover {
             transform: translateY(-2px);
-            box-shadow: 0 5px 15px rgba(0,0,0,0.2);
+            box-shadow: 0 5px 15px rgba(203, 252, 2, 0.3);
+            background-color: transparent;
+            color: var(--primary-color);
+        }
+        
+        .btn-outline-light {
+            border-color: var(--primary-color);
+            color: var(--primary-color);
+        }
+        
+        .btn-outline-light:hover {
+            background-color: var(--primary-color);
+            color: var(--dark-bg);
         }
         
         .card {
-            border: none;
+            border: 1px solid var(--border-color);
             border-radius: 15px;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            background-color: var(--card-bg);
+            color: var(--text-primary);
         }
         
         .card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
         
         .navbar {
-            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            background-color: var(--darker-bg) !important;
+            box-shadow: var(--shadow);
+            border-bottom: 1px solid var(--border-color);
+        }
+        
+        .navbar-nav .nav-link {
+            color: var(--text-primary) !important;
+            transition: color 0.3s ease;
+        }
+        
+        .navbar-nav .nav-link:hover {
+            color: var(--primary-color) !important;
         }
         
         .footer {
-            background: #2c3e50;
-            color: white;
+            background: var(--darker-bg);
+            color: var(--text-primary);
             padding: 40px 0 20px;
+            border-top: 1px solid var(--border-color);
         }
         
         .feature-card {
             text-align: center;
             padding: 30px 20px;
             border-radius: 15px;
-            background: white;
-            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+            background: var(--card-bg);
+            box-shadow: var(--shadow);
             transition: all 0.3s ease;
+            border: 1px solid var(--border-color);
         }
         
         .feature-card:hover {
             transform: translateY(-5px);
-            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.4);
         }
         
         .feature-card i {
-            color: #667eea;
+            color: var(--primary-color);
             margin-bottom: 20px;
         }
         
@@ -108,7 +164,7 @@
             top: 0;
             width: 2px;
             height: 100%;
-            background: #667eea;
+            background: var(--primary-color);
         }
         
         .timeline-icon {
@@ -121,18 +177,74 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: #667eea;
-            color: white;
+            background: var(--primary-color);
+            color: var(--dark-bg);
+        }
+
+        /* Form styles */
+        .form-control, .form-select {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+        
+        .form-control:focus, .form-select:focus {
+            background-color: var(--card-bg);
+            border-color: var(--primary-color);
+            color: var(--text-primary);
+            box-shadow: 0 0 0 0.2rem rgba(203, 252, 2, 0.25);
+        }
+        
+        .form-label {
+            color: var(--text-primary);
+        }
+        
+        .input-group-text {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-secondary);
+        }
+
+        /* Alert styles */
+        .alert {
+            background-color: var(--card-bg);
+            border: 1px solid var(--border-color);
+            color: var(--text-primary);
+        }
+
+        /* Text colors */
+        .text-muted {
+            color: var(--text-muted) !important;
+        }
+        
+        .text-primary {
+            color: var(--primary-color) !important;
+        }
+
+        /* Background colors */
+        .bg-light {
+            background-color: var(--darker-bg) !important;
+        }
+        
+        .bg-primary {
+            background-color: var(--primary-color) !important;
+            color: var(--dark-bg) !important;
+        }
+
+        /* Badge styles */
+        .badge.bg-success {
+            background-color: var(--primary-color) !important;
+            color: var(--dark-bg) !important;
         }
     </style>
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-light bg-white fixed-top">
+    <nav class="navbar navbar-expand-lg navbar-dark fixed-top">
         <div class="container">
             <a class="navbar-brand" href="{% url 'main:home' %}">
-                <i class="fas fa-cube text-primary me-2"></i>
-                Aplicación Web Conuar
+                <img src="{% static 'assets/Logo Arbyte.png' %}" alt="ArByte Logo" class="me-2">
+                Inspección de combustible
             </a>
             
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -207,8 +319,8 @@
         <div class="container">
             <div class="row">
                 <div class="col-md-6">
-                    <h5><i class="fas fa-cube me-2"></i>Aplicación Web Conuar</h5>
-                    <p class="text-muted">Construyendo soluciones innovadoras para los desafíos del mañana.</p>
+                    <h5><i class="fas fa-cube me-2"></i>ArByte - Inspección de combustible</h5>
+                    <p class="text-muted">Sistema avanzado de inspección y control de calidad de combustible.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <h6>Conéctate con Nosotros</h6>
@@ -223,7 +335,7 @@
             <hr class="my-4">
             <div class="row">
                 <div class="col-md-6">
-                    <p class="text-muted mb-0">&copy; 2025 Aplicación Web Conuar. Todos los derechos reservados.</p>
+                    <p class="text-muted mb-0">&copy; 2025 ArByte. Todos los derechos reservados.</p>
                 </div>
                 <div class="col-md-6 text-md-end">
                     <a href="#" class="text-muted me-3">Política de Privacidad</a>
