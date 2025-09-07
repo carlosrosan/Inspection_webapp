@@ -63,39 +63,26 @@ def dashboard(request):
     from datetime import datetime, timedelta
     import random
     
-    # Get or create the inspection machine
-    machine, created = InspectionMachine.objects.get_or_create(
-        machine_id='MAQ-001',
-        defaults={
-            'name': 'Analizador de Combustible ArByte-3000',
-            'model': 'AB-3000',
-            'version': 'v2.1.3',
-            'status': 'idle',
-            'total_inspections': 0,
-            'inspections_today': 0,
-            'uptime_hours': 0.0,
-            'success_rate': 100.0,
-            'average_inspection_time': 0.0,
-        }
-    )
+    # Get or create the inspection machine and single inspection
+    machine = InspectionMachine.get_machine()
+    inspection = Inspection.get_inspection()
     
-    # Generate sample data if machine was just created
-    if created:
-        # Generate some sample inspection data
-        machine.total_inspections = random.randint(150, 300)
-        machine.inspections_today = random.randint(5, 15)
-        machine.uptime_hours = random.uniform(120.5, 200.8)
-        machine.success_rate = random.uniform(95.0, 99.8)
-        machine.average_inspection_time = random.uniform(8.5, 15.2)
-        machine.last_inspection = datetime.now() - timedelta(minutes=random.randint(5, 60))
-        machine.last_maintenance = datetime.now() - timedelta(days=random.randint(1, 7))
-        machine.save()
-        
-        # Create some sample logs
+    # Update machine metrics
+    machine.total_inspections = 1
+    machine.inspections_today = 1
+    machine.uptime_hours = random.uniform(120.5, 200.8)
+    machine.success_rate = random.uniform(95.0, 99.8)
+    machine.average_inspection_time = random.uniform(8.5, 15.2)
+    machine.last_inspection = datetime.now() - timedelta(minutes=random.randint(5, 60))
+    machine.last_maintenance = datetime.now() - timedelta(days=random.randint(1, 7))
+    machine.save()
+    
+    # Create some sample logs if none exist
+    if not machine.logs.exists():
         log_messages = [
             "Máquina iniciada correctamente",
             "Calibración completada exitosamente",
-            "Inspección de muestra #{} completada".format(random.randint(100, 999)),
+            "Inspección de muestra completada",
             "Sistema de análisis funcionando normalmente",
             "Verificación de calidad en progreso",
         ]
@@ -138,10 +125,11 @@ def dashboard(request):
         'description': 'Monitoreo en tiempo real del sistema de inspección de combustible',
         'user': request.user,
         'machine': machine,
+        'inspection': inspection,
         'recent_logs': recent_logs,
         'stats': {
-            'total_inspections': total_inspections,
-            'inspections_this_week': inspections_this_week,
+            'total_inspections': 1,
+            'inspections_this_week': 1,
             'machine_efficiency': round(efficiency, 1),
             'uptime_percentage': round((machine.uptime_hours / 168) * 100, 1),  # Assuming 168 hours per week
         },
@@ -152,7 +140,7 @@ def dashboard(request):
 # Inspection views
 @login_required(login_url='main:login')
 def inspection_list(request):
-    """List all inspections"""
+    """List all inspections - showing only the single inspection"""
     from .models import Inspection
     
     # Get filter parameters
@@ -160,10 +148,11 @@ def inspection_list(request):
     type_filter = request.GET.get('type', '')
     search_query = request.GET.get('search', '')
     
-    # Start with all inspections
-    inspections = Inspection.objects.all()
+    # Get the single inspection
+    inspection = Inspection.get_inspection()
+    inspections = Inspection.objects.filter(id=1)
     
-    # Apply filters
+    # Apply filters (though there's only one inspection)
     if status_filter:
         inspections = inspections.filter(status=status_filter)
     
@@ -202,6 +191,7 @@ def inspection_detail(request, inspection_id):
     from .models import Inspection, InspectionPhoto
     from django.shortcuts import get_object_or_404
     
+    # Get the inspection by id
     inspection = get_object_or_404(Inspection, id=inspection_id)
     photos = inspection.photos.all()
     

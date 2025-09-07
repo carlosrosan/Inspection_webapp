@@ -17,7 +17,7 @@ class User(AbstractUser):
         return self.username
 
 class Inspection(models.Model):
-    """Model for product inspections"""
+    """Model for product inspections - Single inspection for the system"""
     
     INSPECTION_STATUS_CHOICES = [
         ('pending', 'Pendiente'),
@@ -37,8 +37,8 @@ class Inspection(models.Model):
     ]
     
     # Basic Information
-    title = models.CharField(max_length=200, blank=True, null=True, help_text="Título o nombre de la inspección")
-    description = models.TextField(blank=True, null=True, help_text="Descripción detallada de la inspección")
+    title = models.CharField(max_length=200, default='Inspección de Combustible ArByte', help_text="Título o nombre de la inspección")
+    description = models.TextField(default='Inspección de calidad de combustible utilizando el sistema ArByte-3000', help_text="Descripción detallada de la inspección")
     inspection_type = models.CharField(
         max_length=20, 
         choices=INSPECTION_TYPE_CHOICES,
@@ -48,7 +48,7 @@ class Inspection(models.Model):
     status = models.CharField(
         max_length=20,
         choices=INSPECTION_STATUS_CHOICES,
-        default='pending',
+        default='completed',
         help_text="Estado actual de la inspección"
     )
     
@@ -109,6 +109,24 @@ class Inspection(models.Model):
         if self.completed_date and self.inspection_date:
             return self.completed_date - self.inspection_date
         return None
+    
+    @classmethod
+    def get_inspection(cls):
+        """Get the single inspection, create if doesn't exist"""
+        inspection, created = cls.objects.get_or_create(
+            id=1,
+            defaults={
+                'title': 'Inspección de Combustible ArByte',
+                'description': 'Inspección de calidad de combustible utilizando el sistema ArByte-3000',
+                'inspection_type': 'quality',
+                'status': 'completed',
+                'product_name': 'Combustible Industrial',
+                'product_code': 'COMB-001',
+                'batch_number': 'LOTE-2024-001',
+                'location': 'Planta de Inspección ArByte',
+            }
+        )
+        return inspection
 
 class InspectionPhoto(models.Model):
     """Model for inspection photos"""
@@ -156,6 +174,16 @@ class InspectionMachine(models.Model):
     name = models.CharField(max_length=100, default='Analizador de Combustible ArByte-3000')
     model = models.CharField(max_length=50, default='AB-3000')
     version = models.CharField(max_length=20, default='v2.1.3')
+    
+    # Current Inspection
+    current_inspection = models.OneToOneField(
+        'Inspection',
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        related_name='machine',
+        help_text="Inspección actual de la máquina"
+    )
     
     # Current Status
     status = models.CharField(
@@ -214,6 +242,33 @@ class InspectionMachine(models.Model):
             'error': 'danger',
         }
         return status_colors.get(self.status, 'secondary')
+    
+    @classmethod
+    def get_machine(cls):
+        """Get the single machine, create if doesn't exist"""
+        machine, created = cls.objects.get_or_create(
+            machine_id='MAQ-001',
+            defaults={
+                'name': 'Analizador de Combustible ArByte-3000',
+                'model': 'AB-3000',
+                'version': 'v2.1.3',
+                'status': 'idle',
+                'total_inspections': 1,
+                'inspections_today': 1,
+                'uptime_hours': 0.0,
+                'success_rate': 100.0,
+                'average_inspection_time': 0.0,
+            }
+        )
+        
+        # Link to the single inspection if not already linked
+        if not machine.current_inspection:
+            from .models import Inspection
+            inspection = Inspection.get_inspection()
+            machine.current_inspection = inspection
+            machine.save()
+        
+        return machine
 
 class MachineLog(models.Model):
     """Model for machine operation logs"""
