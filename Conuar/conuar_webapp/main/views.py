@@ -134,7 +134,7 @@ def dashboard(request):
     }
     
     context = {
-        'title': 'Panel de Control - Estado de Máquina',
+        'title': 'Estado del Sistema',
         'description': 'Monitoreo en tiempo real del sistema de inspección de combustible',
         'user': request.user,
         'machine': machine,

@@ -10,7 +10,7 @@
         <p class="lead mb-5">{{ description }}</p>
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom me-3">Panel de Control</a>
+                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom me-3">Estado del Sistema</a>
             </div>
         </div>
     </div>
@@ -269,7 +269,7 @@
                     {% endif %}
                 </p>
                 <a href="{% url 'main:dashboard' %}" class="btn btn-primary btn-custom">
-                    <i class="fas fa-plus me-2"></i>Ir al Panel de Control
+                    <i class="fas fa-plus me-2"></i>Ir al Estado del Sistema
                 </a>
             </div>
         {% endif %}

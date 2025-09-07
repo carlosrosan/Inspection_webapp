@@ -24,7 +24,12 @@
                 <div class="card border-0 shadow-lg">
                     <div class="card-body p-5 text-center">
                         <i class="fas fa-rocket fa-5x text-primary mb-4"></i>
-                        <h4 class="card-title">{{ company_info.name }}</h4>
+                        <h4 class="card-title">
+                            <a href="https://arbyte.io/" target="_blank" class="text-decoration-none text-primary">
+                                {{ company_info.name }}
+                                <i class="fas fa-external-link-alt ms-2"></i>
+                            </a>
+                        </h4>
                         <p class="card-text text-muted">Est. {{ company_info.founded }}</p>
                     </div>
                 </div>
@@ -145,7 +150,12 @@
             <div class="col-lg-8 mx-auto">
                 <h2 class="display-5 fw-bold mb-4">¿Listo para Trabajar con Nosotros?</h2>
                 <p class="lead mb-5">Hablemos sobre cómo podemos ayudar a dar vida a tu visión.</p>
-                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom btn-lg">Ir al Panel de Control</a>
+                <div class="d-flex flex-column flex-md-row gap-3 justify-content-center">
+                    <a href="https://arbyte.io/" target="_blank" class="btn btn-outline-light btn-custom btn-lg">
+                        <i class="fas fa-globe me-2"></i>Visitar ArByte
+                    </a>
+                    <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom btn-lg">Ir al Estado del Sistema</a>
+                </div>
             </div>
         </div>
     </div>
