@@ -362,3 +362,92 @@ class SystemConfiguration(models.Model):
             }
         )
         return config
+
+class InspectionPlcEvent(models.Model):
+    """Model for PLC events during inspections"""
+    
+    EXECUTION_TYPE_CHOICES = [
+        ('automatic', 'Automático'),
+        ('manual', 'Manual'),
+        ('free', 'Libre'),
+    ]
+    
+    FILMING_TYPE_CHOICES = [
+        ('video', 'Video'),
+        ('photo', 'Foto'),
+    ]
+    
+    # Basic Information
+    timestamp_plc = models.DateTimeField(help_text="Timestamp del PLC")
+    id_inspection = models.ForeignKey(
+        Inspection, 
+        on_delete=models.CASCADE, 
+        related_name='plc_events',
+        help_text="ID de la inspección relacionada"
+    )
+    execution_id = models.CharField(
+        max_length=100, 
+        help_text="ID ejecución: Entre descanso y descanso"
+    )
+    control_point_id = models.CharField(
+        max_length=100, 
+        help_text="ID punto de control: Ej. Zapata num. 5"
+    )
+    execution_type = models.CharField(
+        max_length=20,
+        choices=EXECUTION_TYPE_CHOICES,
+        help_text="Tipo de ejecución"
+    )
+    control_point_label = models.CharField(
+        max_length=200, 
+        blank=True,
+        help_text="Etiqueta punto de control (solo para rutinas no libres)"
+    )
+    
+    # Position Information
+    x_control_point = models.FloatField(help_text="X punto de control")
+    y_control_point = models.FloatField(help_text="Y punto de control")
+    z_control_point = models.FloatField(help_text="Z punto de control")
+    plate_angle = models.FloatField(help_text="Ángulo del plato")
+    
+    # User Information
+    control_point_creator = models.CharField(
+        max_length=100, 
+        help_text="Usuario creador punto de control"
+    )
+    program_creator = models.CharField(
+        max_length=100, 
+        help_text="Usuario creador Programa"
+    )
+    program_version = models.CharField(
+        max_length=50, 
+        help_text="Version del programa"
+    )
+    
+    # Camera Information
+    camera_id = models.CharField(
+        max_length=50, 
+        help_text="ID Cámara"
+    )
+    filming_type = models.CharField(
+        max_length=20,
+        choices=FILMING_TYPE_CHOICES,
+        help_text="Tipo filmación"
+    )
+    last_photo_request_timestamp = models.DateTimeField(
+        null=True, 
+        blank=True,
+        help_text="Último timestamp solicitud foto cámara"
+    )
+    
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-timestamp_plc']
+        verbose_name = 'Evento PLC de Inspección'
+        verbose_name_plural = 'Eventos PLC de Inspección'
+    
+    def __str__(self):
+        return f"PLC Event - {self.id_inspection.title} - {self.control_point_id} - {self.timestamp_plc}"
