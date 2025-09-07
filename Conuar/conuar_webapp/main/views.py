@@ -3,20 +3,10 @@ from django.contrib.auth.decorators import login_required
 from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.db import models
+from django.contrib.auth import update_session_auth_hash
+from .forms import SystemConfigurationForm, CustomUserCreationForm, CustomPasswordChangeForm
+from .models import SystemConfiguration, User
 
-def home(request):
-    """Home page view"""
-    context = {
-        'title': 'Sistema de Inspección de Combustible',
-        'description': 'Sistema avanzado de inspección y control de calidad de combustible desarrollado por ArByte.',
-        'features': [
-            'Inspección de Calidad',
-            'Control de Procesos',
-            'Reportes Automatizados',
-            'Gestión de Documentos'
-        ]
-    }
-    return render(request, 'main/home.html', context)
 
 def about(request):
     """About page view"""
@@ -31,24 +21,12 @@ def about(request):
     }
     return render(request, 'main/about.html', context)
 
-def contact(request):
-    """Contact page view"""
-    context = {
-        'title': 'Contáctanos - ArByte',
-        'description': 'Ponte en contacto con nuestro equipo de especialistas en inspección de combustible.',
-        'contact_info': {
-            'email': 'info@arbyte.com',
-            'phone': '+549 11 6484 4321',
-            'address': 'Pilar, Provincia de Buenos Aires, Argentina.'
-        }
-    }
-    return render(request, 'main/contact.html', context)
 
 
 def login_view(request):
     """User login view"""
     if request.user.is_authenticated:
-        return redirect('main:home')
+        return redirect('main:dashboard')
     
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -58,8 +36,8 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, f'¡Bienvenido de vuelta, {user.username}!')
-            # Redirect to the page they were trying to access, or home
-            next_url = request.GET.get('next', 'main:home')
+            # Redirect to the page they were trying to access, or dashboard
+            next_url = request.GET.get('next', 'main:dashboard')
             return redirect(next_url)
         else:
             messages.error(request, 'Nombre de usuario o contraseña inválidos.')
@@ -74,7 +52,7 @@ def logout_view(request):
     """User logout view"""
     logout(request)
     messages.success(request, 'Has cerrado sesión exitosamente.')
-    return redirect('main:home')
+    return redirect('main:dashboard')
 
 
 @login_required(login_url='main:login')
@@ -236,3 +214,58 @@ def inspection_detail(request, inspection_id):
     }
     
     return render(request, 'main/inspection_detail.html', context)
+
+@login_required(login_url='main:login')
+def configuration(request):
+    """System configuration view with all 5 features"""
+    
+    # Get current system configuration
+    config = SystemConfiguration.get_config()
+    
+    # Initialize forms
+    config_form = SystemConfigurationForm(instance=config)
+    user_creation_form = CustomUserCreationForm()
+    password_change_form = CustomPasswordChangeForm(user=request.user)
+    
+    # Handle form submissions
+    if request.method == 'POST':
+        form_type = request.POST.get('form_type')
+        
+        if form_type == 'system_config':
+            config_form = SystemConfigurationForm(request.POST, instance=config)
+            if config_form.is_valid():
+                config_obj = config_form.save(commit=False)
+                config_obj.updated_by = request.user
+                config_obj.save()
+                messages.success(request, 'Configuración del sistema actualizada exitosamente.')
+                return redirect('main:configuration')
+        
+        elif form_type == 'create_user':
+            user_creation_form = CustomUserCreationForm(request.POST)
+            if user_creation_form.is_valid():
+                user_creation_form.save()
+                messages.success(request, 'Usuario creado exitosamente.')
+                return redirect('main:configuration')
+        
+        elif form_type == 'change_password':
+            password_change_form = CustomPasswordChangeForm(user=request.user, data=request.POST)
+            if password_change_form.is_valid():
+                password_change_form.save()
+                update_session_auth_hash(request, password_change_form.user)
+                messages.success(request, 'Contraseña actualizada exitosamente.')
+                return redirect('main:configuration')
+    
+    # Get all users for display
+    users = User.objects.all().order_by('-date_joined')
+    
+    context = {
+        'title': 'Configuración del Sistema',
+        'description': 'Configuración de sistema, usuarios y dispositivos',
+        'config_form': config_form,
+        'user_creation_form': user_creation_form,
+        'password_change_form': password_change_form,
+        'users': users,
+        'current_config': config,
+    }
+    
+    return render(request, 'main/configuration.html', context)

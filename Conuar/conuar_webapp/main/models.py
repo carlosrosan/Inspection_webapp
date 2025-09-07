@@ -239,3 +239,71 @@ class MachineLog(models.Model):
     
     def __str__(self):
         return f"{self.machine.name} - {self.get_log_type_display()} - {self.timestamp}"
+
+class SystemConfiguration(models.Model):
+    """Model for system configuration settings"""
+    
+    # Storage Configuration
+    media_storage_path = models.CharField(
+        max_length=500, 
+        default='media/inspection_photos/',
+        help_text="Ruta de almacenamiento para archivos multimedia"
+    )
+    
+    # Camera Configuration
+    camera_1_ip = models.GenericIPAddressField(
+        default='192.168.1.100',
+        help_text="Dirección IP de la Cámara 1"
+    )
+    camera_2_ip = models.GenericIPAddressField(
+        default='192.168.1.101',
+        help_text="Dirección IP de la Cámara 2"
+    )
+    camera_3_ip = models.GenericIPAddressField(
+        default='192.168.1.102',
+        help_text="Dirección IP de la Cámara 3"
+    )
+    
+    # PLC Configuration
+    plc_ip = models.GenericIPAddressField(
+        default='192.168.1.50',
+        help_text="Dirección IP del PLC que controla la máquina de inspección"
+    )
+    plc_port = models.PositiveIntegerField(
+        default=502,
+        help_text="Puerto del PLC (por defecto 502 para Modbus)"
+    )
+    
+    # Timestamps
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    updated_by = models.ForeignKey(
+        User,
+        on_delete=models.SET_NULL,
+        null=True,
+        blank=True,
+        help_text="Usuario que realizó la última actualización"
+    )
+    
+    class Meta:
+        verbose_name = 'Configuración del Sistema'
+        verbose_name_plural = 'Configuraciones del Sistema'
+    
+    def __str__(self):
+        return f"Configuración del Sistema - {self.updated_at.strftime('%d/%m/%Y %H:%M')}"
+    
+    @classmethod
+    def get_config(cls):
+        """Get the current system configuration, create if doesn't exist"""
+        config, created = cls.objects.get_or_create(
+            pk=1,
+            defaults={
+                'media_storage_path': 'media/inspection_photos/',
+                'camera_1_ip': '192.168.1.100',
+                'camera_2_ip': '192.168.1.101',
+                'camera_3_ip': '192.168.1.102',
+                'plc_ip': '192.168.1.50',
+                'plc_port': 502,
+            }
+        )
+        return config

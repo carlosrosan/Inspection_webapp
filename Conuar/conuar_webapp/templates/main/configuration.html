@@ -1,0 +1,384 @@
+{% extends 'main/base.html' %}
+{% load static %}
+
+{% block content %}
+<div class="container-fluid">
+    <div class="row">
+        <div class="col-12">
+            <!-- Page Header -->
+            <div class="hero-section text-center">
+                <div class="container">
+                    <h1 class="display-4 fw-bold mb-4">
+                        <i class="fas fa-cogs me-3"></i>Configuración del Sistema
+                    </h1>
+                    <p class="lead mb-5">Gestiona la configuración del sistema, usuarios y dispositivos de inspección</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container mt-5">
+        <!-- System Configuration Section -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-primary text-white">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-server me-2"></i>Configuración del Sistema
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="form_type" value="system_config">
+                            
+                            <div class="row">
+                                <!-- Storage Path -->
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ config_form.media_storage_path.id_for_label }}" class="form-label">
+                                        <i class="fas fa-folder me-1"></i>{{ config_form.media_storage_path.label }}
+                                    </label>
+                                    {{ config_form.media_storage_path }}
+                                    {% if config_form.media_storage_path.help_text %}
+                                        <div class="form-text">{{ config_form.media_storage_path.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <!-- PLC Configuration -->
+                                <div class="col-md-3 mb-3">
+                                    <label for="{{ config_form.plc_ip.id_for_label }}" class="form-label">
+                                        <i class="fas fa-microchip me-1"></i>{{ config_form.plc_ip.label }}
+                                    </label>
+                                    {{ config_form.plc_ip }}
+                                    {% if config_form.plc_ip.help_text %}
+                                        <div class="form-text">{{ config_form.plc_ip.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="col-md-3 mb-3">
+                                    <label for="{{ config_form.plc_port.id_for_label }}" class="form-label">
+                                        <i class="fas fa-plug me-1"></i>{{ config_form.plc_port.label }}
+                                    </label>
+                                    {{ config_form.plc_port }}
+                                    {% if config_form.plc_port.help_text %}
+                                        <div class="form-text">{{ config_form.plc_port.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <!-- Camera Configuration -->
+                            <div class="row">
+                                <div class="col-12">
+                                    <h5 class="mb-3">
+                                        <i class="fas fa-video me-2"></i>Configuración de Cámaras
+                                    </h5>
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="{{ config_form.camera_1_ip.id_for_label }}" class="form-label">
+                                        <i class="fas fa-camera me-1"></i>{{ config_form.camera_1_ip.label }}
+                                    </label>
+                                    {{ config_form.camera_1_ip }}
+                                    {% if config_form.camera_1_ip.help_text %}
+                                        <div class="form-text">{{ config_form.camera_1_ip.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="{{ config_form.camera_2_ip.id_for_label }}" class="form-label">
+                                        <i class="fas fa-camera me-1"></i>{{ config_form.camera_2_ip.label }}
+                                    </label>
+                                    {{ config_form.camera_2_ip }}
+                                    {% if config_form.camera_2_ip.help_text %}
+                                        <div class="form-text">{{ config_form.camera_2_ip.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <label for="{{ config_form.camera_3_ip.id_for_label }}" class="form-label">
+                                        <i class="fas fa-camera me-1"></i>{{ config_form.camera_3_ip.label }}
+                                    </label>
+                                    {{ config_form.camera_3_ip }}
+                                    {% if config_form.camera_3_ip.help_text %}
+                                        <div class="form-text">{{ config_form.camera_3_ip.help_text }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-primary btn-custom">
+                                    <i class="fas fa-save me-2"></i>Guardar Configuración
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- User Management Section -->
+        <div class="row mb-5">
+            <div class="col-md-6">
+                <!-- Create User -->
+                <div class="card">
+                    <div class="card-header bg-success text-white">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-user-plus me-2"></i>Crear Nuevo Usuario
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="form_type" value="create_user">
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ user_creation_form.username.id_for_label }}" class="form-label">
+                                        {{ user_creation_form.username.label }}
+                                    </label>
+                                    {{ user_creation_form.username }}
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ user_creation_form.email.id_for_label }}" class="form-label">
+                                        {{ user_creation_form.email.label }}
+                                    </label>
+                                    {{ user_creation_form.email }}
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ user_creation_form.first_name.id_for_label }}" class="form-label">
+                                        {{ user_creation_form.first_name.label }}
+                                    </label>
+                                    {{ user_creation_form.first_name }}
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ user_creation_form.last_name.id_for_label }}" class="form-label">
+                                        {{ user_creation_form.last_name.label }}
+                                    </label>
+                                    {{ user_creation_form.last_name }}
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ user_creation_form.password1.id_for_label }}" class="form-label">
+                                        {{ user_creation_form.password1.label }}
+                                    </label>
+                                    {{ user_creation_form.password1 }}
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <label for="{{ user_creation_form.password2.id_for_label }}" class="form-label">
+                                        {{ user_creation_form.password2.label }}
+                                    </label>
+                                    {{ user_creation_form.password2 }}
+                                </div>
+                            </div>
+                            
+                            <div class="row">
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        {{ user_creation_form.is_inspector }}
+                                        <label class="form-check-label" for="{{ user_creation_form.is_inspector.id_for_label }}">
+                                            {{ user_creation_form.is_inspector.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-6 mb-3">
+                                    <div class="form-check">
+                                        {{ user_creation_form.is_supervisor }}
+                                        <label class="form-check-label" for="{{ user_creation_form.is_supervisor.id_for_label }}">
+                                            {{ user_creation_form.is_supervisor.label }}
+                                        </label>
+                                    </div>
+                                </div>
+                            </div>
+                            
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-success btn-custom">
+                                    <i class="fas fa-user-plus me-2"></i>Crear Usuario
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="col-md-6">
+                <!-- Change Password -->
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-key me-2"></i>Cambiar Contraseña
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="form_type" value="change_password">
+                            
+                            <div class="mb-3">
+                                <label for="{{ password_change_form.old_password.id_for_label }}" class="form-label">
+                                    {{ password_change_form.old_password.label }}
+                                </label>
+                                {{ password_change_form.old_password }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="{{ password_change_form.new_password1.id_for_label }}" class="form-label">
+                                    {{ password_change_form.new_password1.label }}
+                                </label>
+                                {{ password_change_form.new_password1 }}
+                            </div>
+                            
+                            <div class="mb-3">
+                                <label for="{{ password_change_form.new_password2.id_for_label }}" class="form-label">
+                                    {{ password_change_form.new_password2.label }}
+                                </label>
+                                {{ password_change_form.new_password2 }}
+                            </div>
+                            
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-warning btn-custom">
+                                    <i class="fas fa-key me-2"></i>Cambiar Contraseña
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Users List -->
+        <div class="row">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-info text-white">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-users me-2"></i>Usuarios del Sistema
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <div class="table-responsive">
+                            <table class="table table-dark table-striped">
+                                <thead>
+                                    <tr>
+                                        <th><i class="fas fa-user me-1"></i>Usuario</th>
+                                        <th><i class="fas fa-envelope me-1"></i>Email</th>
+                                        <th><i class="fas fa-id-badge me-1"></i>Roles</th>
+                                        <th><i class="fas fa-calendar me-1"></i>Fecha de Registro</th>
+                                        <th><i class="fas fa-clock me-1"></i>Último Acceso</th>
+                                        <th><i class="fas fa-toggle-on me-1"></i>Estado</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for user in users %}
+                                    <tr>
+                                        <td>
+                                            <strong>{{ user.username }}</strong>
+                                            {% if user.first_name or user.last_name %}
+                                                <br><small class="text-muted">{{ user.first_name }} {{ user.last_name }}</small>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ user.email|default:"No especificado" }}</td>
+                                        <td>
+                                            {% if user.is_superuser %}
+                                                <span class="badge bg-danger">Superusuario</span>
+                                            {% endif %}
+                                            {% if user.is_supervisor %}
+                                                <span class="badge bg-warning">Supervisor</span>
+                                            {% endif %}
+                                            {% if user.is_inspector %}
+                                                <span class="badge bg-info">Inspector</span>
+                                            {% endif %}
+                                            {% if not user.is_superuser and not user.is_supervisor and not user.is_inspector %}
+                                                <span class="badge bg-secondary">Usuario</span>
+                                            {% endif %}
+                                        </td>
+                                        <td>{{ user.date_joined|date:"d/m/Y H:i" }}</td>
+                                        <td>{{ user.last_login|date:"d/m/Y H:i"|default:"Nunca" }}</td>
+                                        <td>
+                                            {% if user.is_active %}
+                                                <span class="badge bg-success">Activo</span>
+                                            {% else %}
+                                                <span class="badge bg-danger">Inactivo</span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    {% empty %}
+                                    <tr>
+                                        <td colspan="6" class="text-center text-muted">
+                                            <i class="fas fa-info-circle me-2"></i>No hay usuarios registrados
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<style>
+    .card {
+        border: 1px solid var(--border-color);
+        border-radius: 15px;
+        box-shadow: var(--shadow);
+        transition: all 0.3s ease;
+        background-color: var(--card-bg);
+        color: var(--text-primary);
+    }
+    
+    .card:hover {
+        transform: translateY(-2px);
+        box-shadow: 0 8px 25px rgba(0,0,0,0.3);
+    }
+    
+    .card-header {
+        border-radius: 15px 15px 0 0 !important;
+        border-bottom: 1px solid var(--border-color);
+    }
+    
+    .form-control, .form-select {
+        background-color: var(--card-bg);
+        border: 1px solid var(--border-color);
+        color: var(--text-primary);
+        border-radius: 8px;
+    }
+    
+    .form-control:focus, .form-select:focus {
+        background-color: var(--card-bg);
+        border-color: var(--primary-color);
+        color: var(--text-primary);
+        box-shadow: 0 0 0 0.2rem rgba(203, 252, 2, 0.25);
+    }
+    
+    .form-label {
+        color: var(--text-primary);
+        font-weight: 600;
+    }
+    
+    .form-check-input:checked {
+        background-color: var(--primary-color);
+        border-color: var(--primary-color);
+    }
+    
+    .table-dark {
+        --bs-table-bg: var(--card-bg);
+        --bs-table-striped-bg: rgba(203, 252, 2, 0.05);
+        --bs-table-hover-bg: rgba(203, 252, 2, 0.1);
+    }
+    
+    .badge {
+        font-size: 0.75em;
+    }
+</style>
+{% endblock %}
