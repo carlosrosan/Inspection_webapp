@@ -28,22 +28,19 @@ class Inspection(models.Model):
         ('rejected', 'Rechazada'),
     ]
     
-    INSPECTION_TYPE_CHOICES = [
-        ('quality', 'Control de Calidad'),
-        ('safety', 'Inspección de Seguridad'),
-        ('compliance', 'Verificación de Cumplimiento'),
-        ('performance', 'Prueba de Rendimiento'),
-        ('visual', 'Inspección Visual'),
+    TIPO_COMBUSTIBLE_CHOICES = [
+        ('uranio', 'Uranio'),
+        ('plutonio', 'Plutonio')
     ]
     
     # Basic Information
     title = models.CharField(max_length=200, default='Inspección de Combustible ArByte', help_text="Título o nombre de la inspección")
     description = models.TextField(default='Inspección de calidad de combustible utilizando el sistema ArByte-3000', help_text="Descripción detallada de la inspección")
-    inspection_type = models.CharField(
+    tipo_combustible = models.CharField(
         max_length=20, 
-        choices=INSPECTION_TYPE_CHOICES,
-        default='quality',
-        help_text="Tipo de inspección que se está realizando"
+        choices=TIPO_COMBUSTIBLE_CHOICES,
+        default='diesel',
+        help_text="Tipo de combustible que se está inspeccionando"
     )
     status = models.CharField(
         max_length=20,
@@ -124,7 +121,7 @@ class Inspection(models.Model):
             defaults={
                 'title': 'Inspección de Combustible ArByte',
                 'description': 'Inspección de calidad de combustible utilizando el sistema ArByte-3000',
-                'inspection_type': 'quality',
+                'tipo_combustible': 'diesel',
                 'status': 'completed',
                 'product_name': 'Combustible Industrial',
                 'product_code': 'COMB-001',
@@ -484,6 +481,7 @@ class PlcReading(models.Model):
     control_point_id = models.IntegerField(help_text="ID punto de control")
     execution_type = models.IntegerField(help_text="Tipo de ejecución (1=automatic, 2=manual, 3=free)")
     control_point_label = models.IntegerField(help_text="Etiqueta punto de control")
+    tipo_combustible = models.IntegerField(help_text="Tipo de combustible (1=diesel, 2=gasolina, 3=kerosene, 4=biodiesel, 5=otros)")
     
     # Position Information
     x_control_point = models.FloatField(help_text="X punto de control")

@@ -60,18 +60,19 @@ class PlcDataReader:
             'control_point_id': 4,
             'execution_type': 5,
             'control_point_label': 6,
-            'x_control_point': 7,
-            'y_control_point': 8,
-            'z_control_point': 9,
-            'plate_angle': 10,
-            'control_point_creator': 11,
-            'program_creator': 12,
-            'program_version': 13,
-            'camera_id': 14,
-            'filming_type': 15,
-            'last_photo_request_timestamp': 16,
-            'new_photos_available': 17,  # Flag indicando nuevas fotos
-            'photo_count': 18,  # Número de nuevas fotos
+            'tipo_combustible': 7,  # Nuevo campo para tipo de combustible
+            'x_control_point': 8,
+            'y_control_point': 9,
+            'z_control_point': 10,
+            'plate_angle': 11,
+            'control_point_creator': 12,
+            'program_creator': 13,
+            'program_version': 14,
+            'camera_id': 15,
+            'filming_type': 16,
+            'last_photo_request_timestamp': 17,
+            'new_photos_available': 18,  # Flag indicando nuevas fotos
+            'photo_count': 19,  # Número de nuevas fotos
         }
     
     def connect_to_plc(self) -> bool:
@@ -139,6 +140,7 @@ class PlcDataReader:
                 control_point_id=plc_data['control_point_id'],
                 execution_type=plc_data['execution_type'],
                 control_point_label=plc_data['control_point_label'],
+                tipo_combustible=plc_data['tipo_combustible'],
                 x_control_point=float(plc_data['x_control_point']),
                 y_control_point=float(plc_data['y_control_point']),
                 z_control_point=float(plc_data['z_control_point']),

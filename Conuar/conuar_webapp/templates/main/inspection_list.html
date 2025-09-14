@@ -45,7 +45,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="type" class="form-label small">Tipo</label>
+                                <label for="type" class="form-label small">Tipo de Combustible</label>
                                 <select name="type" id="type" class="form-select">
                                     <option value="">Todos los tipos</option>
                                     {% for value, label in type_choices %}
@@ -109,7 +109,7 @@
                                         <span class="badge bg-{{ inspection.status|default:'success' }} me-2">
                                             {{ inspection.get_status_display }}
                                         </span>
-                                        <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
+                                        <span class="badge bg-info">{{ inspection.get_tipo_combustible_display }}</span>
                                     </div>
                                 </div>
                                 <div class="card-body">

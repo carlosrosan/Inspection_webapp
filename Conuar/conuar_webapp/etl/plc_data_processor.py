@@ -61,6 +61,15 @@ class PlcDataProcessor:
             1: 'video',
             2: 'photo'
         }
+        
+        # Mapeo de tipos de combustible
+        self.tipo_combustible_map = {
+            1: 'diesel',
+            2: 'gasolina',
+            3: 'kerosene',
+            4: 'biodiesel',
+            5: 'otros'
+        }
     
     def get_unprocessed_readings(self, limit: int = 100) -> List[PlcReading]:
         """Obtener lecturas PLC no procesadas"""
@@ -76,7 +85,7 @@ class PlcDataProcessor:
             logger.error(f"Error obteniendo lecturas no procesadas: {e}")
             return []
     
-    def get_or_create_inspection(self, inspection_id: int) -> Inspection:
+    def get_or_create_inspection(self, inspection_id: int, reading: PlcReading = None) -> Inspection:
         """Obtener o crear inspección con el ID dado para el sistema Conuar"""
         try:
             inspection, created = Inspection.objects.get_or_create(
@@ -84,7 +93,7 @@ class PlcDataProcessor:
                 defaults={
                     'title': f'Inspección de Combustible Conuar #{inspection_id}',
                     'description': f'Inspección automática generada por PLC del sistema Conuar #{inspection_id}',
-                    'inspection_type': 'quality',
+                    'tipo_combustible': self.tipo_combustible_map.get(reading.tipo_combustible, 'diesel') if reading else 'diesel',
                     'status': 'in_progress',
                     'product_name': 'Combustible Industrial',
                     'product_code': f'COMB-{inspection_id:03d}',
@@ -239,7 +248,7 @@ class PlcDataProcessor:
                 return False
             
             # Obtener o crear inspección
-            inspection = self.get_or_create_inspection(reading.id_inspection)
+            inspection = self.get_or_create_inspection(reading.id_inspection, reading)
             
             # Actualizar estadísticas de máquina
             self.update_machine_stats(inspection)

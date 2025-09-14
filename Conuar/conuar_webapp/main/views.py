@@ -159,7 +159,7 @@ def inspection_list(request):
         inspections = inspections.filter(status=status_filter)
     
     if type_filter:
-        inspections = inspections.filter(inspection_type=type_filter)
+        inspections = inspections.filter(tipo_combustible=type_filter)
     
     if search_query:
         inspections = inspections.filter(
@@ -171,7 +171,7 @@ def inspection_list(request):
     
     # Get unique values for filter dropdowns
     status_choices = Inspection.INSPECTION_STATUS_CHOICES
-    type_choices = Inspection.INSPECTION_TYPE_CHOICES
+    type_choices = Inspection.TIPO_COMBUSTIBLE_CHOICES
     
     context = {
         'title': 'Lista de Inspecciones de Combustible',

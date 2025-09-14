@@ -25,15 +25,15 @@ class CustomUserAdmin(UserAdmin):
 @admin.register(Inspection)
 class InspectionAdmin(admin.ModelAdmin):
     """Admin interface for Inspection model"""
-    list_display = ('id', 'title', 'product_name', 'inspection_type', 'status', 'inspector', 'inspection_date')
-    list_filter = ('status', 'inspection_type', 'inspection_date', 'inspector', 'supervisor')
+    list_display = ('id', 'title', 'product_name', 'tipo_combustible', 'status', 'inspector', 'inspection_date')
+    list_filter = ('status', 'tipo_combustible', 'inspection_date', 'inspector', 'supervisor')
     search_fields = ('title', 'product_name', 'product_code', 'batch_number', 'serial_number', 'inspector__username', 'supervisor__username')
     ordering = ('-inspection_date',)
     date_hierarchy = 'inspection_date'
     
     fieldsets = (
         ('Información Básica', {
-            'fields': ('title', 'description', 'inspection_type', 'status')
+            'fields': ('title', 'description', 'tipo_combustible', 'status')
         }),
         ('Información del Producto', {
             'fields': ('product_name', 'product_code', 'batch_number', 'serial_number')
@@ -59,7 +59,7 @@ class InspectionAdmin(admin.ModelAdmin):
 class InspectionPhotoAdmin(admin.ModelAdmin):
     """Admin interface for InspectionPhoto model"""
     list_display = ('id', 'inspection', 'photo_type', 'caption', 'uploaded_at')
-    list_filter = ('photo_type', 'uploaded_at', 'inspection__inspection_type')
+    list_filter = ('photo_type', 'uploaded_at', 'inspection__tipo_combustible')
     search_fields = ('inspection__title', 'inspection__product_name', 'caption', 'photo_type')
     ordering = ('-uploaded_at',)
     date_hierarchy = 'uploaded_at'
