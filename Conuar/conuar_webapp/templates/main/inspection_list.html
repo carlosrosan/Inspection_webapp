@@ -3,32 +3,32 @@
 
 {% block content %}
 <!-- Page Header -->
-<div class="container mt-3">
+<div class="container mt-2">
     <div class="row">
         <div class="col-12">
-            <h1 class="h2 fw-bold mb-2">
+            <h1 class="h3 fw-bold mb-1">
                 <i class="fas fa-clipboard-list me-2"></i>{{ title }}
             </h1>
-            <p class="text-muted mb-3">{{ description }}</p>
+            <p class="text-muted mb-2 small">{{ description }}</p>
         </div>
     </div>
 </div>
 
 <!-- Filters Section -->
-<section class="py-3 bg-light">
+<section class="py-2 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header py-2">
-                        <h6 class="card-title mb-0">
+                    <div class="card-header py-1">
+                        <h6 class="card-title mb-0 small">
                             <i class="fas fa-filter me-2"></i>Filtros de Búsqueda
                         </h6>
                     </div>
-                    <div class="card-body py-3">
-                        <form method="get" class="row g-2">
+                    <div class="card-body py-2">
+                        <form method="get" class="row g-1">
                             <div class="col-md-3">
-                                <label for="defect_status" class="form-label">Estado de Defecto</label>
+                                <label for="defect_status" class="form-label small">Estado de Defecto</label>
                                 <select name="defect_status" id="defect_status" class="form-select">
                                     <option value="">Todos</option>
                                     <option value="pasa" {% if current_defect_status == 'pasa' %}selected{% endif %}>Pasa</option>
@@ -36,7 +36,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="status" class="form-label">Estado</label>
+                                <label for="status" class="form-label small">Estado</label>
                                 <select name="status" id="status" class="form-select">
                                     <option value="">Todos los estados</option>
                                     {% for value, label in status_choices %}
@@ -45,7 +45,7 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="type" class="form-label">Tipo</label>
+                                <label for="type" class="form-label small">Tipo</label>
                                 <select name="type" id="type" class="form-select">
                                     <option value="">Todos los tipos</option>
                                     {% for value, label in type_choices %}
@@ -54,15 +54,15 @@
                                 </select>
                             </div>
                             <div class="col-md-3">
-                                <label for="search" class="form-label">Buscar</label>
+                                <label for="search" class="form-label small">Buscar</label>
                                 <input type="text" name="search" id="search" class="form-control" 
                                        placeholder="Buscar por título, producto, descripción..." 
                                        value="{{ search_query }}">
                             </div>
                             <div class="col-md-3">
-                                <label class="form-label">&nbsp;</label>
+                                <label class="form-label small">&nbsp;</label>
                                 <div class="d-grid">
-                                    <button type="submit" class="btn btn-primary">
+                                    <button type="submit" class="btn btn-primary btn-sm">
                                         <i class="fas fa-search me-1"></i>Buscar
                                     </button>
                                 </div>
@@ -102,7 +102,7 @@
                                                 <i class="fas fa-times-circle me-1"></i>No Pasa
                                             </span>
                                         {% else %}
-                                            <span class="badge bg-warning text-dark me-2">
+                                            <span class="badge bg-success me-2">
                                                 <i class="fas fa-check-circle me-1"></i>Pasa
                                             </span>
                                         {% endif %}
@@ -237,14 +237,30 @@
         font-weight: 600;
     }
     
-    .badge.bg-warning {
-        background-color: #ffc107 !important;
-        color: #212529 !important;
+    .badge.bg-success {
+        background-color: #198754 !important;
+        color: white !important;
         font-weight: 600;
     }
     
     .badge i {
         margin-right: 4px;
+    }
+    
+    /* Compact form styling */
+    .form-control, .form-select {
+        font-size: 0.9em;
+        padding: 0.375rem 0.5rem;
+    }
+    
+    .form-label.small {
+        font-size: 0.85em;
+        margin-bottom: 0.25rem;
+    }
+    
+    .btn-sm {
+        font-size: 0.875em;
+        padding: 0.25rem 0.5rem;
     }
 </style>
 {% endblock %}
