@@ -124,6 +124,492 @@ FLUSH PRIVILEGES;
 EXIT;
 ```
 
+---
+
+## MySQL Installation Guide for Debian Linux
+
+This section provides detailed instructions for installing and configuring MySQL specifically for the Inspection System Webapp on Debian Linux.
+
+### Prerequisites
+
+- Debian 11 (Bullseye) or Debian 12 (Bookworm)
+- Root or sudo access
+- At least 1GB RAM available for MySQL
+- Network connectivity
+
+### Option 1: Install MySQL Server (Official Oracle MySQL)
+
+#### Step 1: Download MySQL APT Repository
+
+```bash
+# Update package index
+sudo apt update
+
+# Download MySQL APT repository package
+cd /tmp
+wget https://dev.mysql.com/get/mysql-apt-config_0.8.24-1_all.deb
+
+# Install the repository package
+sudo dpkg -i mysql-apt-config_0.8.24-1_all.deb
+```
+
+**During installation:**
+- Select "MySQL Server & Cluster" and choose the latest version
+- Select "MySQL Tools & Connectors" 
+- Select "MySQL Preview Packages" if desired
+- Select "Ok" to finish
+
+#### Step 2: Update Package List and Install MySQL
+
+```bash
+# Update package list to include MySQL repository
+sudo apt update
+
+# Install MySQL Server
+sudo apt install -y mysql-server
+
+# Install MySQL client and development libraries
+sudo apt install -y mysql-client libmysqlclient-dev
+```
+
+#### Step 3: Start and Enable MySQL Service
+
+```bash
+# Start MySQL service
+sudo systemctl start mysql
+
+# Enable MySQL to start on boot
+sudo systemctl enable mysql
+
+# Check MySQL status
+sudo systemctl status mysql
+```
+
+#### Step 4: Secure MySQL Installation
+
+```bash
+# Run MySQL security script
+sudo mysql_secure_installation
+```
+
+**Security Configuration Options:**
+```
+Would you like to setup VALIDATE PASSWORD component? → Y
+Please set the password for root here → Enter strong password
+Re-enter new password → Confirm password
+Remove anonymous users? → Y
+Disallow root login remotely? → Y
+Remove test database and access to it? → Y
+Reload privilege tables now? → Y
+```
+
+#### Step 5: Configure MySQL for the Web App
+
+```bash
+# Login to MySQL as root
+sudo mysql -u root -p
+```
+
+**Run these SQL commands:**
+```sql
+-- Create database for the inspection system
+CREATE DATABASE inspection_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Create dedicated user for the web application
+CREATE USER 'inspection_user'@'localhost' IDENTIFIED BY 'your_secure_password_here';
+
+-- Grant all privileges on the database to the user
+GRANT ALL PRIVILEGES ON inspection_system.* TO 'inspection_user'@'localhost';
+
+-- Grant additional privileges for Django migrations
+GRANT CREATE, DROP, ALTER, INDEX ON inspection_system.* TO 'inspection_user'@'localhost';
+
+-- Flush privileges to apply changes
+FLUSH PRIVILEGES;
+
+-- Verify user creation
+SELECT User, Host FROM mysql.user WHERE User = 'inspection_user';
+
+-- Show databases to confirm creation
+SHOW DATABASES;
+
+-- Exit MySQL
+EXIT;
+```
+
+#### Step 6: Test Database Connection
+
+```bash
+# Test connection with the new user
+mysql -u inspection_user -p inspection_system
+
+# If successful, you should see MySQL prompt
+# Type 'EXIT;' to quit
+```
+
+### Option 2: Install MariaDB (MySQL-Compatible Alternative)
+
+MariaDB is a popular MySQL-compatible database that's often easier to install and configure.
+
+#### Step 1: Install MariaDB
+
+```bash
+# Update package list
+sudo apt update
+
+# Install MariaDB server and client
+sudo apt install -y mariadb-server mariadb-client
+
+# Install development libraries
+sudo apt install -y libmariadb-dev libmariadb-dev-compat
+```
+
+#### Step 2: Start and Enable MariaDB
+
+```bash
+# Start MariaDB service
+sudo systemctl start mariadb
+
+# Enable MariaDB to start on boot
+sudo systemctl enable mariadb
+
+# Check MariaDB status
+sudo systemctl status mariadb
+```
+
+#### Step 3: Secure MariaDB Installation
+
+```bash
+# Run MariaDB security script
+sudo mysql_secure_installation
+```
+
+**Security Configuration:**
+```
+Enter current password for root: → Press Enter (no password set initially)
+Set root password? → Y
+New password: → Enter strong password
+Re-enter new password: → Confirm password
+Remove anonymous users? → Y
+Disallow root login remotely? → Y
+Remove test database and access to it? → Y
+Reload privilege tables now? → Y
+```
+
+#### Step 4: Create Database and User (Same as MySQL)
+
+```bash
+# Login to MariaDB as root
+sudo mysql -u root -p
+```
+
+**Run the same SQL commands as in MySQL Option 1, Step 5**
+
+### MySQL Configuration for Production
+
+#### Step 1: Configure MySQL for Better Performance
+
+```bash
+# Create MySQL configuration file
+sudo nano /etc/mysql/mysql.conf.d/inspection_webapp.cnf
+```
+
+**Add this configuration:**
+```ini
+[mysqld]
+# Basic settings
+default-storage-engine = InnoDB
+character-set-server = utf8mb4
+collation-server = utf8mb4_unicode_ci
+
+# Connection settings
+max_connections = 200
+max_connect_errors = 1000
+wait_timeout = 28800
+interactive_timeout = 28800
+
+# Buffer settings
+innodb_buffer_pool_size = 256M
+innodb_log_file_size = 64M
+innodb_log_buffer_size = 16M
+innodb_flush_log_at_trx_commit = 2
+
+# Query cache
+query_cache_type = 1
+query_cache_size = 32M
+query_cache_limit = 2M
+
+# Temporary tables
+tmp_table_size = 32M
+max_heap_table_size = 32M
+
+# Logging
+slow_query_log = 1
+slow_query_log_file = /var/log/mysql/slow.log
+long_query_time = 2
+
+# Security
+local_infile = 0
+```
+
+#### Step 2: Restart MySQL to Apply Configuration
+
+```bash
+# Restart MySQL service
+sudo systemctl restart mysql
+
+# Check if MySQL started successfully
+sudo systemctl status mysql
+```
+
+#### Step 3: Create Log Directory and Set Permissions
+
+```bash
+# Create log directory
+sudo mkdir -p /var/log/mysql
+
+# Set proper permissions
+sudo chown mysql:mysql /var/log/mysql
+sudo chmod 755 /var/log/mysql
+```
+
+### Configure Django Settings for MySQL
+
+#### Step 1: Install MySQL Python Connector
+
+```bash
+# Install MySQL connector for Python
+pip install mysqlclient
+
+# Alternative: Install PyMySQL if mysqlclient fails
+pip install PyMySQL
+```
+
+#### Step 2: Update Django Settings
+
+```bash
+# Edit Django settings file
+nano config/settings.py
+```
+
+**Update database configuration:**
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'inspection_system',
+        'USER': 'inspection_user',
+        'PASSWORD': 'your_secure_password_here',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
+    }
+}
+```
+
+**If using PyMySQL, add this at the top of settings.py:**
+```python
+import pymysql
+pymysql.install_as_MySQLdb()
+```
+
+### Database Migration and Setup
+
+#### Step 1: Run Django Migrations
+
+```bash
+# Activate virtual environment
+source venv/bin/activate
+
+# Run database migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Load initial data (if available)
+python manage.py loaddata initial_data.json
+```
+
+#### Step 2: Verify Database Setup
+
+```bash
+# Connect to MySQL and verify tables
+mysql -u inspection_user -p inspection_system
+
+# Show all tables
+SHOW TABLES;
+
+# Check table structure
+DESCRIBE main_inspection;
+
+# Exit MySQL
+EXIT;
+```
+
+### MySQL Monitoring and Maintenance
+
+#### Step 1: Set Up MySQL Monitoring
+
+```bash
+# Create monitoring script
+sudo nano /opt/inspection_webapp/mysql_monitor.sh
+```
+
+**Add this content:**
+```bash
+#!/bin/bash
+# MySQL monitoring script for inspection webapp
+
+echo "=== MySQL Status Report ==="
+echo "Date: $(date)"
+echo ""
+
+# Check MySQL service status
+echo "MySQL Service Status:"
+systemctl status mysql --no-pager
+
+echo ""
+echo "MySQL Process Status:"
+ps aux | grep mysql
+
+echo ""
+echo "MySQL Connections:"
+mysql -u inspection_user -p -e "SHOW PROCESSLIST;" inspection_system
+
+echo ""
+echo "Database Size:"
+mysql -u inspection_user -p -e "SELECT table_schema AS 'Database', ROUND(SUM(data_length + index_length) / 1024 / 1024, 2) AS 'Size (MB)' FROM information_schema.tables WHERE table_schema = 'inspection_system' GROUP BY table_schema;" inspection_system
+
+echo ""
+echo "Slow Query Log (last 10 entries):"
+tail -n 10 /var/log/mysql/slow.log 2>/dev/null || echo "No slow query log found"
+```
+
+```bash
+# Make script executable
+sudo chmod +x /opt/inspection_webapp/mysql_monitor.sh
+```
+
+#### Step 2: Set Up Database Backup
+
+```bash
+# Create backup script
+sudo nano /opt/inspection_webapp/mysql_backup.sh
+```
+
+**Add this content:**
+```bash
+#!/bin/bash
+# MySQL backup script for inspection webapp
+
+BACKUP_DIR="/opt/backups/mysql"
+DATE=$(date +%Y%m%d_%H%M%S)
+DB_NAME="inspection_system"
+DB_USER="inspection_user"
+
+# Create backup directory
+mkdir -p $BACKUP_DIR
+
+# Create database backup
+mysqldump -u $DB_USER -p $DB_NAME > $BACKUP_DIR/inspection_system_$DATE.sql
+
+# Compress backup
+gzip $BACKUP_DIR/inspection_system_$DATE.sql
+
+# Keep only last 7 days of backups
+find $BACKUP_DIR -name "*.sql.gz" -mtime +7 -delete
+
+echo "Backup completed: inspection_system_$DATE.sql.gz"
+```
+
+```bash
+# Make script executable
+sudo chmod +x /opt/inspection_webapp/mysql_backup.sh
+
+# Add to crontab for daily backups at 2 AM
+sudo crontab -e
+# Add this line:
+# 0 2 * * * /opt/inspection_webapp/mysql_backup.sh >> /var/log/mysql-backup.log 2>&1
+```
+
+### Troubleshooting MySQL Issues
+
+#### Common Issues and Solutions:
+
+1. **MySQL Won't Start:**
+   ```bash
+   # Check MySQL error log
+   sudo tail -f /var/log/mysql/error.log
+   
+   # Check MySQL configuration
+   sudo mysqld --help --verbose
+   
+   # Reset MySQL root password if needed
+   sudo systemctl stop mysql
+   sudo mysqld_safe --skip-grant-tables &
+   mysql -u root
+   ```
+
+2. **Connection Refused:**
+   ```bash
+   # Check if MySQL is running
+   sudo systemctl status mysql
+   
+   # Check MySQL port
+   sudo netstat -tlnp | grep 3306
+   
+   # Check firewall
+   sudo ufw status
+   ```
+
+3. **Permission Denied:**
+   ```bash
+   # Check user privileges
+   mysql -u root -p -e "SHOW GRANTS FOR 'inspection_user'@'localhost';"
+   
+   # Grant privileges again
+   mysql -u root -p -e "GRANT ALL PRIVILEGES ON inspection_system.* TO 'inspection_user'@'localhost'; FLUSH PRIVILEGES;"
+   ```
+
+4. **Character Set Issues:**
+   ```bash
+   # Check database character set
+   mysql -u inspection_user -p -e "SHOW CREATE DATABASE inspection_system;"
+   
+   # Check table character set
+   mysql -u inspection_user -p -e "SHOW CREATE TABLE main_inspection;" inspection_system
+   ```
+
+### Performance Optimization
+
+#### Step 1: Analyze MySQL Performance
+
+```bash
+# Enable slow query log
+mysql -u root -p -e "SET GLOBAL slow_query_log = 'ON';"
+mysql -u root -p -e "SET GLOBAL long_query_time = 2;"
+
+# Check MySQL variables
+mysql -u root -p -e "SHOW VARIABLES LIKE '%buffer%';"
+mysql -u root -p -e "SHOW VARIABLES LIKE '%cache%';"
+```
+
+#### Step 2: Optimize Tables
+
+```bash
+# Analyze tables
+mysql -u inspection_user -p -e "ANALYZE TABLE main_inspection;" inspection_system
+
+# Optimize tables
+mysql -u inspection_user -p -e "OPTIMIZE TABLE main_inspection;" inspection_system
+```
+
+This comprehensive MySQL installation guide provides everything needed to set up and configure MySQL specifically for the Inspection System Webapp on Debian Linux.
+
 ### Step 5: Install Web Server (Nginx)
 
 ```bash
