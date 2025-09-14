@@ -16,7 +16,44 @@ A Django-based web application for managing product inspections with photo docum
 - Python 3.8+
 - Django 4.2.23
 - Pillow 10.0.1+ (for image handling)
-- SQLite database (can be configured for other databases)
+- MySQL database (production-ready with MariaDB support)
+
+## Technology Stack
+
+### Backend
+- **Framework**: Django 4.2.23
+- **Language**: Python 3.8+
+- **Database**: MySQL 8.0+ / MariaDB 10.6+
+- **ORM**: Django ORM
+- **Authentication**: Django built-in authentication system
+
+### Frontend
+- **Template Engine**: Django Templates
+- **CSS Framework**: Bootstrap 5
+- **JavaScript**: Vanilla JavaScript
+- **Icons**: Font Awesome
+- **Responsive Design**: Mobile-first approach
+
+### PLC Integration
+- **Protocol**: Modbus TCP
+- **Communication**: pyModbusTCP library
+- **Data Processing**: Custom ETL scripts
+- **Real-time Monitoring**: Continuous data reading
+
+### Production Stack
+- **Web Server**: Nginx
+- **WSGI Server**: Gunicorn
+- **Process Management**: Systemd
+- **Database**: MySQL/MariaDB
+- **File Storage**: Local filesystem
+- **Logging**: Python logging + systemd journal
+
+### Development Tools
+- **Version Control**: Git
+- **Package Management**: pip
+- **Virtual Environment**: venv
+- **Database Migration**: Django migrations
+- **Static Files**: Django collectstatic
 
 ## Installation
 
@@ -1154,12 +1191,12 @@ conuar_webapp/
 
 - **Debug Mode**: Enabled by default for development
 - **Media Files**: Served automatically in development
-- **Database**: SQLite for development (easily configurable for production)
+- **Database**: MySQL for development and production (with MariaDB compatibility)
 
 ## Production Considerations
 
 - Set `DEBUG = False` in settings
-- Configure proper database (PostgreSQL recommended)
+- Configure proper database (MySQL/MariaDB recommended)
 - Set up static file serving
 - Configure media file storage
 - Use environment variables for sensitive data
@@ -1477,7 +1514,7 @@ This ETL system integrates with:
 - **Django Web Application**: Uses same models and configuration
 - **PLC Systems**: Modbus TCP communication
 - **Camera Systems**: File-based photo capture
-- **Database**: MySQL/PostgreSQL via Django ORM
+- **Database**: MySQL/MariaDB via Django ORM
 
 ## Performance
 
