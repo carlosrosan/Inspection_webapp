@@ -84,6 +84,12 @@ class Inspection(models.Model):
     notes = models.TextField(blank=True, help_text="Notas adicionales o comentarios")
     recommendations = models.TextField(blank=True, help_text="Recomendaciones basadas en la inspección")
     
+    # Defect Detection
+    defecto_encontrado = models.BooleanField(
+        default=False, 
+        help_text="Indica si se encontró un defecto durante la inspección (detectado por cámara)"
+    )
+    
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -135,6 +141,12 @@ class InspectionPhoto(models.Model):
     caption = models.CharField(max_length=200, blank=True)
     photo_type = models.CharField(max_length=50, blank=True, help_text="Tipo de foto (ej., 'antes', 'después', 'defecto', 'vista general')")
     uploaded_at = models.DateTimeField(auto_now_add=True)
+    
+    # Defect Detection
+    defecto_encontrado = models.BooleanField(
+        default=False, 
+        help_text="Indica si esta foto específica muestra un defecto detectado por la cámara"
+    )
     
     class Meta:
         ordering = ['uploaded_at']
@@ -210,6 +222,12 @@ class InspectionMachine(models.Model):
     # Performance Metrics
     success_rate = models.FloatField(default=100.0, help_text="Tasa de éxito de inspecciones (%)")
     average_inspection_time = models.FloatField(default=0.0, help_text="Tiempo promedio de inspección (minutos)")
+    
+    # Defect Tracking
+    total_defects_found = models.PositiveIntegerField(
+        default=0, 
+        help_text="Total de defectos encontrados en todas las inspecciones"
+    )
     
     # Timestamps
     last_status_change = models.DateTimeField(auto_now=True)

@@ -3,17 +3,16 @@
 
 {% block content %}
 <!-- Page Header -->
-<section class="hero-section">
-    <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
-        <p class="lead mb-5">{{ description }}</p>
-        <div class="row">
-            <div class="col-md-6 mx-auto">
-                <a href="{% url 'main:dashboard' %}" class="btn btn-light btn-custom me-3">Estado del Sistema</a>
-            </div>
+<div class="container mt-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="display-5 fw-bold mb-3">
+                <i class="fas fa-clipboard-list me-2"></i>{{ title }}
+            </h1>
+            <p class="lead text-muted mb-4">{{ description }}</p>
         </div>
     </div>
-</section>
+</div>
 
 <!-- Filters Section -->
 <section class="section-padding bg-light">
@@ -46,13 +45,21 @@
                                     {% endfor %}
                                 </select>
                             </div>
-                            <div class="col-md-4">
+                            <div class="col-md-3">
+                                <label for="defect_status" class="form-label">Estado de Defecto</label>
+                                <select name="defect_status" id="defect_status" class="form-select">
+                                    <option value="">Todos</option>
+                                    <option value="pasa" {% if current_defect_status == 'pasa' %}selected{% endif %}>Pasa</option>
+                                    <option value="no_pasa" {% if current_defect_status == 'no_pasa' %}selected{% endif %}>No Pasa</option>
+                                </select>
+                            </div>
+                            <div class="col-md-3">
                                 <label for="search" class="form-label">Buscar</label>
                                 <input type="text" name="search" id="search" class="form-control" 
                                        placeholder="Buscar por título, producto, descripción..." 
                                        value="{{ search_query }}">
                             </div>
-                            <div class="col-md-2">
+                            <div class="col-md-3">
                                 <label class="form-label">&nbsp;</label>
                                 <div class="d-grid">
                                     <button type="submit" class="btn btn-primary">
@@ -93,7 +100,16 @@
                                         <span class="badge bg-{{ inspection.status|default:'success' }} me-2">
                                             {{ inspection.get_status_display }}
                                         </span>
-                                        <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
+                                        <span class="badge bg-info me-2">{{ inspection.get_inspection_type_display }}</span>
+                                        {% if inspection.defecto_encontrado %}
+                                            <span class="badge bg-danger">
+                                                <i class="fas fa-times-circle me-1"></i>No Pasa
+                                            </span>
+                                        {% else %}
+                                            <span class="badge bg-warning text-dark">
+                                                <i class="fas fa-check-circle me-1"></i>Pasa
+                                            </span>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -201,7 +217,7 @@
         background-color: var(--card-bg);
         border-color: var(--primary-color);
         color: var(--text-primary);
-        box-shadow: 0 0 0 0.2rem rgba(203, 252, 2, 0.25);
+        box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, 0.25);
     }
     
     .form-label {
@@ -211,6 +227,23 @@
     
     .badge {
         font-size: 0.75em;
+    }
+    
+    /* Custom styling for Pasa/No pasa tags */
+    .badge.bg-danger {
+        background-color: #dc3545 !important;
+        color: white !important;
+        font-weight: 600;
+    }
+    
+    .badge.bg-warning {
+        background-color: #ffc107 !important;
+        color: #212529 !important;
+        font-weight: 600;
+    }
+    
+    .badge i {
+        margin-right: 4px;
     }
 </style>
 {% endblock %}
