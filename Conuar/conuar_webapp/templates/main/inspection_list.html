@@ -3,30 +3,38 @@
 
 {% block content %}
 <!-- Page Header -->
-<div class="container mt-4">
+<div class="container mt-3">
     <div class="row">
         <div class="col-12">
-            <h1 class="display-5 fw-bold mb-3">
+            <h1 class="h2 fw-bold mb-2">
                 <i class="fas fa-clipboard-list me-2"></i>{{ title }}
             </h1>
-            <p class="lead text-muted mb-4">{{ description }}</p>
+            <p class="text-muted mb-3">{{ description }}</p>
         </div>
     </div>
 </div>
 
 <!-- Filters Section -->
-<section class="section-padding bg-light">
+<section class="py-3 bg-light">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="card">
-                    <div class="card-header">
-                        <h5 class="card-title mb-0">
+                    <div class="card-header py-2">
+                        <h6 class="card-title mb-0">
                             <i class="fas fa-filter me-2"></i>Filtros de Búsqueda
-                        </h5>
+                        </h6>
                     </div>
-                    <div class="card-body">
-                        <form method="get" class="row g-3">
+                    <div class="card-body py-3">
+                        <form method="get" class="row g-2">
+                            <div class="col-md-3">
+                                <label for="defect_status" class="form-label">Estado de Defecto</label>
+                                <select name="defect_status" id="defect_status" class="form-select">
+                                    <option value="">Todos</option>
+                                    <option value="pasa" {% if current_defect_status == 'pasa' %}selected{% endif %}>Pasa</option>
+                                    <option value="no_pasa" {% if current_defect_status == 'no_pasa' %}selected{% endif %}>No Pasa</option>
+                                </select>
+                            </div>
                             <div class="col-md-3">
                                 <label for="status" class="form-label">Estado</label>
                                 <select name="status" id="status" class="form-select">
@@ -43,14 +51,6 @@
                                     {% for value, label in type_choices %}
                                         <option value="{{ value }}" {% if current_type == value %}selected{% endif %}>{{ label }}</option>
                                     {% endfor %}
-                                </select>
-                            </div>
-                            <div class="col-md-3">
-                                <label for="defect_status" class="form-label">Estado de Defecto</label>
-                                <select name="defect_status" id="defect_status" class="form-select">
-                                    <option value="">Todos</option>
-                                    <option value="pasa" {% if current_defect_status == 'pasa' %}selected{% endif %}>Pasa</option>
-                                    <option value="no_pasa" {% if current_defect_status == 'no_pasa' %}selected{% endif %}>No Pasa</option>
                                 </select>
                             </div>
                             <div class="col-md-3">
@@ -76,11 +76,11 @@
 </section>
 
 <!-- Inspections List -->
-<section class="section-padding">
+<section class="py-4">
     <div class="container">
         <div class="row">
             <div class="col-12">
-                <div class="d-flex justify-content-between align-items-center mb-4">
+                <div class="d-flex justify-content-between align-items-center mb-3">
                     <h3>
                         <i class="fas fa-clipboard-list me-2"></i>Inspecciones
                         <span class="badge bg-primary ms-2">{{ total_count }}</span>
@@ -97,19 +97,19 @@
                                         <i class="fas fa-clipboard-check me-2"></i>{{ inspection.title }}
                                     </h5>
                                     <div>
-                                        <span class="badge bg-{{ inspection.status|default:'success' }} me-2">
-                                            {{ inspection.get_status_display }}
-                                        </span>
-                                        <span class="badge bg-info me-2">{{ inspection.get_inspection_type_display }}</span>
                                         {% if inspection.defecto_encontrado %}
-                                            <span class="badge bg-danger">
+                                            <span class="badge bg-danger me-2">
                                                 <i class="fas fa-times-circle me-1"></i>No Pasa
                                             </span>
                                         {% else %}
-                                            <span class="badge bg-warning text-dark">
+                                            <span class="badge bg-warning text-dark me-2">
                                                 <i class="fas fa-check-circle me-1"></i>Pasa
                                             </span>
                                         {% endif %}
+                                        <span class="badge bg-{{ inspection.status|default:'success' }} me-2">
+                                            {{ inspection.get_status_display }}
+                                        </span>
+                                        <span class="badge bg-info">{{ inspection.get_inspection_type_display }}</span>
                                     </div>
                                 </div>
                                 <div class="card-body">
@@ -226,7 +226,8 @@
     }
     
     .badge {
-        font-size: 0.75em;
+        font-size: 0.85em;
+        padding: 0.5em 0.75em;
     }
     
     /* Custom styling for Pasa/No pasa tags */
