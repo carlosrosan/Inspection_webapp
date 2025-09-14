@@ -65,6 +65,20 @@
                                         </td>
                                     </tr>
                                     <tr>
+                                        <td><strong>Resultado:</strong></td>
+                                        <td>
+                                            {% if inspection.defecto_encontrado %}
+                                                <span class="badge bg-danger">
+                                                    <i class="fas fa-times-circle me-1"></i>No Pasa
+                                                </span>
+                                            {% else %}
+                                                <span class="badge bg-warning text-dark">
+                                                    <i class="fas fa-check-circle me-1"></i>Pasa
+                                                </span>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                    <tr>
                                         <td><strong>Inspector:</strong></td>
                                         <td>
                                             <i class="fas fa-user me-2"></i>{{ inspection.inspector.username }}
@@ -278,7 +292,7 @@
                     </div>
                     <div class="card-footer bg-transparent">
                         <h6 class="card-title mb-2">{{ photo.caption|default:'Sin descripción' }}</h6>
-                        <div class="d-flex justify-content-between align-items-center">
+                        <div class="d-flex justify-content-between align-items-center mb-2">
                             <small class="text-muted">
                                 <i class="fas fa-tag me-1"></i>{{ photo.photo_type|default:'General' }}
                             </small>
@@ -286,6 +300,13 @@
                                 <i class="fas fa-calendar me-1"></i>{{ photo.uploaded_at|date:"M d, Y" }}
                             </small>
                         </div>
+                        {% if photo.defecto_encontrado %}
+                            <div class="text-center">
+                                <span class="badge bg-danger">
+                                    <i class="fas fa-exclamation-triangle me-1"></i>Defecto Detectado
+                                </span>
+                            </div>
+                        {% endif %}
                     </div>
                 </div>
             </div>

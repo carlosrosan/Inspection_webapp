@@ -134,10 +134,14 @@ class Inspection(models.Model):
         )
         return inspection
 
+def inspection_photo_upload_path(instance, filename):
+    """Generate upload path for inspection photos based on inspection ID"""
+    return f'inspection_photos/Inspection_{instance.inspection.id}/{filename}'
+
 class InspectionPhoto(models.Model):
     """Model for inspection photos"""
     inspection = models.ForeignKey(Inspection, on_delete=models.CASCADE, related_name='photos')
-    photo = models.ImageField(upload_to='inspections/%Y/%m/%d/')
+    photo = models.ImageField(upload_to=inspection_photo_upload_path)
     caption = models.CharField(max_length=200, blank=True)
     photo_type = models.CharField(max_length=50, blank=True, help_text="Tipo de foto (ej., 'antes', 'después', 'defecto', 'vista general')")
     uploaded_at = models.DateTimeField(auto_now_add=True)
@@ -319,7 +323,7 @@ class SystemConfiguration(models.Model):
     # Storage Configuration
     media_storage_path = models.CharField(
         max_length=500, 
-        default='media/inspection_photos/',
+        default='media/inspection_photos/Inspection_1/',
         help_text="Ruta de almacenamiento para archivos multimedia"
     )
     
@@ -371,7 +375,7 @@ class SystemConfiguration(models.Model):
         config, created = cls.objects.get_or_create(
             pk=1,
             defaults={
-                'media_storage_path': 'media/inspection_photos/',
+                'media_storage_path': 'media/inspection_photos/Inspection_1/',
                 'camera_1_ip': '192.168.1.100',
                 'camera_2_ip': '192.168.1.101',
                 'camera_3_ip': '192.168.1.102',
