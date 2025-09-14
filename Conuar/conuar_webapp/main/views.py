@@ -67,9 +67,11 @@ def dashboard(request):
     machine = InspectionMachine.get_machine()
     inspection = Inspection.get_inspection()
     
-    # Update machine metrics
-    machine.total_inspections = 1
-    machine.inspections_today = 1
+    # Update machine metrics with real data
+    machine.total_inspections = Inspection.objects.count()
+    machine.inspections_today = Inspection.objects.filter(
+        inspection_date__date=datetime.now().date()
+    ).count()
     machine.uptime_hours = random.uniform(120.5, 200.8)
     machine.success_rate = random.uniform(95.0, 99.8)
     machine.average_inspection_time = random.uniform(8.5, 15.2)
@@ -126,10 +128,11 @@ def dashboard(request):
         'user': request.user,
         'machine': machine,
         'inspection': inspection,
+        'recent_inspections': Inspection.objects.all().order_by('-inspection_date')[:5],
         'recent_logs': recent_logs,
         'stats': {
-            'total_inspections': 1,
-            'inspections_this_week': 1,
+            'total_inspections': total_inspections,
+            'inspections_this_week': inspections_this_week,
             'machine_efficiency': round(efficiency, 1),
             'uptime_percentage': round((machine.uptime_hours / 168) * 100, 1),  # Assuming 168 hours per week
         },
@@ -140,7 +143,7 @@ def dashboard(request):
 # Inspection views
 @login_required(login_url='main:login')
 def inspection_list(request):
-    """List all inspections - showing only the single inspection"""
+    """List all inspections"""
     from .models import Inspection
     
     # Get filter parameters
@@ -148,11 +151,10 @@ def inspection_list(request):
     type_filter = request.GET.get('type', '')
     search_query = request.GET.get('search', '')
     
-    # Get the single inspection
-    inspection = Inspection.get_inspection()
-    inspections = Inspection.objects.filter(id=1)
+    # Get all inspections
+    inspections = Inspection.objects.all().order_by('-inspection_date')
     
-    # Apply filters (though there's only one inspection)
+    # Apply filters
     if status_filter:
         inspections = inspections.filter(status=status_filter)
     

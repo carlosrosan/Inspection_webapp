@@ -128,6 +128,153 @@ conuar_webapp/
 - Use environment variables for sensitive data
 - Set up proper logging
 
+# PLC Scripts - Sistema Conuar
+
+Este directorio contiene dos scripts separados para el monitoreo y procesamiento de datos del PLC en el sistema de inspección de combustible Conuar.
+
+## Scripts Disponibles
+
+### 1. `plc_data_reader.py`
+**Propósito**: Lee datos del PLC y los almacena en la tabla `main_plc_readings`
+
+**Funcionalidades**:
+- Se conecta al PLC usando Modbus TCP
+- Lee todos los registros del PLC cada segundo
+- Almacena los datos raw en la tabla `main_plc_readings`
+- Marca los registros como no procesados (`processed=False`)
+- No realiza procesamiento de inspecciones
+
+**Uso**:
+```bash
+# Activar entorno virtual
+C:\Inspection_webapp\conuar_env\Scripts\activate
+
+# Ejecutar lector PLC
+python etl/plc_data_reader.py
+```
+
+### 2. `plc_data_processor.py`
+**Propósito**: Procesa datos de `main_plc_readings` y actualiza las tablas de inspección
+
+**Funcionalidades**:
+- Lee registros no procesados de `main_plc_readings`
+- Crea/actualiza inspecciones en `main_inspection`
+- Crea eventos PLC en `main_inspectionplcevent`
+- Mapea fotos en `main_inspectionphoto`
+- Actualiza estado de máquina en `main_inspectionmachine`
+- Marca registros como procesados
+
+**Uso**:
+```bash
+# Activar entorno virtual
+C:\Inspection_webapp\conuar_env\Scripts\activate
+
+# Ejecutar procesador PLC
+python etl/plc_data_processor.py
+```
+
+## Arquitectura
+
+```
+PLC ──→ plc_data_reader.py ──→ main_plc_readings ──→ plc_data_processor.py ──→ Tablas de Inspección
+```
+
+### Flujo de Datos
+
+1. **Lectura**: `plc_data_reader.py` lee datos del PLC y los guarda en `main_plc_readings`
+2. **Procesamiento**: `plc_data_processor.py` lee datos no procesados y los convierte en inspecciones
+3. **Actualización**: Se actualizan las tablas `main_inspection`, `main_inspectionphoto`, `main_inspectionmachine`
+
+## Configuración
+
+Los scripts utilizan la configuración del sistema almacenada en `main_systemconfiguration`:
+- `plc_ip`: Dirección IP del PLC
+- `plc_port`: Puerto del PLC (por defecto 502)
+- `media_storage_path`: Ruta de almacenamiento de fotos
+
+## Tabla main_plc_readings
+
+La nueva tabla `main_plc_readings` almacena todos los datos raw del PLC:
+
+| Campo | Tipo | Descripción |
+|-------|------|-------------|
+| `timestamp_plc` | DateTime | Timestamp del PLC |
+| `id_inspection` | Integer | ID de la inspección |
+| `execution_id` | Integer | ID ejecución |
+| `control_point_id` | Integer | ID punto de control |
+| `execution_type` | Integer | Tipo de ejecución (1=automatic, 2=manual, 3=free) |
+| `control_point_label` | Integer | Etiqueta punto de control |
+| `x_control_point` | Float | X punto de control |
+| `y_control_point` | Float | Y punto de control |
+| `z_control_point` | Float | Z punto de control |
+| `plate_angle` | Float | Ángulo del plato |
+| `control_point_creator` | Integer | Usuario creador punto de control |
+| `program_creator` | Integer | Usuario creador Programa |
+| `program_version` | Integer | Version del programa |
+| `camera_id` | Integer | ID Cámara |
+| `filming_type` | Integer | Tipo filmación (1=video, 2=photo) |
+| `last_photo_request_timestamp` | Integer | Último timestamp solicitud foto cámara |
+| `new_photos_available` | Boolean | Flag indicando nuevas fotos |
+| `photo_count` | Integer | Número de nuevas fotos |
+| `processed` | Boolean | Indica si el registro ya fue procesado |
+| `processing_error` | Text | Error durante el procesamiento |
+
+## Ejecución en Producción
+
+### Opción 1: Scripts Separados
+Ejecutar ambos scripts en procesos separados:
+
+```bash
+# Terminal 1 - Lector PLC
+C:\Inspection_webapp\conuar_env\Scripts\activate
+python etl/plc_data_reader.py
+
+# Terminal 2 - Procesador
+C:\Inspection_webapp\conuar_env\Scripts\activate
+python etl/plc_data_processor.py
+```
+
+### Opción 2: Servicios de Windows
+Crear servicios de Windows para ejecutar los scripts automáticamente.
+
+## Logs
+
+Cada script genera sus propios logs:
+- `plc_data_reader.log`: Logs del lector PLC
+- `plc_data_processor.log`: Logs del procesador
+
+## Monitoreo
+
+Para verificar el estado del sistema:
+
+1. **Verificar lecturas PLC**:
+   ```sql
+   SELECT COUNT(*) FROM main_plc_readings WHERE processed = FALSE;
+   ```
+
+2. **Verificar inspecciones recientes**:
+   ```sql
+   SELECT * FROM main_inspection ORDER BY created_at DESC LIMIT 10;
+   ```
+
+3. **Verificar estado de la máquina**:
+   ```sql
+   SELECT * FROM main_inspectionmachine;
+   ```
+
+## Ventajas de la Separación
+
+1. **Escalabilidad**: Cada script puede ejecutarse en servidores diferentes
+2. **Confiabilidad**: Si un script falla, el otro continúa funcionando
+3. **Mantenimiento**: Fácil actualización independiente de cada script
+4. **Debugging**: Más fácil identificar problemas en cada proceso
+5. **Recuperación**: Los datos raw se mantienen para reprocesamiento
+
+## Migración desde Script Original
+
+El script original `plc_inspection_monitor.py` se mantiene como referencia. Los nuevos scripts proporcionan la misma funcionalidad pero con mejor separación de responsabilidades.
+
+
 # PLC Inspection Monitor ETL System
 
 This ETL (Extract, Transform, Load) system monitors a PLC for inspection events and automatically manages the inspection database.

@@ -473,3 +473,52 @@ class InspectionPlcEvent(models.Model):
     
     def __str__(self):
         return f"PLC Event - {self.id_inspection.title} - {self.control_point_id} - {self.timestamp_plc}"
+
+class PlcReading(models.Model):
+    """Model for raw PLC readings - stores all data from PLC before processing"""
+    
+    # Basic Information
+    timestamp_plc = models.DateTimeField(help_text="Timestamp del PLC")
+    id_inspection = models.IntegerField(help_text="ID de la inspección")
+    execution_id = models.IntegerField(help_text="ID ejecución")
+    control_point_id = models.IntegerField(help_text="ID punto de control")
+    execution_type = models.IntegerField(help_text="Tipo de ejecución (1=automatic, 2=manual, 3=free)")
+    control_point_label = models.IntegerField(help_text="Etiqueta punto de control")
+    
+    # Position Information
+    x_control_point = models.FloatField(help_text="X punto de control")
+    y_control_point = models.FloatField(help_text="Y punto de control")
+    z_control_point = models.FloatField(help_text="Z punto de control")
+    plate_angle = models.FloatField(help_text="Ángulo del plato")
+    
+    # User Information
+    control_point_creator = models.IntegerField(help_text="Usuario creador punto de control")
+    program_creator = models.IntegerField(help_text="Usuario creador Programa")
+    program_version = models.IntegerField(help_text="Version del programa")
+    
+    # Camera Information
+    camera_id = models.IntegerField(help_text="ID Cámara")
+    filming_type = models.IntegerField(help_text="Tipo filmación (1=video, 2=photo)")
+    last_photo_request_timestamp = models.IntegerField(help_text="Último timestamp solicitud foto cámara")
+    new_photos_available = models.BooleanField(default=False, help_text="Flag indicando nuevas fotos")
+    photo_count = models.IntegerField(default=0, help_text="Número de nuevas fotos")
+    
+    # Processing Status
+    processed = models.BooleanField(default=False, help_text="Indica si el registro ya fue procesado")
+    processing_error = models.TextField(blank=True, help_text="Error durante el procesamiento")
+    
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        ordering = ['-timestamp_plc']
+        verbose_name = 'Lectura PLC'
+        verbose_name_plural = 'Lecturas PLC'
+        indexes = [
+            models.Index(fields=['processed', 'timestamp_plc']),
+            models.Index(fields=['id_inspection']),
+        ]
+    
+    def __str__(self):
+        return f"PLC Reading - Inspection {self.id_inspection} - {self.timestamp_plc}"
