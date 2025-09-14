@@ -20,6 +20,8 @@ A Django-based web application for managing product inspections with photo docum
 
 ## Installation
 
+### Windows Development Environment
+
 1. **Clone or navigate to the project directory**
    ```bash
    cd conuarenv/conuar_webapp
@@ -49,6 +51,555 @@ A Django-based web application for managing product inspections with photo docum
    ```bash
    python manage.py runserver
    ```
+
+---
+
+## Debian Linux Virtual Machine Installation Guide
+
+This guide will help you install and deploy the Inspection System Webapp on a Debian Linux virtual machine.
+
+### Prerequisites
+
+- Debian 11 (Bullseye) or Debian 12 (Bookworm)
+- Root or sudo access
+- At least 2GB RAM and 10GB disk space
+- Network connectivity
+
+### Step 1: Update System and Install Basic Dependencies
+
+```bash
+# Update package lists
+sudo apt update && sudo apt upgrade -y
+
+# Install essential packages
+sudo apt install -y curl wget git vim nano htop tree unzip
+```
+
+### Step 2: Install Python 3.8+ and pip
+
+```bash
+# Install Python 3 and development tools
+sudo apt install -y python3 python3-pip python3-venv python3-dev
+
+# Install additional Python dependencies
+sudo apt install -y build-essential libssl-dev libffi-dev libjpeg-dev zlib1g-dev
+
+# Verify Python installation
+python3 --version
+pip3 --version
+```
+
+### Step 3: Install Database (MySQL/MariaDB)
+
+```bash
+# Install MariaDB (MySQL-compatible)
+sudo apt install -y mariadb-server mariadb-client
+
+# Start and enable MariaDB
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
+# Secure MariaDB installation
+sudo mysql_secure_installation
+```
+
+**During MariaDB setup, choose:**
+- Set root password: Yes
+- Remove anonymous users: Yes
+- Disallow root login remotely: Yes
+- Remove test database: Yes
+- Reload privilege tables: Yes
+
+### Step 4: Create Database and User
+
+```bash
+# Login to MariaDB as root
+sudo mysql -u root -p
+
+# Create database and user (run these SQL commands)
+CREATE DATABASE inspection_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+CREATE USER 'inspection_user'@'localhost' IDENTIFIED BY 'your_secure_password';
+GRANT ALL PRIVILEGES ON inspection_system.* TO 'inspection_user'@'localhost';
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### Step 5: Install Web Server (Nginx)
+
+```bash
+# Install Nginx
+sudo apt install -y nginx
+
+# Start and enable Nginx
+sudo systemctl start nginx
+sudo systemctl enable nginx
+
+# Check Nginx status
+sudo systemctl status nginx
+```
+
+### Step 6: Create Application User and Directory
+
+```bash
+# Create application user
+sudo useradd -m -s /bin/bash inspection
+sudo usermod -aG www-data inspection
+
+# Create application directory
+sudo mkdir -p /opt/inspection_webapp
+sudo chown inspection:inspection /opt/inspection_webapp
+```
+
+### Step 7: Transfer Application Files
+
+**Option A: Using Git (if repository is available)**
+```bash
+# Switch to application user
+sudo su - inspection
+
+# Clone repository
+cd /opt/inspection_webapp
+git clone <your-repository-url> .
+
+# Or if you have the files locally, copy them:
+# scp -r /path/to/local/files/* inspection@your-vm-ip:/opt/inspection_webapp/
+```
+
+**Option B: Manual File Transfer**
+```bash
+# From your Windows machine, copy files to the VM
+# Use SCP, SFTP, or any file transfer method
+
+# Example with SCP:
+# scp -r C:\Inspection_webapp\Conuar\conuar_webapp\* inspection@your-vm-ip:/opt/inspection_webapp/
+```
+
+### Step 8: Set Up Python Virtual Environment
+
+```bash
+# Switch to application user
+sudo su - inspection
+cd /opt/inspection_webapp
+
+# Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+```
+
+### Step 9: Install Python Dependencies
+
+```bash
+# Install requirements
+pip install -r requirements.txt
+
+# Install additional production dependencies
+pip install gunicorn psycopg2-binary mysqlclient
+```
+
+### Step 10: Configure Database Settings
+
+```bash
+# Edit settings.py
+nano config/settings.py
+```
+
+**Update database configuration:**
+```python
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'inspection_system',
+        'USER': 'inspection_user',
+        'PASSWORD': 'your_secure_password',
+        'HOST': 'localhost',
+        'PORT': '3306',
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+        },
+    }
+}
+
+# Add these production settings
+DEBUG = False
+ALLOWED_HOSTS = ['your-vm-ip', 'your-domain.com', 'localhost']
+
+# Static files configuration
+STATIC_URL = '/static/'
+STATIC_ROOT = '/opt/inspection_webapp/staticfiles/'
+
+# Media files configuration
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/opt/inspection_webapp/media/'
+```
+
+### Step 11: Run Database Migrations
+
+```bash
+# Make sure you're in the virtual environment
+source venv/bin/activate
+
+# Run migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Collect static files
+python manage.py collectstatic --noinput
+```
+
+### Step 12: Configure Gunicorn
+
+```bash
+# Create Gunicorn configuration
+nano gunicorn_config.py
+```
+
+**Add this content:**
+```python
+bind = "127.0.0.1:8000"
+workers = 3
+worker_class = "sync"
+worker_connections = 1000
+max_requests = 1000
+max_requests_jitter = 100
+timeout = 30
+keepalive = 2
+preload_app = True
+```
+
+### Step 13: Create Systemd Service
+
+```bash
+# Create systemd service file
+sudo nano /etc/systemd/system/inspection-webapp.service
+```
+
+**Add this content:**
+```ini
+[Unit]
+Description=Inspection Webapp Gunicorn daemon
+After=network.target
+
+[Service]
+User=inspection
+Group=www-data
+WorkingDirectory=/opt/inspection_webapp
+Environment="PATH=/opt/inspection_webapp/venv/bin"
+ExecStart=/opt/inspection_webapp/venv/bin/gunicorn --config gunicorn_config.py config.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Step 14: Configure Nginx
+
+```bash
+# Create Nginx configuration
+sudo nano /etc/nginx/sites-available/inspection-webapp
+```
+
+**Add this content:**
+```nginx
+server {
+    listen 80;
+    server_name your-vm-ip your-domain.com;
+
+    client_max_body_size 100M;
+
+    location /static/ {
+        alias /opt/inspection_webapp/staticfiles/;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location /media/ {
+        alias /opt/inspection_webapp/media/;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_connect_timeout 300;
+        proxy_send_timeout 300;
+    }
+}
+```
+
+### Step 15: Enable and Start Services
+
+```bash
+# Enable Nginx site
+sudo ln -s /etc/nginx/sites-available/inspection-webapp /etc/nginx/sites-enabled/
+
+# Remove default Nginx site
+sudo rm /etc/nginx/sites-enabled/default
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Reload Nginx
+sudo systemctl reload nginx
+
+# Enable and start the application service
+sudo systemctl enable inspection-webapp
+sudo systemctl start inspection-webapp
+
+# Check service status
+sudo systemctl status inspection-webapp
+```
+
+### Step 16: Configure Firewall
+
+```bash
+# Install UFW if not already installed
+sudo apt install -y ufw
+
+# Configure firewall
+sudo ufw allow ssh
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+
+# Check firewall status
+sudo ufw status
+```
+
+### Step 17: Set Up Log Rotation
+
+```bash
+# Create log rotation configuration
+sudo nano /etc/logrotate.d/inspection-webapp
+```
+
+**Add this content:**
+```
+/opt/inspection_webapp/logs/*.log {
+    daily
+    missingok
+    rotate 30
+    compress
+    delaycompress
+    notifempty
+    create 644 inspection www-data
+    postrotate
+        systemctl reload inspection-webapp
+    endscript
+}
+```
+
+### Step 18: Set Up SSL Certificate (Optional but Recommended)
+
+```bash
+# Install Certbot
+sudo apt install -y certbot python3-certbot-nginx
+
+# Obtain SSL certificate
+sudo certbot --nginx -d your-domain.com
+
+# Test automatic renewal
+sudo certbot renew --dry-run
+```
+
+### Step 19: Configure PLC Scripts (Production)
+
+```bash
+# Create systemd services for PLC scripts
+sudo nano /etc/systemd/system/plc-reader.service
+```
+
+**Add this content:**
+```ini
+[Unit]
+Description=PLC Data Reader Service
+After=network.target
+
+[Service]
+Type=simple
+User=inspection
+Group=inspection
+WorkingDirectory=/opt/inspection_webapp
+Environment="PATH=/opt/inspection_webapp/venv/bin"
+ExecStart=/opt/inspection_webapp/venv/bin/python etl/plc_data_reader.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# Create PLC processor service
+sudo nano /etc/systemd/system/plc-processor.service
+```
+
+**Add this content:**
+```ini
+[Unit]
+Description=PLC Data Processor Service
+After=network.target
+
+[Service]
+Type=simple
+User=inspection
+Group=inspection
+WorkingDirectory=/opt/inspection_webapp
+Environment="PATH=/opt/inspection_webapp/venv/bin"
+ExecStart=/opt/inspection_webapp/venv/bin/python etl/plc_data_processor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Step 20: Final Configuration and Testing
+
+```bash
+# Enable PLC services
+sudo systemctl enable plc-reader
+sudo systemctl enable plc-processor
+
+# Start PLC services
+sudo systemctl start plc-reader
+sudo systemctl start plc-processor
+
+# Check all services
+sudo systemctl status inspection-webapp plc-reader plc-processor
+
+# Test the application
+curl http://your-vm-ip
+```
+
+### Step 21: Set Up Monitoring and Maintenance
+
+```bash
+# Create monitoring script
+sudo nano /opt/inspection_webapp/monitor.sh
+```
+
+**Add this content:**
+```bash
+#!/bin/bash
+# Monitor script for inspection webapp
+
+echo "=== Inspection Webapp Status ==="
+echo "Date: $(date)"
+echo ""
+
+echo "Services Status:"
+systemctl status inspection-webapp --no-pager
+systemctl status plc-reader --no-pager
+systemctl status plc-processor --no-pager
+
+echo ""
+echo "Disk Usage:"
+df -h /opt/inspection_webapp
+
+echo ""
+echo "Memory Usage:"
+free -h
+
+echo ""
+echo "Recent Logs:"
+tail -n 20 /var/log/nginx/access.log
+```
+
+```bash
+# Make script executable
+sudo chmod +x /opt/inspection_webapp/monitor.sh
+
+# Add to crontab for regular monitoring
+sudo crontab -e
+# Add this line for daily monitoring at 6 AM:
+# 0 6 * * * /opt/inspection_webapp/monitor.sh >> /var/log/inspection-monitor.log
+```
+
+### Troubleshooting
+
+**Common Issues and Solutions:**
+
+1. **Database Connection Error:**
+   ```bash
+   # Check MariaDB status
+   sudo systemctl status mariadb
+   
+   # Test database connection
+   mysql -u inspection_user -p inspection_system
+   ```
+
+2. **Permission Issues:**
+   ```bash
+   # Fix file permissions
+   sudo chown -R inspection:www-data /opt/inspection_webapp
+   sudo chmod -R 755 /opt/inspection_webapp
+   ```
+
+3. **Service Won't Start:**
+   ```bash
+   # Check service logs
+   sudo journalctl -u inspection-webapp -f
+   sudo journalctl -u plc-reader -f
+   sudo journalctl -u plc-processor -f
+   ```
+
+4. **Nginx Configuration Error:**
+   ```bash
+   # Test Nginx configuration
+   sudo nginx -t
+   
+   # Check Nginx logs
+   sudo tail -f /var/log/nginx/error.log
+   ```
+
+### Security Considerations
+
+1. **Change default passwords**
+2. **Configure firewall properly**
+3. **Set up regular backups**
+4. **Keep system updated**
+5. **Monitor logs regularly**
+6. **Use SSL certificates**
+
+### Backup Strategy
+
+```bash
+# Create backup script
+sudo nano /opt/inspection_webapp/backup.sh
+```
+
+**Add this content:**
+```bash
+#!/bin/bash
+BACKUP_DIR="/opt/backups/inspection_webapp"
+DATE=$(date +%Y%m%d_%H%M%S)
+
+mkdir -p $BACKUP_DIR
+
+# Backup database
+mysqldump -u inspection_user -p inspection_system > $BACKUP_DIR/database_$DATE.sql
+
+# Backup application files
+tar -czf $BACKUP_DIR/app_files_$DATE.tar.gz /opt/inspection_webapp
+
+# Keep only last 7 days of backups
+find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
+find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
+```
+
+This comprehensive guide will help you successfully deploy the Inspection System Webapp on a Debian Linux virtual machine with production-ready configuration.
 
 ## Usage
 
