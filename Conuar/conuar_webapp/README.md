@@ -1124,6 +1124,593 @@ find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
 
 This comprehensive guide will help you successfully deploy the Inspection System Webapp on a Debian Linux virtual machine with production-ready configuration.
 
+---
+
+## GitHub Deployment Guide for Debian Linux
+
+This section provides step-by-step instructions for deploying the Inspection System Webapp directly from GitHub on a Debian Linux system.
+
+### Prerequisites
+
+- Debian 11 (Bullseye) or Debian 12 (Bookworm)
+- Root or sudo access
+- At least 2GB RAM and 10GB disk space
+- Network connectivity
+- GitHub repository access
+
+### Step 1: System Preparation
+
+```bash
+# Update system packages
+sudo apt update && sudo apt upgrade -y
+
+# Install essential packages
+sudo apt install -y curl wget git vim nano htop tree unzip
+
+# Install Python and development tools
+sudo apt install -y python3 python3-pip python3-venv python3-dev
+sudo apt install -y build-essential libssl-dev libffi-dev libjpeg-dev zlib1g-dev
+
+# Install MySQL/MariaDB
+sudo apt install -y mariadb-server mariadb-client libmariadb-dev libmariadb-dev-compat
+
+# Install Nginx
+sudo apt install -y nginx
+
+# Install Git (if not already installed)
+sudo apt install -y git
+```
+
+### Step 2: Configure Database
+
+```bash
+# Start and enable MariaDB
+sudo systemctl start mariadb
+sudo systemctl enable mariadb
+
+# Secure MariaDB installation
+sudo mysql_secure_installation
+```
+
+**During MariaDB setup:**
+- Set root password: Yes
+- Remove anonymous users: Yes
+- Disallow root login remotely: Yes
+- Remove test database: Yes
+- Reload privilege tables: Yes
+
+```bash
+# Create database and user
+sudo mysql -u root -p
+```
+
+**Run these SQL commands:**
+```sql
+-- Create database
+CREATE DATABASE inspection_system CHARACTER SET utf8mb4 COLLATE utf8mb4_unicode_ci;
+
+-- Create user
+CREATE USER 'inspection_user'@'localhost' IDENTIFIED BY 'your_secure_password_here';
+
+-- Grant privileges
+GRANT ALL PRIVILEGES ON inspection_system.* TO 'inspection_user'@'localhost';
+GRANT CREATE, DROP, ALTER, INDEX ON inspection_system.* TO 'inspection_user'@'localhost';
+
+-- Apply changes
+FLUSH PRIVILEGES;
+EXIT;
+```
+
+### Step 3: Create Application User and Directory
+
+```bash
+# Create application user
+sudo useradd -m -s /bin/bash inspection
+sudo usermod -aG www-data inspection
+
+# Create application directory
+sudo mkdir -p /opt/inspection_webapp
+sudo chown inspection:inspection /opt/inspection_webapp
+```
+
+### Step 4: Clone Repository from GitHub
+
+```bash
+# Switch to application user
+sudo su - inspection
+
+# Navigate to application directory
+cd /opt/inspection_webapp
+
+# Clone the repository
+git clone https://github.com/carlosrosan/Inspection_webapp.git .
+
+# Verify the clone
+ls -la
+```
+
+### Step 5: Set Up Python Virtual Environment
+
+```bash
+# Create virtual environment
+python3 -m venv venv
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Upgrade pip
+pip install --upgrade pip
+```
+
+### Step 6: Install Python Dependencies
+
+```bash
+# Install requirements from the repository
+pip install -r requirements.txt
+
+# Install additional production dependencies
+pip install gunicorn mysqlclient
+```
+
+### Step 7: Configure Django Settings
+
+```bash
+# Create environment file for sensitive data
+nano .env
+```
+
+**Add this content to .env:**
+```env
+# Database Configuration
+DB_NAME=inspection_system
+DB_USER=inspection_user
+DB_PASSWORD=your_secure_password_here
+DB_HOST=localhost
+DB_PORT=3306
+
+# Django Settings
+SECRET_KEY=your-secret-key-here
+DEBUG=False
+ALLOWED_HOSTS=your-server-ip,your-domain.com,localhost
+
+# Email Configuration (optional)
+EMAIL_HOST=smtp.gmail.com
+EMAIL_PORT=587
+EMAIL_USE_TLS=True
+EMAIL_HOST_USER=your-email@gmail.com
+EMAIL_HOST_PASSWORD=your-app-password
+```
+
+```bash
+# Update settings.py to use environment variables
+nano config/settings.py
+```
+
+**Add this to the top of settings.py:**
+```python
+import os
+from dotenv import load_dotenv
+
+# Load environment variables
+load_dotenv()
+
+# Database configuration
+DATABASES = {
+    'default': {
+        'ENGINE': 'django.db.backends.mysql',
+        'NAME': os.getenv('DB_NAME', 'inspection_system'),
+        'USER': os.getenv('DB_USER', 'inspection_user'),
+        'PASSWORD': os.getenv('DB_PASSWORD'),
+        'HOST': os.getenv('DB_HOST', 'localhost'),
+        'PORT': os.getenv('DB_PORT', '3306'),
+        'OPTIONS': {
+            'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
+            'charset': 'utf8mb4',
+        },
+    }
+}
+
+# Security settings
+SECRET_KEY = os.getenv('SECRET_KEY', 'your-secret-key-here')
+DEBUG = os.getenv('DEBUG', 'False').lower() == 'true'
+ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', 'localhost').split(',')
+
+# Static files
+STATIC_URL = '/static/'
+STATIC_ROOT = '/opt/inspection_webapp/staticfiles/'
+
+# Media files
+MEDIA_URL = '/media/'
+MEDIA_ROOT = '/opt/inspection_webapp/media/'
+```
+
+### Step 8: Install python-dotenv
+
+```bash
+# Install python-dotenv for environment variables
+pip install python-dotenv
+```
+
+### Step 9: Run Database Migrations
+
+```bash
+# Make sure you're in the virtual environment
+source venv/bin/activate
+
+# Run migrations
+python manage.py migrate
+
+# Create superuser
+python manage.py createsuperuser
+
+# Collect static files
+python manage.py collectstatic --noinput
+```
+
+### Step 10: Configure Gunicorn
+
+```bash
+# Create Gunicorn configuration
+nano gunicorn_config.py
+```
+
+**Add this content:**
+```python
+bind = "127.0.0.1:8000"
+workers = 3
+worker_class = "sync"
+worker_connections = 1000
+max_requests = 1000
+max_requests_jitter = 100
+timeout = 30
+keepalive = 2
+preload_app = True
+```
+
+### Step 11: Create Systemd Service
+
+```bash
+# Create systemd service file
+sudo nano /etc/systemd/system/inspection-webapp.service
+```
+
+**Add this content:**
+```ini
+[Unit]
+Description=Inspection Webapp Gunicorn daemon
+After=network.target
+
+[Service]
+User=inspection
+Group=www-data
+WorkingDirectory=/opt/inspection_webapp
+Environment="PATH=/opt/inspection_webapp/venv/bin"
+ExecStart=/opt/inspection_webapp/venv/bin/gunicorn --config gunicorn_config.py config.wsgi:application
+ExecReload=/bin/kill -s HUP $MAINPID
+Restart=always
+
+[Install]
+WantedBy=multi-user.target
+```
+
+### Step 12: Configure Nginx
+
+```bash
+# Create Nginx configuration
+sudo nano /etc/nginx/sites-available/inspection-webapp
+```
+
+**Add this content:**
+```nginx
+server {
+    listen 80;
+    server_name your-server-ip your-domain.com;
+
+    client_max_body_size 100M;
+
+    location /static/ {
+        alias /opt/inspection_webapp/staticfiles/;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location /media/ {
+        alias /opt/inspection_webapp/media/;
+        expires 30d;
+        add_header Cache-Control "public, immutable";
+    }
+
+    location / {
+        proxy_pass http://127.0.0.1:8000;
+        proxy_set_header Host $host;
+        proxy_set_header X-Real-IP $remote_addr;
+        proxy_set_header X-Forwarded-For $proxy_add_x_forwarded_for;
+        proxy_set_header X-Forwarded-Proto $scheme;
+        proxy_read_timeout 300;
+        proxy_connect_timeout 300;
+        proxy_send_timeout 300;
+    }
+}
+```
+
+### Step 13: Enable and Start Services
+
+```bash
+# Enable Nginx site
+sudo ln -s /etc/nginx/sites-available/inspection-webapp /etc/nginx/sites-enabled/
+
+# Remove default Nginx site
+sudo rm /etc/nginx/sites-enabled/default
+
+# Test Nginx configuration
+sudo nginx -t
+
+# Reload Nginx
+sudo systemctl reload nginx
+
+# Enable and start the application service
+sudo systemctl enable inspection-webapp
+sudo systemctl start inspection-webapp
+
+# Check service status
+sudo systemctl status inspection-webapp
+```
+
+### Step 14: Configure Firewall
+
+```bash
+# Install UFW if not already installed
+sudo apt install -y ufw
+
+# Configure firewall
+sudo ufw allow ssh
+sudo ufw allow 'Nginx Full'
+sudo ufw enable
+
+# Check firewall status
+sudo ufw status
+```
+
+### Step 15: Set Up PLC Scripts (Optional)
+
+```bash
+# Create systemd services for PLC scripts
+sudo nano /etc/systemd/system/plc-reader.service
+```
+
+**Add this content:**
+```ini
+[Unit]
+Description=PLC Data Reader Service
+After=network.target
+
+[Service]
+Type=simple
+User=inspection
+Group=inspection
+WorkingDirectory=/opt/inspection_webapp
+Environment="PATH=/opt/inspection_webapp/venv/bin"
+ExecStart=/opt/inspection_webapp/venv/bin/python etl/plc_data_reader.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# Create PLC processor service
+sudo nano /etc/systemd/system/plc-processor.service
+```
+
+**Add this content:**
+```ini
+[Unit]
+Description=PLC Data Processor Service
+After=network.target
+
+[Service]
+Type=simple
+User=inspection
+Group=inspection
+WorkingDirectory=/opt/inspection_webapp
+Environment="PATH=/opt/inspection_webapp/venv/bin"
+ExecStart=/opt/inspection_webapp/venv/bin/python etl/plc_data_processor.py
+Restart=always
+RestartSec=10
+
+[Install]
+WantedBy=multi-user.target
+```
+
+```bash
+# Enable PLC services
+sudo systemctl enable plc-reader
+sudo systemctl enable plc-processor
+
+# Start PLC services
+sudo systemctl start plc-reader
+sudo systemctl start plc-processor
+```
+
+### Step 16: Set Up Auto-Update from GitHub
+
+```bash
+# Create update script
+sudo nano /opt/inspection_webapp/update.sh
+```
+
+**Add this content:**
+```bash
+#!/bin/bash
+# Auto-update script for inspection webapp
+
+cd /opt/inspection_webapp
+
+# Switch to inspection user
+sudo -u inspection bash << 'EOF'
+cd /opt/inspection_webapp
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Pull latest changes
+git pull origin main
+
+# Install/update dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Collect static files
+python manage.py collectstatic --noinput
+
+# Restart services
+sudo systemctl restart inspection-webapp
+sudo systemctl restart plc-reader
+sudo systemctl restart plc-processor
+
+echo "Update completed at $(date)"
+EOF
+```
+
+```bash
+# Make script executable
+sudo chmod +x /opt/inspection_webapp/update.sh
+
+# Add to crontab for daily updates at 3 AM
+sudo crontab -e
+# Add this line:
+# 0 3 * * * /opt/inspection_webapp/update.sh >> /var/log/inspection-update.log 2>&1
+```
+
+### Step 17: Test Deployment
+
+```bash
+# Test the application
+curl http://your-server-ip
+
+# Check all services
+sudo systemctl status inspection-webapp plc-reader plc-processor
+
+# Check logs
+sudo journalctl -u inspection-webapp -f
+```
+
+### Step 18: Set Up SSL Certificate (Optional but Recommended)
+
+```bash
+# Install Certbot
+sudo apt install -y certbot python3-certbot-nginx
+
+# Obtain SSL certificate
+sudo certbot --nginx -d your-domain.com
+
+# Test automatic renewal
+sudo certbot renew --dry-run
+```
+
+### Troubleshooting GitHub Deployment
+
+**Common Issues and Solutions:**
+
+1. **Git Clone Failed:**
+   ```bash
+   # Check network connectivity
+   ping github.com
+   
+   # Check Git configuration
+   git config --global user.name "Your Name"
+   git config --global user.email "your.email@example.com"
+   ```
+
+2. **Permission Denied:**
+   ```bash
+   # Fix file permissions
+   sudo chown -R inspection:www-data /opt/inspection_webapp
+   sudo chmod -R 755 /opt/inspection_webapp
+   ```
+
+3. **Database Connection Error:**
+   ```bash
+   # Check MariaDB status
+   sudo systemctl status mariadb
+   
+   # Test database connection
+   mysql -u inspection_user -p inspection_system
+   ```
+
+4. **Service Won't Start:**
+   ```bash
+   # Check service logs
+   sudo journalctl -u inspection-webapp -f
+   sudo journalctl -u plc-reader -f
+   sudo journalctl -u plc-processor -f
+   ```
+
+### Manual Update Process
+
+To manually update the application:
+
+```bash
+# Switch to inspection user
+sudo su - inspection
+cd /opt/inspection_webapp
+
+# Pull latest changes
+git pull origin main
+
+# Activate virtual environment
+source venv/bin/activate
+
+# Install/update dependencies
+pip install -r requirements.txt
+
+# Run migrations
+python manage.py migrate
+
+# Collect static files
+python manage.py collectstatic --noinput
+
+# Restart services
+sudo systemctl restart inspection-webapp
+sudo systemctl restart plc-reader
+sudo systemctl restart plc-processor
+```
+
+### Backup Before Updates
+
+```bash
+# Create backup script
+sudo nano /opt/inspection_webapp/backup_before_update.sh
+```
+
+**Add this content:**
+```bash
+#!/bin/bash
+# Backup script before updates
+
+BACKUP_DIR="/opt/backups/inspection_webapp"
+DATE=$(date +%Y%m%d_%H%M%S)
+
+mkdir -p $BACKUP_DIR
+
+# Backup database
+mysqldump -u inspection_user -p inspection_system > $BACKUP_DIR/database_$DATE.sql
+
+# Backup application files
+tar -czf $BACKUP_DIR/app_files_$DATE.tar.gz /opt/inspection_webapp
+
+# Keep only last 7 days of backups
+find $BACKUP_DIR -name "*.sql" -mtime +7 -delete
+find $BACKUP_DIR -name "*.tar.gz" -mtime +7 -delete
+
+echo "Backup completed: $BACKUP_DIR"
+```
+
+This GitHub deployment guide provides everything needed to deploy the Inspection System Webapp directly from the GitHub repository on Debian Linux with automatic updates and production-ready configuration.
+
 ## Usage
 
 ### 1. Login
