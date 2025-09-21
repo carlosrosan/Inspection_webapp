@@ -128,6 +128,8 @@
 
         <!-- User Management Section -->
         <div class="row mb-5">
+            <!-- Only Supervisors can create users -->
+            {% if user.is_superuser %}
             <div class="col-md-6">
                 <!-- Create User -->
                 <div class="card">
@@ -197,21 +199,39 @@
                             </div>
                             
                             <div class="row">
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <div class="form-check">
-                                        {{ user_creation_form.is_inspector }}
-                                        <label class="form-check-label" for="{{ user_creation_form.is_inspector.id_for_label }}">
-                                            {{ user_creation_form.is_inspector.label }}
+                                        {{ user_creation_form.is_staff }}
+                                        <label class="form-check-label" for="{{ user_creation_form.is_staff.id_for_label }}">
+                                            {{ user_creation_form.is_staff.label }}
                                         </label>
+                                        {% if user_creation_form.is_staff.help_text %}
+                                            <div class="form-text">{{ user_creation_form.is_staff.help_text }}</div>
+                                        {% endif %}
                                     </div>
                                 </div>
                                 
-                                <div class="col-md-6 mb-3">
+                                <div class="col-md-4 mb-3">
                                     <div class="form-check">
-                                        {{ user_creation_form.is_supervisor }}
-                                        <label class="form-check-label" for="{{ user_creation_form.is_supervisor.id_for_label }}">
-                                            {{ user_creation_form.is_supervisor.label }}
+                                        {{ user_creation_form.is_superuser }}
+                                        <label class="form-check-label" for="{{ user_creation_form.is_superuser.id_for_label }}">
+                                            {{ user_creation_form.is_superuser.label }}
                                         </label>
+                                        {% if user_creation_form.is_superuser.help_text %}
+                                            <div class="form-text">{{ user_creation_form.is_superuser.help_text }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                                
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-check">
+                                        {{ user_creation_form.is_active }}
+                                        <label class="form-check-label" for="{{ user_creation_form.is_active.id_for_label }}">
+                                            {{ user_creation_form.is_active.label }}
+                                        </label>
+                                        {% if user_creation_form.is_active.help_text %}
+                                            <div class="form-text">{{ user_creation_form.is_active.help_text }}</div>
+                                        {% endif %}
                                     </div>
                                 </div>
                             </div>
@@ -225,6 +245,7 @@
                     </div>
                 </div>
             </div>
+            {% endif %}  <!-- End supervisor-only user creation -->
             
             <div class="col-md-6">
                 <!-- Change Password -->
@@ -305,16 +326,11 @@
                                         <td>{{ user.email|default:"No especificado" }}</td>
                                         <td>
                                             {% if user.is_superuser %}
-                                                <span class="badge bg-danger">Superusuario</span>
-                                            {% endif %}
-                                            {% if user.is_supervisor %}
-                                                <span class="badge bg-warning">Supervisor</span>
-                                            {% endif %}
-                                            {% if user.is_inspector %}
-                                                <span class="badge bg-info">Inspector</span>
-                                            {% endif %}
-                                            {% if not user.is_superuser and not user.is_supervisor and not user.is_inspector %}
-                                                <span class="badge bg-secondary">Usuario</span>
+                                                <span class="badge bg-danger">Supervisor</span>
+                                            {% elif user.is_staff %}
+                                                <span class="badge bg-info">Usuario Regular</span>
+                                            {% else %}
+                                                <span class="badge bg-secondary">Visualizador</span>
                                             {% endif %}
                                         </td>
                                         <td>{{ user.date_joined|date:"d/m/Y H:i" }}</td>

@@ -117,22 +117,36 @@ class CustomUserCreationForm(UserCreationForm):
             'placeholder': 'Apellido'
         })
     )
-    is_inspector = forms.BooleanField(
+    # Django built-in permission fields
+    is_staff = forms.BooleanField(
         required=False,
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input'
-        })
+        }),
+        label='Usuario Regular (Acceso al Sistema)',
+        help_text='Permite al usuario acceder al sistema y ver la configuración'
     )
-    is_supervisor = forms.BooleanField(
+    is_superuser = forms.BooleanField(
         required=False,
         widget=forms.CheckboxInput(attrs={
             'class': 'form-check-input'
-        })
+        }),
+        label='Supervisor (Acceso Completo)',
+        help_text='Permite al usuario acceso completo, incluyendo creación de usuarios'
+    )
+    is_active = forms.BooleanField(
+        required=False,
+        initial=True,
+        widget=forms.CheckboxInput(attrs={
+            'class': 'form-check-input'
+        }),
+        label='Usuario Activo',
+        help_text='El usuario puede iniciar sesión en el sistema'
     )
     
     class Meta:
         model = User
-        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'is_inspector', 'is_supervisor')
+        fields = ('username', 'email', 'first_name', 'last_name', 'password1', 'password2', 'is_staff', 'is_superuser', 'is_active')
         widgets = {
             'username': forms.TextInput(attrs={
                 'class': 'form-control',
@@ -146,8 +160,6 @@ class CustomUserCreationForm(UserCreationForm):
             'last_name': 'Apellido',
             'password1': 'Contraseña',
             'password2': 'Confirmar Contraseña',
-            'is_inspector': 'Es Inspector',
-            'is_supervisor': 'Es Supervisor'
         }
     
     def __init__(self, *args, **kwargs):
@@ -166,8 +178,9 @@ class CustomUserCreationForm(UserCreationForm):
         user.email = self.cleaned_data['email']
         user.first_name = self.cleaned_data['first_name']
         user.last_name = self.cleaned_data['last_name']
-        user.is_inspector = self.cleaned_data.get('is_inspector', False)
-        user.is_supervisor = self.cleaned_data.get('is_supervisor', False)
+        user.is_staff = self.cleaned_data.get('is_staff', False)
+        user.is_superuser = self.cleaned_data.get('is_superuser', False)
+        user.is_active = self.cleaned_data.get('is_active', True)
         if commit:
             user.save()
         return user
@@ -193,3 +206,4 @@ class CustomPasswordChangeForm(PasswordChangeForm):
         self.fields['old_password'].label = 'Contraseña Actual'
         self.fields['new_password1'].label = 'Nueva Contraseña'
         self.fields['new_password2'].label = 'Confirmar Nueva Contraseña'
+

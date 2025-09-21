@@ -6,6 +6,7 @@ from django.db import models
 from django.contrib.auth import update_session_auth_hash
 from .forms import SystemConfigurationForm, CustomUserCreationForm, CustomPasswordChangeForm
 from .models import SystemConfiguration, User
+from .permissions import require_viewer, require_regular_user, require_supervisor, require_configuration_access
 
 
 def about(request):
@@ -56,8 +57,9 @@ def logout_view(request):
 
 
 @login_required(login_url='main:login')
+@require_viewer  # Viewer, Regular User, and Supervisor can view dashboard
 def dashboard(request):
-    """Machine status dashboard view"""
+    """Machine status dashboard view - All active users can access"""
     from .models import InspectionMachine, MachineLog, Inspection
     from django.db.models import Count, Q
     from datetime import datetime, timedelta
@@ -142,8 +144,9 @@ def dashboard(request):
 
 # Inspection views
 @login_required(login_url='main:login')
+@require_viewer  # Viewer, Regular User, and Supervisor can view inspections
 def inspection_list(request):
-    """List all inspections"""
+    """List all inspections - All active users can access"""
     from .models import Inspection
     
     # Get filter parameters
@@ -188,8 +191,9 @@ def inspection_list(request):
     return render(request, 'main/inspection_list.html', context)
 
 @login_required(login_url='main:login')
+@require_viewer  # Viewer, Regular User, and Supervisor can view inspection details
 def inspection_detail(request, inspection_id):
-    """Show detailed view of a specific inspection"""
+    """Show detailed view of a specific inspection - All active users can access"""
     from .models import Inspection, InspectionPhoto
     from django.shortcuts import get_object_or_404
     
@@ -208,8 +212,9 @@ def inspection_detail(request, inspection_id):
     return render(request, 'main/inspection_detail.html', context)
 
 @login_required(login_url='main:login')
+@require_configuration_access  # Regular User and Supervisor can access configuration
 def configuration(request):
-    """System configuration view with all 5 features"""
+    """System configuration view - Regular Users and Supervisors can access"""
     
     # Get current system configuration
     config = SystemConfiguration.get_config()
@@ -233,6 +238,11 @@ def configuration(request):
                 return redirect('main:configuration')
         
         elif form_type == 'create_user':
+            # Only supervisors can create users
+            if not request.user.is_superuser:
+                messages.error(request, 'Solo los supervisores pueden crear usuarios.')
+                return redirect('main:configuration')
+            
             user_creation_form = CustomUserCreationForm(request.POST)
             if user_creation_form.is_valid():
                 user_creation_form.save()

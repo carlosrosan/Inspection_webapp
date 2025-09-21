@@ -3,9 +3,8 @@ from django.contrib.auth.models import AbstractUser
 from django.utils import timezone
 
 class User(AbstractUser):
-    """Custom user model for privileged access"""
-    is_inspector = models.BooleanField(default=False)
-    is_supervisor = models.BooleanField(default=False)
+    """Custom user model using Django's built-in permissions with 3 roles"""
+    # Remove custom fields - using Django's built-in: is_superuser, is_staff, is_active
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
 
@@ -15,6 +14,45 @@ class User(AbstractUser):
 
     def __str__(self):
         return self.username
+    
+    # Helper methods for the 3 roles
+    @property
+    def is_supervisor(self):
+        """Supervisor: Superuser with full access (is_superuser=True)"""
+        return self.is_superuser and self.is_active
+    
+    @property
+    def is_regular_user(self):
+        """Regular User: Staff access, can see config but not create users (is_staff=True, is_superuser=False)"""
+        return self.is_staff and self.is_active and not self.is_superuser
+    
+    @property
+    def is_viewer(self):
+        """Viewer: Active user, can see everything except config (is_active=True, is_staff=False, is_superuser=False)"""
+        return self.is_active and not self.is_staff and not self.is_superuser
+    
+    def can_view_configuration(self):
+        """Can view configuration page"""
+        return self.is_superuser or self.is_staff
+    
+    def can_access_admin(self):
+        """Can access Django admin panel"""
+        return self.is_superuser or self.is_staff
+    
+    def can_create_users(self):
+        """Can create and modify users"""
+        return self.is_superuser
+    
+    def get_role_display(self):
+        """Get human-readable role name"""
+        if self.is_supervisor:
+            return "Supervisor"
+        elif self.is_regular_user:
+            return "Usuario Regular"
+        elif self.is_viewer:
+            return "Visualizador"
+        else:
+            return "Inactivo"
 
 class Inspection(models.Model):
     """Model for product inspections - Single inspection for the system"""

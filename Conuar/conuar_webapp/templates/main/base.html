@@ -262,6 +262,7 @@
             <div class="collapse navbar-collapse" id="navbarNav">
                 <ul class="navbar-nav ms-auto">
                     {% if user.is_authenticated %}
+                        <!-- All authenticated users can see these -->
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:inspection_list' %}">
                                 <i class="fas fa-clipboard-list me-1"></i>Inspecciones
@@ -272,11 +273,25 @@
                                 <i class="fas fa-tachometer-alt me-1"></i>Estado del Sistema
                             </a>
                         </li>
+                        
+                        <!-- Only Regular Users and Supervisors can see Configuration -->
+                        {% if user.is_staff or user.is_superuser %}
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:configuration' %}">
                                 <i class="fas fa-cogs me-1"></i>Configuración
                             </a>
                         </li>
+                        {% endif %}
+                        
+                        <!-- Only Regular Users and Supervisors can access Admin -->
+                        {% if user.is_staff or user.is_superuser %}
+                        <li class="nav-item">
+                            <a class="nav-link" href="/admin/" target="_blank">
+                                <i class="fas fa-user-shield me-1"></i>Panel Admin
+                            </a>
+                        </li>
+                        {% endif %}
+                        
                         <li class="nav-item">
                             <a class="nav-link" href="{% url 'main:logout' %}">
                                 <i class="fas fa-sign-out-alt me-1"></i>Cerrar Sesión
