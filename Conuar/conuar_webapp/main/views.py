@@ -26,7 +26,7 @@ def about(request):
 def login_view(request):
     """User login view"""
     if request.user.is_authenticated:
-        return redirect('main:dashboard')
+        return redirect('main:inspection_list')
     
     if request.method == 'POST':
         username = request.POST.get('username')
@@ -36,8 +36,8 @@ def login_view(request):
         if user is not None:
             login(request, user)
             messages.success(request, f'¡Bienvenido de vuelta, {user.username}!')
-            # Redirect to the page they were trying to access, or dashboard
-            next_url = request.GET.get('next', 'main:dashboard')
+            # Redirect to the page they were trying to access, or inspection list
+            next_url = request.GET.get('next', 'main:inspection_list')
             return redirect(next_url)
         else:
             messages.error(request, 'Nombre de usuario o contraseña inválidos.')
@@ -52,7 +52,7 @@ def logout_view(request):
     """User logout view"""
     logout(request)
     messages.success(request, 'Has cerrado sesión exitosamente.')
-    return redirect('main:dashboard')
+    return redirect('main:login')
 
 
 @login_required(login_url='main:login')

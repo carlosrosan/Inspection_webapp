@@ -4,12 +4,12 @@ from . import views
 
 app_name = 'main'
 
-def redirect_to_dashboard(request):
-    """Redirect root URL to dashboard"""
-    return redirect('main:dashboard')
+def redirect_to_inspection_list(request):
+    """Redirect root URL to inspection list"""
+    return redirect('main:inspection_list')
 
 urlpatterns = [
-    path('', redirect_to_dashboard, name='home'),
+    path('', redirect_to_inspection_list, name='home'),
     path('about/', views.about, name='about'),
     path('login/', views.login_view, name='login'),
     path('logout/', views.logout_view, name='logout'),
