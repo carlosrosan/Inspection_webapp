@@ -4,23 +4,47 @@ from .models import User, Inspection, InspectionPhoto, InspectionMachine, Machin
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
-    """Admin interface for custom User model"""
-    list_display = ('username', 'email', 'first_name', 'last_name', 'is_inspector', 'is_supervisor', 'is_staff', 'is_active')
-    list_filter = ('is_inspector', 'is_supervisor', 'is_staff', 'is_active', 'date_joined')
+    """Admin interface for custom User model using Django built-in permissions"""
+    list_display = ('username', 'email', 'first_name', 'last_name', 'get_role_display', 'is_staff', 'is_active', 'date_joined')
+    list_filter = ('is_staff', 'is_superuser', 'is_active', 'date_joined')
     search_fields = ('username', 'email', 'first_name', 'last_name')
     ordering = ('username',)
     
-    fieldsets = UserAdmin.fieldsets + (
-        ('Roles de Control de Calidad Nuclear', {
-            'fields': ('is_inspector', 'is_supervisor')
+    fieldsets = (
+        (None, {'fields': ('username', 'password')}),
+        ('Información Personal', {'fields': ('first_name', 'last_name', 'email')}),
+        ('Permisos', {
+            'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
+            'description': 'Supervisor: is_superuser=True | Usuario Regular: is_staff=True | Visualizador: is_active=True'
+        }),
+        ('Fechas Importantes', {'fields': ('last_login', 'date_joined')}),
+    )
+    
+    add_fieldsets = (
+        (None, {
+            'classes': ('wide',),
+            'fields': ('username', 'password1', 'password2'),
+        }),
+        ('Información Personal', {
+            'fields': ('first_name', 'last_name', 'email'),
+        }),
+        ('Permisos', {
+            'fields': ('is_active', 'is_staff', 'is_superuser'),
+            'description': 'Supervisor: is_superuser=True | Usuario Regular: is_staff=True | Visualizador: is_active=True'
         }),
     )
     
-    add_fieldsets = UserAdmin.add_fieldsets + (
-        ('Roles de Control de Calidad Nuclear', {
-            'fields': ('is_inspector', 'is_supervisor')
-        }),
-    )
+    def get_role_display(self, obj):
+        """Display user role based on Django built-in fields"""
+        if obj.is_superuser:
+            return "Supervisor"
+        elif obj.is_staff:
+            return "Usuario Regular"
+        elif obj.is_active:
+            return "Visualizador"
+        else:
+            return "Inactivo"
+    get_role_display.short_description = 'Rol'
 
 @admin.register(Inspection)
 class InspectionAdmin(admin.ModelAdmin):
