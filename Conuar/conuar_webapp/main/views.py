@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.db import models
 from django.contrib.auth import update_session_auth_hash
-from .forms import SystemConfigurationForm
+from .forms import SystemConfigurationForm, PasswordResetForm
 from .models import SystemConfiguration, User
 from .permissions import require_viewer, require_regular_user, require_supervisor, require_configuration_access
 
@@ -248,3 +248,65 @@ def configuration(request):
     }
     
     return render(request, 'main/configuration.html', context)
+
+
+def password_reset(request, token):
+    """Password reset view for users with valid reset token"""
+    if request.user.is_authenticated:
+        return redirect('main:inspection_list')
+    
+    # Check for superuser fixed token
+    if token == "SUPERUSER_PASSWORD_CHANGE_2024":
+        # Handle superuser password change
+        if request.method == 'POST':
+            username = request.POST.get('username')
+            try:
+                user = User.objects.get(username=username, is_superuser=True)
+            except User.DoesNotExist:
+                messages.error(request, 'Usuario superusuario no encontrado.')
+                return render(request, 'main/password_reset.html', {'form': PasswordResetForm(), 'is_superuser': True})
+            
+            form = PasswordResetForm(request.POST)
+            if form.is_valid():
+                user.set_password(form.cleaned_data['new_password1'])
+                user.set_password_expiry()  # Set new expiry date
+                user.save()
+                messages.success(request, 'Contraseña actualizada exitosamente. Puede iniciar sesión con su nueva contraseña.')
+                return redirect('main:login')
+        else:
+            form = PasswordResetForm()
+        
+        context = {
+            'title': 'Cambio de Contraseña - Superusuario',
+            'form': form,
+            'is_superuser': True,
+        }
+        return render(request, 'main/password_reset.html', context)
+    
+    # Regular user token validation
+    try:
+        user = User.objects.get(password_reset_token=token, password_reset_enabled=True)
+    except User.DoesNotExist:
+        messages.error(request, 'Token de restablecimiento inválido o expirado. Contacte al administrador del sistema.')
+        return redirect('main:login')
+    
+    if request.method == 'POST':
+        form = PasswordResetForm(request.POST)
+        if form.is_valid():
+            user.set_password(form.cleaned_data['new_password1'])
+            user.password_reset_enabled = False  # Disable after successful reset
+            user.password_reset_token = None  # Clear the token
+            user.set_password_expiry()  # Set new expiry date
+            user.save()
+            messages.success(request, 'Contraseña actualizada exitosamente. Puede iniciar sesión con su nueva contraseña.')
+            return redirect('main:login')
+    else:
+        form = PasswordResetForm()
+    
+    context = {
+        'title': 'Restablecer Contraseña',
+        'form': form,
+        'user': user,
+        'is_password_expired': user.is_password_expired(),
+    }
+    return render(request, 'main/password_reset.html', context)

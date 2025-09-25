@@ -1,7 +1,9 @@
 from django import forms
 from django.contrib.auth.forms import UserCreationForm, PasswordChangeForm
 from django.contrib.auth import get_user_model
+from django.core.exceptions import ValidationError
 from .models import SystemConfiguration
+from .validators import CustomPasswordValidator
 
 User = get_user_model()
 
@@ -202,8 +204,44 @@ class CustomPasswordChangeForm(PasswordChangeForm):
             'class': 'form-control',
             'placeholder': 'Confirmar nueva contraseña'
         })
+
+
+class PasswordResetForm(forms.Form):
+    """Form for password reset with custom validation"""
+    
+    new_password1 = forms.CharField(
+        label="Nueva Contraseña",
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Ingrese su nueva contraseña'
+        }),
+        help_text="Mínimo 10 caracteres, incluyendo mayúsculas, minúsculas, números y caracteres especiales (.!#%$)"
+    )
+    new_password2 = forms.CharField(
+        label="Confirmar Nueva Contraseña",
+        widget=forms.PasswordInput(attrs={
+            'class': 'form-control',
+            'placeholder': 'Confirme su nueva contraseña'
+        })
+    )
+    
+    def clean_new_password1(self):
+        password1 = self.cleaned_data.get('new_password1')
+        if password1:
+            validator = CustomPasswordValidator()
+            try:
+                validator.validate(password1)
+            except ValidationError as e:
+                raise forms.ValidationError(e.message)
+        return password1
+    
+    def clean(self):
+        cleaned_data = super().clean()
+        password1 = cleaned_data.get('new_password1')
+        password2 = cleaned_data.get('new_password2')
         
-        self.fields['old_password'].label = 'Contraseña Actual'
-        self.fields['new_password1'].label = 'Nueva Contraseña'
-        self.fields['new_password2'].label = 'Confirmar Nueva Contraseña'
+        if password1 and password2 and password1 != password2:
+            raise forms.ValidationError("Las contraseñas no coinciden.")
+        
+        return cleaned_data
 

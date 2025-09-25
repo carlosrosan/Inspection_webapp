@@ -1,11 +1,14 @@
 from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
+from django.contrib.auth.password_validation import validate_password
+from django.core.exceptions import ValidationError
 from .models import User, Inspection, InspectionPhoto, InspectionMachine, MachineLog
+from .validators import CustomPasswordValidator
 
 @admin.register(User)
 class CustomUserAdmin(UserAdmin):
     """Admin interface for custom User model using Django built-in permissions"""
-    list_display = ('username', 'email', 'first_name', 'last_name', 'get_role_display', 'is_staff', 'is_active', 'date_joined')
+    list_display = ('username', 'email', 'first_name', 'last_name', 'get_role_display', 'is_staff', 'is_active', 'password_expiry_date', 'password_expired', 'date_joined')
     list_filter = ('is_staff', 'is_superuser', 'is_active', 'date_joined')
     search_fields = ('username', 'email', 'first_name', 'last_name')
     ordering = ('username',)
@@ -16,6 +19,10 @@ class CustomUserAdmin(UserAdmin):
         ('Permisos', {
             'fields': ('is_active', 'is_staff', 'is_superuser', 'groups', 'user_permissions'),
             'description': 'Supervisor: is_superuser=True | Usuario Regular: is_staff=True | Visualizador: is_active=True'
+        }),
+        ('Gestión de Contraseña', {
+            'fields': ('password_reset_enabled', 'password_reset_token', 'password_expiry_date', 'password_expired'),
+            'description': 'Solo los supervisores pueden habilitar el cambio de contraseña para otros usuarios'
         }),
         ('Fechas Importantes', {'fields': ('last_login', 'date_joined')}),
     )
@@ -32,6 +39,10 @@ class CustomUserAdmin(UserAdmin):
             'fields': ('is_active', 'is_staff', 'is_superuser'),
             'description': 'Supervisor: is_superuser=True | Usuario Regular: is_staff=True | Visualizador: is_active=True'
         }),
+        ('Gestión de Contraseña', {
+            'fields': ('password_reset_enabled', 'password_reset_token'),
+            'description': 'Solo los supervisores pueden habilitar el cambio de contraseña para otros usuarios'
+        }),
     )
     
     def get_role_display(self, obj):
@@ -45,6 +56,73 @@ class CustomUserAdmin(UserAdmin):
         else:
             return "Inactivo"
     get_role_display.short_description = 'Rol'
+    
+    def save_model(self, request, obj, form, change):
+        """Override save to validate password with custom validator"""
+        if not change:  # Only for new users
+            password = form.cleaned_data.get('password1')
+            if password:
+                # Validate password with custom validator
+                validator = CustomPasswordValidator()
+                try:
+                    validator.validate(password, obj)
+                except ValidationError as e:
+                    from django.contrib import messages
+                    messages.error(request, f"Error de validación de contraseña: {e.message}")
+                    return
+        
+        super().save_model(request, obj, form, change)
+        
+        # Set password expiry for new users (except superusers)
+        if not change and not obj.is_superuser:
+            obj.set_password_expiry()
+    
+    def generate_password_reset_url(self, request, queryset):
+        """Admin action to generate password reset URLs for selected users"""
+        from django.contrib import messages
+        from django.urls import reverse
+        
+        for user in queryset:
+            if not user.is_superuser:  # Only allow for non-superusers
+                token = user.generate_password_reset_token()
+                reset_url = user.get_password_reset_url(request)
+                messages.success(request, f'URL de restablecimiento para {user.username}: {reset_url}')
+            else:
+                messages.warning(request, f'No se puede generar URL de restablecimiento para superusuario: {user.username}')
+    
+    generate_password_reset_url.short_description = "Generar URL de restablecimiento de contraseña"
+    
+    def set_password_expiry(self, request, queryset):
+        """Admin action to set password expiry for selected users"""
+        from django.contrib import messages
+        
+        for user in queryset:
+            if not user.is_superuser:  # Only for non-superusers
+                user.set_password_expiry()
+                messages.success(request, f'Fecha de expiración establecida para {user.username}')
+            else:
+                messages.warning(request, f'Los superusuarios están exentos de expiración de contraseña: {user.username}')
+    
+    set_password_expiry.short_description = "Establecer expiración de contraseña (90 días)"
+    
+    def get_superuser_reset_url(self, request, queryset):
+        """Admin action to get superuser fixed reset URL"""
+        from django.contrib import messages
+        
+        for user in queryset:
+            if user.is_superuser:
+                from django.urls import reverse
+                reset_url = request.build_absolute_uri(
+                    reverse('main:password_reset', kwargs={'token': user.get_superuser_fixed_token()})
+                )
+                messages.success(request, f'URL de restablecimiento para superusuario {user.username}: {reset_url}')
+            else:
+                messages.warning(request, f'Esta acción solo es para superusuarios: {user.username}')
+    
+    get_superuser_reset_url.short_description = "Obtener URL de restablecimiento para superusuario"
+    
+    readonly_fields = ('password_reset_token',)
+    actions = ['generate_password_reset_url', 'set_password_expiry', 'get_superuser_reset_url']
 
 @admin.register(Inspection)
 class InspectionAdmin(admin.ModelAdmin):

@@ -2540,3 +2540,204 @@ For questions or issues with the inspection system:
 ---
 
 **🎯 The inspection system is now fully functional and ready for production use!**
+
+
+### �� **Security Enhancements**
+
+
+### 1. Password Validation Requirements ✅
+- **Minimum 10 characters**: Implemented in `CustomPasswordValidator` and Django settings
+- **Uppercase, lowercase, number, and special characters (.!#%$)**: All enforced by the custom validator
+- **Applied globally**: Added to `AUTH_PASSWORD_VALIDATORS` in settings.py
+
+### 2. Password Reset Control by Superuser ✅
+- **New field**: Added `password_reset_enabled` boolean field to User model
+- **Admin interface**: Superusers can enable/disable password reset for any user
+- **Security**: Only superusers can control this setting through the Django admin
+
+### 3. Password Reset Functionality ✅
+- **Dedicated view**: Created `password_reset` view that validates user permissions
+- **Custom form**: `PasswordResetForm` with the same validation rules as user creation
+- **Template**: Professional password reset page with clear instructions
+- **URL routing**: Added `/password-reset/` endpoint
+
+### 4. Login Page Integration ✅
+- **Updated login page**: Added "Restablecer contraseña" link
+- **User-friendly**: Clear indication that password reset is available
+- **Seamless flow**: Direct link to password reset page
+
+### Key Features:
+
+**Password Validation (`validators.py`)**:
+- Minimum 10 characters
+- At least one uppercase letter
+- At least one lowercase letter  
+- At least one number
+- At least one special character from `.!#%$`
+
+**User Model Enhancement**:
+- `password_reset_enabled` field (default: False)
+- Only superusers can enable this for other users
+
+**Admin Interface**:
+- New "Gestión de Contraseña" section
+- Clear descriptions for superusers
+- Password validation on user creation
+
+**Password Reset Flow**:
+1. User clicks "Restablecer contraseña" on login page
+2. Enters username and new password (with validation)
+3. System checks if password reset is enabled for that user
+4. If valid, password is updated and reset permission is disabled
+5. User is redirected to login with success message
+
+**Security Features**:
+- Password reset is disabled by default
+- Only superusers can enable it
+- Reset permission is automatically disabled after successful password change
+- All password validation rules apply to both creation and reset
+
+The system now provides a secure, controlled password management system where superusers have full control over who can reset their passwords, and all passwords must meet the strict security requirements.
+
+
+**1. Token-Based Password Reset**:
+- Added `password_reset_token` field to User model
+- URLs now require a specific token: `http://127.0.0.1:8000/password-reset/<token>/`
+- Tokens are 32-character secure random strings
+- No public access to password reset functionality
+
+**2. Superuser-Only Control**:
+- Only superusers can generate password reset URLs
+- Admin interface includes "Generar URL de restablecimiento de contraseña" action
+- Token field is read-only in admin interface
+- URLs are displayed in admin messages for easy sharing
+
+### �� **Technical Implementation**
+
+**User Model Enhancements**:
+- `password_reset_token`: Stores the secure token
+- `generate_password_reset_token()`: Creates new token and enables reset
+- `get_password_reset_url()`: Generates the complete reset URL
+
+**Admin Interface**:
+- New admin action to generate reset URLs for selected users
+- Token field visible but read-only
+- Clear success messages with the generated URLs
+- Prevents token generation for superusers
+
+**Updated Views & URLs**:
+- Password reset view now requires `token` parameter
+- Validates token exists and is enabled
+- Automatically disables reset after successful password change
+- Clears token after use for security
+
+**Template Updates**:
+- Removed username field from password reset form
+- Shows user information when token is valid
+- Removed public password reset link from login page
+- Updated login page to direct users to contact administrator
+
+### 🔐 **Security Features**
+
+1. **No Public Access**: Password reset is no longer publicly accessible
+2. **Token Validation**: Only valid, enabled tokens work
+3. **One-Time Use**: Tokens are cleared after successful password change
+4. **Superuser Control**: Only administrators can generate reset URLs
+5. **Secure Tokens**: 32-character cryptographically secure random strings
+6. **Automatic Cleanup**: Reset permissions are disabled after use
+
+### 📋 **How It Works**
+
+1. **Superuser generates URL**: In Django admin, select user(s) and use "Generar URL de restablecimiento de contraseña" action
+2. **URL is displayed**: Admin sees the complete URL in success message
+3. **Share URL**: Superuser shares the specific URL with the user
+4. **User resets password**: User visits the URL and creates new password
+5. **Security cleanup**: Token is cleared and reset is disabled automatically
+
+The system now provides enterprise-level security for password resets while maintaining ease of use for administrators.
+
+
+### �� **Password Expiry System**
+
+**1. User Model Enhancements**:
+- `password_expiry_date`: Stores when the password expires (90 days from last change)
+- `password_expired`: Boolean flag indicating if password has expired
+- `set_password_expiry()`: Sets expiry date to 90 days from now
+- `check_password_expiry()`: Checks and updates expiry status
+- `is_password_expired()`: Returns true if password is expired (superusers exempt)
+
+**2. Middleware Protection**:
+- `PasswordExpiryMiddleware`: Checks every request for expired passwords
+- Automatically redirects users with expired passwords to password reset
+- Exempts certain paths (login, logout, password-reset, admin, static files)
+- Superusers are exempt from password expiry enforcement
+
+**3. Superuser Fixed Token System**:
+- Fixed token: `SUPERUSER_PASSWORD_CHANGE_2024`
+- URL: `http://127.0.0.1:8000/password-reset/SUPERUSER_PASSWORD_CHANGE_2024/`
+- Superusers can use this URL anytime to change their password
+- No expiry restrictions for superusers
+
+### 🛠 **Admin Interface Enhancements**
+
+**New Admin Actions**:
+- **"Generar URL de restablecimiento de contraseña"**: Creates reset URLs for regular users
+- **"Establecer expiración de contraseña (90 días)"**: Sets password expiry for selected users
+- **"Obtener URL de restablecimiento para superusuario"**: Gets the fixed superuser URL
+
+**Enhanced Display**:
+- Added `password_expiry_date` and `password_expired` to list display
+- Added password expiry fields to user edit form
+- Automatic password expiry setup for new users (except superusers)
+
+### 🔄 **Password Reset Flow**
+
+**For Regular Users**:
+1. Password expires after 90 days
+2. Middleware redirects to password reset with token
+3. User changes password using superuser-generated URL
+4. New 90-day expiry period is set automatically
+
+**For Superusers**:
+1. Use fixed URL: `/password-reset/SUPERUSER_PASSWORD_CHANGE_2024/`
+2. Enter username and new password
+3. No expiry restrictions
+
+### �� **Key Features**
+
+**Security**:
+- 90-day password expiry for all non-superuser accounts
+- Token-based password resets (no public access)
+- Middleware enforcement on every request
+- Superuser exemption from expiry rules
+
+**User Experience**:
+- Clear messaging about password expiry
+- Different templates for expired vs. regular password resets
+- Automatic redirect to password change when expired
+- Admin-generated secure URLs
+
+**Administration**:
+- Bulk actions for setting password expiry
+- Easy URL generation for password resets
+- Fixed superuser reset URL
+- Management command for setting expiry on existing users
+
+### �� **Usage Instructions**
+
+**For Administrators**:
+1. Use admin actions to generate reset URLs for users
+2. Use "Establecer expiración de contraseña" to set expiry dates
+3. Use "Obtener URL de restablecimiento para superusuario" for superuser resets
+
+**For Users**:
+1. When password expires, they're automatically redirected to reset page
+2. Use the URL provided by administrator to change password
+3. New password must meet security requirements (10+ chars, upper/lower/number/special)
+
+**Management Command**:
+```bash
+python manage.py set_password_expiry --days 90
+```
+
+The system now provides enterprise-level password security with automatic expiry enforcement while maintaining ease of use for administrators and users.
