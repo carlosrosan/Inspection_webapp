@@ -50,8 +50,8 @@ class CustomUserAdmin(UserAdmin):
 class InspectionAdmin(admin.ModelAdmin):
     """Admin interface for Inspection model"""
     list_display = ('id', 'title', 'product_name', 'tipo_combustible', 'status', 'inspector', 'inspection_date')
-    list_filter = ('status', 'tipo_combustible', 'inspection_date', 'inspector', 'supervisor')
-    search_fields = ('title', 'product_name', 'product_code', 'batch_number', 'serial_number', 'inspector__username', 'supervisor__username')
+    list_filter = ('status', 'tipo_combustible', 'inspection_date', 'inspector')
+    search_fields = ('title', 'product_name', 'product_code', 'batch_number', 'serial_number', 'inspector__username')
     ordering = ('-inspection_date',)
     date_hierarchy = 'inspection_date'
     
@@ -66,7 +66,7 @@ class InspectionAdmin(admin.ModelAdmin):
             'fields': ('location', 'inspection_date', 'completed_date')
         }),
         ('Personal', {
-            'fields': ('inspector', 'supervisor')
+            'fields': ('inspector',)
         }),
         ('Resultados y Notas', {
             'fields': ('result', 'notes', 'recommendations')

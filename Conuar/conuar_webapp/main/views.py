@@ -4,7 +4,7 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.db import models
 from django.contrib.auth import update_session_auth_hash
-from .forms import SystemConfigurationForm, CustomUserCreationForm, CustomPasswordChangeForm
+from .forms import SystemConfigurationForm
 from .models import SystemConfiguration, User
 from .permissions import require_viewer, require_regular_user, require_supervisor, require_configuration_access
 
@@ -221,8 +221,6 @@ def configuration(request):
     
     # Initialize forms
     config_form = SystemConfigurationForm(instance=config)
-    user_creation_form = CustomUserCreationForm()
-    password_change_form = CustomPasswordChangeForm(user=request.user)
     
     # Handle form submissions
     if request.method == 'POST':
@@ -237,25 +235,6 @@ def configuration(request):
                 messages.success(request, 'Configuración del sistema actualizada exitosamente.')
                 return redirect('main:configuration')
         
-        elif form_type == 'create_user':
-            # Only supervisors can create users
-            if not request.user.is_superuser:
-                messages.error(request, 'Solo los supervisores pueden crear usuarios.')
-                return redirect('main:configuration')
-            
-            user_creation_form = CustomUserCreationForm(request.POST)
-            if user_creation_form.is_valid():
-                user_creation_form.save()
-                messages.success(request, 'Usuario creado exitosamente.')
-                return redirect('main:configuration')
-        
-        elif form_type == 'change_password':
-            password_change_form = CustomPasswordChangeForm(user=request.user, data=request.POST)
-            if password_change_form.is_valid():
-                password_change_form.save()
-                update_session_auth_hash(request, password_change_form.user)
-                messages.success(request, 'Contraseña actualizada exitosamente.')
-                return redirect('main:configuration')
     
     # Get all users for display
     users = User.objects.all().order_by('-date_joined')
@@ -264,8 +243,6 @@ def configuration(request):
         'title': 'Configuración del Sistema',
         'description': 'Configuración de sistema, usuarios y dispositivos',
         'config_form': config_form,
-        'user_creation_form': user_creation_form,
-        'password_change_form': password_change_form,
         'users': users,
         'current_config': config,
     }

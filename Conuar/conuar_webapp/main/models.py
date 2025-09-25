@@ -105,14 +105,6 @@ class Inspection(models.Model):
         related_name='inspections_conducted',
         help_text="Usuario que realizó la inspección"
     )
-    supervisor = models.ForeignKey(
-        User,
-        on_delete=models.SET_NULL,
-        null=True,
-        blank=True,
-        related_name='inspections_supervised',
-        help_text="Supervisor que revisó la inspección"
-    )
     
     # Results and Notes
     result = models.TextField(blank=True, help_text="Resultados y hallazgos de la inspección")
