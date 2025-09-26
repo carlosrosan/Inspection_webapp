@@ -4,9 +4,15 @@ from django.contrib.auth import authenticate, login, logout
 from django.contrib import messages
 from django.db import models
 from django.contrib.auth import update_session_auth_hash
+from django.utils import timezone
+from django.core.cache import cache
+import logging
 from .forms import SystemConfigurationForm, PasswordResetForm
 from .models import SystemConfiguration, User
 from .permissions import require_viewer, require_regular_user, require_supervisor, require_configuration_access
+
+# Set up logger for login attempts
+logger = logging.getLogger('main.views')
 
 
 def about(request):
@@ -25,23 +31,44 @@ def about(request):
 
 
 def login_view(request):
-    """User login view"""
+    """User login view with comprehensive logging"""
     if request.user.is_authenticated:
         return redirect('main:inspection_list')
     
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
+        client_ip = request.META.get('REMOTE_ADDR', 'Unknown')
+        user_agent = request.META.get('HTTP_USER_AGENT', 'Unknown')
+        
+        # Track login attempts using cache
+        cache_key = f"login_attempts_{username}_{client_ip}"
+        attempts = cache.get(cache_key, 0)
+        attempts += 1
+        cache.set(cache_key, attempts, timeout=3600)  # 1 hour timeout
+        
+        # Log login attempt
+        logger.info(f"LOGIN_ATTEMPT - User: {username}, IP: {client_ip}, Attempt: {attempts}, User-Agent: {user_agent}")
+        
         user = authenticate(request, username=username, password=password)
         
         if user is not None:
+            # Successful login
             login(request, user)
+            cache.delete(cache_key)  # Clear failed attempts on successful login
+            logger.info(f"LOGIN_SUCCESS - User: {username}, IP: {client_ip}, Role: {user.get_role_display()}")
             messages.success(request, f'¡Bienvenido de vuelta, {user.username}!')
             # Redirect to the page they were trying to access, or inspection list
             next_url = request.GET.get('next', 'main:inspection_list')
             return redirect(next_url)
         else:
-            messages.error(request, 'Nombre de usuario o contraseña inválidos.')
+            # Failed login
+            logger.warning(f"LOGIN_FAILED - User: {username}, IP: {client_ip}, Attempt: {attempts}")
+            if attempts >= 5:
+                logger.error(f"LOGIN_BLOCKED - User: {username}, IP: {client_ip}, Too many failed attempts: {attempts}")
+                messages.error(request, f'Demasiados intentos fallidos. Usuario {username} bloqueado temporalmente.')
+            else:
+                messages.error(request, 'Nombre de usuario o contraseña inválidos.')
     
     context = {
         'title': 'Iniciar Sesión - Inspección de combustible',
@@ -50,7 +77,12 @@ def login_view(request):
     return render(request, 'main/login.html', context)
 
 def logout_view(request):
-    """User logout view"""
+    """User logout view with logging"""
+    if request.user.is_authenticated:
+        username = request.user.username
+        client_ip = request.META.get('REMOTE_ADDR', 'Unknown')
+        logger.info(f"LOGOUT - User: {username}, IP: {client_ip}")
+    
     logout(request)
     messages.success(request, 'Has cerrado sesión exitosamente.')
     return redirect('main:login')

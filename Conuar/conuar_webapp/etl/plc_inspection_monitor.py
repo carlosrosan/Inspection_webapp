@@ -44,7 +44,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('plc_monitor.log'),
+        logging.FileHandler('logs/plc_monitor.log'),
         logging.StreamHandler()
     ]
 )
@@ -204,6 +204,10 @@ class PlcInspectionMonitor:
                     return ""
                 return f"REG_{register_value}"
             
+            # Determinar el tipo de mensaje basado en el valor del registro
+            message_type_value = plc_data.get('message_type', 1)
+            message_type = 'machine_routine_step' if message_type_value == 1 else 'system_message'
+            
             event = InspectionPlcEvent.objects.create(
                 timestamp_plc=plc_data['timestamp_plc'],
                 id_inspection=inspection,
@@ -221,6 +225,9 @@ class PlcInspectionMonitor:
                 camera_id=register_to_string(plc_data['camera_id']),
                 filming_type=plc_data['filming_type'],
                 last_photo_request_timestamp=plc_data['timestamp_plc'] if plc_data['last_photo_request_timestamp'] else None,
+                message_type=message_type,
+                message_body=plc_data.get('message_body', ''),
+                fuel_rig_id=plc_data.get('fuel_rig_id', ''),
             )
             
             logger.info(f"Creado evento PLC para inspección {inspection.id}, punto de control {event.control_point_id}")

@@ -492,6 +492,11 @@ class InspectionPlcEvent(models.Model):
         ('photo', 'Foto'),
     ]
     
+    MESSAGE_TYPE_CHOICES = [
+        ('machine_routine_step', 'Paso de Rutina de Máquina'),
+        ('system_message', 'Mensaje del Sistema'),
+    ]
+    
     # Basic Information
     timestamp_plc = models.DateTimeField(help_text="Timestamp del PLC")
     id_inspection = models.ForeignKey(
@@ -555,6 +560,23 @@ class InspectionPlcEvent(models.Model):
         help_text="Último timestamp solicitud foto cámara"
     )
     
+    # New Fields
+    message_type = models.CharField(
+        max_length=30,
+        choices=MESSAGE_TYPE_CHOICES,
+        default='machine_routine_step',
+        help_text="Tipo de mensaje: rutina de máquina o mensaje del sistema"
+    )
+    message_body = models.TextField(
+        blank=True,
+        help_text="Cuerpo del mensaje del sistema (ej. 'machine active', 'machine emergency stop')"
+    )
+    fuel_rig_id = models.CharField(
+        max_length=50,
+        blank=True,
+        help_text="ID del rig de combustible nuclear siendo inspeccionado"
+    )
+    
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -569,6 +591,11 @@ class InspectionPlcEvent(models.Model):
 
 class PlcReading(models.Model):
     """Model for raw PLC readings - stores all data from PLC before processing"""
+    
+    MESSAGE_TYPE_CHOICES = [
+        ('machine_routine_step', 'Paso de Rutina de Máquina'),
+        ('system_message', 'Mensaje del Sistema'),
+    ]
     
     # Basic Information
     timestamp_plc = models.DateTimeField(help_text="Timestamp del PLC")
@@ -596,6 +623,23 @@ class PlcReading(models.Model):
     last_photo_request_timestamp = models.IntegerField(help_text="Último timestamp solicitud foto cámara")
     new_photos_available = models.BooleanField(default=False, help_text="Flag indicando nuevas fotos")
     photo_count = models.IntegerField(default=0, help_text="Número de nuevas fotos")
+    
+    # New Fields
+    message_type = models.CharField(
+        max_length=30,
+        choices=MESSAGE_TYPE_CHOICES,
+        default='machine_routine_step',
+        help_text="Tipo de mensaje: rutina de máquina o mensaje del sistema"
+    )
+    message_body = models.TextField(
+        blank=True,
+        help_text="Cuerpo del mensaje del sistema (ej. 'machine active', 'machine emergency stop')"
+    )
+    fuel_rig_id = models.CharField(
+        max_length=50,
+        blank=True,
+        help_text="ID del rig de combustible nuclear siendo inspeccionado"
+    )
     
     # Processing Status
     processed = models.BooleanField(default=False, help_text="Indica si el registro ya fue procesado")

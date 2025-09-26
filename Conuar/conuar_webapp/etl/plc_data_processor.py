@@ -36,7 +36,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('plc_data_processor.log'),
+        logging.FileHandler('logs/plc_data_processor.log'),
         logging.StreamHandler()
     ]
 )
@@ -171,6 +171,9 @@ class PlcDataProcessor:
                 camera_id=register_to_string(reading.camera_id),
                 filming_type=self.filming_type_map.get(reading.filming_type, 'photo'),
                 last_photo_request_timestamp=reading.timestamp_plc if reading.last_photo_request_timestamp else None,
+                message_type=reading.message_type,
+                message_body=reading.message_body,
+                fuel_rig_id=reading.fuel_rig_id,
             )
             
             logger.info(f"Creado evento PLC para inspección {inspection.id}, punto de control {event.control_point_id}")

@@ -38,7 +38,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('plc_data_reader.log'),
+        logging.FileHandler('logs/plc_data_reader.log'),
         logging.StreamHandler()
     ]
 )
@@ -73,6 +73,9 @@ class PlcDataReader:
             'last_photo_request_timestamp': 17,
             'new_photos_available': 18,  # Flag indicando nuevas fotos
             'photo_count': 19,  # Número de nuevas fotos
+            'message_type': 20,  # Tipo de mensaje (1=machine_routine_step, 2=system_message)
+            'message_body': 21,  # Cuerpo del mensaje del sistema
+            'fuel_rig_id': 22,   # ID del rig de combustible nuclear
         }
     
     def connect_to_plc(self) -> bool:
@@ -111,14 +114,43 @@ class PlcDataReader:
             
             data = {}
             
-            # Leer todos los registros
+            # Leer todos los registros numéricos
             for field, register in self.register_map.items():
-                result = self.plc_client.read_holding_registers(register, 1)
-                if result:
-                    data[field] = result[0]
+                if field in ['message_body', 'fuel_rig_id']:
+                    # Para campos de texto, leer múltiples registros y convertir a string
+                    if field == 'message_body':
+                        # Leer 10 registros para mensaje (máximo 20 caracteres)
+                        result = self.plc_client.read_holding_registers(register, 10)
+                        if result:
+                            # Convertir registros a string (cada registro = 2 caracteres)
+                            chars = []
+                            for reg in result:
+                                if reg > 0:
+                                    chars.append(chr(reg >> 8))
+                                    chars.append(chr(reg & 0xFF))
+                            data[field] = ''.join(chars).strip('\x00')
+                        else:
+                            data[field] = ""
+                    elif field == 'fuel_rig_id':
+                        # Leer 5 registros para fuel_rig_id (máximo 10 caracteres)
+                        result = self.plc_client.read_holding_registers(register, 5)
+                        if result:
+                            chars = []
+                            for reg in result:
+                                if reg > 0:
+                                    chars.append(chr(reg >> 8))
+                                    chars.append(chr(reg & 0xFF))
+                            data[field] = ''.join(chars).strip('\x00')
+                        else:
+                            data[field] = ""
                 else:
-                    logger.warning(f"Error al leer registro {register} para campo {field}")
-                    data[field] = 0
+                    # Leer registros numéricos normales
+                    result = self.plc_client.read_holding_registers(register, 1)
+                    if result:
+                        data[field] = result[0]
+                    else:
+                        logger.warning(f"Error al leer registro {register} para campo {field}")
+                        data[field] = 0
             
             # Usar tiempo actual como timestamp del PLC
             data['timestamp_plc'] = datetime.now()
@@ -132,6 +164,10 @@ class PlcDataReader:
     def save_plc_reading(self, plc_data: Dict) -> bool:
         """Guardar datos del PLC en la tabla main_plc_readings"""
         try:
+            # Determinar el tipo de mensaje basado en el valor del registro
+            message_type_value = plc_data.get('message_type', 1)
+            message_type = 'machine_routine_step' if message_type_value == 1 else 'system_message'
+            
             # Crear registro de lectura PLC
             reading = PlcReading.objects.create(
                 timestamp_plc=plc_data['timestamp_plc'],
@@ -153,10 +189,13 @@ class PlcDataReader:
                 last_photo_request_timestamp=plc_data['last_photo_request_timestamp'],
                 new_photos_available=bool(plc_data['new_photos_available']),
                 photo_count=plc_data['photo_count'],
+                message_type=message_type,
+                message_body=plc_data.get('message_body', ''),
+                fuel_rig_id=plc_data.get('fuel_rig_id', ''),
                 processed=False  # Marcar como no procesado
             )
             
-            logger.info(f"Lectura PLC guardada - ID: {reading.id}, Inspección: {reading.id_inspection}")
+            logger.info(f"Lectura PLC guardada - ID: {reading.id}, Inspección: {reading.id_inspection}, Tipo: {message_type}")
             return True
             
         except Exception as e:

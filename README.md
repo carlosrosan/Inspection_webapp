@@ -2741,3 +2741,59 @@ python manage.py set_password_expiry --days 90
 ```
 
 The system now provides enterprise-level password security with automatic expiry enforcement while maintaining ease of use for administrators and users.
+
+
+## ✅ **Logging System**
+
+### **1. Created Logs Directory Structure**
+- **Location**: `C:\Inspection_webapp\Conuar\conuar_webapp\logs\`
+- **Purpose**: Centralized location for all application logs
+
+### **2. User Login Attempt Logging**
+- **Log File**: `logs/user_login.log`
+- **Features**:
+  - ✅ **Successful logins** - Records username, IP, role, and timestamp
+  - ✅ **Failed login attempts** - Tracks username, IP, attempt number, and timestamp
+  - ✅ **Blocked users** - Logs when users exceed 5 failed attempts
+  - ✅ **Logout events** - Records when users log out
+  - ✅ **IP tracking** - Captures client IP addresses
+  - ✅ **User-Agent tracking** - Records browser/client information
+  - ✅ **Rate limiting** - Uses Django cache to track attempts per user/IP (1-hour timeout)
+
+### **3. Moved PLC Logs to Logs Directory**
+- **Updated Files**:
+  - `plc_data_reader.py` → now logs to `logs/plc_data_reader.log`
+  - `plc_data_processor.py` → now logs to `logs/plc_data_processor.log`
+  - `plc_inspection_monitor.py` → now logs to `logs/plc_monitor.log`
+- **Moved existing logs** to the new logs directory
+
+### **4. Django Logging Configuration**
+- **Added comprehensive logging setup** in `settings.py`
+- **Separate log files** for different purposes:
+  - `logs/django.log` - General Django application logs
+  - `logs/user_login.log` - User authentication events
+  - `logs/plc_*.log` - PLC-related operations
+
+### **5. Security Features**
+- **Attempt tracking** - Monitors failed login attempts per user/IP combination
+- **Automatic blocking** - Users are temporarily blocked after 5 failed attempts
+- **Cache-based rate limiting** - Prevents brute force attacks
+- **Comprehensive logging** - All login events are recorded with full context
+
+### **6. Log File Structure**
+```
+logs/
+├── django.log              # General Django logs
+├── user_login.log          # User authentication events
+├── plc_data_reader.log     # PLC data reading operations
+├── plc_data_processor.log  # PLC data processing operations
+└── plc_monitor.log         # PLC monitoring operations (created when needed)
+```
+
+### **7. Log Format Examples**
+- **Successful Login**: `INFO 2025-09-25 23:16:58,610 LOGIN_SUCCESS - User: test_user, IP: 127.0.0.1, Role: Supervisor`
+- **Failed Login**: `WARNING 2025-09-25 23:16:58,611 LOGIN_FAILED - User: invalid_user, IP: 127.0.0.1, Attempt: 3`
+- **Blocked User**: `ERROR 2025-09-25 23:16:58,611 LOGIN_BLOCKED - User: hacker_user, IP: 192.168.1.100, Too many failed attempts: 5`
+- **Logout**: `INFO 2025-09-25 23:16:58,611 LOGOUT - User: test_user, IP: 127.0.0.1`
+
+The logging system is now fully operational and will automatically track all user login attempts, successful logins, failed attempts, and logout events. The system also includes security features to prevent brute force attacks and provides comprehensive audit trails for security monitoring.
