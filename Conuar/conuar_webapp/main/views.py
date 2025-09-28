@@ -7,6 +7,8 @@ from django.contrib.auth import update_session_auth_hash
 from django.utils import timezone
 from django.core.cache import cache
 import logging
+import os
+import json
 from .forms import SystemConfigurationForm, PasswordResetForm
 from .models import SystemConfiguration, User
 from .permissions import require_viewer, require_regular_user, require_supervisor, require_configuration_access
@@ -92,7 +94,7 @@ def logout_view(request):
 @require_viewer  # Viewer, Regular User, and Supervisor can view dashboard
 def dashboard(request):
     """Machine status dashboard view - All active users can access"""
-    from .models import InspectionMachine, MachineLog, Inspection
+    from .models import InspectionMachine, MachineLog, Inspection, InspectionPhoto, InspectionPlcEvent
     from django.db.models import Count, Q
     from datetime import datetime, timedelta
     import random
@@ -139,22 +141,155 @@ def dashboard(request):
     
     # Get inspection statistics
     total_inspections = Inspection.objects.count()
-    inspections_this_week = Inspection.objects.filter(
-        inspection_date__date__gte=week_ago
+    inspections_today = Inspection.objects.filter(
+        inspection_date__date=datetime.now().date()
     ).count()
     
-    # Calculate machine efficiency
-    if machine.total_inspections > 0:
-        efficiency = (machine.inspections_today / 24) * 100  # Assuming 24 inspections per day is 100%
-    else:
-        efficiency = 0
+    # Calculate storage amount in GB
+    def calculate_storage_gb():
+        """Calculate total storage used by photos in GB"""
+        try:
+            from django.conf import settings
+            media_root = settings.MEDIA_ROOT
+            total_size = 0
+            photo_count = 0
+            
+            # Walk through the media directory to calculate total size
+            for root, dirs, files in os.walk(media_root):
+                for file in files:
+                    if file.lower().endswith(('.jpg', '.jpeg', '.png', '.bmp', '.gif')):
+                        file_path = os.path.join(root, file)
+                        if os.path.exists(file_path):
+                            total_size += os.path.getsize(file_path)
+                            photo_count += 1
+            
+            # Convert bytes to GB
+            storage_gb = total_size / (1024 * 1024 * 1024)
+            return storage_gb, photo_count
+        except Exception as e:
+            # Fallback to database count if file system access fails
+            photo_count = InspectionPhoto.objects.count()
+            # Estimate 2MB per photo
+            storage_gb = (photo_count * 2) / 1024
+            return storage_gb, photo_count
     
-    # Generate sample data for charts
-    chart_data = {
-        'daily_inspections': [random.randint(8, 20) for _ in range(7)],
-        'success_rates': [random.uniform(95, 100) for _ in range(7)],
-        'inspection_times': [random.uniform(8, 16) for _ in range(7)],
-    }
+    storage_gb, photo_count = calculate_storage_gb()
+    
+    # Get control points timeline for current inspection if machine is inspecting
+    control_points_timeline = []
+    if machine.status == 'inspecting' and machine.current_inspection:
+        # Get control points for the current inspection
+        control_points = InspectionPlcEvent.objects.filter(
+            id_inspection=machine.current_inspection
+        ).order_by('timestamp_plc')
+        
+        # Create timeline data
+        for i, point in enumerate(control_points):
+            control_points_timeline.append({
+                'step': i + 1,
+                'control_point_id': point.control_point_id,
+                'control_point_label': point.control_point_label or f"Punto {point.control_point_id}",
+                'execution_type': point.get_execution_type_display(),
+                'timestamp': point.timestamp_plc,
+                'position': {
+                    'x': point.x_control_point,
+                    'y': point.y_control_point,
+                    'z': point.z_control_point,
+                    'angle': point.plate_angle
+                },
+                'camera_id': point.camera_id,
+                'filming_type': point.get_filming_type_display(),
+                'is_completed': i < len(control_points) - 1,  # All except last are completed
+                'is_current': i == len(control_points) - 1,  # Last one is current
+            })
+    
+    # If no real control points exist, create sample data for demonstration
+    if not control_points_timeline and machine.status == 'inspecting':
+        sample_control_points = [
+            {
+                'step': 1,
+                'control_point_id': 'ZAPATA_001',
+                'control_point_label': 'Zapata Número 1',
+                'execution_type': 'Automático',
+                'timestamp': datetime.now() - timedelta(minutes=15),
+                'position': {'x': 10.5, 'y': 20.3, 'z': 5.2, 'angle': 0.0},
+                'camera_id': 'CAM_001',
+                'filming_type': 'Foto',
+                'is_completed': True,
+                'is_current': False,
+            },
+            {
+                'step': 2,
+                'control_point_id': 'ZAPATA_002',
+                'control_point_label': 'Zapata Número 2',
+                'execution_type': 'Automático',
+                'timestamp': datetime.now() - timedelta(minutes=10),
+                'position': {'x': 15.2, 'y': 25.1, 'z': 5.8, 'angle': 15.5},
+                'camera_id': 'CAM_002',
+                'filming_type': 'Video',
+                'is_completed': True,
+                'is_current': False,
+            },
+            {
+                'step': 3,
+                'control_point_id': 'ZAPATA_003',
+                'control_point_label': 'Zapata Número 3',
+                'execution_type': 'Manual',
+                'timestamp': datetime.now() - timedelta(minutes=5),
+                'position': {'x': 20.1, 'y': 30.4, 'z': 6.2, 'angle': 30.0},
+                'camera_id': 'CAM_001',
+                'filming_type': 'Foto',
+                'is_completed': False,
+                'is_current': True,
+            },
+            {
+                'step': 4,
+                'control_point_id': 'ZAPATA_004',
+                'control_point_label': 'Zapata Número 4',
+                'execution_type': 'Automático',
+                'timestamp': None,
+                'position': {'x': 25.3, 'y': 35.7, 'z': 6.8, 'angle': 45.0},
+                'camera_id': 'CAM_003',
+                'filming_type': 'Foto',
+                'is_completed': False,
+                'is_current': False,
+            },
+        ]
+        control_points_timeline = sample_control_points
+    
+    # Generate chart data for last 30 days
+    def generate_chart_data():
+        """Generate chart data for the last 30 days"""
+        chart_labels = []
+        all_inspectors_data = []
+        inspector_data = []
+        inspector_names = []
+        
+        # Generate labels for last 30 days
+        for i in range(30):
+            date = today - timedelta(days=29-i)
+            chart_labels.append(date.strftime('%d/%m'))
+            
+            # Count inspections for this day
+            day_inspections = Inspection.objects.filter(
+                inspection_date__date=date
+            ).count()
+            all_inspectors_data.append(day_inspections)
+        
+        # Get inspector-specific data
+        inspectors = User.objects.filter(
+            inspections_conducted__isnull=False
+        ).distinct().annotate(
+            inspection_count=Count('inspections_conducted')
+        ).order_by('-inspection_count')[:5]
+        
+        for inspector in inspectors:
+            inspector_names.append(inspector.username)
+            inspector_data.append(inspector.inspection_count)
+        
+        return chart_labels, all_inspectors_data, inspector_data, inspector_names
+    
+    chart_labels, all_inspectors_data, inspector_data, inspector_names = generate_chart_data()
     
     context = {
         'title': 'Estado del Sistema',
@@ -162,15 +297,15 @@ def dashboard(request):
         'user': request.user,
         'machine': machine,
         'inspection': inspection,
-        'recent_inspections': Inspection.objects.all().order_by('-inspection_date')[:5],
-        'recent_logs': recent_logs,
-        'stats': {
-            'total_inspections': total_inspections,
-            'inspections_this_week': inspections_this_week,
-            'machine_efficiency': round(efficiency, 1),
-            'uptime_percentage': round((machine.uptime_hours / 168) * 100, 1),  # Assuming 168 hours per week
-        },
-        'chart_data': chart_data,
+        'total_inspections': total_inspections,
+        'inspections_today': inspections_today,
+        'storage_gb': storage_gb,
+        'photo_count': photo_count,
+        'control_points_timeline': control_points_timeline,
+        'chart_labels': json.dumps(chart_labels),
+        'all_inspectors_data': json.dumps(all_inspectors_data),
+        'inspector_data': json.dumps(inspector_data),
+        'inspector_names': json.dumps(inspector_names),
     }
     return render(request, 'main/dashboard.html', context)
 

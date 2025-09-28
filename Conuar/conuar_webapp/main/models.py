@@ -208,10 +208,25 @@ class Inspection(models.Model):
         if self.completed_date and self.inspection_date:
             return self.completed_date - self.inspection_date
         return None
-    
+        
     @classmethod
     def get_inspection(cls):
         """Get the single inspection, create if doesn't exist"""
+        from django.contrib.auth import get_user_model
+        
+        # Get or create a default inspector user
+        User = get_user_model()
+        default_inspector, _ = User.objects.get_or_create(
+            username='system_inspector',
+            defaults={
+                'first_name': 'Sistema',
+                'last_name': 'Inspector',
+                'email': 'system@arbyte.com',
+                'is_active': True,
+                'is_staff': True,
+            }
+        )
+        
         inspection, created = cls.objects.get_or_create(
             id=1,
             defaults={
@@ -223,6 +238,7 @@ class Inspection(models.Model):
                 'product_code': 'COMB-001',
                 'batch_number': 'LOTE-2024-001',
                 'location': 'Planta de Inspección ArByte',
+                'inspector': default_inspector,  # This line was missing!
             }
         )
         return inspection
