@@ -26,13 +26,19 @@ class PlcDataReaderTest:
         self.plc_client = None
         self.is_running = False
         
-        # PLC Register mapping - 5 numeric registers
+        # PLC Register mapping - 11 numeric registers
         self.register_map = {
-            'register_1': 0,
-            'register_2': 1,
-            'register_3': 2,
-            'register_4': 3,
-            'register_5': 4,
+            'anio': 0,
+            'mes': 1,
+            'dia': 2,
+            'hora': 3,
+            'minuto': 4,
+            'milisegundo': 5,
+            'id_rutina': 6,
+            'etiqueta_punto_control': 7,
+            'x_punto_control': 8,
+            'y_punto_control': 9,
+            'angulo_punto_control': 10,
         }
         
         # CSV file setup - Fixed filename
@@ -79,7 +85,7 @@ class PlcDataReaderTest:
             data = {}
             data['timestamp'] = datetime.now().strftime('%Y-%m-%d %H:%M:%S.%f')[:-3]
             
-            # Read all 5 numeric registers
+            # Read all 11 numeric registers
             for field, register in self.register_map.items():
                 result = self.plc_client.read_holding_registers(register, 1)
                 if result:
@@ -173,11 +179,12 @@ class PlcDataReaderTest:
                     
                     # Display summary
                     print(f"[{read_count}] {plc_data['timestamp']} - "
-                          f"R1: {plc_data.get('register_1', 0)}, "
-                          f"R2: {plc_data.get('register_2', 0)}, "
-                          f"R3: {plc_data.get('register_3', 0)}, "
-                          f"R4: {plc_data.get('register_4', 0)}, "
-                          f"R5: {plc_data.get('register_5', 0)}")
+                          f"Fecha: {plc_data.get('anio', 0)}/{plc_data.get('mes', 0)}/{plc_data.get('dia', 0)} "
+                          f"{plc_data.get('hora', 0)}:{plc_data.get('minuto', 0)}:{plc_data.get('milisegundo', 0)} - "
+                          f"Rutina: {plc_data.get('id_rutina', 0)}, "
+                          f"Punto: {plc_data.get('etiqueta_punto_control', 0)}, "
+                          f"Pos: ({plc_data.get('x_punto_control', 0)}, {plc_data.get('y_punto_control', 0)}), "
+                          f"Ángulo: {plc_data.get('angulo_punto_control', 0)}")
                 else:
                     print("Warning: No data received from PLC")
                 
