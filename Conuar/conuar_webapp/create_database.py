@@ -2,12 +2,19 @@
 """
 Script to create MySQL database and all tables for the Conuar Inspection Webapp
 This script bypasses Django's manage.py and creates the database directly using SQL.
+Uses PyMySQL library for database connectivity.
+
+Installation:
+    pip install pymysql
+
+Usage:
+    python create_database.py
 """
 
 import os
 import sys
-import mysql.connector
-from mysql.connector import Error
+import pymysql
+from pymysql import Error
 from pathlib import Path
 import getpass
 
@@ -17,7 +24,10 @@ DB_CONFIG = {
     'port': 3306,
     'user': 'root',  # Change this to your MySQL username
     'charset': 'utf8mb4',
-    'collation': 'utf8mb4_unicode_ci'
+    'collation': 'utf8mb4_unicode_ci',
+    'connect_timeout': 60,
+    'read_timeout': 60,
+    'write_timeout': 60
 }
 
 DATABASE_NAME = 'conuar_webapp'
@@ -31,13 +41,18 @@ def create_database_connection(password, database=None):
     try:
         config = DB_CONFIG.copy()
         config['password'] = password
+        config['charset'] = 'utf8mb4'
+        config['autocommit'] = True
         if database:
             config['database'] = database
         
-        connection = mysql.connector.connect(**config)
+        connection = pymysql.connect(**config)
         return connection
     except Error as e:
         print(f"Error connecting to MySQL: {e}")
+        return None
+    except Exception as e:
+        print(f"Unexpected error connecting to MySQL: {e}")
         return None
 
 def create_database(cursor, db_name):
@@ -410,7 +425,7 @@ def execute_sql_statements(connection, statements):
             print(f"⚠️  Warning executing statement {i+1}: {e}")
             # Continue with other statements
     
-    connection.commit()
+    # PyMySQL with autocommit=True doesn't need explicit commit
     cursor.close()
 
 def insert_initial_data(connection):
@@ -458,12 +473,12 @@ def insert_initial_data(connection):
             (1, 'media/inspection_photos/Inspection_1/', '192.168.1.100', '192.168.1.101', '192.168.1.102', '192.168.1.50', 502, NOW(), NOW())
         """)
         
-        connection.commit()
+        # PyMySQL with autocommit=True doesn't need explicit commit
         print("✅ Initial data inserted successfully")
         
     except Error as e:
         print(f"❌ Error inserting initial data: {e}")
-        connection.rollback()
+        # PyMySQL with autocommit=True doesn't need explicit rollback
     finally:
         cursor.close()
 
@@ -530,7 +545,7 @@ def main():
         print(f"❌ Database setup failed: {e}")
         return False
     finally:
-        if connection and connection.is_connected():
+        if connection and connection.open:
             connection.close()
 
 if __name__ == "__main__":
