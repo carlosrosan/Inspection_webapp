@@ -178,7 +178,7 @@ def get_sql_create_statements():
         CREATE TABLE IF NOT EXISTS main_inspection (
             id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
             title varchar(200) NOT NULL DEFAULT 'Inspección de Combustible ArByte',
-            description longtext NOT NULL DEFAULT 'Inspección de calidad de combustible utilizando el sistema ArByte-3000',
+            description longtext NOT NULL,
             tipo_combustible varchar(20) NOT NULL DEFAULT 'uranio',
             status varchar(20) NOT NULL DEFAULT 'completed',
             product_name varchar(200),
@@ -188,9 +188,9 @@ def get_sql_create_statements():
             location varchar(200) NOT NULL DEFAULT '',
             inspection_date datetime(6) NOT NULL,
             completed_date datetime(6),
-            result longtext NOT NULL DEFAULT '',
-            notes longtext NOT NULL DEFAULT '',
-            recommendations longtext NOT NULL DEFAULT '',
+            result longtext NOT NULL,
+            notes longtext NOT NULL,
+            recommendations longtext NOT NULL,
             defecto_encontrado bool NOT NULL DEFAULT 0,
             created_at datetime(6) NOT NULL,
             updated_at datetime(6) NOT NULL,
@@ -412,6 +412,19 @@ def get_sql_create_statements():
         """,
     ]
 
+def check_table_exists(cursor, table_name):
+    """Check if a table exists in the database"""
+    try:
+        cursor.execute(f"""
+            SELECT COUNT(*) 
+            FROM information_schema.tables 
+            WHERE table_schema = DATABASE() 
+            AND table_name = '{table_name}'
+        """)
+        return cursor.fetchone()[0] > 0
+    except Error:
+        return False
+
 def execute_sql_statements(connection, statements):
     """Execute SQL statements"""
     cursor = connection.cursor()
@@ -419,6 +432,14 @@ def execute_sql_statements(connection, statements):
     for i, statement in enumerate(statements):
         try:
             if statement.strip():
+                # Check if it's a CREATE TABLE statement and if table already exists
+                if statement.strip().upper().startswith('CREATE TABLE IF NOT EXISTS'):
+                    # Extract table name from CREATE TABLE statement
+                    table_name = statement.split('IF NOT EXISTS')[1].split('(')[0].strip()
+                    if check_table_exists(cursor, table_name):
+                        print(f"⏭️  Table {table_name} already exists, skipping...")
+                        continue
+                
                 cursor.execute(statement)
                 print(f"✅ Executed statement {i+1}/{len(statements)}")
         except Error as e:
@@ -427,6 +448,111 @@ def execute_sql_statements(connection, statements):
     
     # PyMySQL with autocommit=True doesn't need explicit commit
     cursor.close()
+
+def create_missing_inspection_table(connection):
+    """Create the main_inspection table if it doesn't exist"""
+    cursor = connection.cursor()
+    
+    try:
+        # Check if main_inspection table exists
+        if not check_table_exists(cursor, 'main_inspection'):
+            print("🔧 Creating missing main_inspection table...")
+            cursor.execute("""
+                CREATE TABLE main_inspection (
+                    id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
+                    title varchar(200) NOT NULL DEFAULT 'Inspección de Combustible ArByte',
+                    description longtext NOT NULL,
+                    tipo_combustible varchar(20) NOT NULL DEFAULT 'uranio',
+                    status varchar(20) NOT NULL DEFAULT 'completed',
+                    product_name varchar(200),
+                    product_code varchar(100) NOT NULL DEFAULT '',
+                    batch_number varchar(100) NOT NULL DEFAULT '',
+                    serial_number varchar(100) NOT NULL DEFAULT '',
+                    location varchar(200) NOT NULL DEFAULT '',
+                    inspection_date datetime(6) NOT NULL,
+                    completed_date datetime(6),
+                    result longtext NOT NULL,
+                    notes longtext NOT NULL,
+                    recommendations longtext NOT NULL,
+                    defecto_encontrado bool NOT NULL DEFAULT 0,
+                    created_at datetime(6) NOT NULL,
+                    updated_at datetime(6) NOT NULL,
+                    inspector_id bigint NOT NULL,
+                    KEY main_inspection_inspector_id_7c8b8f1f (inspector_id)
+                ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci
+            """)
+            print("✅ main_inspection table created successfully")
+            
+            # Add foreign key constraint if main_user table exists
+            if check_table_exists(cursor, 'main_user'):
+                try:
+                    cursor.execute("""
+                        ALTER TABLE main_inspection 
+                        ADD CONSTRAINT main_inspection_inspector_id_7c8b8f1f_fk_main_user_id 
+                        FOREIGN KEY (inspector_id) REFERENCES main_user (id)
+                    """)
+                    print("✅ Foreign key constraint added to main_inspection")
+                except Error as e:
+                    print(f"⚠️  Warning: Could not add foreign key constraint: {e}")
+        else:
+            print("✅ main_inspection table already exists")
+            
+    except Error as e:
+        print(f"❌ Error creating main_inspection table: {e}")
+    finally:
+        cursor.close()
+
+def create_inspection_photos(connection):
+    """Create inspection photos and map them to existing photos in media folder"""
+    cursor = connection.cursor()
+    
+    try:
+        # Photos for Inspection 8
+        inspection_8_photos = [
+            ('inspection_photos/Inspection_8/1-OCR.bmp', 'Reconocimiento Óptico de Caracteres', 'ocr', 0),
+            ('inspection_photos/Inspection_8/2-Angulo zapata.bmp', 'Medición de Ángulo de Zapata', 'angle_measurement', 0),
+            ('inspection_photos/Inspection_8/3-Angulo pollera ZR.bmp', 'Ángulo de Pollera ZR - Vista 1', 'angle_measurement', 0),
+            ('inspection_photos/Inspection_8/3-Angulo pollera ZR2.bmp', 'Ángulo de Pollera ZR - Vista 2', 'angle_measurement', 0),
+            ('inspection_photos/Inspection_8/4-ZR tipo I.bmp', 'ZR Tipo I - Verificación', 'component_check', 0),
+            ('inspection_photos/Inspection_8/5-ZR tipo II.bmp', 'ZR Tipo II - Verificación', 'component_check', 0),
+            ('inspection_photos/Inspection_8/6-Angulo zapatas PP.bmp', 'Ángulo de Zapatas PP - Vista 1', 'angle_measurement', 0),
+            ('inspection_photos/Inspection_8/6-Angulo zapatas PP2.bmp', 'Ángulo de Zapatas PP - Vista 2', 'angle_measurement', 0),
+            ('inspection_photos/Inspection_8/7-OCR2.bmp', 'Reconocimiento Óptico - Segunda Verificación', 'ocr', 0),
+            ('inspection_photos/Inspection_8/8-TVS.bmp', 'Verificación de TVS', 'component_check', 0),
+            ('inspection_photos/Inspection_8/9-Posicion topes BC.bmp', 'Posición de Topes BC', 'position_check', 0),
+            ('inspection_photos/Inspection_8/10-Deformacion de TS.bmp', 'Deformación de TS - Vista 1', 'deformation', 1),
+            ('inspection_photos/Inspection_8/11- Deformacion TS 2.bmp', 'Deformación de TS - Vista 2', 'deformation', 1),
+        ]
+        
+        # Photos for Inspection 9
+        inspection_9_photos = [
+            ('inspection_photos/Inspection_9/3-Angulo pollera ZR2 con fallas.bmp', 'Ángulo de Pollera ZR2 - Fallas Detectadas', 'defect', 1),
+        ]
+        
+        # Insert photos for Inspection 8
+        for i, (photo_path, caption, photo_type, defecto_encontrado) in enumerate(inspection_8_photos, 1):
+            cursor.execute("""
+                INSERT IGNORE INTO main_inspectionphoto 
+                (id, photo, caption, photo_type, uploaded_at, defecto_encontrado, inspection_id)
+                VALUES 
+                (%s, %s, %s, %s, NOW() - INTERVAL 2 DAY, %s, 8)
+            """, (i, photo_path, caption, photo_type, defecto_encontrado))
+        
+        # Insert photos for Inspection 9
+        for i, (photo_path, caption, photo_type, defecto_encontrado) in enumerate(inspection_9_photos, 1):
+            cursor.execute("""
+                INSERT IGNORE INTO main_inspectionphoto 
+                (id, photo, caption, photo_type, uploaded_at, defecto_encontrado, inspection_id)
+                VALUES 
+                (%s, %s, %s, %s, NOW() - INTERVAL 1 DAY, %s, 9)
+            """, (i + 13, photo_path, caption, photo_type, defecto_encontrado))
+        
+        print("✅ Inspection photos created and mapped successfully")
+        
+    except Error as e:
+        print(f"❌ Error creating inspection photos: {e}")
+    finally:
+        cursor.close()
 
 def insert_initial_data(connection):
     """Insert initial data into the database"""
@@ -449,12 +575,20 @@ def insert_initial_data(connection):
             (2, 'pbkdf2_sha256$600000$dummy$dummy', 0, 'system_inspector', 'Sistema', 'Inspector', 'system@arbyte.com', 1, 1, NOW(), NOW(), NOW(), 0, 0)
         """)
         
-        # Insert default inspection
+        # Insert first inspection (Inspection_8)
         cursor.execute("""
             INSERT IGNORE INTO main_inspection 
-            (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, location, inspection_date, created_at, updated_at, inspector_id)
+            (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, serial_number, location, inspection_date, completed_date, result, notes, recommendations, defecto_encontrado, created_at, updated_at, inspector_id)
             VALUES 
-            (1, 'Inspección de Combustible ArByte', 'Inspección de calidad de combustible utilizando el sistema ArByte-3000', 'uranio', 'completed', 'Combustible Industrial', 'COMB-001', 'LOTE-2024-001', 'Planta de Inspección ArByte', NOW(), NOW(), NOW(), 2)
+            (8, 'Inspección de Combustible ArByte - Lote 8', 'Inspección completa de calidad de combustible utilizando el sistema ArByte-3000. Se realizaron múltiples verificaciones de ángulos, deformaciones y posicionamiento.', 'uranio', 'completed', 'Combustible Nuclear Industrial', 'COMB-008', 'LOTE-2024-008', 'SN-2024-008', 'Planta de Inspección ArByte - Línea 1', NOW() - INTERVAL 2 DAY, NOW() - INTERVAL 1 DAY, 'Inspección completada exitosamente. Se encontraron algunos defectos menores en el posicionamiento de zapatas que fueron corregidos.', 'Se detectaron deformaciones menores en TS que requieren monitoreo. Los ángulos de zapatas están dentro de parámetros aceptables.', 'Recomendación de seguimiento en 30 días para verificar estabilidad de las correcciones aplicadas.', 1, NOW() - INTERVAL 2 DAY, NOW() - INTERVAL 1 DAY, 1)
+        """)
+        
+        # Insert second inspection (Inspection_9)
+        cursor.execute("""
+            INSERT IGNORE INTO main_inspection 
+            (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, serial_number, location, inspection_date, completed_date, result, notes, recommendations, defecto_encontrado, created_at, updated_at, inspector_id)
+            VALUES 
+            (9, 'Inspección de Combustible ArByte - Lote 9', 'Inspección de calidad de combustible con enfoque en detección de fallas. Se identificaron problemas en el ángulo de pollera ZR2.', 'plutonio', 'completed', 'Combustible Nuclear Plutonio', 'COMB-009', 'LOTE-2024-009', 'SN-2024-009', 'Planta de Inspección ArByte - Línea 2', NOW() - INTERVAL 1 DAY, NOW(), 'Inspección completada con hallazgos críticos. Se detectaron fallas en el ángulo de pollera ZR2 que requieren atención inmediata.', 'Fallas detectadas en el ángulo de pollera ZR2. El componente presenta desviaciones fuera de los parámetros de seguridad.', 'Recomendación de reemplazo inmediato del componente defectuoso antes de continuar con la producción.', 1, NOW() - INTERVAL 1 DAY, NOW(), 1)
         """)
         
         # Insert default machine
@@ -517,9 +651,17 @@ def main():
         statements = get_sql_create_statements()
         execute_sql_statements(connection, statements)
         
+        # Create missing inspection table specifically
+        print("\n🔧 Checking for missing tables...")
+        create_missing_inspection_table(connection)
+        
         # Insert initial data
         print("\n📊 Inserting initial data...")
         insert_initial_data(connection)
+        
+        # Create inspection photos and map to existing media files
+        print("\n📸 Creating inspection photos and mapping to media files...")
+        create_inspection_photos(connection)
         
         print("\n✅ Database setup completed successfully!")
         print(f"Database: {DATABASE_NAME}")
@@ -538,6 +680,11 @@ def main():
         print("- Username: admin (superuser)")
         print("- Username: system_inspector (staff user)")
         print("Note: You'll need to set passwords for these users through Django admin")
+        
+        print("\n📋 Inspections created:")
+        print("- Inspection 8: Combustible Nuclear Industrial (Uranio) - 13 photos mapped")
+        print("- Inspection 9: Combustible Nuclear Plutonio - 1 photo mapped")
+        print("All photos are linked to existing files in media/inspection_photos/")
         
         return True
         
