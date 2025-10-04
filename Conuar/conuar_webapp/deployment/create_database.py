@@ -128,6 +128,22 @@ def get_sql_create_statements():
         );
         """,
         
+        # Django Admin Log table
+        """
+        CREATE TABLE IF NOT EXISTS django_admin_log (
+            id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
+            action_time datetime(6) NOT NULL,
+            object_id longtext,
+            object_repr varchar(200) NOT NULL,
+            action_flag smallint unsigned NOT NULL,
+            change_message longtext NOT NULL,
+            content_type_id bigint,
+            user_id bigint NOT NULL,
+            KEY django_admin_log_content_type_id_c4bce8eb (content_type_id),
+            KEY django_admin_log_user_id_c564eba6 (user_id)
+        );
+        """,
+        
         # Main User table (extends Django's AbstractUser)
         """
         CREATE TABLE IF NOT EXISTS main_user (
@@ -410,6 +426,19 @@ def get_sql_create_statements():
         ADD CONSTRAINT main_inspectionplcevent_id_inspection_id_7c8b8f1f_fk_main_inspection_id 
         FOREIGN KEY (id_inspection_id) REFERENCES main_inspection (id);
         """,
+        
+        # Django Admin Log foreign key constraints
+        """
+        ALTER TABLE django_admin_log 
+        ADD CONSTRAINT django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id 
+        FOREIGN KEY (content_type_id) REFERENCES django_content_type (id);
+        """,
+        
+        """
+        ALTER TABLE django_admin_log 
+        ADD CONSTRAINT django_admin_log_user_id_c564eba6_fk_main_user_id 
+        FOREIGN KEY (user_id) REFERENCES main_user (id);
+        """,
     ]
 
 def check_table_exists(cursor, table_name):
@@ -674,6 +703,7 @@ def main():
         print("- main_systemconfiguration (system settings)")
         print("- main_inspectionplcevent (PLC events)")
         print("- main_plcreading (PLC readings)")
+        print("- django_admin_log (Django admin logging)")
         print("- Django system tables (auth, sessions, etc.)")
         
         print("\n🔑 Default users created:")
