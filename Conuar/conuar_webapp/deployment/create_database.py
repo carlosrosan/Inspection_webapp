@@ -17,6 +17,7 @@ import pymysql
 from pymysql import Error
 from pathlib import Path
 import getpass
+import glob
 
 # Database configuration - you can modify these values
 DB_CONFIG = {
@@ -531,6 +532,110 @@ def create_missing_inspection_table(connection):
     finally:
         cursor.close()
 
+def create_inspections_for_all_folders(connection):
+    """Create inspections for all folders in the inspection_photos directory"""
+    cursor = connection.cursor()
+    
+    try:
+        # Get the media directory path
+        script_dir = Path(__file__).parent.parent
+        media_dir = script_dir / 'media' / 'inspection_photos'
+        
+        if not media_dir.exists():
+            print(f"⚠️  Media directory not found: {media_dir}")
+            return
+        
+        # Find all folders in the inspection_photos directory
+        folders = [f for f in media_dir.iterdir() if f.is_dir()]
+        
+        print(f"📁 Found {len(folders)} folders in inspection_photos directory:")
+        
+        for folder in folders:
+            folder_name = folder.name
+            print(f"  - {folder_name}")
+            
+            # Determine inspection status based on folder name
+            if folder_name.upper() == 'NOK':
+                status = 'failed'
+                title = f'Inspección NOK - Defectos Detectados'
+                description = f'Inspección automática para carpeta {folder_name}. Estado: No pasa (Failed)'
+                defecto_encontrado = True
+            elif folder_name.upper() == 'OK':
+                status = 'approved'
+                title = f'Inspección OK - Aprobada'
+                description = f'Inspección automática para carpeta {folder_name}. Estado: Pasa (Approved)'
+                defecto_encontrado = False
+            else:
+                # For other folders like Inspection_8, Inspection_9, etc.
+                status = 'completed'
+                title = f'Inspección de Combustible ArByte - {folder_name}'
+                description = f'Inspección automática para carpeta {folder_name}. Estado: Completada'
+                defecto_encontrado = True if 'Inspection' in folder_name else False
+            
+            # Generate a unique ID for the inspection (use folder name hash or simple counter)
+            inspection_id = hash(folder_name) % 10000 + 1000  # Ensure positive ID
+            
+            # Check if inspection already exists
+            cursor.execute("SELECT id FROM main_inspection WHERE id = %s", (inspection_id,))
+            if cursor.fetchone():
+                print(f"    ℹ️  Inspection with ID {inspection_id} already exists, skipping...")
+                continue
+            
+            # Create inspection record
+            cursor.execute("""
+                INSERT INTO main_inspection 
+                (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, serial_number, location, inspection_date, completed_date, result, notes, recommendations, defecto_encontrado, created_at, updated_at, inspector_id)
+                VALUES 
+                (%s, %s, %s, %s, %s, %s, %s, %s, %s, %s, NOW(), NOW(), %s, %s, %s, %s, NOW(), NOW(), 2)
+            """, (
+                inspection_id,
+                title,
+                description,
+                'uranio',
+                status,
+                f'Combustible Nuclear - {folder_name}',
+                f'COMB-{folder_name.upper()}-001',
+                f'LOTE-{folder_name.upper()}-2024',
+                f'SN-{folder_name.upper()}-2024',
+                f'Planta de Inspección ArByte - {folder_name}',
+                f'Inspección automática completada para carpeta {folder_name}.',
+                f'Inspección automática basada en archivos en carpeta {folder_name}.',
+                f'Revisión automática de archivos en {folder_name}.',
+                defecto_encontrado
+            ))
+            
+            print(f"    ✅ Created inspection with ID: {inspection_id}")
+            
+            # Create photo records for all files in the folder
+            photo_files = [f for f in folder.iterdir() if f.is_file() and f.suffix.lower() in ['.bmp', '.svg', '.jpg', '.jpeg', '.png']]
+            
+            for i, photo_file in enumerate(photo_files, 1):
+                relative_path = f'inspection_photos/{folder_name}/{photo_file.name}'
+                photo_id = inspection_id * 100 + i  # Generate unique photo ID
+                
+                cursor.execute("""
+                    INSERT INTO main_inspectionphoto 
+                    (id, photo, caption, photo_type, uploaded_at, defecto_encontrado, inspection_id)
+                    VALUES 
+                    (%s, %s, %s, %s, NOW(), %s, %s)
+                """, (
+                    photo_id,
+                    relative_path,
+                    f'Foto automática - {photo_file.stem}',
+                    'defect' if defecto_encontrado else 'approved',
+                    defecto_encontrado,
+                    inspection_id
+                ))
+            
+            print(f"    📸 Created {len(photo_files)} photo records")
+        
+        print("✅ Auto-created inspections for all folders successfully")
+        
+    except Error as e:
+        print(f"❌ Error creating inspections for folders: {e}")
+    finally:
+        cursor.close()
+
 def create_inspection_photos(connection):
     """Create inspection photos and map them to existing photos in media folder"""
     cursor = connection.cursor()
@@ -558,6 +663,31 @@ def create_inspection_photos(connection):
             ('inspection_photos/Inspection_9/3-Angulo pollera ZR2 con fallas.bmp', 'Ángulo de Pollera ZR2 - Fallas Detectadas', 'defect', 1),
         ]
         
+        # Photos for NOK inspection (Failed state)
+        nok_photos = [
+            ('inspection_photos/NOK/PRUEB10.bmp', 'Prueba de Defecto NOK - PRUEB10', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB11.bmp', 'Prueba de Defecto NOK - PRUEB11', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB12.bmp', 'Prueba de Defecto NOK - PRUEB12', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB13.bmp', 'Prueba de Defecto NOK - PRUEB13', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB4.bmp', 'Prueba de Defecto NOK - PRUEB4', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB4.svg', 'Prueba de Defecto NOK - PRUEB4 SVG', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB5.bmp', 'Prueba de Defecto NOK - PRUEB5', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB5.svg', 'Prueba de Defecto NOK - PRUEB5 SVG', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB6.bmp', 'Prueba de Defecto NOK - PRUEB6', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB6.svg', 'Prueba de Defecto NOK - PRUEB6 SVG', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB7.bmp', 'Prueba de Defecto NOK - PRUEB7', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB8.bmp', 'Prueba de Defecto NOK - PRUEB8', 'defect', 1),
+            ('inspection_photos/NOK/PRUEB9.bmp', 'Prueba de Defecto NOK - PRUEB9', 'defect', 1),
+        ]
+        
+        # Photos for OK inspection (Approved state)
+        ok_photos = [
+            ('inspection_photos/OK/PRUEB2.bmp', 'Prueba de Aprobación OK - PRUEB2', 'approved', 0),
+            ('inspection_photos/OK/PRUEB2.svg', 'Prueba de Aprobación OK - PRUEB2 SVG', 'approved', 0),
+            ('inspection_photos/OK/PRUEB3.bmp', 'Prueba de Aprobación OK - PRUEB3', 'approved', 0),
+            ('inspection_photos/OK/PRUEB3.svg', 'Prueba de Aprobación OK - PRUEB3 SVG', 'approved', 0),
+        ]
+        
         # Insert photos for Inspection 8
         for i, (photo_path, caption, photo_type, defecto_encontrado) in enumerate(inspection_8_photos, 1):
             cursor.execute("""
@@ -575,6 +705,24 @@ def create_inspection_photos(connection):
                 VALUES 
                 (%s, %s, %s, %s, NOW() - INTERVAL 1 DAY, %s, 9)
             """, (i + 13, photo_path, caption, photo_type, defecto_encontrado))
+        
+        # Insert photos for NOK inspection
+        for i, (photo_path, caption, photo_type, defecto_encontrado) in enumerate(nok_photos, 1):
+            cursor.execute("""
+                INSERT IGNORE INTO main_inspectionphoto 
+                (id, photo, caption, photo_type, uploaded_at, defecto_encontrado, inspection_id)
+                VALUES 
+                (%s, %s, %s, %s, NOW(), %s, 10)
+            """, (i + 14, photo_path, caption, photo_type, defecto_encontrado))
+        
+        # Insert photos for OK inspection
+        for i, (photo_path, caption, photo_type, defecto_encontrado) in enumerate(ok_photos, 1):
+            cursor.execute("""
+                INSERT IGNORE INTO main_inspectionphoto 
+                (id, photo, caption, photo_type, uploaded_at, defecto_encontrado, inspection_id)
+                VALUES 
+                (%s, %s, %s, %s, NOW(), %s, 11)
+            """, (i + 27, photo_path, caption, photo_type, defecto_encontrado))
         
         print("✅ Inspection photos created and mapped successfully")
         
@@ -618,6 +766,22 @@ def insert_initial_data(connection):
             (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, serial_number, location, inspection_date, completed_date, result, notes, recommendations, defecto_encontrado, created_at, updated_at, inspector_id)
             VALUES 
             (9, 'Inspección de Combustible ArByte - Lote 9', 'Inspección de calidad de combustible con enfoque en detección de fallas. Se identificaron problemas en el ángulo de pollera ZR2.', 'plutonio', 'completed', 'Combustible Nuclear Plutonio', 'COMB-009', 'LOTE-2024-009', 'SN-2024-009', 'Planta de Inspección ArByte - Línea 2', NOW() - INTERVAL 1 DAY, NOW(), 'Inspección completada con hallazgos críticos. Se detectaron fallas en el ángulo de pollera ZR2 que requieren atención inmediata.', 'Fallas detectadas en el ángulo de pollera ZR2. El componente presenta desviaciones fuera de los parámetros de seguridad.', 'Recomendación de reemplazo inmediato del componente defectuoso antes de continuar con la producción.', 1, NOW() - INTERVAL 1 DAY, NOW(), 1)
+        """)
+        
+        # Insert NOK inspection (Failed state)
+        cursor.execute("""
+            INSERT IGNORE INTO main_inspection 
+            (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, serial_number, location, inspection_date, completed_date, result, notes, recommendations, defecto_encontrado, created_at, updated_at, inspector_id)
+            VALUES 
+            (10, 'Inspección NOK - Defectos Detectados', 'Inspección de calidad que detectó múltiples defectos en el combustible nuclear. Estado: No pasa (Failed)', 'uranio', 'failed', 'Combustible Nuclear - Lote NOK', 'COMB-NOK-001', 'LOTE-NOK-2024', 'SN-NOK-2024', 'Planta de Inspección ArByte - Línea NOK', NOW(), NOW(), 'Inspección fallida. Se detectaron múltiples defectos críticos que impiden la aprobación del producto.', 'Defectos detectados en múltiples componentes. El producto no cumple con los estándares de calidad requeridos.', 'Rechazar lote completo. Implementar medidas correctivas en el proceso de fabricación.', 1, NOW(), NOW(), 2)
+        """)
+        
+        # Insert OK inspection (Approved state)
+        cursor.execute("""
+            INSERT IGNORE INTO main_inspection 
+            (id, title, description, tipo_combustible, status, product_name, product_code, batch_number, serial_number, location, inspection_date, completed_date, result, notes, recommendations, defecto_encontrado, created_at, updated_at, inspector_id)
+            VALUES 
+            (11, 'Inspección OK - Aprobada', 'Inspección de calidad exitosa del combustible nuclear. Estado: Pasa (Approved)', 'uranio', 'approved', 'Combustible Nuclear - Lote OK', 'COMB-OK-001', 'LOTE-OK-2024', 'SN-OK-2024', 'Planta de Inspección ArByte - Línea OK', NOW(), NOW(), 'Inspección exitosa. Todos los parámetros están dentro de los estándares de calidad requeridos.', 'No se detectaron defectos. El producto cumple con todos los criterios de calidad.', 'Aprobar lote para producción. Continuar con el proceso normal.', 0, NOW(), NOW(), 2)
         """)
         
         # Insert default machine
@@ -688,7 +852,11 @@ def main():
         print("\n📊 Inserting initial data...")
         insert_initial_data(connection)
         
-        # Create inspection photos and map to existing media files
+        # Create inspections for all folders automatically
+        print("\n📁 Creating inspections for all folders in inspection_photos directory...")
+        create_inspections_for_all_folders(connection)
+        
+        # Create inspection photos and map to existing media files (legacy method)
         print("\n📸 Creating inspection photos and mapping to media files...")
         create_inspection_photos(connection)
         
@@ -714,6 +882,9 @@ def main():
         print("\n📋 Inspections created:")
         print("- Inspection 8: Combustible Nuclear Industrial (Uranio) - 13 photos mapped")
         print("- Inspection 9: Combustible Nuclear Plutonio - 1 photo mapped")
+        print("- Inspection 10: NOK - Defectos Detectados (Failed state) - 13 photos mapped")
+        print("- Inspection 11: OK - Aprobada (Approved state) - 4 photos mapped")
+        print("- Auto-created inspections for all folders in media/inspection_photos/")
         print("All photos are linked to existing files in media/inspection_photos/")
         
         return True

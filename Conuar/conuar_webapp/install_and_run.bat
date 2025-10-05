@@ -5,3 +5,4 @@ call "C:\Users\USER\Documents\GitHub\Inspection_webapp\conuar_env\Scripts\activa
 pip install pymysql
 python create_database.py
 pause
+

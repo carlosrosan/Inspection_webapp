@@ -3,14 +3,60 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+<style>
+/* Override hero section padding for inspection detail pages - Very specific targeting */
+section.hero-section {
+    padding: 10px 0 !important;
+    min-height: auto !important;
+    height: auto !important;
+}
+
+section.hero-section h1,
+section.hero-section .h3,
+section.hero-section .display-4 {
+    font-size: 1.3rem !important;
+    margin-bottom: 0.2rem !important;
+    font-weight: 600 !important;
+    line-height: 1.2 !important;
+}
+
+section.hero-section .lead,
+section.hero-section .small {
+    font-size: 0.8rem !important;
+    margin-bottom: 0.5rem !important;
+    line-height: 1.3 !important;
+}
+
+section.hero-section .container {
+    padding-top: 0 !important;
+    padding-bottom: 0 !important;
+}
+
+section.hero-section .row {
+    margin-top: 0.3rem !important;
+}
+
+section.hero-section .btn {
+    padding: 0.4rem 1rem !important;
+    font-size: 0.85rem !important;
+    display: inline-block !important;
+    text-decoration: none !important;
+    cursor: pointer !important;
+    pointer-events: auto !important;
+    position: relative !important;
+    z-index: 1 !important;
+}
+</style>
+
+<div class="inspection-detail-page">
 <!-- Hero Section -->
 <section class="hero-section">
     <div class="container text-center">
-        <h1 class="display-4 fw-bold mb-4">{{ title }}</h1>
-        <p class="lead mb-5">{{ description }}</p>
+        <h1 class="h3 fw-bold mb-2">{{ title }}</h1>
+        <p class="small mb-3">{{ description }}</p>
         <div class="row">
             <div class="col-md-6 mx-auto">
-                <a href="{% url 'main:inspection_list' %}" class="btn btn-light btn-custom">
+                <a href="{% url 'main:inspection_list' %}" class="btn btn-primary btn-sm" role="button">
                     <i class="fas fa-arrow-left me-2"></i>Volver a la Lista
                 </a>
             </div>
@@ -337,6 +383,7 @@
         </div>
     </div>
 </div>
+</div>
 {% endblock %}
 
 {% block extra_js %}
@@ -349,6 +396,20 @@
         const modal = new bootstrap.Modal(document.getElementById('photoModal'));
         modal.show();
     }
+    
+    // Ensure the back button works properly
+    document.addEventListener('DOMContentLoaded', function() {
+        const backButton = document.querySelector('a[href*="inspection_list"]');
+        if (backButton) {
+            console.log('Back button found:', backButton.href);
+            backButton.addEventListener('click', function(e) {
+                console.log('Back button clicked, navigating to:', this.href);
+                // Let the default behavior proceed
+            });
+        } else {
+            console.log('Back button not found!');
+        }
+    });
     
     // Initialize tooltips
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));

@@ -380,6 +380,21 @@ body {
     color: var(--dark-bg);
 }
 
+/* Compact hero section for inspection detail pages */
+.inspection-detail-page .hero-section {
+    padding: 40px 0 !important;
+}
+
+.inspection-detail-page .hero-section h1 {
+    font-size: 2rem !important;
+    margin-bottom: 1rem !important;
+}
+
+.inspection-detail-page .hero-section .lead {
+    font-size: 1rem !important;
+    margin-bottom: 1.5rem !important;
+}
+
 /* Print styles */
 @media print {
     .navbar, .footer, .btn {
