@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <style>
+        @page {
+            size: A4;
+            margin: 2cm;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            font-size: 10pt;
+            line-height: 1.4;
+            color: #333;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            color: #0d6efd;
+            font-size: 20pt;
+            margin-bottom: 10px;
+        }
+        .section {
+            margin-bottom: 20px;
+        }
+        .section-title {
+            color: #0d6efd;
+            font-size: 14pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+            border-bottom: 2px solid #0d6efd;
+            padding-bottom: 5px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 15px;
+        }
+        table.info-table {
+            margin-bottom: 20px;
+        }
+        table.info-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        table.info-table td:first-child {
+            background-color: #f8f9fa;
+            font-weight: bold;
+            width: 30%;
+        }
+        table.timeline-table {
+            margin-bottom: 20px;
+        }
+        table.timeline-table th {
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+        table.timeline-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        table.timeline-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        .badge {
+            display: inline-block;
+            padding: 4px 8px;
+            border-radius: 4px;
+            font-size: 9pt;
+            font-weight: bold;
+        }
+        .badge-success {
+            background-color: #28a745;
+            color: white;
+        }
+        .badge-danger {
+            background-color: #dc3545;
+            color: white;
+        }
+        .badge-warning {
+            background-color: #ffc107;
+            color: #333;
+        }
+        .badge-info {
+            background-color: #17a2b8;
+            color: white;
+        }
+        .badge-primary {
+            background-color: #0d6efd;
+            color: white;
+        }
+        .badge-secondary {
+            background-color: #6c757d;
+            color: white;
+        }
+        .photo-section {
+            margin-bottom: 30px;
+            page-break-inside: avoid;
+        }
+        .photo-title {
+            font-size: 12pt;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        .photo-info {
+            margin-top: 10px;
+            font-size: 9pt;
+        }
+        img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 10px 0;
+            border: 1px solid #ddd;
+        }
+        .footer {
+            margin-top: 40px;
+            text-align: center;
+            font-size: 8pt;
+            color: #666;
+        }
+        .text-content {
+            margin-bottom: 15px;
+            text-align: justify;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>REPORTE DE INSPECCIÓN</h1>
+        <p>Sistema de Inspección ArByte</p>
+    </div>
+
+    <div class="section">
+        <div class="section-title">INFORMACIÓN BÁSICA</div>
+        <table class="info-table">
+            <tr>
+                <td>Título:</td>
+                <td>{{ inspection.title }}</td>
+            </tr>
+            <tr>
+                <td>Producto:</td>
+                <td>{{ inspection.product_name }}</td>
+            </tr>
+            <tr>
+                <td>Tipo de Combustible:</td>
+                <td>{{ inspection.get_tipo_combustible_display }}</td>
+            </tr>
+            <tr>
+                <td>Estado:</td>
+                <td>
+                    {% if inspection.status == 'completed' %}
+                        <span class="badge badge-success">{{ inspection.get_status_display }}</span>
+                    {% elif inspection.status == 'failed' %}
+                        <span class="badge badge-danger">{{ inspection.get_status_display }}</span>
+                    {% elif inspection.status == 'in_progress' %}
+                        <span class="badge badge-warning">{{ inspection.get_status_display }}</span>
+                    {% elif inspection.status == 'approved' %}
+                        <span class="badge badge-primary">{{ inspection.get_status_display }}</span>
+                    {% elif inspection.status == 'rejected' %}
+                        <span class="badge badge-danger">{{ inspection.get_status_display }}</span>
+                    {% else %}
+                        <span class="badge badge-secondary">{{ inspection.get_status_display }}</span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Resultado:</td>
+                <td>
+                    {% if inspection.defecto_encontrado %}
+                        <span class="badge badge-danger">No Pasa</span>
+                    {% else %}
+                        <span class="badge badge-warning">Pasa</span>
+                    {% endif %}
+                </td>
+            </tr>
+            <tr>
+                <td>Inspector:</td>
+                <td>{{ inspection.inspector.username }}</td>
+            </tr>
+            {% if inspection.product_code %}
+            <tr>
+                <td>Código del Producto:</td>
+                <td>{{ inspection.product_code }}</td>
+            </tr>
+            {% endif %}
+            {% if inspection.batch_number %}
+            <tr>
+                <td>Número de Lote:</td>
+                <td>{{ inspection.batch_number }}</td>
+            </tr>
+            {% endif %}
+            {% if inspection.serial_number %}
+            <tr>
+                <td>Número de Serie:</td>
+                <td>{{ inspection.serial_number }}</td>
+            </tr>
+            {% endif %}
+            {% if inspection.location %}
+            <tr>
+                <td>Ubicación:</td>
+                <td>{{ inspection.location }}</td>
+            </tr>
+            {% endif %}
+        </table>
+    </div>
+
+    {% if inspection.description %}
+    <div class="section">
+        <div class="section-title">DESCRIPCIÓN</div>
+        <div class="text-content">{{ inspection.description }}</div>
+    </div>
+    {% endif %}
+
+    {% if inspection.result %}
+    <div class="section">
+        <div class="section-title">RESULTADOS</div>
+        <div class="text-content">{{ inspection.result }}</div>
+    </div>
+    {% endif %}
+
+    {% if inspection.notes %}
+    <div class="section">
+        <div class="section-title">NOTAS</div>
+        <div class="text-content">{{ inspection.notes }}</div>
+    </div>
+    {% endif %}
+
+    {% if inspection.recommendations %}
+    <div class="section">
+        <div class="section-title">RECOMENDACIONES</div>
+        <div class="text-content">{{ inspection.recommendations }}</div>
+    </div>
+    {% endif %}
+
+    <div class="section">
+        <div class="section-title">CRONOLOGÍA DE LA INSPECCIÓN</div>
+        <table class="timeline-table">
+            <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>Fecha y Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inspección Creada</td>
+                    <td>{{ inspection.created_at|date:"d/m/Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <td>Inspección Iniciada</td>
+                    <td>{{ inspection.inspection_date|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% if inspection.completed_date %}
+                <tr>
+                    <td>Inspección Completada</td>
+                    <td>{{ inspection.completed_date|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>Última Actualización</td>
+                    <td>{{ inspection.updated_at|date:"d/m/Y H:i" }}</td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+
+    {% if photos %}
+    <div class="section">
+        <div class="section-title">FOTOS DE LA INSPECCIÓN ({{ photo_count }} foto{{ photo_count|pluralize }})</div>
+        {% for photo_info in photo_data %}
+        <div class="photo-section">
+            <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}</div>
+            {% if photo_info.path %}
+            <img src="{{ photo_info.path }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
+            {% endif %}
+            <div class="photo-info">
+                <strong>Tipo:</strong> {{ photo_info.photo.photo_type|default:"General" }} | 
+                <strong>Subida:</strong> {{ photo_info.photo.uploaded_at|date:"d/m/Y H:i" }} | 
+                <strong>Defecto Detectado:</strong> {% if photo_info.photo.defecto_encontrado %}Sí{% else %}No{% endif %}
+            </div>
+        </div>
+        {% endfor %}
+    </div>
+    {% endif %}
+
+    <div class="footer">
+        Reporte generado el {{ generation_date|date:"d/m/Y a las H:i" }} - Sistema de Inspección ArByte
+    </div>
+</body>
+</html>
+

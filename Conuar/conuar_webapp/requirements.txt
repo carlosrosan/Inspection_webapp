@@ -14,3 +14,7 @@ cryptography>=3.4.8
 pyModbusTCP>=0.2.0
 seaborn>=0.11.0
 matplotlib>=3.5.0
+
+# PDF Generation
+xhtml2pdf>=0.2.10
+reportlab==3.6.13

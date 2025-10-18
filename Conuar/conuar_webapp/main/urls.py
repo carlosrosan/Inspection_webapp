@@ -18,5 +18,6 @@ urlpatterns = [
     path('configuration/', views.configuration, name='configuration'),
     path('inspections/', views.inspection_list, name='inspection_list'),
     path('inspection/<int:inspection_id>/', views.inspection_detail, name='inspection_detail'),
+    path('inspection/<int:inspection_id>/pdf/', views.inspection_pdf, name='inspection_pdf'),
 ]
 

@@ -379,6 +379,67 @@ def inspection_detail(request, inspection_id):
     return render(request, 'main/inspection_detail.html', context)
 
 @login_required(login_url='main:login')
+@require_viewer  # Viewer, Regular User, and Supervisor can download PDF reports
+def inspection_pdf(request, inspection_id):
+    """Generate and download PDF report for a specific inspection"""
+    from .models import Inspection, InspectionPhoto
+    from django.shortcuts import get_object_or_404
+    from django.template.loader import get_template
+    from django.http import HttpResponse
+    from datetime import datetime
+    from xhtml2pdf import pisa
+    from io import BytesIO
+    import os
+    
+    
+    # Get the inspection by id
+    inspection = get_object_or_404(Inspection, id=inspection_id)
+    photos = inspection.photos.all()
+    
+    # Prepare photo data with file paths
+    photo_data = []
+    for photo in photos:
+        photo_info = {
+            'photo': photo,
+            'path': photo.photo.path if photo.photo else None,
+        }
+        photo_data.append(photo_info)
+    
+    # Prepare context for the template
+    context = {
+        'inspection': inspection,
+        'photos': photos,
+        'photo_data': photo_data,
+        'generation_date': datetime.now(),
+        'photo_count': photos.count(),
+    }
+    
+    # Render the HTML template
+    template = get_template('main/inspection_pdf.html')
+    html = template.render(context)
+    
+    # Create a BytesIO buffer for the PDF
+    buffer = BytesIO()
+    
+    # Generate PDF from HTML
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+    
+    # Check if PDF generation was successful
+    if pisa_status.err:
+        return HttpResponse('Error al generar el PDF: %s' % pisa_status.err, status=500)
+    
+    # Get the value of the BytesIO buffer
+    pdf = buffer.getvalue()
+    buffer.close()
+    
+    # Create HTTP response
+    response = HttpResponse(pdf, content_type='application/pdf')
+    filename = f'inspeccion_{inspection.id}_{inspection.title}_{datetime.now().strftime("%Y%m%d")}.pdf'
+    response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    
+    return response
+
+@login_required(login_url='main:login')
 @require_configuration_access  # Regular User and Supervisor can access configuration
 def configuration(request):
     """System configuration view - Regular Users and Supervisors can access"""
