@@ -2,7 +2,7 @@ from django.contrib import admin
 from django.contrib.auth.admin import UserAdmin
 from django.contrib.auth.password_validation import validate_password
 from django.core.exceptions import ValidationError
-from .models import User, Inspection, InspectionPhoto, InspectionMachine, MachineLog
+from .models import User, Inspection, InspectionPhoto, InspectionMachine, MachineLog, PlcDataRaw
 from .validators import CustomPasswordValidator
 
 @admin.register(User)
@@ -227,3 +227,31 @@ class MachineLogAdmin(admin.ModelAdmin):
     )
     
     readonly_fields = ('timestamp',)
+
+@admin.register(PlcDataRaw)
+class PlcDataRawAdmin(admin.ModelAdmin):
+    """Admin interface for PlcDataRaw model"""
+    list_display = ('id', 'timestamp', 'processed', 'created_at', 'json_preview')
+    list_filter = ('processed', 'timestamp', 'created_at')
+    search_fields = ('json_data',)
+    ordering = ('-timestamp',)
+    date_hierarchy = 'timestamp'
+    
+    fieldsets = (
+        ('Información del Dato PLC', {
+            'fields': ('timestamp', 'json_data', 'processed')
+        }),
+        ('Metadata', {
+            'fields': ('created_at',),
+            'classes': ('collapse',)
+        }),
+    )
+    
+    readonly_fields = ('created_at',)
+    
+    def json_preview(self, obj):
+        """Show a preview of the JSON data"""
+        if len(obj.json_data) > 100:
+            return obj.json_data[:100] + '...'
+        return obj.json_data
+    json_preview.short_description = 'JSON Preview'

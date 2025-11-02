@@ -676,3 +676,32 @@ class PlcReading(models.Model):
     
     def __str__(self):
         return f"PLC Reading - Inspection {self.id_inspection} - {self.timestamp_plc}"
+
+
+class PlcDataRaw(models.Model):
+    """Model for raw PLC data from CSV files - stores JSON data as-is"""
+    
+    # Timestamp from the JSON data
+    timestamp = models.DateTimeField(help_text="Timestamp del dato PLC")
+    
+    # Raw JSON data
+    json_data = models.TextField(help_text="Datos JSON sin procesar del PLC")
+    
+    # Processing Status
+    processed = models.BooleanField(default=False, help_text="Indica si el registro ya fue procesado")
+    
+    # Metadata
+    created_at = models.DateTimeField(auto_now_add=True)
+    
+    class Meta:
+        db_table = 'plc_data_raw'
+        ordering = ['-timestamp']
+        verbose_name = 'PLC Data Raw'
+        verbose_name_plural = 'PLC Data Raw'
+        indexes = [
+            models.Index(fields=['timestamp']),
+            models.Index(fields=['processed']),
+        ]
+    
+    def __str__(self):
+        return f"PLC Raw Data - {self.timestamp}"

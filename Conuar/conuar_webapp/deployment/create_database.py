@@ -314,7 +314,8 @@ def get_sql_create_statements():
         );
         """,
         
-        # PLC Reading table
+        # PLC Reading table - stores transformed data from plc_data_raw
+        # Data flow: CSV -> plc_data_raw -> main_plcreading -> inspections
         """
         CREATE TABLE IF NOT EXISTS main_plcreading (
             id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
@@ -338,14 +339,28 @@ def get_sql_create_statements():
             new_photos_available bool NOT NULL DEFAULT 0,
             photo_count bigint NOT NULL DEFAULT 0,
             message_type varchar(30) NOT NULL DEFAULT 'machine_routine_step',
-            message_body longtext NOT NULL DEFAULT '',
+            message_body longtext NOT NULL,
             fuel_rig_id varchar(50) NOT NULL DEFAULT '',
             processed bool NOT NULL DEFAULT 0,
-            processing_error longtext NOT NULL DEFAULT '',
-            created_at datetime(6) NOT NULL,
-            updated_at datetime(6) NOT NULL,
+            processing_error longtext NOT NULL,
+            created_at datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+            updated_at datetime(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
             KEY main_plcreading_processed_timestamp_plc_7c8b8f1f (processed, timestamp_plc),
             KEY main_plcreading_id_inspection_7c8b8f1f (id_inspection)
+
+        );
+        """,
+        
+        # PLC Data Raw table - stores raw JSON data from CSV files
+        """
+        CREATE TABLE IF NOT EXISTS plc_data_raw (
+            id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
+            timestamp datetime(6) NOT NULL,
+            json_data longtext NOT NULL,
+            processed bool NOT NULL DEFAULT 0,
+            created_at datetime(6) NOT NULL,
+            KEY plc_data_raw_timestamp_idx (timestamp),
+            KEY plc_data_raw_processed_idx (processed)
         );
         """,
         
@@ -871,6 +886,7 @@ def main():
         print("- main_systemconfiguration (system settings)")
         print("- main_inspectionplcevent (PLC events)")
         print("- main_plcreading (PLC readings)")
+        print("- plc_data_raw (raw PLC data from CSV files)")
         print("- django_admin_log (Django admin logging)")
         print("- Django system tables (auth, sessions, etc.)")
         

@@ -2797,3 +2797,293 @@ logs/
 - **Logout**: `INFO 2025-09-25 23:16:58,611 LOGOUT - User: test_user, IP: 127.0.0.1`
 
 The logging system is now fully operational and will automatically track all user login attempts, successful logins, failed attempts, and logout events. The system also includes security features to prevent brute force attacks and provides comprehensive audit trails for security monitoring.
+
+# ETL Setup Guide - Sistema Conuar
+
+## Overview
+
+This guide explains the ETL (Extract, Transform, Load) pipeline for the Conuar Inspection Webapp.
+
+## Data Flow
+
+```
+CSV File (NodeRED data)
+    ↓
+plc_data_reader.py / plc_data_reader_test.py
+    ↓
+plc_data_raw table (stores raw JSON)
+    ↓
+plc_data_processor.py (transforms JSON to structured data)
+    ↓
+main_plcreading table (stores transformed PLC readings)
+    ↓
+plc_data_processor.py (creates inspections and photos)
+    ↓
+main_inspection, main_inspectionphoto tables
+```
+
+## Database Tables
+
+### 1. `plc_data_raw`
+**Purpose**: Stores raw JSON data from CSV files
+**Columns**:
+- `id`: Primary key
+- `timestamp`: Timestamp extracted from JSON
+- `json_data`: Raw JSON string from CSV
+- `processed`: Boolean flag indicating if data has been transformed
+- `created_at`: Record creation timestamp
+
+### 2. `main_plcreading`
+**Purpose**: Stores transformed PLC data in structured format
+**Columns**:
+- `id`: Primary key
+- `timestamp_plc`: PLC timestamp
+- `id_inspection`: Inspection ID
+- `execution_id`, `control_point_id`, etc.: Various PLC fields
+- `processed`: Boolean flag indicating if inspection has been created
+- `created_at`, `updated_at`: Metadata timestamps
+
+## Scripts
+
+### 1. `plc_data_reader_test.py`
+**Purpose**: Standalone script to read CSV and save to plc_data_raw
+
+**Input**: 
+```
+C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\Conuar test NodeRed\plc_reads\plc_reads_nodered.csv
+```
+
+**Output**: Records in `plc_data_raw` table
+
+**Usage**:
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl
+python plc_data_reader_test.py
+```
+
+**Features**:
+- Uses PyMySQL for direct database connection
+- Reads db_config.json for database credentials
+- Processes CSV line-by-line
+- Handles ISO timestamp conversion (2025-11-02T16:33:20.607Z → MySQL datetime)
+
+### 2. `plc_data_reader.py`
+**Purpose**: Django-integrated script to read CSV and save to plc_data_raw
+
+**Input**: Same CSV file as above
+
+**Output**: Records in `plc_data_raw` table
+
+**Usage**:
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp
+python etl/plc_data_reader.py
+```
+
+**Features**:
+- Uses Django ORM
+- Integrated logging to logs/plc_data_reader.log
+- Progress tracking every 10 records
+- Comprehensive error handling
+
+### 3. `plc_data_processor.py`
+**Purpose**: Transform raw JSON data and create inspections
+
+**Process**:
+1. **Step 1**: Transform `plc_data_raw` → `main_plcreading`
+   - Reads unprocessed records from `plc_data_raw`
+   - Parses JSON data
+   - Maps JSON fields to PlcReading model fields
+   - Creates PlcReading records
+   - Marks raw data as processed
+
+2. **Step 2**: Process `main_plcreading` → inspections
+   - Reads unprocessed PlcReading records
+   - Creates/updates Inspection records
+   - Maps photos to inspections
+   - Updates machine statistics
+   - Creates PLC event records
+   - Marks readings as processed
+
+**Usage**:
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp
+python etl/plc_data_processor.py
+```
+
+**Features**:
+- Runs continuously with 30-second intervals
+- Two-stage processing pipeline
+- Automatic inspection creation
+- Photo mapping support
+- Machine statistics tracking
+- Comprehensive logging
+
+## JSON Field Mapping
+
+The processor maps NodeRED JSON fields to PlcReading fields. Default mappings are:
+
+| JSON Field | PlcReading Field | Default Value |
+|------------|------------------|---------------|
+| datetime | timestamp_plc | current time |
+| id_inspection | id_inspection | 1 |
+| execution_id | execution_id | 0 |
+| control_point_id | control_point_id | 0 |
+| execution_type | execution_type | 1 |
+| tipo_combustible | tipo_combustible | 1 |
+| x_control_point | x_control_point | 0.0 |
+| y_control_point | y_control_point | 0.0 |
+| z_control_point | z_control_point | 0.0 |
+| plate_angle | plate_angle | 0.0 |
+| camera_id | camera_id | 1 |
+| filming_type | filming_type | 2 |
+| new_photos_available | new_photos_available | False |
+| photo_count | photo_count | 0 |
+| message_type | message_type | 'machine_routine_step' |
+| message_body | message_body | '' |
+| fuel_rig_id | fuel_rig_id | '' |
+
+**Note**: You can customize these mappings in `plc_data_processor.py` → `transform_raw_to_reading()` method.
+
+## Configuration Files
+
+### `db_config.json`
+Location: `Conuar/conuar_webapp/etl/db_config.json`
+
+```json
+{
+    "ENGINE": "mysql",
+    "NAME": "conuar_webapp",
+    "USER": "root",
+    "PASSWORD": "admin",
+    "HOST": "localhost",
+    "PORT": "3306",
+    "OPTIONS": {
+        "charset": "utf8mb4",
+        "init_command": "SET sql_mode='STRICT_TRANS_TABLES'"
+    }
+}
+```
+
+## Running the Complete Pipeline
+
+### Option 1: Manual Execution
+
+**Step 1**: Load CSV data into plc_data_raw
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl
+python plc_data_reader.py
+```
+
+**Step 2**: Process data and create inspections
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp
+python etl/plc_data_processor.py
+```
+
+### Option 2: Automated with Windows Startup
+
+Use the `.bat` files created earlier:
+- `start_django.bat` - Starts Django web server
+- `start_nodered.bat` - Starts NodeRED
+
+You can create additional .bat files for the ETL scripts if needed.
+
+## Database Setup
+
+To create all tables including `plc_data_raw` and `main_plcreading`:
+
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\deployment
+python create_database.py
+```
+
+Or run Django migrations:
+```bash
+cd C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp
+python manage.py migrate
+```
+
+## Monitoring and Logs
+
+All scripts log to:
+- `logs/plc_data_reader.log` - CSV reading logs
+- `logs/plc_data_processor.log` - Processing logs
+
+Check these files for:
+- Processing status
+- Error messages
+- Record counts
+- Performance metrics
+
+## Troubleshooting
+
+### Issue: CSV file not found
+**Solution**: Verify the path in the scripts matches:
+```
+C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\Conuar test NodeRed\plc_reads\plc_reads_nodered.csv
+```
+
+### Issue: Database connection error
+**Solution**: Check `db_config.json` credentials and ensure MySQL is running
+
+### Issue: JSON parsing errors
+**Solution**: Verify CSV file has valid JSON on each line
+
+### Issue: Data not appearing in inspections
+**Solution**: 
+1. Check `plc_data_raw` table has records with `processed=False`
+2. Run `plc_data_processor.py` to transform the data
+3. Check logs for error messages
+
+## Customization
+
+### Changing CSV Input Path
+Edit in both scripts:
+- `plc_data_reader.py` line 50
+- `plc_data_reader_test.py` line 173
+
+### Customizing JSON Field Mapping
+Edit `plc_data_processor.py` → `transform_raw_to_reading()` method (lines 89-140)
+
+### Changing Processing Interval
+Edit `plc_data_processor.py` → `main()` function (line 458):
+```python
+processor.run_processing_loop(interval_seconds=30)  # Change 30 to desired seconds
+```
+
+## Data Verification
+
+### Check raw data count:
+```sql
+SELECT COUNT(*) FROM plc_data_raw WHERE processed = 0;
+```
+
+### Check transformed readings:
+```sql
+SELECT COUNT(*) FROM main_plcreading WHERE processed = 0;
+```
+
+### Check created inspections:
+```sql
+SELECT COUNT(*) FROM main_inspection;
+```
+
+### View recent raw data:
+```sql
+SELECT * FROM plc_data_raw ORDER BY created_at DESC LIMIT 10;
+```
+
+### View recent readings:
+```sql
+SELECT * FROM main_plcreading ORDER BY timestamp_plc DESC LIMIT 10;
+```
+
+## Next Steps
+
+1. Configure NodeRED to continuously write to the CSV file
+2. Set up the ETL scripts to run automatically (Windows Task Scheduler or systemd)
+3. Monitor logs regularly
+4. Adjust field mappings based on your actual JSON structure
+5. Set up alerts for processing errors
+

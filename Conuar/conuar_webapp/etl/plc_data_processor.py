@@ -27,9 +27,10 @@ django.setup()
 
 # Imports de Django
 from main.models import (
-    PlcReading, Inspection, InspectionMachine, InspectionPhoto, 
+    PlcReading, PlcDataRaw, Inspection, InspectionMachine, InspectionPhoto, 
     InspectionPlcEvent, SystemConfiguration, User
 )
+import json
 
 # Configurar logging
 logging.basicConfig(
@@ -70,6 +71,117 @@ class PlcDataProcessor:
             4: 'biodiesel',
             5: 'otros'
         }
+    
+    def get_unprocessed_raw_data(self, limit: int = 100) -> List[PlcDataRaw]:
+        """Obtener datos raw no procesados de plc_data_raw"""
+        try:
+            raw_data = PlcDataRaw.objects.filter(
+                processed=False
+            ).order_by('timestamp')[:limit]
+            
+            logger.info(f"Encontrados {len(raw_data)} registros raw no procesados")
+            return list(raw_data)
+            
+        except Exception as e:
+            logger.error(f"Error obteniendo datos raw no procesados: {e}")
+            return []
+    
+    def transform_raw_to_reading(self, raw_data: PlcDataRaw) -> Optional[PlcReading]:
+        """Transformar datos JSON raw a PlcReading"""
+        try:
+            # Parsear JSON
+            json_obj = json.loads(raw_data.json_data)
+            
+            # Extraer campos relevantes del JSON
+            # Mapeo de campos de NodeRED a campos de PlcReading
+            # Nota: Ajustar según la estructura real de tu JSON
+            
+            # Timestamp
+            timestamp_plc = raw_data.timestamp
+            
+            # Extraer valores de los campos (usar valores por defecto si no existen)
+            reading_data = {
+                'timestamp_plc': timestamp_plc,
+                'id_inspection': int(json_obj.get('id_inspection', 1)),
+                'execution_id': int(json_obj.get('execution_id', 0)),
+                'control_point_id': int(json_obj.get('control_point_id', 0)),
+                'execution_type': int(json_obj.get('execution_type', 1)),
+                'control_point_label': int(json_obj.get('control_point_label', 0)),
+                'tipo_combustible': int(json_obj.get('tipo_combustible', 1)),
+                'x_control_point': float(json_obj.get('x_control_point', 0.0)),
+                'y_control_point': float(json_obj.get('y_control_point', 0.0)),
+                'z_control_point': float(json_obj.get('z_control_point', 0.0)),
+                'plate_angle': float(json_obj.get('plate_angle', 0.0)),
+                'control_point_creator': int(json_obj.get('control_point_creator', 0)),
+                'program_creator': int(json_obj.get('program_creator', 0)),
+                'program_version': int(json_obj.get('program_version', 1)),
+                'camera_id': int(json_obj.get('camera_id', 1)),
+                'filming_type': int(json_obj.get('filming_type', 2)),
+                'last_photo_request_timestamp': int(json_obj.get('last_photo_request_timestamp', 0)),
+                'new_photos_available': bool(json_obj.get('new_photos_available', False)),
+                'photo_count': int(json_obj.get('photo_count', 0)),
+                'message_type': str(json_obj.get('message_type', 'machine_routine_step')),
+                'message_body': str(json_obj.get('message_body', '')),
+                'fuel_rig_id': str(json_obj.get('fuel_rig_id', '')),
+                'processed': False,
+            }
+            
+            # Crear objeto PlcReading
+            reading = PlcReading.objects.create(**reading_data)
+            
+            logger.info(f"Transformado raw data ID {raw_data.id} a PlcReading ID {reading.id}")
+            return reading
+            
+        except json.JSONDecodeError as e:
+            logger.error(f"Error parseando JSON del raw data ID {raw_data.id}: {e}")
+            return None
+        except Exception as e:
+            logger.error(f"Error transformando raw data ID {raw_data.id}: {e}")
+            return None
+    
+    def process_raw_data(self, raw_data: PlcDataRaw) -> bool:
+        """Procesar un registro raw individual"""
+        try:
+            # Transformar JSON a PlcReading
+            reading = self.transform_raw_to_reading(raw_data)
+            
+            if reading:
+                # Marcar raw data como procesado
+                raw_data.processed = True
+                raw_data.save()
+                
+                logger.info(f"Raw data ID {raw_data.id} procesado exitosamente")
+                return True
+            else:
+                logger.error(f"Error transformando raw data ID {raw_data.id}")
+                return False
+                
+        except Exception as e:
+            logger.error(f"Error procesando raw data ID {raw_data.id}: {e}")
+            return False
+    
+    def process_all_raw_data(self, batch_size: int = 100):
+        """Procesar todos los datos raw no procesados"""
+        try:
+            raw_data_list = self.get_unprocessed_raw_data(limit=batch_size)
+            
+            if not raw_data_list:
+                logger.info("No hay datos raw para procesar")
+                return
+            
+            processed_count = 0
+            error_count = 0
+            
+            for raw_data in raw_data_list:
+                if self.process_raw_data(raw_data):
+                    processed_count += 1
+                else:
+                    error_count += 1
+            
+            logger.info(f"Procesamiento raw completado - Exitosos: {processed_count}, Errores: {error_count}")
+            
+        except Exception as e:
+            logger.error(f"Error en procesamiento de datos raw: {e}")
     
     def get_unprocessed_readings(self, limit: int = 100) -> List[PlcReading]:
         """Obtener lecturas PLC no procesadas"""
@@ -309,7 +421,12 @@ class PlcDataProcessor:
         
         try:
             while self.is_running:
-                # Procesar lecturas no procesadas
+                # Paso 1: Procesar datos raw de plc_data_raw a main_plcreading
+                logger.info("Procesando datos raw de plc_data_raw...")
+                self.process_all_raw_data()
+                
+                # Paso 2: Procesar lecturas de main_plcreading a inspecciones
+                logger.info("Procesando lecturas de main_plcreading...")
                 self.process_all_unprocessed_readings()
                 
                 # Esperar antes del siguiente ciclo
