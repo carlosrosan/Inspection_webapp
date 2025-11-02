@@ -1,0 +1,167 @@
+[
+    {
+        "id": "30b5ab27aba6e2e7",
+        "type": "tab",
+        "label": "Conuar test",
+        "disabled": false,
+        "info": "",
+        "env": []
+    },
+    {
+        "id": "3f669f25bb3c418f",
+        "type": "s7 in",
+        "z": "30b5ab27aba6e2e7",
+        "endpoint": "ea00910e0660f471",
+        "mode": "all-split",
+        "variable": "Start Light",
+        "diff": true,
+        "name": "",
+        "x": 410,
+        "y": 300,
+        "wires": [
+            [
+                "110f17c84c3213b6",
+                "25a026ddb551bf40"
+            ]
+        ]
+    },
+    {
+        "id": "110f17c84c3213b6",
+        "type": "debug",
+        "z": "30b5ab27aba6e2e7",
+        "name": "debug 1",
+        "active": true,
+        "tosidebar": true,
+        "console": false,
+        "tostatus": false,
+        "complete": "payload",
+        "targetType": "msg",
+        "statusVal": "",
+        "statusType": "auto",
+        "x": 720,
+        "y": 300,
+        "wires": []
+    },
+    {
+        "id": "33f3eba576721d54",
+        "type": "file",
+        "z": "30b5ab27aba6e2e7",
+        "name": "plc_reads_nodered.csv",
+        "filename": "C:\\Users\\Admin\\Documents\\Inspection_webapp\\Conuar\\conuar_webapp\\etl\\Conuar test NodeRed\\plc_reads\\plc_reads_nodered.csv",
+        "filenameType": "str",
+        "appendNewline": true,
+        "createDir": false,
+        "overwriteFile": "false",
+        "encoding": "none",
+        "x": 970,
+        "y": 460,
+        "wires": [
+            []
+        ]
+    },
+    {
+        "id": "43f5545705792558",
+        "type": "csv",
+        "z": "30b5ab27aba6e2e7",
+        "name": "",
+        "spec": "rfc",
+        "sep": ",",
+        "hdrin": "",
+        "hdrout": "all",
+        "multi": "one",
+        "ret": "\\r\\n",
+        "temp": "datetime,start_light,always_true,always_false,clock_10Hz,tank_level",
+        "skip": "0",
+        "strings": false,
+        "include_empty_strings": "",
+        "include_null_values": "",
+        "x": 750,
+        "y": 420,
+        "wires": [
+            [
+                "33f3eba576721d54"
+            ]
+        ]
+    },
+    {
+        "id": "25a026ddb551bf40",
+        "type": "function",
+        "z": "30b5ab27aba6e2e7",
+        "name": "function 1",
+        "func": "// Retrieve stored PLC data from flow context\nlet data = flow.get(\"plcData\") || {};\n\n// Update the data object with the latest PLC variable and its value\n// msg.topic should contain the PLC variable name (e.g. \"DB1,REAL0\")\ndata[msg.topic] = msg.payload;\n\n// Save back to flow\nflow.set(\"plcData\", data);\n\n// Optional: define how many variables you expect before writing a line\nconst EXPECTED_TAG_COUNT = 6;  // <-- adjust this number\n\n// If we have received values for all expected tags, generate CSV line\n//if (Object.keys(data).length >= EXPECTED_TAG_COUNT) {\n    let timestamp = new Date().toISOString();\n\n    // Create a CSV header order from the PLC variable names (sorted for consistency)\n    let variables = Object.keys(data).sort();\n\n    // Create one line with values in the same order\n    let values = variables.map(v => data[v]);\n\n    // Combine timestamp + readings into a CSV row\n    let csvLine = `${timestamp},${values.join(\",\")}\\n`;\n\n    // Prepare message for file node\n    msg.payload = csvLine;\n\n    // Optionally reset data after writing\n    // flow.set(\"plcData\", {}); \n\n    return msg; // Send only when we have all values\n//} else {\n    // Wait for more variables to arrive\n    return null;\n//}\n",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 580,
+        "y": 380,
+        "wires": [
+            [
+                "43f5545705792558"
+            ]
+        ]
+    },
+    {
+        "id": "ea00910e0660f471",
+        "type": "s7 endpoint",
+        "transport": "iso-on-tcp",
+        "address": "192.168.1.23",
+        "port": "102",
+        "rack": "0",
+        "slot": "1",
+        "localtsaphi": "01",
+        "localtsaplo": "00",
+        "remotetsaphi": "01",
+        "remotetsaplo": "00",
+        "connmode": "rack-slot",
+        "adapter": "",
+        "busaddr": 2,
+        "cycletime": "10000",
+        "timeout": 2000,
+        "name": "PLC_1",
+        "vartable": [
+            {
+                "addr": "Q0.0",
+                "name": "Start Light"
+            },
+            {
+                "addr": "M1.2",
+                "name": "Always True"
+            },
+            {
+                "addr": "M1.3",
+                "name": "Always False"
+            },
+            {
+                "addr": "M0.0",
+                "name": "Clock 10Hz"
+            },
+            {
+                "addr": "M0.1",
+                "name": "Clock 10Hz"
+            },
+            {
+                "addr": "M0.1",
+                "name": "Clock 10Hz"
+            },
+            {
+                "addr": "MD1000",
+                "name": "Nivel de tanque"
+            },
+            {
+                "addr": "I0.7",
+                "name": "Detector Factory IO"
+            }
+        ]
+    },
+    {
+        "id": "a8afe3215c569c0b",
+        "type": "global-config",
+        "env": [],
+        "modules": {
+            "node-red-contrib-s7": "3.1.1"
+        }
+    }
+]
