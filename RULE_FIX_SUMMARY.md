@@ -238,3 +238,6 @@ SELECT * FROM main_inspection WHERE product_code='COMB-999';
 
 **The system now maintains complete data integrity!** 🎉
 
+
+
+

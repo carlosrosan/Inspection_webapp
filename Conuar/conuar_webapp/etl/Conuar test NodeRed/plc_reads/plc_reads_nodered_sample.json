@@ -1,0 +1,14 @@
+{    
+    "datetime": "2025-11-04T00:47:18.787Z",
+    "bit_inicio_ciclo": "1",
+    "nombre_ciclo": "456465",
+    "elemento_combustible": "151504112025",
+    "id_puntero": "1",
+    "defecto": "OK",
+    "id_ubicacion": "13 SE", 
+    "nombre_ubicacion": "SE Iconel 13",
+    "pos_camara": "1L",
+    "giro": "Derecha",
+    "angulo_plato": "0",
+    "nombre_medicion": "Angulo pollera SE Inconel ZR"
+}

@@ -84,3 +84,4 @@ http://localhost:8000/admin/main/inspection/
 
 The processor is ready to use. Run it to create inspections from your PLC data!
 
+
