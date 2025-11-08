@@ -131,9 +131,6 @@ Monthly:
 - Audit user accounts, password status, and permission levels.
 
 ## 8. Extensibility Roadmap
-
-- REST API endpoints for inspections and machine telemetry.  
-- Webhooks/notifications when NOK cycles or missing photos are detected.  
 - Additional data validation before accepting PLC rows (schema enforcement).  
 - Optional duplicate suppression in `plc_data_raw` using timestamp + hash constraints.  
 - Migration toward message queue ingestion if PLC cadence increases.

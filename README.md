@@ -163,3 +163,4 @@ Fotos en STAGING ─→ coincidencia por nombre ─→ Se vinculan y pasan a PRO
 - Archivar periódicamente las fotos de `PROCESSED/` si el espacio empieza a crecer; las rutas relativas se conservan en la base.
 
 
+

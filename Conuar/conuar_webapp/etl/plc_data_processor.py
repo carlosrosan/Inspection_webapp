@@ -304,7 +304,7 @@ class PlcDataProcessor:
             try:
                 logger.info(
                     f"[Ciclo {idx}/{summary['cycles']}] Procesando filas PLC "
-                    f"({cycle_rows[0].id} → {cycle_rows[-1].id})"
+                    f"({cycle_rows[0].id} to {cycle_rows[-1].id})"
                 )
                 if self.process_cycle(cycle_rows):
                     summary["inspections"] += 1
