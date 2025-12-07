@@ -4,7 +4,8 @@ PLC Data Processor - Sistema Conuar
 
 Este script agrupa lecturas PLC en ciclos, busca fotos en el directorio
 STAGING que cumplan el patrón
-    nombre_ciclo_id_puntero_defecto_elemento_combustible_datetime.ext
+    {nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{photo_code}.bmp
+    Ejemplo: Ciclo2_E123_3.1_041225_154941_NOK{105}.bmp
 y crea una única inspección por ciclo. Cada foto utilizada se mueve a
 PROCESSED y se vincula a la inspección resultante.
 
@@ -69,21 +70,37 @@ class PlcDataProcessor:
         # Load existing processed photos from database
         self._load_processed_photos()
 
-    def _safe_datetime_for_filename(self, raw_value: str) -> str:
-        return (
-            raw_value
-            .replace(':', '')
-            .replace('.', '')
-            .replace('-', '')
-            .replace(' ', '')
-        )
-
     def _build_staging_filename(self, row: dict) -> str:
-        raw_dt = row.get("datetime") or row.get("timestamp") or ""
-        safe_dt = self._safe_datetime_for_filename(raw_dt.replace('T', '').replace('Z', ''))
-        return f"{row['nombre_ciclo']}_{row['id_puntero']}_{row['defecto']}_{row['elemento_combustible']}_{safe_dt}"
+        """
+        Build filename in new format:
+        {nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{photo_code}.bmp
+        Example: Ciclo2_E123_3.1_041225_154941_NOK{105}.bmp
+        """
+        try:
+            nombre_ciclo = row.get('nombre_ciclo', '')
+            elemento_combustible = row.get('elemento_combustible', '')
+            id_puntero = str(row.get('id_puntero', ''))  # Ensure it's a string
+            photo_date = row.get('photo_date', '')
+            photo_time = row.get('photo_time', '')
+            defecto = row.get('defecto', 'OK')
+            photo_code = row.get('photo_code', '')
+            
+            # Build filename with photo_code in curly braces
+            if photo_code:
+                return f"{nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{{{photo_code}}}"
+            else:
+                return f"{nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}"
+        except KeyError as exc:
+            logger.warning(
+                f"Falta campo requerido {exc} en datos PLC para construir nombre de foto"
+            )
+            raise
 
     def _find_staged_photo(self, row: dict) -> Optional[Path]:
+        """
+        Find photo in STAGING folder matching the new naming pattern.
+        Format: {nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{photo_code}.bmp
+        """
         try:
             base_name = self._build_staging_filename(row)
         except KeyError as exc:
@@ -92,7 +109,8 @@ class PlcDataProcessor:
             )
             return None
 
-        for ext in (".jpg", ".jpeg", ".png", ".bmp"):
+        # Try .bmp first (as per new format), then other extensions for backward compatibility
+        for ext in (".bmp", ".jpg", ".jpeg", ".png"):
             candidate = self.staging_photo_path / f"{base_name}{ext}"
             if candidate.exists():
                 return candidate
