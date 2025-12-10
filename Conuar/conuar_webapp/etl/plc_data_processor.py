@@ -4,10 +4,11 @@ PLC Data Processor - Sistema Conuar
 
 Este script agrupa lecturas PLC en ciclos, busca fotos en el directorio
 STAGING que cumplan el patrón
-    {nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{photo_code}.bmp
-    Ejemplo: Ciclo2_E123_3.1_041225_154941_NOK{105}.bmp
-y crea una única inspección por ciclo. Cada foto utilizada se mueve a
-PROCESSED y se vincula a la inspección resultante.
+    {NombreCiclo}-{ID_EC}-{ID}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
+    Ejemplo: Ciclo2-E123-3F-041225_154941-NOK.bmp
+Las fotos se matchean SOLO por los primeros 3 campos: {NombreCiclo}-{ID_EC}-{ID}
+Un ciclo comienza cuando CicloActivo cambia a TRUE y termina cuando cambia a FALSE.
+Cada foto utilizada se mueve a PROCESSED y se vincula a la inspección resultante.
 
 Sistema de inspección de combustible Conuar
 """
@@ -70,88 +71,186 @@ class PlcDataProcessor:
         # Load existing processed photos from database
         self._load_processed_photos()
 
-    def _build_staging_filename(self, row: dict) -> str:
+    def _build_photo_match_prefix(self, row: dict) -> str:
         """
-        Build filename in new format:
-        {nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{photo_code}.bmp
-        Example: Ciclo2_E123_3.1_041225_154941_NOK{105}.bmp
+        Build the matching prefix for photos (first 3 fields only):
+        {NombreCiclo}-{ID_EC}-{ID}
+        This is used to match photos regardless of date/time/falla values.
         """
         try:
-            nombre_ciclo = row.get('nombre_ciclo', '')
-            elemento_combustible = row.get('elemento_combustible', '')
-            id_puntero = str(row.get('id_puntero', ''))  # Ensure it's a string
-            photo_date = row.get('photo_date', '')
-            photo_time = row.get('photo_time', '')
-            defecto = row.get('defecto', 'OK')
-            photo_code = row.get('photo_code', '')
+            # Handle field names with/without leading spaces
+            nombre_ciclo = row.get('NombreCiclo') or row.get(' NombreCiclo', '').strip()
+            id_ec = row.get('ID_EC') or row.get(' ID_EC', '').strip()
+            # ID is PunteroControl
+            id_value = str(row.get('PunteroControl') or row.get(' PunteroControl', '')).strip()
             
-            # Build filename with photo_code in curly braces
-            if photo_code:
-                return f"{nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{{{photo_code}}}"
-            else:
-                return f"{nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}"
+            if not nombre_ciclo or not id_ec or not id_value:
+                raise KeyError("Missing required fields for photo matching")
+            
+            # Return only the first 3 fields for matching
+            return f"{nombre_ciclo}-{id_ec}-{id_value}"
         except KeyError as exc:
             logger.warning(
-                f"Falta campo requerido {exc} en datos PLC para construir nombre de foto"
+                f"Falta campo requerido {exc} en datos PLC para construir prefijo de foto"
             )
             raise
 
     def _find_staged_photo(self, row: dict) -> Optional[Path]:
         """
-        Find photo in STAGING folder matching the new naming pattern.
-        Format: {nombre_ciclo}_{elemento_combustible}_{id_puntero}_{photo_date}_{photo_time}_{defecto}{photo_code}.bmp
+        Find photo in STAGING folder matching by first 3 fields only:
+        {NombreCiclo}-{ID_EC}-{ID}
+        Full format: {NombreCiclo}-{ID_EC}-{ID}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
+        Example: Ciclo2-E123-3F-041225_154941-NOK.bmp
         """
         try:
-            base_name = self._build_staging_filename(row)
+            # Build match prefix (first 3 fields only)
+            match_prefix = self._build_photo_match_prefix(row)
         except KeyError as exc:
             logger.warning(
-                f"Falta campo requerido {exc} en datos PLC para construir nombre de foto"
+                f"Falta campo requerido {exc} en datos PLC para construir prefijo de foto"
             )
             return None
 
-        # Try .bmp first (as per new format), then other extensions for backward compatibility
+        # Search for photos that start with the match prefix
+        # Match pattern: {NombreCiclo}-{ID_EC}-{ID}-...
+        if not self.staging_photo_path.exists():
+            return None
+        
+        # Try different extensions
         for ext in (".bmp", ".jpg", ".jpeg", ".png"):
-            candidate = self.staging_photo_path / f"{base_name}{ext}"
+            # Look for files starting with the match prefix
+            for photo_file in self.staging_photo_path.glob(f"{match_prefix}-*{ext}"):
+                # Verify it matches the pattern (starts with our prefix)
+                if photo_file.name.startswith(match_prefix + "-"):
+                    return photo_file
+        
+        # Also try exact match if no date/time/falla pattern found
+        for ext in (".bmp", ".jpg", ".jpeg", ".png"):
+            candidate = self.staging_photo_path / f"{match_prefix}{ext}"
             if candidate.exists():
                 return candidate
+        
         return None
 
+    def _is_boolean_true(self, value) -> bool:
+        """Check if a value represents boolean TRUE"""
+        if isinstance(value, bool):
+            return value
+        if isinstance(value, str):
+            return value.lower() in ('true', '1', 'yes')
+        if isinstance(value, (int, float)):
+            return value == 1
+        return False
+    
     def _group_raw_rows_by_cycle(self, raw_rows: List[PlcDataRaw]) -> List[List[PlcDataRaw]]:
+        """
+        Group raw rows into cycles based on CicloActivo changes.
+        Cycle starts when CicloActivo changes to TRUE, ends when it changes to FALSE.
+        """
         cycles, current = [], []
         collecting = False
+        prev_ciclo_activo = False
+        
         for raw in raw_rows:
             data = json.loads(raw.json_data)
-            bit = data.get("bit_inicio_ciclo")
-            if bit == "1" and not collecting:
+            # Get CicloActivo value (handle field name with/without leading space)
+            ciclo_activo = data.get("CicloActivo") or data.get(" CicloActivo")
+            is_active = self._is_boolean_true(ciclo_activo)
+            
+            # Start collecting when CicloActivo changes from FALSE to TRUE
+            if is_active and not collecting:
                 collecting = True
                 current = []
+                prev_ciclo_activo = True
+            
+            # Collect rows while cycle is active
             if collecting:
                 raw._parsed_json = data  # cache for later
                 current.append(raw)
-                if bit == "0":
+                
+                # End cycle when CicloActivo changes from TRUE to FALSE
+                if not is_active and prev_ciclo_activo:
                     cycles.append(current)
                     current, collecting = [], False
+                    prev_ciclo_activo = False
+                elif is_active:
+                    prev_ciclo_activo = True
+        
+        # If still collecting at the end, add the current cycle
         if collecting and current:
             cycles.append(current)
+        
         return cycles
 
     def _create_or_fetch_cycle_inspection(self, cycle_rows: List[PlcDataRaw]) -> Tuple[Inspection, bool]:
         first = cycle_rows[0]._parsed_json
         inspector = self.get_default_inspector()
-        natural_key = f"{first['nombre_ciclo']}-{first['elemento_combustible']}-{first['datetime']}"
+        
+        # Get values using new field names, with fallback to old names for compatibility
+        # Handle field names with/without leading spaces
+        nombre_ciclo = (first.get('NombreCiclo') or first.get(' NombreCiclo', '') or 
+                       first.get('nombre_ciclo', '')).strip()
+        id_ec = (first.get('ID_EC') or first.get(' ID_EC', '') or 
+                first.get('elemento_combustible', '')).strip()
+        
+        # Build datetime from FechaFoto and HoraFoto, or use timestamp from database
+        # Handle field names with/without leading spaces
+        fecha_foto = (first.get('FechaFoto') or first.get(' FechaFoto', '')).strip()
+        hora_foto = (first.get('HoraFoto') or first.get(' HoraFoto', '')).strip()
+        if fecha_foto and hora_foto:
+            # Format: FechaFoto=041225 (DDMMYY), HoraFoto=154941 (HHMMSS) -> 2025-12-04 15:49:41
+            try:
+                # Assuming format: DDMMYY for date, HHMMSS for time
+                if len(fecha_foto) == 6 and len(hora_foto) == 6:
+                    # Parse DDMMYY format
+                    day = fecha_foto[0:2]
+                    month = fecha_foto[2:4]
+                    year = "20" + fecha_foto[4:6]
+                    # Parse HHMMSS format
+                    hour = hora_foto[0:2]
+                    minute = hora_foto[2:4]
+                    second = hora_foto[4:6]
+                    date_str = f"{year}-{month}-{day} {hour}:{minute}:{second}"
+                    inspection_date = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+                else:
+                    inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+            except Exception as e:
+                logger.warning(f"Error parsing FechaFoto/HoraFoto: {e}, using database timestamp")
+                inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+        else:
+            # Fallback to datetime field or database timestamp
+            datetime_str = first.get('datetime') or first.get('timestamp')
+            if datetime_str:
+                try:
+                    inspection_date = datetime.fromisoformat(datetime_str.replace('Z','').replace('T',' '))
+                except:
+                    inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+            else:
+                inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+        
+        # Build natural key for inspection
+        natural_key = f"{nombre_ciclo}-{id_ec}-{inspection_date.isoformat()}"
+        
+        # Check for defects: Falla="1" or "true" means NOK, otherwise OK
+        defecto_encontrado = any(
+            (self._is_boolean_true(r._parsed_json.get('Falla') or r._parsed_json.get(' Falla'))) or
+            (r._parsed_json.get('defecto') == 'NOK')  # fallback for old format
+            for r in cycle_rows
+        )
+        
         inspection, created = Inspection.objects.get_or_create(
             product_code=natural_key,
             defaults={
-                "title": f"Inspección {first['nombre_ciclo']}",
-                "description": f"Inspección {first['nombre_ciclo']} del elemento combustible {first['elemento_combustible']}",
+                "title": f"Inspección {nombre_ciclo}",
+                "description": f"Inspección {nombre_ciclo} del elemento combustible {id_ec}",
                 "tipo_combustible": "uranio",
                 "status": "in_progress",
-                "defecto_encontrado": any(r._parsed_json.get('defecto') == 'NOK' for r in cycle_rows),
+                "defecto_encontrado": defecto_encontrado,
                 "product_name": first.get('nombre_ubicacion') or "Línea Conuar",
-                "serial_number": first["elemento_combustible"],
-                "batch_number": first["nombre_ciclo"],
+                "serial_number": id_ec,
+                "batch_number": nombre_ciclo,
                 "location": first.get("pos_camara", ""),
-                "inspection_date": datetime.fromisoformat(first["datetime"].replace('Z','').replace('T',' ')),
+                "inspection_date": inspection_date,
                 "inspector": inspector,
                 "notes": f"Cycle starting at PLC row {cycle_rows[0].id}",
             },
@@ -175,7 +274,12 @@ class PlcDataProcessor:
             return False
         inspection.status = "completed"
         inspection.completed_date = datetime.now()
-        inspection.defecto_encontrado = any(r._parsed_json.get('defecto') == 'NOK' for r in cycle_rows)
+        # Check for defects: Falla="1" or "true" means NOK, otherwise OK
+        inspection.defecto_encontrado = any(
+            (self._is_boolean_true(r._parsed_json.get('Falla') or r._parsed_json.get(' Falla'))) or
+            (r._parsed_json.get('defecto') == 'NOK')  # fallback for old format
+            for r in cycle_rows
+        )
         inspection.save()
         for raw in cycle_rows:
             raw.processed = True
@@ -189,9 +293,13 @@ class PlcDataProcessor:
             payload = raw._parsed_json
             photo_path = self._find_staged_photo(payload)
             if not photo_path:
+                nombre_ciclo = (payload.get('NombreCiclo') or payload.get(' NombreCiclo', '') or 
+                               payload.get('nombre_ciclo', '')).strip()
+                puntero = (payload.get('PunteroControl') or payload.get(' PunteroControl', '') or 
+                          payload.get('id_puntero', '')).strip()
                 logger.warning(
-                    f"No se encontró foto en STAGING para ciclo {payload.get('nombre_ciclo')} "
-                    f"puntero {payload.get('id_puntero')}"
+                    f"No se encontró foto en STAGING para ciclo {nombre_ciclo} "
+                    f"ID {puntero}"
                 )
                 continue
 
@@ -206,12 +314,20 @@ class PlcDataProcessor:
                 continue
 
             relative_path = f"inspection_photos/PROCESSED/{destination.name}"
+            nombre_ciclo = (payload.get('NombreCiclo') or payload.get(' NombreCiclo', '') or 
+                           payload.get('nombre_ciclo', '')).strip()
+            puntero = (payload.get('PunteroControl') or payload.get(' PunteroControl', '') or 
+                      payload.get('id_puntero', '')).strip()
+            # Check for defect: Falla="1" or "true" means NOK
+            falla = payload.get('Falla') or payload.get(' Falla', '0')
+            defecto_encontrado = self._is_boolean_true(falla) or (payload.get("defecto") == "NOK")
+            
             InspectionPhoto.objects.create(
                 inspection=inspection,
                 photo=relative_path,
-                caption=f"Ciclo {payload['nombre_ciclo']} puntero {payload['id_puntero']}",
+                caption=f"Ciclo {nombre_ciclo} puntero {puntero}",
                 photo_type="plc_cycle",
-                defecto_encontrado=payload.get("defecto") == "NOK",
+                defecto_encontrado=defecto_encontrado,
             )
 
             self.processed_photos.add(destination.name)

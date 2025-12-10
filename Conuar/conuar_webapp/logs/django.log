@@ -1,0 +1,652 @@
+INFO 2025-10-30 21:07:17,991 autoreload 14264 14268 Watching for file changes with StatReloader
+INFO 2025-10-30 21:14:50,095 autoreload 10100 1688 Watching for file changes with StatReloader
+INFO 2025-10-30 21:15:30,745 autoreload 1972 13748 Watching for file changes with StatReloader
+INFO 2025-10-30 21:15:58,926 basehttp 1972 8248 "GET / HTTP/1.1" 302 0
+INFO 2025-10-30 21:15:58,938 basehttp 1972 8248 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-10-30 21:15:58,947 basehttp 1972 8248 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-10-30 21:15:59,016 basehttp 1972 8248 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-10-30 21:15:59,018 basehttp 1972 10936 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-10-30 21:15:59,027 basehttp 1972 6936 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-10-30 21:15:59,395 basehttp 1972 6936 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-10-30 21:16:05,510 basehttp 1972 6936 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-10-30 21:16:16,338 basehttp 1972 6936 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-10-30 21:16:27,739 basehttp 1972 6936 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-10-30 21:16:34,110 basehttp 1972 6936 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-10-30 21:17:09,676 basehttp 1972 6936 "POST /login/?next=/inspections/ HTTP/1.1" 200 16732
+INFO 2025-10-30 21:17:16,537 basehttp 1972 6936 "POST /login/?next=/inspections/ HTTP/1.1" 200 16732
+INFO 2025-10-30 21:17:26,313 basehttp 1972 6936 "GET /password-reset/SUPERUSER_PASSWORD_CHANGE_2024/ HTTP/1.1" 200 18505
+INFO 2025-10-30 21:17:44,700 basehttp 1972 6936 "POST /password-reset/SUPERUSER_PASSWORD_CHANGE_2024/ HTTP/1.1" 302 0
+INFO 2025-10-30 21:17:44,705 basehttp 1972 6936 "GET /login/ HTTP/1.1" 200 16653
+INFO 2025-10-30 21:17:51,538 basehttp 1972 6936 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-10-30 21:17:51,614 basehttp 1972 6936 "GET /inspections/ HTTP/1.1" 200 59897
+INFO 2025-10-30 21:17:55,914 basehttp 1972 6936 "GET /inspection/5464/ HTTP/1.1" 200 48995
+INFO 2025-10-30 21:17:55,995 basehttp 1972 13996 "GET /media/inspection_photos/Inspection_8/3-Angulo%20pollera%20ZR2.bmp HTTP/1.1" 200 389878
+INFO 2025-10-30 21:17:55,995 basehttp 1972 8248 "GET /media/inspection_photos/Inspection_8/11-%20Deformacion%20TS%202.bmp HTTP/1.1" 200 389878
+INFO 2025-10-30 21:17:56,000 basehttp 1972 10936 "GET /media/inspection_photos/Inspection_8/10-Deformacion%20de%20TS.bmp HTTP/1.1" 200 389878
+INFO 2025-10-30 21:17:56,214 basehttp 1972 13472 "GET /media/inspection_photos/Inspection_8/3-Angulo%20pollera%20ZR.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,232 basehttp 1972 6936 "GET /media/inspection_photos/Inspection_8/1-OCR.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,257 basehttp 1972 10100 "GET /media/inspection_photos/Inspection_8/2-Angulo%20zapata.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,316 basehttp 1972 13996 "GET /media/inspection_photos/Inspection_8/4-ZR%20tipo%20I.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,328 basehttp 1972 8248 "GET /media/inspection_photos/Inspection_8/5-ZR%20tipo%20II.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,329 basehttp 1972 13472 "GET /media/inspection_photos/Inspection_8/6-Angulo%20zapatas%20PP2.bmp HTTP/1.1" 200 389878
+INFO 2025-10-30 21:17:56,341 basehttp 1972 10936 "GET /media/inspection_photos/Inspection_8/6-Angulo%20zapatas%20PP.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,365 basehttp 1972 10100 "GET /media/inspection_photos/Inspection_8/8-TVS.bmp HTTP/1.1" 200 389878
+INFO 2025-10-30 21:17:56,465 basehttp 1972 6936 "GET /media/inspection_photos/Inspection_8/7-OCR2.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:17:56,481 basehttp 1972 13472 "GET /media/inspection_photos/Inspection_8/9-Posicion%20topes%20BC.bmp HTTP/1.1" 200 15040566
+INFO 2025-10-30 21:27:58,917 basehttp 1972 15196 - Broken pipe from ('127.0.0.1', 53418)
+INFO 2025-10-30 21:27:58,918 basehttp 1972 15288 - Broken pipe from ('127.0.0.1', 53415)
+INFO 2025-10-30 21:27:58,919 basehttp 1972 1740 - Broken pipe from ('127.0.0.1', 53416)
+INFO 2025-10-30 21:27:58,930 basehttp 1972 10080 - Broken pipe from ('127.0.0.1', 53423)
+INFO 2025-10-30 21:27:58,938 basehttp 1972 14416 - Broken pipe from ('127.0.0.1', 53424)
+INFO 2025-10-30 21:27:58,939 basehttp 1972 14340 - Broken pipe from ('127.0.0.1', 53427)
+INFO 2025-10-30 21:27:58,942 basehttp 1972 15268 - Broken pipe from ('127.0.0.1', 53421)
+INFO 2025-10-30 21:27:58,942 basehttp 1972 944 - Broken pipe from ('127.0.0.1', 53426)
+INFO 2025-10-30 21:27:58,944 basehttp 1972 14384 - Broken pipe from ('127.0.0.1', 53429)
+INFO 2025-10-30 21:27:58,949 basehttp 1972 2816 - Broken pipe from ('127.0.0.1', 53433)
+INFO 2025-10-30 21:27:58,952 basehttp 1972 15276 - Broken pipe from ('127.0.0.1', 53435)
+INFO 2025-10-30 21:27:58,956 basehttp 1972 15220 - Broken pipe from ('127.0.0.1', 53431)
+INFO 2025-10-30 21:27:58,959 basehttp 1972 4312 - Broken pipe from ('127.0.0.1', 53440)
+INFO 2025-10-30 21:27:58,961 basehttp 1972 14064 - Broken pipe from ('127.0.0.1', 53437)
+INFO 2025-10-30 21:27:58,963 basehttp 1972 15320 - Broken pipe from ('127.0.0.1', 53439)
+INFO 2025-10-30 21:27:58,968 basehttp 1972 15280 - Broken pipe from ('127.0.0.1', 53447)
+INFO 2025-10-30 21:27:58,969 basehttp 1972 15300 - Broken pipe from ('127.0.0.1', 53443)
+INFO 2025-10-30 21:27:58,979 basehttp 1972 15328 - Broken pipe from ('127.0.0.1', 53448)
+INFO 2025-10-30 21:27:58,980 basehttp 1972 12244 - Broken pipe from ('127.0.0.1', 53450)
+INFO 2025-10-30 21:27:58,981 basehttp 1972 15228 - Broken pipe from ('127.0.0.1', 53444)
+INFO 2025-10-30 21:27:58,983 basehttp 1972 2876 - Broken pipe from ('127.0.0.1', 53451)
+INFO 2025-10-30 21:27:58,985 basehttp 1972 11828 - Broken pipe from ('127.0.0.1', 53454)
+INFO 2025-10-30 21:27:58,986 basehttp 1972 14236 - Broken pipe from ('127.0.0.1', 53456)
+INFO 2025-10-30 21:27:58,990 basehttp 1972 1488 - Broken pipe from ('127.0.0.1', 53461)
+INFO 2025-10-30 21:27:58,994 basehttp 1972 11344 - Broken pipe from ('127.0.0.1', 53458)
+INFO 2025-10-30 21:27:58,998 basehttp 1972 11672 - Broken pipe from ('127.0.0.1', 53453)
+INFO 2025-10-30 21:27:58,998 basehttp 1972 15172 - Broken pipe from ('127.0.0.1', 53463)
+INFO 2025-10-30 21:27:58,998 basehttp 1972 7524 - Broken pipe from ('127.0.0.1', 53464)
+INFO 2025-10-30 21:27:58,999 basehttp 1972 14780 - Broken pipe from ('127.0.0.1', 53460)
+INFO 2025-10-30 21:27:59,008 basehttp 1972 15256 - Broken pipe from ('127.0.0.1', 53465)
+INFO 2025-10-30 21:27:59,014 basehttp 1972 14720 - Broken pipe from ('127.0.0.1', 53468)
+INFO 2025-10-30 21:27:59,022 basehttp 1972 11868 - Broken pipe from ('127.0.0.1', 53470)
+INFO 2025-10-30 21:27:59,023 basehttp 1972 14548 - Broken pipe from ('127.0.0.1', 53476)
+INFO 2025-10-30 21:27:59,024 basehttp 1972 2956 - Broken pipe from ('127.0.0.1', 53472)
+INFO 2025-10-30 21:27:59,026 basehttp 1972 15260 - Broken pipe from ('127.0.0.1', 53475)
+INFO 2025-10-30 21:27:59,026 basehttp 1972 14440 - Broken pipe from ('127.0.0.1', 53473)
+INFO 2025-10-30 21:27:59,028 basehttp 1972 15020 - Broken pipe from ('127.0.0.1', 53481)
+INFO 2025-10-30 21:27:59,028 basehttp 1972 12524 - Broken pipe from ('127.0.0.1', 53477)
+INFO 2025-10-30 21:27:59,029 basehttp 1972 14588 - Broken pipe from ('127.0.0.1', 53484)
+INFO 2025-10-30 21:27:59,030 basehttp 1972 12948 - Broken pipe from ('127.0.0.1', 53486)
+INFO 2025-10-30 21:27:59,030 basehttp 1972 13492 - Broken pipe from ('127.0.0.1', 53482)
+INFO 2025-10-30 21:27:59,258 basehttp 1972 10040 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-10-30 21:27:59,261 basehttp 1972 10040 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-01 10:41:33,860 autoreload 6100 5528 Watching for file changes with StatReloader
+INFO 2025-11-01 10:41:46,014 basehttp 6100 10544 "GET / HTTP/1.1" 302 0
+INFO 2025-11-01 10:41:46,023 basehttp 6100 10544 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-11-01 10:41:46,037 basehttp 6100 10544 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-11-01 10:41:46,058 basehttp 6100 10544 "GET /static/css/custom.css HTTP/1.1" 304 0
+INFO 2025-11-01 10:41:46,059 basehttp 6100 12280 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 304 0
+INFO 2025-11-01 10:41:46,064 basehttp 6100 12280 "GET /static/js/auto-logout.js HTTP/1.1" 304 0
+INFO 2025-11-02 09:26:08,278 autoreload 8160 11020 Watching for file changes with StatReloader
+INFO 2025-11-02 09:26:28,540 basehttp 8160 16336 "GET / HTTP/1.1" 302 0
+INFO 2025-11-02 09:26:28,556 basehttp 8160 16336 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-11-02 09:26:28,571 basehttp 8160 16336 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-11-02 09:26:28,601 basehttp 8160 16336 "GET /static/css/custom.css HTTP/1.1" 304 0
+INFO 2025-11-02 09:26:28,601 basehttp 8160 14288 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 304 0
+INFO 2025-11-02 09:26:28,602 basehttp 8160 2672 "GET /static/js/auto-logout.js HTTP/1.1" 304 0
+INFO 2025-11-02 09:26:36,697 basehttp 8160 2672 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-11-02 09:26:36,760 basehttp 8160 2672 "GET /inspections/ HTTP/1.1" 200 59897
+INFO 2025-11-02 09:26:43,029 basehttp 8160 2672 "GET /configuration/ HTTP/1.1" 200 26616
+INFO 2025-11-02 09:36:45,190 basehttp 8160 8460 - Broken pipe from ('127.0.0.1', 3670)
+INFO 2025-11-02 09:36:45,195 basehttp 8160 14912 - Broken pipe from ('127.0.0.1', 3669)
+INFO 2025-11-02 09:36:45,195 basehttp 8160 2928 - Broken pipe from ('127.0.0.1', 3672)
+INFO 2025-11-02 09:36:45,198 basehttp 8160 5704 - Broken pipe from ('127.0.0.1', 3680)
+INFO 2025-11-02 09:36:45,198 basehttp 8160 10364 - Broken pipe from ('127.0.0.1', 3674)
+INFO 2025-11-02 09:36:45,198 basehttp 8160 11632 - Broken pipe from ('127.0.0.1', 3678)
+INFO 2025-11-02 09:36:45,200 basehttp 8160 7544 - Broken pipe from ('127.0.0.1', 3675)
+INFO 2025-11-02 09:36:45,201 basehttp 8160 156 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-02 09:36:45,209 basehttp 8160 156 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-02 12:23:31,721 autoreload 15592 15556 Watching for file changes with StatReloader
+INFO 2025-11-02 12:23:36,084 basehttp 15592 15792 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-11-02 12:23:36,168 basehttp 15592 15792 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-11-02 12:23:36,169 basehttp 15592 5480 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-11-02 12:23:36,180 basehttp 15592 8088 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-11-02 12:23:36,510 basehttp 15592 8088 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-11-02 15:30:23,056 autoreload 15592 15556 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\models.py changed, reloading.
+INFO 2025-11-02 15:30:24,323 autoreload 9796 15640 Watching for file changes with StatReloader
+INFO 2025-11-02 15:30:35,906 autoreload 9796 15640 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\admin.py changed, reloading.
+INFO 2025-11-02 15:30:36,420 autoreload 12716 10900 Watching for file changes with StatReloader
+INFO 2025-11-02 15:30:43,877 autoreload 12716 10900 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\admin.py changed, reloading.
+INFO 2025-11-02 15:30:44,375 autoreload 15828 5668 Watching for file changes with StatReloader
+INFO 2025-11-02 15:31:16,383 autoreload 15828 5668 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\models.py changed, reloading.
+INFO 2025-11-02 15:31:16,817 autoreload 14860 15800 Watching for file changes with StatReloader
+INFO 2025-11-03 21:36:29,751 autoreload 1036 14372 Watching for file changes with StatReloader
+INFO 2025-11-03 21:37:05,548 autoreload 8168 9148 Watching for file changes with StatReloader
+INFO 2025-11-03 21:37:15,272 basehttp 8168 1220 "GET / HTTP/1.1" 302 0
+INFO 2025-11-03 21:37:15,281 basehttp 8168 1220 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-11-03 21:37:15,296 basehttp 8168 1220 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-11-03 21:37:15,315 basehttp 8168 1220 "GET /static/css/custom.css HTTP/1.1" 304 0
+INFO 2025-11-03 21:37:15,315 basehttp 8168 13932 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 304 0
+INFO 2025-11-03 21:37:15,318 basehttp 8168 15472 "GET /static/js/auto-logout.js HTTP/1.1" 304 0
+INFO 2025-11-03 21:37:23,855 basehttp 8168 15472 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-11-03 21:37:29,868 basehttp 8168 15472 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-11-03 21:37:29,958 basehttp 8168 15472 "GET /inspections/ HTTP/1.1" 200 118770
+INFO 2025-11-03 21:37:41,487 basehttp 8168 15472 "GET /inspection/9827/ HTTP/1.1" 200 32040
+INFO 2025-11-03 21:37:41,613 basehttp 8168 13932 "GET /media/inspection_photos/OK/PRUEB2.svg HTTP/1.1" 200 1503
+INFO 2025-11-03 21:37:41,615 basehttp 8168 576 "GET /media/inspection_photos/OK/PRUEB3.svg HTTP/1.1" 200 1503
+INFO 2025-11-03 21:37:41,639 basehttp 8168 1220 "GET /media/inspection_photos/OK/PRUEB3.bmp HTTP/1.1" 200 5014632
+INFO 2025-11-03 21:37:41,661 basehttp 8168 15472 "GET /media/inspection_photos/OK/PRUEB2.bmp HTTP/1.1" 200 5014632
+INFO 2025-11-03 21:37:46,408 basehttp 8168 15472 "GET /inspections/ HTTP/1.1" 200 118423
+INFO 2025-11-03 21:37:48,793 basehttp 8168 15472 "GET /inspection/6042/ HTTP/1.1" 200 48995
+INFO 2025-11-03 21:37:48,826 basehttp 8168 576 "GET /media/inspection_photos/Inspection_8/11-%20Deformacion%20TS%202.bmp HTTP/1.1" 200 389878
+INFO 2025-11-03 21:37:48,846 basehttp 8168 1220 "GET /media/inspection_photos/Inspection_8/10-Deformacion%20de%20TS.bmp HTTP/1.1" 200 389878
+INFO 2025-11-03 21:37:48,851 basehttp 8168 12748 "GET /media/inspection_photos/Inspection_8/3-Angulo%20pollera%20ZR2.bmp HTTP/1.1" 200 389878
+INFO 2025-11-03 21:37:49,093 basehttp 8168 15472 "GET /media/inspection_photos/Inspection_8/1-OCR.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,098 basehttp 8168 13932 "GET /media/inspection_photos/Inspection_8/2-Angulo%20zapata.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,121 basehttp 8168 576 "GET /media/inspection_photos/Inspection_8/4-ZR%20tipo%20I.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,124 basehttp 8168 15472 "GET /media/inspection_photos/Inspection_8/6-Angulo%20zapatas%20PP2.bmp HTTP/1.1" 200 389878
+INFO 2025-11-03 21:37:49,128 basehttp 8168 3040 "GET /media/inspection_photos/Inspection_8/3-Angulo%20pollera%20ZR.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,139 basehttp 8168 1220 "GET /media/inspection_photos/Inspection_8/5-ZR%20tipo%20II.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,140 basehttp 8168 12748 "GET /media/inspection_photos/Inspection_8/6-Angulo%20zapatas%20PP.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,145 basehttp 8168 576 "GET /media/inspection_photos/Inspection_8/8-TVS.bmp HTTP/1.1" 200 389878
+INFO 2025-11-03 21:37:49,219 basehttp 8168 13932 "GET /media/inspection_photos/Inspection_8/7-OCR2.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:37:49,228 basehttp 8168 15472 "GET /media/inspection_photos/Inspection_8/9-Posicion%20topes%20BC.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-03 21:47:51,686 basehttp 8168 14944 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-03 21:47:51,693 basehttp 8168 14200 - Broken pipe from ('127.0.0.1', 33951)
+INFO 2025-11-03 21:47:51,705 basehttp 8168 14944 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-03 21:50:08,217 autoreload 8168 9148 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\manage.py changed, reloading.
+INFO 2025-11-03 21:50:08,721 autoreload 14952 10636 Watching for file changes with StatReloader
+INFO 2025-11-03 22:02:13,814 autoreload 9108 14032 Watching for file changes with StatReloader
+INFO 2025-11-03 22:02:18,714 basehttp 9108 11164 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-03 22:02:18,776 basehttp 9108 11164 "GET /inspections/ HTTP/1.1" 200 118770
+INFO 2025-11-03 22:02:18,864 basehttp 9108 11164 "GET /static/assets/fav_icon.png HTTP/1.1" 304 0
+INFO 2025-11-03 22:02:20,906 basehttp 9108 11164 "GET /inspection/6042/ HTTP/1.1" 200 48995
+INFO 2025-11-03 22:09:29,456 autoreload 5844 2700 Watching for file changes with StatReloader
+INFO 2025-11-03 22:09:49,978 autoreload 12460 11648 Watching for file changes with StatReloader
+INFO 2025-11-03 22:10:47,012 autoreload 11980 14368 Watching for file changes with StatReloader
+INFO 2025-11-03 22:11:43,325 basehttp 11980 9472 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-03 22:11:43,345 basehttp 11980 9472 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-03 22:12:13,485 autoreload 16324 6244 Watching for file changes with StatReloader
+INFO 2025-11-03 22:14:00,662 autoreload 16200 15960 Watching for file changes with StatReloader
+INFO 2025-11-03 22:25:50,738 autoreload 15048 5908 Watching for file changes with StatReloader
+INFO 2025-11-03 22:30:16,188 autoreload 10644 5788 Watching for file changes with StatReloader
+INFO 2025-11-03 22:30:20,374 basehttp 10644 4312 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-03 22:30:20,457 basehttp 10644 4312 "GET /inspections/ HTTP/1.1" 200 157545
+INFO 2025-11-03 22:30:30,379 basehttp 10644 4312 "GET /inspection/18/ HTTP/1.1" 200 28608
+INFO 2025-11-03 22:30:30,442 basehttp 10644 4312 "GET /media/inspection_photos/NOK/3.bmp HTTP/1.1" 200 5014632
+INFO 2025-11-03 22:30:38,221 basehttp 10644 4312 "GET /inspection/18/pdf/ HTTP/1.1" 200 2589304
+INFO 2025-11-03 22:48:25,602 autoreload 9188 16332 Watching for file changes with StatReloader
+INFO 2025-11-03 22:51:03,151 basehttp 9188 16924 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-03 22:51:03,159 basehttp 9188 16924 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-03 23:05:28,920 autoreload 9100 15712 Watching for file changes with StatReloader
+INFO 2025-11-03 23:06:53,544 basehttp 9100 16444 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-11-03 23:06:58,215 basehttp 9100 16444 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-03 23:07:04,970 basehttp 9100 16444 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-03 23:07:11,685 basehttp 9100 16444 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-03 23:07:11,715 basehttp 9100 16444 "GET /inspections/ HTTP/1.1" 200 44937
+INFO 2025-11-03 23:07:15,997 basehttp 9100 16444 "GET /inspections/ HTTP/1.1" 200 44590
+INFO 2025-11-03 23:08:07,918 basehttp 9100 16444 "GET /inspections/ HTTP/1.1" 200 44590
+INFO 2025-11-06 21:23:41,051 autoreload 16600 12204 Watching for file changes with StatReloader
+INFO 2025-11-06 21:23:49,886 basehttp 16600 9924 "GET / HTTP/1.1" 302 0
+INFO 2025-11-06 21:23:49,895 basehttp 16600 9924 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-11-06 21:23:49,920 basehttp 16600 9924 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-11-06 21:23:49,955 basehttp 16600 9924 "GET /static/css/custom.css HTTP/1.1" 304 0
+INFO 2025-11-06 21:23:49,955 basehttp 16600 296 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 304 0
+INFO 2025-11-06 21:23:49,957 basehttp 16600 7600 "GET /static/js/auto-logout.js HTTP/1.1" 304 0
+INFO 2025-11-06 21:25:29,501 basehttp 16600 15740 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-11-06 21:25:29,538 basehttp 16600 15740 "GET /inspections/ HTTP/1.1" 200 49830
+INFO 2025-11-06 21:35:33,349 basehttp 16600 18304 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-06 21:35:33,359 basehttp 16600 18304 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-08 10:01:40,443 autoreload 15000 2772 Watching for file changes with StatReloader
+INFO 2025-11-08 10:01:51,983 basehttp 15000 2008 "GET / HTTP/1.1" 302 0
+INFO 2025-11-08 10:01:51,996 basehttp 15000 2008 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-11-08 10:01:52,011 basehttp 15000 2008 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-11-08 10:01:52,058 basehttp 15000 2008 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-11-08 10:01:52,058 basehttp 15000 4312 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-11-08 10:01:52,064 basehttp 15000 4312 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-11-08 10:02:09,191 basehttp 15000 4312 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-11-08 10:02:09,224 basehttp 15000 4312 "GET /inspections/ HTTP/1.1" 200 21015
+ERROR 2025-11-08 10:02:12,323 log 15000 4312 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 218, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 236, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 366, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 199, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-11-08 10:02:12,328 basehttp 15000 4312 "GET /dashboard/ HTTP/1.1" 500 116245
+WARNING 2025-11-08 10:02:12,430 log 15000 4312 Not Found: /favicon.ico
+WARNING 2025-11-08 10:02:12,431 basehttp 15000 4312 "GET /favicon.ico HTTP/1.1" 404 4191
+INFO 2025-11-08 10:02:29,870 basehttp 15000 4312 "GET /configuration/ HTTP/1.1" 200 26616
+INFO 2025-11-08 10:08:21,448 basehttp 15000 15020 "GET /about/ HTTP/1.1" 200 21436
+INFO 2025-11-08 10:11:45,890 autoreload 7276 14828 Watching for file changes with StatReloader
+INFO 2025-11-08 10:18:24,524 basehttp 7276 8648 - Broken pipe from ('127.0.0.1', 56192)
+INFO 2025-11-08 10:18:24,525 basehttp 7276 7556 - Broken pipe from ('127.0.0.1', 56193)
+INFO 2025-11-08 10:18:24,537 basehttp 7276 2264 - Broken pipe from ('127.0.0.1', 56200)
+INFO 2025-11-08 10:18:24,538 basehttp 7276 5764 - Broken pipe from ('127.0.0.1', 56194)
+INFO 2025-11-08 10:18:24,538 basehttp 7276 10444 - Broken pipe from ('127.0.0.1', 56191)
+INFO 2025-11-08 10:18:24,549 basehttp 7276 2888 - Broken pipe from ('127.0.0.1', 56196)
+INFO 2025-11-08 10:18:24,550 basehttp 7276 13020 - Broken pipe from ('127.0.0.1', 56195)
+INFO 2025-11-08 10:18:24,554 basehttp 7276 10052 - Broken pipe from ('127.0.0.1', 56203)
+INFO 2025-11-08 10:18:24,562 basehttp 7276 4888 - Broken pipe from ('127.0.0.1', 56204)
+INFO 2025-11-08 10:18:24,568 basehttp 7276 8776 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-08 10:18:24,585 basehttp 7276 8776 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-08 10:23:16,658 autoreload 14488 2412 Watching for file changes with StatReloader
+INFO 2025-11-08 10:33:30,369 autoreload 14488 2412 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\plc_data_processor.py changed, reloading.
+INFO 2025-11-08 10:33:30,915 autoreload 12332 14524 Watching for file changes with StatReloader
+INFO 2025-11-08 10:34:02,679 basehttp 12332 1736 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-11-08 10:34:02,733 basehttp 12332 1736 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-11-08 10:34:08,685 basehttp 12332 1736 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 10:34:16,745 basehttp 12332 1736 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 10:34:21,710 basehttp 12332 1736 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-08 10:34:21,744 basehttp 12332 1736 "GET /inspections/ HTTP/1.1" 200 21015
+INFO 2025-11-08 10:34:24,671 basehttp 12332 1736 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-11-08 10:35:29,604 autoreload 12332 14524 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\plc_data_processor.py changed, reloading.
+INFO 2025-11-08 10:35:30,158 autoreload 15100 8736 Watching for file changes with StatReloader
+INFO 2025-11-08 10:37:03,281 autoreload 15100 8736 C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\plc_data_processor.py changed, reloading.
+INFO 2025-11-08 10:37:03,791 autoreload 8112 11736 Watching for file changes with StatReloader
+INFO 2025-11-08 10:39:50,252 basehttp 8112 712 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-11-08 10:39:51,310 basehttp 8112 712 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-11-08 10:55:47,497 autoreload 11632 9540 Watching for file changes with StatReloader
+INFO 2025-11-08 10:55:55,604 basehttp 11632 8212 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-08 10:55:55,615 basehttp 11632 8212 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-08 10:56:01,968 basehttp 11632 8212 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 10:56:07,522 basehttp 11632 8212 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-08 10:56:07,543 basehttp 11632 8212 "GET /inspections/ HTTP/1.1" 200 30150
+ERROR 2025-11-08 10:56:25,636 log 11632 8212 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 218, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 236, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 366, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 199, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-11-08 10:56:25,640 basehttp 11632 8212 "GET /dashboard/ HTTP/1.1" 500 116505
+ERROR 2025-11-08 10:56:28,891 log 11632 8212 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 218, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 236, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 366, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\fields\related_descriptors.py", line 199, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\Admin\Documents\Inspection_webapp\conuar_env\Lib\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-11-08 10:56:28,896 basehttp 11632 8212 "GET /dashboard/ HTTP/1.1" 500 116505
+INFO 2025-11-08 10:56:56,765 basehttp 11632 8212 "GET /inspection/18/ HTTP/1.1" 200 32663
+INFO 2025-11-08 10:56:56,887 basehttp 11632 14588 "GET /media/inspection_photos/PROCESSED/5678_8_NOK_151504112025_20251104114727787.bmp HTTP/1.1" 200 389878
+INFO 2025-11-08 10:56:56,927 basehttp 11632 8212 "GET /media/inspection_photos/PROCESSED/5678_5_OK_151504112025_20251104114724787.bmp HTTP/1.1" 200 5014632
+INFO 2025-11-08 10:56:56,966 basehttp 11632 9676 "GET /media/inspection_photos/PROCESSED/5678_6_OK_151504112025_20251104114725787.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-08 10:56:56,978 basehttp 11632 15292 "GET /media/inspection_photos/PROCESSED/5678_7_NOK_151504112025_20251104114726787.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-08 10:57:16,215 basehttp 11632 15292 "GET /inspection/17/ HTTP/1.1" 200 32342
+INFO 2025-11-08 10:57:16,265 basehttp 11632 9676 "GET /media/inspection_photos/PROCESSED/1234_2_OK_151504112025_20251104084719787.bmp HTTP/1.1" 200 389878
+INFO 2025-11-08 10:57:16,280 basehttp 11632 14588 "GET /media/inspection_photos/PROCESSED/1234_4_OK_151504112025_20251104084721787.bmp HTTP/1.1" 200 389878
+INFO 2025-11-08 10:57:16,315 basehttp 11632 8212 "GET /media/inspection_photos/PROCESSED/1234_3_NOK_151504112025_20251104084720787.bmp HTTP/1.1" 200 5014632
+INFO 2025-11-08 10:57:16,316 basehttp 11632 15292 "GET /media/inspection_photos/PROCESSED/1234_1_OK_151504112025_20251104084718787.bmp HTTP/1.1" 200 15040566
+INFO 2025-11-08 11:06:10,532 basehttp 11632 13804 - Broken pipe from ('127.0.0.1', 57242)
+INFO 2025-11-08 11:06:10,533 basehttp 11632 9480 - Broken pipe from ('127.0.0.1', 57243)
+INFO 2025-11-08 11:06:10,533 basehttp 11632 10596 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-08 11:06:10,541 basehttp 11632 10596 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-08 11:28:11,593 autoreload 1312 13508 Watching for file changes with StatReloader
+INFO 2025-11-08 11:28:33,692 basehttp 1312 13040 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 11:28:40,281 basehttp 1312 13040 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 11:28:46,950 basehttp 1312 13040 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-08 11:28:46,988 basehttp 1312 13040 "GET /inspections/ HTTP/1.1" 200 21015
+INFO 2025-11-08 11:30:11,767 basehttp 1312 13040 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-11-08 11:30:40,892 autoreload 15412 15800 Watching for file changes with StatReloader
+INFO 2025-11-08 11:45:25,945 autoreload 13996 4752 Watching for file changes with StatReloader
+INFO 2025-11-08 11:48:07,262 autoreload 11616 12800 Watching for file changes with StatReloader
+INFO 2025-11-08 11:50:28,582 autoreload 15984 11880 Watching for file changes with StatReloader
+INFO 2025-11-08 11:56:12,248 autoreload 12284 8804 Watching for file changes with StatReloader
+INFO 2025-11-08 11:56:42,668 basehttp 12284 15700 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-08 11:56:42,685 basehttp 12284 15700 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-08 11:56:48,067 basehttp 12284 15700 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 11:56:52,734 basehttp 12284 15700 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 11:56:58,495 basehttp 12284 15700 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 11:57:11,455 basehttp 12284 15700 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-11-08 11:57:30,449 basehttp 12284 15700 "GET /password-reset/SUPERUSER_PASSWORD_CHANGE_2024/ HTTP/1.1" 200 18505
+INFO 2025-11-08 11:57:39,171 basehttp 12284 15700 "POST /password-reset/SUPERUSER_PASSWORD_CHANGE_2024/ HTTP/1.1" 302 0
+INFO 2025-11-08 11:57:39,175 basehttp 12284 15700 "GET /login/ HTTP/1.1" 200 16653
+INFO 2025-11-08 11:57:44,216 basehttp 12284 15700 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-08 11:57:44,246 basehttp 12284 15700 "GET /inspections/ HTTP/1.1" 200 21015
+INFO 2025-11-08 12:04:44,221 autoreload 6252 908 Watching for file changes with StatReloader
+INFO 2025-11-08 12:07:46,490 basehttp 6252 14980 - Broken pipe from ('127.0.0.1', 59024)
+INFO 2025-11-08 12:07:46,491 basehttp 6252 15656 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-08 12:07:46,500 basehttp 6252 15656 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-11-08 12:19:55,698 autoreload 1648 14696 Watching for file changes with StatReloader
+INFO 2025-11-08 12:27:14,933 autoreload 13540 14208 Watching for file changes with StatReloader
+INFO 2025-11-08 12:27:29,925 basehttp 13540 9496 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-11-08 12:27:29,992 basehttp 13540 9496 "GET /inspections/ HTTP/1.1" 200 30148
+INFO 2025-11-08 12:28:32,357 basehttp 13540 9496 "GET /inspection/1/ HTTP/1.1" 200 32341
+INFO 2025-11-08 12:28:59,932 basehttp 13540 9496 "GET /inspection/1/pdf/ HTTP/1.1" 200 12986338
+INFO 2025-11-08 12:31:38,897 autoreload 13868 3032 Watching for file changes with StatReloader
+INFO 2025-11-08 12:31:51,097 basehttp 13868 9896 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-11-08 12:35:02,334 autoreload 8796 10288 Watching for file changes with StatReloader
+INFO 2025-11-08 12:35:14,263 basehttp 8796 15620 "GET /inspections/ HTTP/1.1" 200 29801
+INFO 2025-11-08 12:35:50,214 basehttp 8796 15620 "GET /inspection/2/ HTTP/1.1" 200 38744
+INFO 2025-11-08 12:36:20,351 basehttp 8796 15620 "GET /inspection/2/pdf/ HTTP/1.1" 200 16684156
+INFO 2025-11-08 13:00:06,485 basehttp 8796 16260 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-11-08 13:00:06,487 basehttp 8796 16072 - Broken pipe from ('127.0.0.1', 59262)
+INFO 2025-11-08 13:00:06,493 basehttp 8796 16260 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-02 21:43:37,751 autoreload 13564 9424 Watching for file changes with StatReloader
+INFO 2025-12-02 21:43:43,886 basehttp 13564 15668 "GET /admin HTTP/1.1" 301 0
+INFO 2025-12-02 21:43:43,897 basehttp 13564 13812 "GET /admin/ HTTP/1.1" 302 0
+INFO 2025-12-02 21:43:44,007 basehttp 13564 13812 "GET /admin/login/?next=/admin/ HTTP/1.1" 200 4181
+INFO 2025-12-02 21:43:44,100 basehttp 13564 13812 "GET /static/admin/css/base.css HTTP/1.1" 200 21310
+INFO 2025-12-02 21:43:44,115 basehttp 13564 7580 "GET /static/admin/css/dark_mode.css HTTP/1.1" 200 2929
+INFO 2025-12-02 21:43:44,116 basehttp 13564 12944 "GET /static/admin/css/responsive.css HTTP/1.1" 200 18559
+INFO 2025-12-02 21:43:44,119 basehttp 13564 3916 "GET /static/admin/css/nav_sidebar.css HTTP/1.1" 200 2694
+INFO 2025-12-02 21:43:44,119 basehttp 13564 6336 "GET /static/admin/css/login.css HTTP/1.1" 200 958
+INFO 2025-12-02 21:43:44,128 basehttp 13564 13812 "GET /static/admin/js/nav_sidebar.js HTTP/1.1" 200 3063
+INFO 2025-12-02 21:43:44,129 basehttp 13564 2216 "GET /static/admin/js/theme.js HTTP/1.1" 200 1943
+WARNING 2025-12-02 21:43:44,166 log 13564 2216 Not Found: /favicon.ico
+WARNING 2025-12-02 21:43:44,167 basehttp 13564 2216 "GET /favicon.ico HTTP/1.1" 404 4191
+INFO 2025-12-02 21:43:50,284 basehttp 13564 2216 "GET / HTTP/1.1" 302 0
+INFO 2025-12-02 21:43:50,286 basehttp 13564 2216 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-02 21:43:50,346 basehttp 13564 2216 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-02 21:43:50,375 basehttp 13564 2216 "GET /static/css/custom.css HTTP/1.1" 304 0
+INFO 2025-12-02 21:43:50,376 basehttp 13564 13812 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 304 0
+INFO 2025-12-02 21:43:50,376 basehttp 13564 6336 "GET /static/js/auto-logout.js HTTP/1.1" 304 0
+INFO 2025-12-02 21:43:50,429 basehttp 13564 6336 "GET /static/assets/fav_icon.png HTTP/1.1" 304 0
+INFO 2025-12-02 21:43:56,217 basehttp 13564 6336 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-12-02 21:44:06,339 basehttp 13564 6336 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-12-02 21:44:36,510 basehttp 13564 6336 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-02 21:44:36,565 basehttp 13564 6336 "GET /inspections/ HTTP/1.1" 200 30148
+INFO 2025-12-02 21:44:40,110 basehttp 13564 6336 "GET /inspections/ HTTP/1.1" 200 29801
+INFO 2025-12-02 21:44:41,032 basehttp 13564 6336 "GET /dashboard/ HTTP/1.1" 200 18150
+INFO 2025-12-02 21:44:45,309 basehttp 13564 6336 "GET /configuration/ HTTP/1.1" 200 26616
+INFO 2025-12-02 21:44:48,987 basehttp 13564 6336 "GET /configuration/ HTTP/1.1" 200 26616
+INFO 2025-12-02 21:44:49,640 basehttp 13564 6336 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-02 21:44:49,645 basehttp 13564 6336 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-02 21:44:50,946 basehttp 13564 6336 "GET /about/ HTTP/1.1" 200 20353
+INFO 2025-12-04 20:53:54,473 autoreload 1112 2684 Watching for file changes with StatReloader
+INFO 2025-12-04 20:55:29,892 basehttp 1112 9412 "GET / HTTP/1.1" 302 0
+INFO 2025-12-04 20:55:29,896 basehttp 1112 9412 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-04 20:55:29,909 basehttp 1112 9412 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-04 20:57:37,332 autoreload 13440 13436 Watching for file changes with StatReloader
+INFO 2025-12-04 20:57:42,870 basehttp 13440 13928 "GET / HTTP/1.1" 302 0
+INFO 2025-12-04 20:57:42,880 basehttp 13440 13928 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-04 20:57:42,914 basehttp 13440 13928 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-05 08:52:47,604 autoreload 4076 15484 Watching for file changes with StatReloader
+WARNING 2025-12-05 08:53:00,070 log 4076 3556 Not Found: /favicon.ico
+WARNING 2025-12-05 08:53:00,072 basehttp 4076 3556 "GET /favicon.ico HTTP/1.1" 404 5235
+INFO 2025-12-05 08:53:03,765 basehttp 4076 3556 "GET / HTTP/1.1" 302 0
+INFO 2025-12-05 08:53:03,768 basehttp 4076 3556 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-05 08:53:03,803 basehttp 4076 3556 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-05 08:53:15,986 basehttp 4076 3556 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-12-05 08:53:30,903 basehttp 4076 3556 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-05 08:53:31,049 basehttp 4076 3556 "GET /inspections/ HTTP/1.1" 200 64774
+INFO 2025-12-05 09:03:44,601 basehttp 4076 13588 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-05 09:03:44,605 basehttp 4076 13588 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-05 16:07:33,493 basehttp 4076 17452 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-12-05 16:07:53,867 autoreload 17356 12464 Watching for file changes with StatReloader
+INFO 2025-12-05 16:07:59,318 basehttp 17356 9752 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-12-05 16:42:41,118 basehttp 17356 9024 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-05 16:42:41,192 basehttp 17356 9024 "GET /inspections/ HTTP/1.1" 200 64774
+INFO 2025-12-05 16:42:43,642 basehttp 17356 9024 "GET /inspection/10/ HTTP/1.1" 200 48338
+WARNING 2025-12-05 16:42:43,700 log 17356 8416 Not Found: /media/inspection_photos/NOK/PRUEB11.bmp
+WARNING 2025-12-05 16:42:43,700 basehttp 17356 8416 "GET /media/inspection_photos/NOK/PRUEB11.bmp HTTP/1.1" 404 5617
+WARNING 2025-12-05 16:42:43,702 log 17356 17760 Not Found: /media/inspection_photos/NOK/PRUEB13.bmp
+WARNING 2025-12-05 16:42:43,705 log 17356 13000 Not Found: /media/inspection_photos/NOK/PRUEB4.svg
+WARNING 2025-12-05 16:42:43,705 basehttp 17356 17760 "GET /media/inspection_photos/NOK/PRUEB13.bmp HTTP/1.1" 404 5617
+WARNING 2025-12-05 16:42:43,706 basehttp 17356 13000 "GET /media/inspection_photos/NOK/PRUEB4.svg HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,710 log 17356 9024 Not Found: /media/inspection_photos/NOK/PRUEB10.bmp
+WARNING 2025-12-05 16:42:43,712 basehttp 17356 9024 "GET /media/inspection_photos/NOK/PRUEB10.bmp HTTP/1.1" 404 5617
+WARNING 2025-12-05 16:42:43,712 log 17356 5148 Not Found: /media/inspection_photos/NOK/PRUEB12.bmp
+WARNING 2025-12-05 16:42:43,713 log 17356 15232 Not Found: /media/inspection_photos/NOK/PRUEB4.bmp
+WARNING 2025-12-05 16:42:43,715 basehttp 17356 5148 "GET /media/inspection_photos/NOK/PRUEB12.bmp HTTP/1.1" 404 5617
+WARNING 2025-12-05 16:42:43,716 basehttp 17356 15232 "GET /media/inspection_photos/NOK/PRUEB4.bmp HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,719 log 17356 8416 Not Found: /media/inspection_photos/NOK/PRUEB5.bmp
+WARNING 2025-12-05 16:42:43,720 basehttp 17356 8416 "GET /media/inspection_photos/NOK/PRUEB5.bmp HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,726 log 17356 17760 Not Found: /media/inspection_photos/NOK/PRUEB5.svg
+WARNING 2025-12-05 16:42:43,729 basehttp 17356 17760 "GET /media/inspection_photos/NOK/PRUEB5.svg HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,733 log 17356 13000 Not Found: /media/inspection_photos/NOK/PRUEB6.bmp
+WARNING 2025-12-05 16:42:43,734 basehttp 17356 13000 "GET /media/inspection_photos/NOK/PRUEB6.bmp HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,735 log 17356 5148 Not Found: /media/inspection_photos/NOK/PRUEB7.bmp
+WARNING 2025-12-05 16:42:43,736 log 17356 9024 Not Found: /media/inspection_photos/NOK/PRUEB6.svg
+WARNING 2025-12-05 16:42:43,736 basehttp 17356 5148 "GET /media/inspection_photos/NOK/PRUEB7.bmp HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,736 basehttp 17356 9024 "GET /media/inspection_photos/NOK/PRUEB6.svg HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,738 log 17356 15232 Not Found: /media/inspection_photos/NOK/PRUEB8.bmp
+WARNING 2025-12-05 16:42:43,738 basehttp 17356 15232 "GET /media/inspection_photos/NOK/PRUEB8.bmp HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:42:43,740 log 17356 8416 Not Found: /media/inspection_photos/NOK/PRUEB9.bmp
+WARNING 2025-12-05 16:42:43,741 basehttp 17356 8416 "GET /media/inspection_photos/NOK/PRUEB9.bmp HTTP/1.1" 404 5613
+WARNING 2025-12-05 16:43:00,284 log 17356 8416 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 16:43:00,284 basehttp 17356 8416 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5346
+INFO 2025-12-05 16:52:45,706 basehttp 17356 5148 - Broken pipe from ('127.0.0.1', 58160)
+INFO 2025-12-05 16:52:45,706 basehttp 17356 13000 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-05 16:52:45,709 basehttp 17356 13000 "GET /login/ HTTP/1.1" 200 16549
+WARNING 2025-12-05 16:52:45,734 log 17356 13000 Not Found: /.well-known/appspecific/com.chrome.devtools.json
+WARNING 2025-12-05 16:52:45,735 basehttp 17356 13000 "GET /.well-known/appspecific/com.chrome.devtools.json HTTP/1.1" 404 5346
+INFO 2025-12-07 11:04:21,634 autoreload 19108 12712 Watching for file changes with StatReloader
+INFO 2025-12-07 11:04:39,486 basehttp 19108 2336 "GET / HTTP/1.1" 302 0
+INFO 2025-12-07 11:04:39,488 basehttp 19108 2336 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-07 11:04:39,571 basehttp 19108 2336 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-07 11:04:39,711 basehttp 19108 2336 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-12-07 11:04:39,714 basehttp 19108 18392 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-12-07 11:04:39,717 basehttp 19108 2148 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-12-07 11:04:49,762 basehttp 19108 2148 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-07 11:04:49,882 basehttp 19108 2148 "GET /inspections/ HTTP/1.1" 200 64774
+INFO 2025-12-07 11:04:57,995 basehttp 19108 2148 "GET /dashboard/ HTTP/1.1" 200 18150
+INFO 2025-12-07 11:05:12,959 basehttp 19108 2148 "GET /configuration/ HTTP/1.1" 200 26823
+INFO 2025-12-07 11:05:22,412 basehttp 19108 2148 "GET /inspections/ HTTP/1.1" 200 64427
+INFO 2025-12-07 11:05:28,895 basehttp 19108 2148 "GET /inspection/10/ HTTP/1.1" 200 48338
+INFO 2025-12-07 11:05:28,932 basehttp 19108 14304 "GET /media/inspection_photos/NOK/PRUEB4.svg HTTP/1.1" 200 1474
+INFO 2025-12-07 11:05:28,979 basehttp 19108 2148 "GET /media/inspection_photos/NOK/PRUEB10.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:28,999 basehttp 19108 2148 "GET /media/inspection_photos/NOK/PRUEB5.svg HTTP/1.1" 200 1474
+INFO 2025-12-07 11:05:28,999 basehttp 19108 5356 "GET /media/inspection_photos/NOK/PRUEB13.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,002 basehttp 19108 2336 "GET /media/inspection_photos/NOK/PRUEB12.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,019 basehttp 19108 2148 "GET /media/inspection_photos/NOK/PRUEB6.svg HTTP/1.1" 200 1474
+INFO 2025-12-07 11:05:29,023 basehttp 19108 18292 "GET /media/inspection_photos/NOK/PRUEB4.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,033 basehttp 19108 14304 "GET /media/inspection_photos/NOK/PRUEB5.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,034 basehttp 19108 18392 "GET /media/inspection_photos/NOK/PRUEB11.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,064 basehttp 19108 2336 "GET /media/inspection_photos/NOK/PRUEB7.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,067 basehttp 19108 5356 "GET /media/inspection_photos/NOK/PRUEB6.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,069 basehttp 19108 2148 "GET /media/inspection_photos/NOK/PRUEB8.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:05:29,069 basehttp 19108 18292 "GET /media/inspection_photos/NOK/PRUEB9.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-07 11:11:39,063 basehttp 19108 3320 "GET /inspections/ HTTP/1.1" 200 64427
+INFO 2025-12-07 12:43:05,241 autoreload 5156 10548 Watching for file changes with StatReloader
+INFO 2025-12-07 12:43:06,110 basehttp 5156 19008 "GET / HTTP/1.1" 302 0
+INFO 2025-12-07 12:43:06,112 basehttp 5156 19008 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-07 12:43:06,173 basehttp 5156 19008 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-07 12:43:06,268 basehttp 5156 19008 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-12-09 22:03:48,291 autoreload 15448 18476 Watching for file changes with StatReloader
+INFO 2025-12-09 22:04:14,965 basehttp 15448 18792 "GET / HTTP/1.1" 302 0
+INFO 2025-12-09 22:04:14,967 basehttp 15448 18792 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-09 22:04:15,000 basehttp 15448 18792 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-10 14:57:35,677 autoreload 21064 20404 Watching for file changes with StatReloader
+INFO 2025-12-10 14:58:20,037 basehttp 21064 4392 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-12-10 14:58:25,800 basehttp 21064 4392 "POST /login/?next=/inspections/ HTTP/1.1" 200 16682
+INFO 2025-12-10 14:58:32,020 basehttp 21064 4392 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-10 14:58:32,081 basehttp 21064 4392 "GET /inspections/ HTTP/1.1" 200 21015
+ERROR 2025-12-10 14:58:36,567 log 21064 4392 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 243, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 37, in get_cached_value
+    return instance._state.fields_cache[self.cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 261, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 391, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 224, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 14:58:36,569 basehttp 21064 4392 "GET /dashboard/ HTTP/1.1" 500 115376
+WARNING 2025-12-10 14:58:36,639 log 21064 4392 Not Found: /favicon.ico
+WARNING 2025-12-10 14:58:36,639 basehttp 21064 4392 "GET /favicon.ico HTTP/1.1" 404 5235
+INFO 2025-12-10 15:08:35,154 basehttp 21064 4484 - Broken pipe from ('127.0.0.1', 64093)
+INFO 2025-12-10 15:08:35,157 basehttp 21064 11428 - Broken pipe from ('127.0.0.1', 51710)
+INFO 2025-12-10 15:08:35,157 basehttp 21064 16808 - Broken pipe from ('127.0.0.1', 49889)
+INFO 2025-12-10 15:08:35,157 basehttp 21064 14572 - Broken pipe from ('127.0.0.1', 51144)
+INFO 2025-12-10 15:08:35,157 basehttp 21064 20916 - Broken pipe from ('127.0.0.1', 53777)
+INFO 2025-12-10 15:08:35,158 basehttp 21064 17104 - Broken pipe from ('127.0.0.1', 64456)
+INFO 2025-12-10 15:08:35,165 basehttp 21064 20240 - Broken pipe from ('127.0.0.1', 65230)
+INFO 2025-12-10 15:08:35,168 basehttp 21064 15356 - Broken pipe from ('127.0.0.1', 62445)
+INFO 2025-12-10 15:08:35,169 basehttp 21064 19660 - Broken pipe from ('127.0.0.1', 60428)
+INFO 2025-12-10 15:08:35,169 basehttp 21064 20820 - Broken pipe from ('127.0.0.1', 55588)
+INFO 2025-12-10 15:08:35,170 basehttp 21064 20996 - Broken pipe from ('127.0.0.1', 62569)
+INFO 2025-12-10 15:08:35,174 basehttp 21064 18772 - Broken pipe from ('127.0.0.1', 56572)
+INFO 2025-12-10 15:08:35,175 basehttp 21064 20784 - Broken pipe from ('127.0.0.1', 58584)
+INFO 2025-12-10 15:08:35,175 basehttp 21064 19836 - Broken pipe from ('127.0.0.1', 49579)
+INFO 2025-12-10 15:08:35,176 basehttp 21064 18956 - Broken pipe from ('127.0.0.1', 62787)
+INFO 2025-12-10 15:08:35,177 basehttp 21064 5676 - Broken pipe from ('127.0.0.1', 54340)
+INFO 2025-12-10 15:08:35,179 basehttp 21064 19796 - Broken pipe from ('127.0.0.1', 60305)
+INFO 2025-12-10 15:08:35,179 basehttp 21064 8932 - Broken pipe from ('127.0.0.1', 50270)
+INFO 2025-12-10 15:08:35,184 basehttp 21064 15944 - Broken pipe from ('127.0.0.1', 57533)
+INFO 2025-12-10 15:08:35,185 basehttp 21064 21460 - Broken pipe from ('127.0.0.1', 52023)
+INFO 2025-12-10 15:08:35,186 basehttp 21064 21148 - Broken pipe from ('127.0.0.1', 53981)
+INFO 2025-12-10 15:08:35,187 basehttp 21064 20860 - Broken pipe from ('127.0.0.1', 51845)
+INFO 2025-12-10 15:08:35,189 basehttp 21064 19092 - Broken pipe from ('127.0.0.1', 61066)
+INFO 2025-12-10 15:08:35,189 basehttp 21064 9640 - Broken pipe from ('127.0.0.1', 58321)
+INFO 2025-12-10 15:08:35,190 basehttp 21064 17072 - Broken pipe from ('127.0.0.1', 58136)
+INFO 2025-12-10 15:08:35,191 basehttp 21064 3568 - Broken pipe from ('127.0.0.1', 62573)
+INFO 2025-12-10 15:08:35,194 basehttp 21064 21500 - Broken pipe from ('127.0.0.1', 54358)
+INFO 2025-12-10 15:08:35,194 basehttp 21064 21348 - Broken pipe from ('127.0.0.1', 61346)
+INFO 2025-12-10 15:08:35,195 basehttp 21064 4952 - Broken pipe from ('127.0.0.1', 56383)
+INFO 2025-12-10 15:08:35,196 basehttp 21064 21296 - Broken pipe from ('127.0.0.1', 64720)
+INFO 2025-12-10 15:08:35,196 basehttp 21064 20228 - Broken pipe from ('127.0.0.1', 49873)
+INFO 2025-12-10 15:08:35,197 basehttp 21064 20208 - Broken pipe from ('127.0.0.1', 56224)
+INFO 2025-12-10 15:08:35,199 basehttp 21064 13332 - Broken pipe from ('127.0.0.1', 62450)
+INFO 2025-12-10 15:08:35,199 basehttp 21064 17348 - Broken pipe from ('127.0.0.1', 50737)
+INFO 2025-12-10 15:08:35,657 basehttp 21064 17856 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-10 15:08:35,659 basehttp 21064 17856 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-10 15:09:25,035 basehttp 21064 17856 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-12-10 15:09:34,858 basehttp 21064 17856 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-10 15:09:34,889 basehttp 21064 17856 "GET /inspections/ HTTP/1.1" 200 21015
+INFO 2025-12-10 15:19:38,107 basehttp 21064 18600 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-10 15:19:38,109 basehttp 21064 18600 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-10 15:52:05,707 autoreload 21064 20404 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\apps.py changed, reloading.
+INFO 2025-12-10 15:52:06,080 autoreload 12480 18512 Watching for file changes with StatReloader
+INFO 2025-12-10 15:52:35,971 autoreload 12480 18512 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\apps.py changed, reloading.
+INFO 2025-12-10 15:52:36,328 autoreload 20696 15620 Watching for file changes with StatReloader
+INFO 2025-12-10 15:53:18,551 autoreload 19436 18156 Watching for file changes with StatReloader
+INFO 2025-12-10 15:58:42,333 autoreload 18204 16740 Watching for file changes with StatReloader

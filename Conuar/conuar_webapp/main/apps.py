@@ -20,7 +20,19 @@ class MainConfig(AppConfig):
         import sys
         
         # Only run in the main process, not in reloader processes
-        if os.environ.get('RUN_MAIN') != 'true' and 'runserver' in sys.argv:
+        # Check for both RUN_MAIN and if we're using runserver
+        is_runserver = 'runserver' in sys.argv
+        is_main_process = os.environ.get('RUN_MAIN') == 'true'
+        
+        # Skip if using runserver but not in main process (reloader)
+        if is_runserver and not is_main_process:
+            logger.debug("Skipping startup in reloader process")
+            return
+        
+        # Also skip if not using runserver (e.g., migrations, shell, etc.)
+        # But allow it for other commands that might need it
+        if not is_runserver and 'migrate' in sys.argv:
+            logger.debug("Skipping startup during migrations")
             return
         
         try:
@@ -35,63 +47,93 @@ class MainConfig(AppConfig):
             if str(etl_module_path.parent) not in sys.path:
                 sys.path.insert(0, str(etl_module_path.parent))
             
+            logger.info("=" * 60)
+            logger.info("Django Startup: Initializing Conuar ETL System...")
+            logger.info("=" * 60)
+            
             # ============================================================
             # STEP 1: Load initial CSV data
             # ============================================================
             try:
                 from etl.plc_data_reader import load_csv_data_to_db, start_background_monitor as start_csv_monitor
+                logger.info("✓ Successfully imported plc_data_reader")
             except ImportError as ie:
-                logger.error(f"Failed to import plc_data_reader: {ie}")
+                logger.error(f"✗ Failed to import plc_data_reader: {ie}")
+                import traceback
+                logger.error(traceback.format_exc())
+                return
+            except Exception as e:
+                logger.error(f"✗ Error importing plc_data_reader: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
                 return
             
-            logger.info("=" * 60)
-            logger.info("Django Startup: Loading initial PLC data...")
-            logger.info("=" * 60)
+            logger.info("Loading initial PLC data from CSV...")
             
             # Load initial data
-            result = load_csv_data_to_db()
-            
-            if result.get('success'):
-                new_records = result.get('new_records', 0)
-                if new_records > 0:
-                    logger.info(f"[SUCCESS] {new_records} nuevos registros PLC cargados")
+            try:
+                result = load_csv_data_to_db()
+                
+                if result.get('success'):
+                    new_records = result.get('new_records', 0)
+                    if new_records > 0:
+                        logger.info(f"✓ {new_records} nuevos registros PLC cargados")
+                    else:
+                        logger.info("✓ No hay nuevos registros PLC para cargar (ya están en la base de datos)")
                 else:
-                    logger.info("[INFO] No hay nuevos registros PLC para cargar")
-            else:
-                logger.warning(f"[WARNING] Error cargando datos PLC: {result.get('message')}")
+                    logger.warning(f"⚠ Error cargando datos PLC: {result.get('message')}")
+            except Exception as e:
+                logger.error(f"✗ Error durante carga inicial de datos: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
             
             # ============================================================
             # STEP 2: Start CSV monitor (background thread)
             # ============================================================
+            csv_thread = None
             try:
                 logger.info("Iniciando monitor de CSV en background...")
                 csv_thread = start_csv_monitor(interval_seconds=30)
-                logger.info("[SUCCESS] Monitor de CSV iniciado - verificará nuevos datos cada 30 segundos")
+                if csv_thread and csv_thread.is_alive():
+                    logger.info("✓ Monitor de CSV iniciado - verificará nuevos datos cada 30 segundos")
+                else:
+                    logger.error("✗ Monitor de CSV no se inició correctamente")
             except Exception as e:
-                logger.error(f"Error iniciando monitor de CSV: {e}")
+                logger.error(f"✗ Error iniciando monitor de CSV: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
             
             # ============================================================
             # STEP 3: Start photo processor (background thread)
             # ============================================================
+            photo_thread = None
             try:
                 from etl.plc_data_processor import start_background_monitor as start_photo_monitor
+                logger.info("✓ Successfully imported plc_data_processor")
                 
                 logger.info("Iniciando monitor de fotos en background...")
                 photo_thread = start_photo_monitor(interval_seconds=30)
-                logger.info("[SUCCESS] Monitor de fotos iniciado - creará inspecciones cada 30 segundos")
+                if photo_thread and photo_thread.is_alive():
+                    logger.info("✓ Monitor de fotos iniciado - creará inspecciones cada 30 segundos")
+                else:
+                    logger.error("✗ Monitor de fotos no se inició correctamente")
             except ImportError as ie:
-                logger.error(f"Failed to import plc_data_processor: {ie}")
+                logger.error(f"✗ Failed to import plc_data_processor: {ie}")
+                import traceback
+                logger.error(traceback.format_exc())
             except Exception as e:
-                logger.error(f"Error iniciando monitor de fotos: {e}")
+                logger.error(f"✗ Error iniciando monitor de fotos: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
             
             logger.info("=" * 60)
             logger.info("Sistema Conuar iniciado completamente")
-            logger.info("  - Monitor CSV: Activo (cada 30s)")
-            logger.info("  - Monitor Fotos: Activo (cada 30s)")
+            logger.info(f"  - Monitor CSV: {'✓ Activo' if csv_thread and csv_thread.is_alive() else '✗ Inactivo'} (cada 30s)")
+            logger.info(f"  - Monitor Fotos: {'✓ Activo' if photo_thread and photo_thread.is_alive() else '✗ Inactivo'} (cada 30s)")
             logger.info("=" * 60)
             
         except Exception as e:
-            logger.error(f"Error during startup: {e}")
+            logger.error(f"✗ Error crítico durante startup: {e}")
             import traceback
             logger.error(traceback.format_exc())
             # Don't prevent Django from starting even if this fails

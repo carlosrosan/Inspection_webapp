@@ -3,10 +3,11 @@
 PLC Data Reader - Sistema Conuar
 
 Este script se encarga de:
-1. Monitorear archivo CSV con formato JSON cada 30 segundos
+1. Monitorear archivo CSV con formato comma-separated values cada 30 segundos
 2. Detectar nuevas líneas desde la última lectura
-3. Almacenar solo los datos nuevos en la tabla plc_data_raw
-4. No procesa ni crea inspecciones
+3. Convertir cada línea CSV a diccionario y almacenar como JSON en la tabla plc_data_raw
+4. Usa tiempo del sistema para timestamp (no depende de datetime en CSV)
+5. No procesa ni crea inspecciones
 
 Sistema de inspección de combustible Conuar
 """
@@ -16,10 +17,11 @@ import sys
 import django
 import time
 import json
+import csv
 import logging
 import hashlib
 from datetime import datetime
-from typing import Dict, Optional, List, Set
+from typing import Dict, Optional, List, Set, Tuple
 from pathlib import Path
 
 # Check if Django is already configured (running within Django app)
@@ -38,7 +40,7 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler(r"C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_reader.log"),
+        logging.FileHandler(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_reader.log"),
         logging.StreamHandler()
     ]
 )
@@ -46,19 +48,22 @@ logger = logging.getLogger(__name__)
 
 
 class PlcDataReader:
-    """Clase para leer datos de CSV con formato JSON y almacenarlos en plc_data_raw"""
+    """Clase para leer datos de CSV (comma-separated) y almacenarlos en plc_data_raw como JSON"""
     
     def __init__(self, csv_input_file: str = None):
         self.is_running = False
         
         # Default CSV file path if not provided
         if csv_input_file is None:
-            self.csv_input_file = Path(r"C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\Conuar test NodeRed\plc_reads\plc_reads_nodered.csv")
+            self.csv_input_file = Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv")
         else:
             self.csv_input_file = Path(csv_input_file)
         
         # Track which lines have been processed using a hash set
         self.processed_hashes: Set[str] = set()
+        
+        # Store CSV header for parsing
+        self.csv_header: List[str] = []
         
         # Load existing hashes from database to avoid reprocessing
         self._load_existing_hashes()
@@ -104,18 +109,30 @@ class PlcDataReader:
         """Guardar datos en la tabla plc_data_raw usando Django ORM"""
         try:
             from django.db import connection
+            import hashlib
+            
+            # Calculate hash using same method as Python for comparison
+            # This ensures consistency between Python MD5 and MySQL MD5
+            json_hash = hashlib.md5(json_data.encode('utf-8')).hexdigest()
+            
+            # Verify the provided hash matches (should be the same)
+            if json_hash != line_hash:
+                logger.warning(f"Hash mismatch: provided={line_hash[:8]}..., calculated={json_hash[:8]}...")
             
             # Check if this exact data already exists (using hash)
             with connection.cursor() as cursor:
+                # Use the calculated hash for comparison
                 cursor.execute("""
                     SELECT COUNT(*) FROM plc_data_raw 
                     WHERE MD5(json_data) = %s
-                """, [line_hash])
+                """, [json_hash])
                 
                 count = cursor.fetchone()[0]
                 
                 if count > 0:
-                    logger.debug(f"Registro duplicado detectado, omitiendo...")
+                    logger.debug(f"Registro duplicado detectado (hash: {json_hash[:8]}...), omitiendo...")
+                    # Still add to processed hashes to avoid reprocessing
+                    self.processed_hashes.add(json_hash)
                     return False
                 
                 # Insert new record
@@ -125,38 +142,88 @@ class PlcDataReader:
                 """, [timestamp, json_data])
             
             # Add to processed hashes
-            self.processed_hashes.add(line_hash)
+            self.processed_hashes.add(json_hash)
             
-            logger.info(f"[NEW] Dato guardado - Timestamp: {timestamp}")
+            logger.info(f"[NEW] Dato guardado - Timestamp: {timestamp}, Hash: {json_hash[:8]}...")
             return True
             
         except Exception as e:
             logger.error(f"Error guardando datos: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
             return False
     
-    def read_new_lines(self) -> List[str]:
-        """Leer solo las líneas nuevas del archivo CSV"""
+    def _parse_csv_line_to_dict(self, header: List[str], values: List[str]) -> dict:
+        """Convert CSV row to dictionary using header"""
+        result = {}
+        for i, key in enumerate(header):
+            if i < len(values):
+                # Store value, preserving original string representation
+                value = values[i].strip()
+                # Convert boolean strings to actual booleans for JSON
+                if value.lower() == 'true':
+                    result[key] = True
+                elif value.lower() == 'false':
+                    result[key] = False
+                elif value == '':
+                    result[key] = None
+                else:
+                    # Try to convert to number if possible, otherwise keep as string
+                    try:
+                        # Try integer first
+                        if '.' not in value:
+                            result[key] = int(value)
+                        else:
+                            result[key] = float(value)
+                    except ValueError:
+                        result[key] = value
+            else:
+                result[key] = None
+        return result
+    
+    def read_new_lines(self) -> List[Tuple[dict, str]]:
+        """Leer solo las líneas nuevas del archivo CSV y convertirlas a diccionarios"""
         try:
             new_lines = []
             
             with open(self.csv_input_file, 'r', encoding='utf-8') as csvfile:
-                for line in csvfile:
-                    line = line.strip()
-                    
-                    if not line:
+                csv_reader = csv.reader(csvfile)
+                
+                # Read header (first line)
+                try:
+                    header = next(csv_reader)
+                    # Clean header (remove any whitespace)
+                    header = [col.strip() for col in header]
+                    self.csv_header = header
+                except StopIteration:
+                    logger.warning("Archivo CSV está vacío o no tiene header")
+                    return []
+                
+                # Read data rows
+                for row in csv_reader:
+                    # Skip empty rows
+                    if not row or all(not cell.strip() for cell in row):
                         continue
                     
-                    # Calculate hash
-                    line_hash = self._get_line_hash(line)
+                    # Convert CSV row to dictionary
+                    data_dict = self._parse_csv_line_to_dict(header, row)
+                    
+                    # Convert dictionary to JSON string for hashing and storage
+                    json_str = json.dumps(data_dict, sort_keys=True)
+                    
+                    # Calculate hash of the JSON string
+                    line_hash = self._get_line_hash(json_str)
                     
                     # Check if this line is new
                     if line_hash not in self.processed_hashes:
-                        new_lines.append((line, line_hash))
+                        new_lines.append((data_dict, line_hash))
             
             return new_lines
             
         except Exception as e:
             logger.error(f"Error leyendo archivo CSV: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
             return []
     
     def process_new_data(self) -> Dict[str, int]:
@@ -175,31 +242,26 @@ class PlcDataReader:
         
         logger.info(f"Encontradas {len(new_lines)} nuevas líneas para procesar")
         
-        for line, line_hash in new_lines:
+        for data_dict, line_hash in new_lines:
             try:
-                # Parse JSON
-                json_obj = json.loads(line)
+                # Use system time instead of datetime from CSV
+                timestamp = datetime.now().strftime('%Y-%m-%d %H:%M:%S')
                 
-                # Extract timestamp
-                timestamp = json_obj.get('datetime') or json_obj.get('timestamp') or datetime.now().isoformat()
-                
-                # Convert timestamp to MySQL datetime format
-                if 'T' in timestamp and 'Z' in timestamp:
-                    timestamp = timestamp.replace('T', ' ').replace('Z', '')
+                # Convert dictionary to JSON string for storage
+                json_str = json.dumps(data_dict, sort_keys=True)
                 
                 # Save to database
-                if self.save_plc_data_raw(timestamp, line, line_hash):
+                if self.save_plc_data_raw(timestamp, json_str, line_hash):
                     success_count += 1
                 else:
                     # Already exists
                     pass
                     
-            except json.JSONDecodeError as e:
-                error_count += 1
-                logger.error(f"Error de parseo JSON: {e}")
             except Exception as e:
                 error_count += 1
                 logger.error(f"Error procesando línea: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
         
         if success_count > 0:
             logger.info(f"[SUCCESS] {success_count} nuevos registros guardados exitosamente")
@@ -257,7 +319,7 @@ def load_csv_data_to_db(csv_file_path: str = None) -> dict:
     try:
         # Use default path if not provided
         if csv_file_path is None:
-            csv_file_path = r"C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\Conuar test NodeRed\plc_reads\plc_reads_nodered.csv"
+            csv_file_path = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv"
         
         # Create reader instance
         reader = PlcDataReader(csv_input_file=str(csv_file_path))
@@ -291,7 +353,7 @@ def start_background_monitor(interval_seconds: int = 30):
     
     def monitor_thread():
         try:
-            csv_file = r"C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\Conuar test NodeRed\plc_reads\plc_reads_nodered.csv"
+            csv_file = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv"
             reader = PlcDataReader(csv_input_file=csv_file)
             reader.monitor_file(interval_seconds=interval_seconds)
         except Exception as e:
@@ -312,7 +374,7 @@ def main():
     print()
     
     # Get CSV file path
-    csv_file = r"C:\Users\Admin\Documents\Inspection_webapp\Conuar\conuar_webapp\etl\Conuar test NodeRed\plc_reads\plc_reads_nodered.csv"
+    csv_file = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv"
     
     print(f"Archivo CSV: {csv_file}")
     print()
