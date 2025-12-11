@@ -650,3 +650,535 @@ INFO 2025-12-10 15:52:35,971 autoreload 12480 18512 C:\Users\USER\Documents\GitH
 INFO 2025-12-10 15:52:36,328 autoreload 20696 15620 Watching for file changes with StatReloader
 INFO 2025-12-10 15:53:18,551 autoreload 19436 18156 Watching for file changes with StatReloader
 INFO 2025-12-10 15:58:42,333 autoreload 18204 16740 Watching for file changes with StatReloader
+INFO 2025-12-10 15:59:58,210 basehttp 18204 11376 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-10 15:59:58,252 basehttp 18204 11376 "GET /inspections/ HTTP/1.1" 200 21015
+INFO 2025-12-10 16:07:53,685 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 16:07:56,285 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 16:07:57,265 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 16:07:57,944 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 16:08:19,900 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 16:08:21,874 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+ERROR 2025-12-10 16:08:23,343 log 18204 19812 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 243, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 37, in get_cached_value
+    return instance._state.fields_cache[self.cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 261, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 391, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 224, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 16:08:23,346 basehttp 18204 19812 "GET /dashboard/ HTTP/1.1" 500 116932
+INFO 2025-12-10 16:08:25,702 basehttp 18204 19812 "GET /configuration/ HTTP/1.1" 200 26823
+INFO 2025-12-10 16:08:28,116 basehttp 18204 19812 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 16:15:56,940 autoreload 18240 18828 Watching for file changes with StatReloader
+INFO 2025-12-10 16:18:32,135 basehttp 18240 20228 - Broken pipe from ('127.0.0.1', 59306)
+INFO 2025-12-10 16:18:32,136 basehttp 18240 1964 - Broken pipe from ('127.0.0.1', 62662)
+INFO 2025-12-10 16:18:32,140 basehttp 18240 18420 - Broken pipe from ('127.0.0.1', 56920)
+INFO 2025-12-10 16:18:32,144 basehttp 18240 14012 - Broken pipe from ('127.0.0.1', 57930)
+INFO 2025-12-10 16:18:32,144 basehttp 18240 19356 - Broken pipe from ('127.0.0.1', 60933)
+INFO 2025-12-10 16:18:32,145 basehttp 18240 16688 - Broken pipe from ('127.0.0.1', 62813)
+INFO 2025-12-10 16:18:32,146 basehttp 18240 19256 - Broken pipe from ('127.0.0.1', 65457)
+INFO 2025-12-10 16:18:32,147 basehttp 18240 19472 - Broken pipe from ('127.0.0.1', 53823)
+INFO 2025-12-10 16:18:32,148 basehttp 18240 16516 - Broken pipe from ('127.0.0.1', 56729)
+INFO 2025-12-10 16:18:32,149 basehttp 18240 20780 - Broken pipe from ('127.0.0.1', 49867)
+INFO 2025-12-10 16:18:32,150 basehttp 18240 17952 - Broken pipe from ('127.0.0.1', 57131)
+INFO 2025-12-10 16:18:32,151 basehttp 18240 16876 - Broken pipe from ('127.0.0.1', 57978)
+INFO 2025-12-10 16:18:32,158 basehttp 18240 16664 - Broken pipe from ('127.0.0.1', 64483)
+INFO 2025-12-10 16:18:32,164 basehttp 18240 21164 - Broken pipe from ('127.0.0.1', 55555)
+INFO 2025-12-10 16:18:32,165 basehttp 18240 20660 - Broken pipe from ('127.0.0.1', 56882)
+INFO 2025-12-10 16:18:32,174 basehttp 18240 16076 - Broken pipe from ('127.0.0.1', 51377)
+INFO 2025-12-10 16:18:32,174 basehttp 18240 16952 - Broken pipe from ('127.0.0.1', 49641)
+INFO 2025-12-10 16:18:32,175 basehttp 18240 16784 - Broken pipe from ('127.0.0.1', 54473)
+INFO 2025-12-10 16:18:32,178 basehttp 18240 16716 - Broken pipe from ('127.0.0.1', 54205)
+INFO 2025-12-10 16:18:32,180 basehttp 18240 10556 - Broken pipe from ('127.0.0.1', 56846)
+INFO 2025-12-10 16:18:32,183 basehttp 18240 20672 - Broken pipe from ('127.0.0.1', 54229)
+INFO 2025-12-10 16:18:32,183 basehttp 18240 17728 - Broken pipe from ('127.0.0.1', 51670)
+INFO 2025-12-10 16:18:32,185 basehttp 18240 15356 - Broken pipe from ('127.0.0.1', 50203)
+INFO 2025-12-10 16:18:32,185 basehttp 18240 8468 - Broken pipe from ('127.0.0.1', 65190)
+INFO 2025-12-10 16:18:32,188 basehttp 18240 21216 - Broken pipe from ('127.0.0.1', 51049)
+INFO 2025-12-10 16:18:32,191 basehttp 18240 19920 - Broken pipe from ('127.0.0.1', 52106)
+INFO 2025-12-10 16:18:32,191 basehttp 18240 19856 - Broken pipe from ('127.0.0.1', 52498)
+INFO 2025-12-10 16:18:32,195 basehttp 18240 20676 - Broken pipe from ('127.0.0.1', 60039)
+INFO 2025-12-10 16:18:32,203 basehttp 18240 20360 - Broken pipe from ('127.0.0.1', 58390)
+INFO 2025-12-10 16:18:32,203 basehttp 18240 20876 - Broken pipe from ('127.0.0.1', 55183)
+INFO 2025-12-10 16:18:32,205 basehttp 18240 19092 - Broken pipe from ('127.0.0.1', 54545)
+INFO 2025-12-10 16:18:32,208 basehttp 18240 21452 - Broken pipe from ('127.0.0.1', 53921)
+INFO 2025-12-10 16:18:32,211 basehttp 18240 18204 - Broken pipe from ('127.0.0.1', 50779)
+INFO 2025-12-10 16:18:32,213 basehttp 18240 12392 - Broken pipe from ('127.0.0.1', 60787)
+INFO 2025-12-10 16:18:32,214 basehttp 18240 15936 - Broken pipe from ('127.0.0.1', 58105)
+INFO 2025-12-10 16:18:32,216 basehttp 18240 16380 - Broken pipe from ('127.0.0.1', 59434)
+INFO 2025-12-10 16:18:32,217 basehttp 18240 21268 - Broken pipe from ('127.0.0.1', 63421)
+INFO 2025-12-10 16:18:32,217 basehttp 18240 19784 - Broken pipe from ('127.0.0.1', 55147)
+INFO 2025-12-10 16:18:32,220 basehttp 18240 10904 - Broken pipe from ('127.0.0.1', 63182)
+INFO 2025-12-10 16:18:32,222 basehttp 18240 19908 - Broken pipe from ('127.0.0.1', 52010)
+INFO 2025-12-10 16:18:32,224 basehttp 18240 17948 - Broken pipe from ('127.0.0.1', 49298)
+INFO 2025-12-10 16:18:32,227 basehttp 18240 6060 - Broken pipe from ('127.0.0.1', 63055)
+INFO 2025-12-10 16:18:32,227 basehttp 18240 19304 - Broken pipe from ('127.0.0.1', 65348)
+INFO 2025-12-10 16:18:32,227 basehttp 18240 21144 - Broken pipe from ('127.0.0.1', 61223)
+INFO 2025-12-10 16:18:32,228 basehttp 18240 18056 - Broken pipe from ('127.0.0.1', 64771)
+INFO 2025-12-10 16:18:32,230 basehttp 18240 19796 - Broken pipe from ('127.0.0.1', 60070)
+INFO 2025-12-10 16:18:32,233 basehttp 18240 21392 - Broken pipe from ('127.0.0.1', 58144)
+INFO 2025-12-10 16:18:32,233 basehttp 18240 21092 - Broken pipe from ('127.0.0.1', 61296)
+INFO 2025-12-10 16:18:32,234 basehttp 18240 16756 - Broken pipe from ('127.0.0.1', 64908)
+INFO 2025-12-10 16:18:32,234 basehttp 18240 4020 - Broken pipe from ('127.0.0.1', 59909)
+INFO 2025-12-10 16:18:32,676 basehttp 18240 16924 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-10 16:18:32,681 basehttp 18240 16924 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-10 16:31:48,401 autoreload 16076 16132 Watching for file changes with StatReloader
+INFO 2025-12-10 16:36:28,976 autoreload 11400 16768 Watching for file changes with StatReloader
+INFO 2025-12-10 16:51:38,971 autoreload 17776 5268 Watching for file changes with StatReloader
+INFO 2025-12-10 17:03:20,938 autoreload 19436 6312 Watching for file changes with StatReloader
+INFO 2025-12-10 17:08:27,750 autoreload 19492 20648 Watching for file changes with StatReloader
+INFO 2025-12-10 17:09:35,148 autoreload 16648 21488 Watching for file changes with StatReloader
+INFO 2025-12-10 17:09:43,965 basehttp 16648 19620 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-12-10 17:09:52,312 basehttp 16648 19620 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-12-10 17:09:58,389 basehttp 16648 19620 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:09:58,423 basehttp 16648 19620 "GET /inspections/ HTTP/1.1" 200 30154
+INFO 2025-12-10 17:10:06,105 basehttp 16648 19620 "GET /inspection/2/ HTTP/1.1" 200 27683
+INFO 2025-12-10 17:10:06,210 basehttp 16648 19620 "GET /media/inspection_photos/PROCESSED/Ciclo2-E123-1F-041225_154941-NOK.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-10 17:16:29,590 autoreload 12504 20656 Watching for file changes with StatReloader
+INFO 2025-12-10 17:16:35,279 basehttp 12504 21264 "GET /inspection/2/ HTTP/1.1" 200 27683
+INFO 2025-12-10 17:16:37,834 basehttp 12504 21264 "GET /inspections/ HTTP/1.1" 200 34653
+INFO 2025-12-10 17:17:18,636 basehttp 12504 21264 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 17:17:36,285 autoreload 10308 20636 Watching for file changes with StatReloader
+INFO 2025-12-10 17:17:41,629 basehttp 10308 19148 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 17:17:43,484 basehttp 10308 19148 "GET /inspection/1/ HTTP/1.1" 200 27994
+INFO 2025-12-10 17:18:31,250 basehttp 10308 19148 "GET /inspection/1/ HTTP/1.1" 200 27994
+ERROR 2025-12-10 17:18:37,465 log 10308 19148 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 243, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 37, in get_cached_value
+    return instance._state.fields_cache[self.cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 261, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 391, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 224, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:18:37,467 basehttp 10308 19148 "GET /dashboard/ HTTP/1.1" 500 117067
+INFO 2025-12-10 17:19:11,919 basehttp 10308 19148 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:19:11,924 basehttp 10308 19148 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-10 17:19:18,734 basehttp 10308 19148 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-12-10 17:19:26,161 basehttp 10308 19148 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-12-10 17:19:31,710 basehttp 10308 19148 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:19:31,737 basehttp 10308 19148 "GET /inspections/ HTTP/1.1" 200 25312
+INFO 2025-12-10 17:19:34,119 basehttp 10308 19148 "GET /inspection/1/ HTTP/1.1" 200 27994
+ERROR 2025-12-10 17:19:40,971 log 10308 19148 Internal Server Error: /inspection/1/pdf/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 390, in inspection_pdf
+    from xhtml2pdf import pisa
+ModuleNotFoundError: No module named 'xhtml2pdf'
+ERROR 2025-12-10 17:19:40,972 basehttp 10308 19148 "GET /inspection/1/pdf/ HTTP/1.1" 500 83454
+INFO 2025-12-10 17:20:28,555 autoreload 14068 17580 Watching for file changes with StatReloader
+ERROR 2025-12-10 17:20:31,214 log 14068 17508 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 243, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 37, in get_cached_value
+    return instance._state.fields_cache[self.cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 261, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 391, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 224, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:20:31,218 basehttp 14068 17508 "GET /dashboard/ HTTP/1.1" 500 117073
+INFO 2025-12-10 17:22:03,418 autoreload 14068 17580 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-10 17:22:03,778 autoreload 19996 3784 Watching for file changes with StatReloader
+INFO 2025-12-10 17:22:09,131 autoreload 19996 3784 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-10 17:22:09,501 autoreload 8464 8796 Watching for file changes with StatReloader
+INFO 2025-12-10 17:22:39,398 autoreload 8464 8796 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-10 17:22:39,781 autoreload 17620 21412 Watching for file changes with StatReloader
+INFO 2025-12-10 17:23:26,339 autoreload 2520 20228 Watching for file changes with StatReloader
+INFO 2025-12-10 17:23:35,169 basehttp 2520 16756 "GET /inspection/1/pdf/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:23:35,209 basehttp 2520 16756 "GET /inspection/1/ HTTP/1.1" 200 28390
+INFO 2025-12-10 17:23:40,336 basehttp 2520 16756 "GET /inspection/1/pdf/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:23:40,352 basehttp 2520 16756 "GET /inspection/1/ HTTP/1.1" 200 28390
+INFO 2025-12-10 17:23:43,527 basehttp 2520 16756 "GET /inspection/1/pdf/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:23:43,561 basehttp 2520 16756 "GET /inspection/1/ HTTP/1.1" 200 28390
+ERROR 2025-12-10 17:23:52,706 log 2520 16756 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 243, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 37, in get_cached_value
+    return instance._state.fields_cache[self.cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 261, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 391, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 224, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:23:52,710 basehttp 2520 16756 "GET /dashboard/ HTTP/1.1" 500 117200
+ERROR 2025-12-10 17:23:56,337 log 2520 16756 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 243, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 37, in get_cached_value
+    return instance._state.fields_cache[self.cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 59, in _view_wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 261, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 391, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 224, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 633, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:23:56,340 basehttp 2520 16756 "GET /dashboard/ HTTP/1.1" 500 117063
+INFO 2025-12-10 17:44:54,493 autoreload 12680 10128 Watching for file changes with StatReloader
+INFO 2025-12-10 17:45:10,258 basehttp 12680 6684 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2025-12-10 17:45:10,299 basehttp 12680 6684 "GET /login/?next=/dashboard/ HTTP/1.1" 200 15905
+INFO 2025-12-10 17:45:20,333 basehttp 12680 6684 "POST /login/?next=/dashboard/ HTTP/1.1" 302 0
+ERROR 2025-12-10 17:45:20,426 log 12680 6684 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 218, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 236, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 366, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 199, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:45:20,430 basehttp 12680 6684 "GET /dashboard/ HTTP/1.1" 500 117598
+INFO 2025-12-10 17:45:29,456 basehttp 12680 6684 "GET / HTTP/1.1" 302 0
+INFO 2025-12-10 17:45:29,482 basehttp 12680 6684 "GET /inspections/ HTTP/1.1" 200 25312
+ERROR 2025-12-10 17:45:32,272 log 12680 6684 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 218, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 236, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 366, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 199, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:45:32,274 basehttp 12680 6684 "GET /dashboard/ HTTP/1.1" 500 117184
+INFO 2025-12-10 17:45:35,654 basehttp 12680 6684 "GET /inspection/1/ HTTP/1.1" 200 27994
+INFO 2025-12-10 17:45:41,125 basehttp 12680 6684 "GET /inspection/1/pdf/ HTTP/1.1" 200 3792422
+ERROR 2025-12-10 17:45:52,801 log 12680 6684 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 218, in __get__
+    rel_obj = self.field.get_cached_value(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\mixins.py", line 15, in get_cached_value
+    return instance._state.fields_cache[cache_name]
+           ~~~~~~~~~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^
+KeyError: 'current_inspection'
+
+During handling of the above exception, another exception occurred:
+
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 103, in dashboard
+    machine = InspectionMachine.get_machine()
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\models.py", line 396, in get_machine
+    if not machine.current_inspection:
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 236, in __get__
+    rel_obj = self.get_object(instance)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 366, in get_object
+    return super().get_object(instance)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\fields\related_descriptors.py", line 199, in get_object
+    return qs.get(self.field.get_reverse_related_filter(instance))
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\db\models\query.py", line 637, in get
+    raise self.model.DoesNotExist(
+main.models.Inspection.DoesNotExist: Inspection matching query does not exist.
+ERROR 2025-12-10 17:45:52,804 basehttp 12680 6684 "GET /dashboard/ HTTP/1.1" 500 117185
+INFO 2025-12-10 17:54:14,977 autoreload 21400 19812 Watching for file changes with StatReloader
+ERROR 2025-12-10 17:54:22,074 log 21400 7364 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 345, in dashboard
+    chart_labels, all_inspectors_data, inspector_data, inspector_names = generate_chart_data()
+                                                                         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 333, in generate_chart_data
+    inspectors = User.objects.filter(
+                 ^^^^
+NameError: cannot access free variable 'User' where it is not associated with a value in enclosing scope
+ERROR 2025-12-10 17:54:22,078 basehttp 21400 7364 "GET /dashboard/ HTTP/1.1" 500 94390
+INFO 2025-12-10 17:54:32,278 basehttp 21400 7364 "GET / HTTP/1.1" 302 0
+INFO 2025-12-10 17:54:32,309 basehttp 21400 7364 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 17:54:34,413 basehttp 21400 7364 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 17:54:36,821 basehttp 21400 7364 "GET /configuration/ HTTP/1.1" 200 26616
+INFO 2025-12-10 17:54:37,512 basehttp 21400 7364 "GET /about/ HTTP/1.1" 200 21436
+INFO 2025-12-10 17:54:38,434 basehttp 21400 7364 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 17:54:40,004 basehttp 21400 7364 "GET /inspection/1/ HTTP/1.1" 200 29672
+INFO 2025-12-10 17:54:41,887 basehttp 21400 7364 "GET /inspection/1/pdf/ HTTP/1.1" 200 3793299
+WARNING 2025-12-10 17:56:21,458 log 21400 7364 Not Found: /inspection/1/
+WARNING 2025-12-10 17:56:21,460 basehttp 21400 7364 "GET /inspection/1/ HTTP/1.1" 404 3903
+INFO 2025-12-10 17:56:25,352 basehttp 21400 7364 "GET / HTTP/1.1" 302 0
+INFO 2025-12-10 17:56:25,383 basehttp 21400 7364 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 18:00:43,105 autoreload 18212 20612 Watching for file changes with StatReloader
+INFO 2025-12-10 18:00:50,062 basehttp 18212 20536 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 18:00:55,268 basehttp 18212 20536 "GET /inspection/2/ HTTP/1.1" 200 27994
+INFO 2025-12-10 18:01:02,366 basehttp 18212 20536 "GET /inspection/2/pdf/ HTTP/1.1" 200 3792420
+INFO 2025-12-10 18:10:19,083 autoreload 6576 17608 Watching for file changes with StatReloader
+INFO 2025-12-10 18:10:31,055 basehttp 6576 4208 "GET / HTTP/1.1" 302 0
+INFO 2025-12-10 18:10:31,094 basehttp 6576 4208 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 18:10:41,025 basehttp 6576 4208 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-10 18:12:31,457 autoreload 1724 21008 Watching for file changes with StatReloader
+INFO 2025-12-10 18:12:38,149 basehttp 1724 2528 "GET /inspections/ HTTP/1.1" 200 24965
+INFO 2025-12-10 18:12:39,667 basehttp 1724 2528 "GET /inspection/1/ HTTP/1.1" 200 29672
+INFO 2025-12-10 18:12:45,385 basehttp 1724 2528 "GET /inspection/1/pdf/ HTTP/1.1" 200 3793304
+INFO 2025-12-10 18:22:43,121 basehttp 1724 21344 - Broken pipe from ('127.0.0.1', 50891)
+INFO 2025-12-10 18:22:43,138 basehttp 1724 6684 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-10 18:22:43,142 basehttp 1724 6684 "GET /login/ HTTP/1.1" 200 16549

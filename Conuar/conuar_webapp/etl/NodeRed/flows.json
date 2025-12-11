@@ -1,0 +1,23 @@
+[
+    {
+        "id": "c81f31e7199beafd",
+        "type": "function",
+        "z": "226545f5561ba834",
+        "name": "function 1",
+        "func": "function decodeString(buf) {\n    let maxLen = buf[0];\n    let realLen = buf[1];\n    let chars = buf.slice(2, 2 + realLen);\n    return String.fromCharCode.apply(null, chars);\n}\n\nlet ID = decodeString(msg.payload.ID);\nmsg.payload.ID = ID\n\nlet ID_EC = decodeString(msg.payload.ID_EC);\nmsg.payload.ID_EC = ID_EC\n\nlet Nombre = decodeString(msg.payload.Nombre);\nmsg.payload.Nombre = Nombre\n\nlet NombreCiclo = decodeString(msg.payload.NombreCiclo);\nmsg.payload.NombreCiclo = NombreCiclo\n\nreturn msg;",
+        "outputs": 1,
+        "timeout": 0,
+        "noerr": 0,
+        "initialize": "",
+        "finalize": "",
+        "libs": [],
+        "x": 280,
+        "y": 280,
+        "wires": [
+            [
+                "fac6d560fc660ce4",
+                "a365cb924e558def"
+            ]
+        ]
+    }
+]

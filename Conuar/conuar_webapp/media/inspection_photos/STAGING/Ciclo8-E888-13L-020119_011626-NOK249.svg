@@ -1,0 +1,71 @@
+<svg     xmlns="http://www.w3.org/2000/svg"     xmlns:xlink="http://www.w3.org/1999/xlink"     version="1.1"     font-family="arial"     width="2448" height="2048" viewBox="0 0 2448 2048">
+<!--image Ciclo8-E888-13L-020119_011626-NOK249.bmp: /cam0/img/000000000000232?sz=2448,2048 -->
+<image x="0" y="0" width="2448px" height="2048px" xlink:href="Ciclo8-E888-13L-020119_011626-NOK249.bmp"/>
+<defs>
+<marker id="cam000000000025Cd1" viewBox="0 0 15 15" refX="7.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="10.000000" markerHeight="10.000000" orient="auto">
+<path d="M 15 0 L 0 7.5 L 15 15 z" fill="#32CD32"/>
+</marker>
+
+</defs>
+<style>
+	.ds-cam0000000000002	{ font-size:9.00pt;stroke-width:2.00; }
+</style>
+<g data-c="C11" class="editable ds-cam0000000000002"></g>
+<g data-c="C14" class="ds-cam0000000000002"></g>
+<g data-c="C15" class="ds-cam0000000000002"></g>
+<g data-c="C16" class="ds-cam0000000000002"><text x="1743" y="321" style="fill:#FF0000" dominant-baseline="hanging" >NOK</text>
+</g>
+<g data-c="Z16" class="ds-cam0000000000002"><line x1="0" y1="0" x2="2447" y2="0" stroke="#32CD32" />
+</g>
+<g data-c="C17" class="ds-cam0000000000002"></g>
+<g data-c="Z17" class="ds-cam0000000000002"><line x1="2447" y1="0" x2="2447" y2="2047" stroke="#32CD32" />
+</g>
+<g data-c="Z18" class="ds-cam0000000000002"><line x1="2447" y1="2047" x2="0" y2="2047" stroke="#32CD32" />
+</g>
+<g data-c="Z19" class="ds-cam0000000000002"><line x1="0" y1="2047" x2="0" y2="0" stroke="#32CD32" />
+</g>
+<g data-c="D21" class="ds-cam0000000000002"></g>
+<g data-c="W32" class="ds-cam0000000000002"></g>
+<g data-c="X39" class="ds-cam0000000000002"></g>
+<g data-c="Y67" class="ds-cam0000000000002"></g>
+<g data-c="D263" class="ds-cam0000000000002"></g>
+<g data-c="F287" class="ds-cam0000000000002"><line x1="794.1" y1="1097.7" x2="796.2" y2="984.7" stroke="#32CD32" />
+</g>
+<g data-c="M287" class="ds-cam0000000000002"><g>
+<line x1="802.1" y1="638.1" x2="803.8" y2="608.2" stroke="#32CD32"  marker-start="url(#cam000000000025Cd1)"/>
+<line x1="817.9" y1="624" x2="788" y2="622.3" stroke="#32CD32"  marker-start="url(#cam000000000025Cd1)"/>
+</g>
+</g>
+<g data-c="F288" class="ds-cam0000000000002"><line x1="801.9" y1="595.9" x2="800.5" y2="557.9" stroke="#32CD32" />
+</g>
+<g data-c="M288" class="ds-cam0000000000002"><g>
+<line x1="785.4" y1="1540.4" x2="786.8" y2="1510.4" stroke="#32CD32"  marker-start="url(#cam000000000025Cd1)"/>
+<line x1="801.1" y1="1526.1" x2="771.1" y2="1524.7" stroke="#32CD32"  marker-start="url(#cam000000000025Cd1)"/>
+</g>
+</g>
+<g data-c="F289" class="ds-cam0000000000002"><line x1="780.2" y1="1617.2" x2="783.7" y2="1563.2" stroke="#32CD32" />
+</g>
+<g data-c="L293" class="ds-cam0000000000002"></g>
+<g data-c="O293" class="ds-cam0000000000002"></g>
+<g data-c="L302" class="ds-cam0000000000002"></g>
+<g data-c="S302" class="ds-cam0000000000002"></g>
+<g data-c="S304" class="ds-cam0000000000002"></g>
+<g data-c="S306" class="ds-cam0000000000002"></g>
+<g data-c="Q309" class="ds-cam0000000000002"></g>
+<g data-c="Q310" class="ds-cam0000000000002"></g>
+<g data-c="Q311" class="ds-cam0000000000002"></g>
+<g data-c="Q312" class="ds-cam0000000000002"></g>
+<g data-c="T313" class="ds-cam0000000000002"></g>
+<g data-c="T324" class="ds-cam0000000000002"></g>
+<g data-c="T325" class="ds-cam0000000000002"></g>
+<g data-c="T326" class="ds-cam0000000000002"></g>
+<g data-c="T327" class="ds-cam0000000000002"></g>
+<g data-c="T331" class="ds-cam0000000000002"></g>
+<g data-c="T332" class="ds-cam0000000000002"></g>
+<g data-c="T333" class="ds-cam0000000000002"></g>
+<g data-c="T334" class="ds-cam0000000000002"></g>
+<g data-c="F338" class="ds-cam0000000000002"></g>
+<g data-c="M338" class="ds-cam0000000000002"></g>
+<g data-c="F339" class="ds-cam0000000000002"></g>
+<g data-c="F352" class="ds-cam0000000000002"></g>
+</svg>

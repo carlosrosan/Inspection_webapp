@@ -214,6 +214,12 @@ class Inspection(models.Model):
         """Get the single inspection, create if doesn't exist"""
         from django.contrib.auth import get_user_model
         
+        # Try to get existing inspection first (any inspection, not just id=1)
+        inspection = cls.objects.first()
+        if inspection:
+            return inspection
+        
+        # If no inspections exist, create a default one
         # Get or create a default inspector user
         User = get_user_model()
         default_inspector, _ = User.objects.get_or_create(
@@ -221,25 +227,23 @@ class Inspection(models.Model):
             defaults={
                 'first_name': 'Sistema',
                 'last_name': 'Inspector',
-                'email': 'system@arbyte.com',
+                'email': 'system@conuar.com',
                 'is_active': True,
                 'is_staff': True,
             }
         )
         
-        inspection, created = cls.objects.get_or_create(
-            id=1,
-            defaults={
-                'title': 'Inspección de Combustible ArByte',
-                'description': 'Inspección de calidad de combustible utilizando el sistema ArByte-3000',
-                'tipo_combustible': 'uranio',
-                'status': 'completed',
-                'product_name': 'Combustible Industrial',
-                'product_code': 'COMB-001',
-                'batch_number': 'LOTE-2024-001',
-                'location': 'Planta de Inspección ArByte',
-                'inspector': default_inspector,  # This line was missing!
-            }
+        # Create a new inspection (don't force id=1)
+        inspection = cls.objects.create(
+            title='Inspección de Combustible Conuar',
+            description='Inspección de calidad de combustible utilizando el sistema Conuar',
+            tipo_combustible='uranio',
+            status='completed',
+            product_name='Combustible Industrial',
+            product_code='COMB-001',
+            batch_number='LOTE-2024-001',
+            location='Planta de Inspección Conuar',
+            inspector=default_inspector,
         )
         return inspection
 
@@ -394,10 +398,15 @@ class InspectionMachine(models.Model):
         
         # Link to the single inspection if not already linked
         if not machine.current_inspection:
-            from .models import Inspection
-            inspection = Inspection.get_inspection()
-            machine.current_inspection = inspection
-            machine.save()
+            try:
+                from .models import Inspection
+                inspection = Inspection.get_inspection()
+                machine.current_inspection = inspection
+                machine.save()
+            except Exception as e:
+                # If inspection creation fails, continue without linking
+                # The dashboard will handle creating an inspection
+                pass
         
         return machine
 

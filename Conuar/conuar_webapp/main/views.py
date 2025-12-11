@@ -99,9 +99,62 @@ def dashboard(request):
     from datetime import datetime, timedelta
     import random
     
-    # Get or create the inspection machine and single inspection
-    machine = InspectionMachine.get_machine()
-    inspection = Inspection.get_inspection()
+    # Get or create the inspection machine
+    try:
+        machine = InspectionMachine.get_machine()
+    except Exception as e:
+        # If machine creation fails, create a minimal one
+        machine = InspectionMachine.objects.first()
+        if not machine:
+            machine = InspectionMachine.objects.create(
+                machine_id='MAQ-001',
+                name='Analizador de Combustible Conuar',
+                model='AB-3000',
+                version='v2.1.3',
+                status='idle',
+            )
+    
+    # Get the latest inspection or create a default one if none exists
+    inspection = None
+    try:
+        # Try to get any inspection (latest first)
+        inspection = Inspection.objects.order_by('-inspection_date').first()
+        if not inspection:
+            # If no inspections exist, create a default one
+            inspection = Inspection.get_inspection()
+    except Exception as e:
+        # If inspection creation fails, create a minimal one
+        try:
+            from django.contrib.auth import get_user_model
+            User = get_user_model()
+            default_inspector, _ = User.objects.get_or_create(
+                username='system_inspector',
+                defaults={
+                    'first_name': 'Sistema',
+                    'last_name': 'Inspector',
+                    'email': 'system@conuar.com',
+                    'is_active': True,
+                    'is_staff': True,
+                }
+            )
+            inspection = Inspection.objects.create(
+                title='Inspección de Combustible Conuar',
+                description='Inspección de calidad de combustible',
+                tipo_combustible='uranio',
+                status='completed',
+                product_name='Combustible Industrial',
+                product_code='COMB-001',
+                inspector=default_inspector,
+            )
+        except Exception as e2:
+            # Last resort: create inspection without inspector (if inspector is nullable)
+            # But inspector is required, so we need to ensure user exists
+            logger.error(f"Failed to create inspection: {e2}")
+            # Try to get any existing inspection
+            inspection = Inspection.objects.first()
+            if not inspection:
+                # This should not happen, but if it does, we'll handle it in the template
+                inspection = None
     
     # Update machine metrics with real data
     machine.total_inspections = Inspection.objects.count()
@@ -291,6 +344,31 @@ def dashboard(request):
     
     chart_labels, all_inspectors_data, inspector_data, inspector_names = generate_chart_data()
     
+    # Final safety check: ensure inspection is never None
+    if inspection is None:
+        # Last resort: create a minimal inspection
+        from django.contrib.auth import get_user_model
+        User = get_user_model()
+        default_inspector, _ = User.objects.get_or_create(
+            username='system_inspector',
+            defaults={
+                'first_name': 'Sistema',
+                'last_name': 'Inspector',
+                'email': 'system@conuar.com',
+                'is_active': True,
+                'is_staff': True,
+            }
+        )
+        inspection = Inspection.objects.create(
+            title='Inspección de Combustible Conuar',
+            description='Inspección de calidad de combustible',
+            tipo_combustible='uranio',
+            status='completed',
+            product_name='Combustible Industrial',
+            product_code='COMB-001',
+            inspector=default_inspector,
+        )
+    
     context = {
         'title': 'Estado del Sistema',
         'description': 'Monitoreo en tiempo real del sistema de inspección de combustible',
@@ -387,9 +465,19 @@ def inspection_pdf(request, inspection_id):
     from django.template.loader import get_template
     from django.http import HttpResponse
     from datetime import datetime
-    from xhtml2pdf import pisa
     from io import BytesIO
     import os
+    
+    # Try to import xhtml2pdf, show helpful error if not installed
+    try:
+        from xhtml2pdf import pisa
+    except ImportError:
+        from django.contrib import messages
+        messages.error(
+            request, 
+            'El módulo xhtml2pdf no está instalado. Por favor ejecute: pip install xhtml2pdf'
+        )
+        return redirect('main:inspection_detail', inspection_id=inspection_id)
     
     
     # Get the inspection by id
