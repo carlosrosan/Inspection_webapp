@@ -464,6 +464,7 @@ def inspection_pdf(request, inspection_id):
     from django.shortcuts import get_object_or_404
     from django.template.loader import get_template
     from django.http import HttpResponse
+    from django.conf import settings
     from datetime import datetime
     from io import BytesIO
     import os
@@ -484,14 +485,33 @@ def inspection_pdf(request, inspection_id):
     inspection = get_object_or_404(Inspection, id=inspection_id)
     photos = inspection.photos.all()
     
-    # Prepare photo data with file paths
+    # Prepare photo data with file paths and codes
     photo_data = []
     for photo in photos:
+        # Extract photo code from filename (filename without extension)
+        photo_code = None
+        if photo.photo:
+            photo_code = os.path.splitext(os.path.basename(photo.photo.name))[0]
+        
         photo_info = {
             'photo': photo,
             'path': photo.photo.path if photo.photo else None,
+            'code': photo_code,
         }
         photo_data.append(photo_info)
+    
+    # Get logo path - use absolute path for xhtml2pdf
+    if settings.STATICFILES_DIRS:
+        logo_path = os.path.abspath(os.path.join(settings.STATICFILES_DIRS[0], 'assets', 'logo_conuar1.svg'))
+    elif settings.STATIC_ROOT:
+        logo_path = os.path.abspath(os.path.join(settings.STATIC_ROOT, 'assets', 'logo_conuar1.svg'))
+    else:
+        # Fallback to BASE_DIR
+        logo_path = os.path.abspath(os.path.join(settings.BASE_DIR, 'static', 'assets', 'logo_conuar1.svg'))
+    
+    # Check if logo exists, if not set to None
+    if not os.path.exists(logo_path):
+        logo_path = None
     
     # Prepare context for the template
     context = {
@@ -500,6 +520,7 @@ def inspection_pdf(request, inspection_id):
         'photo_data': photo_data,
         'generation_date': datetime.now(),
         'photo_count': photos.count(),
+        'logo_path': logo_path,
     }
     
     # Render the HTML template

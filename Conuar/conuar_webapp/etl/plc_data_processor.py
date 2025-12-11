@@ -400,6 +400,9 @@ class PlcDataProcessor:
         # Track defects found in photos for inspection-level defect detection
         defects_found_in_photos = []
         
+        # Track the inspection folder (created from first photo name)
+        inspection_folder = None
+        
         for raw in cycle_rows:
             payload = raw._parsed_json
             
@@ -449,7 +452,16 @@ class PlcDataProcessor:
                 f"defecto_from_csv={defecto_from_csv}, defecto_encontrado={defecto_encontrado}"
             )
 
-            destination = self.processed_photo_path / photo_path.name
+            # Create inspection folder from first photo name (without extension)
+            if inspection_folder is None:
+                # Get photo name without extension for folder name
+                photo_name_without_ext = photo_path.stem  # Gets filename without extension
+                inspection_folder = self.processed_photo_path / photo_name_without_ext
+                inspection_folder.mkdir(parents=True, exist_ok=True)
+                logger.info(f"Creada carpeta de inspección: {inspection_folder}")
+            
+            # Move photo to inspection-specific folder
+            destination = inspection_folder / photo_path.name
             try:
                 shutil.move(str(photo_path), str(destination))
             except FileNotFoundError:
@@ -459,7 +471,8 @@ class PlcDataProcessor:
                 logger.warning(f"No se pudo mover {photo_path} a {destination}: {exc}")
                 continue
 
-            relative_path = f"inspection_photos/PROCESSED/{destination.name}"
+            # Update relative path to include the inspection folder
+            relative_path = f"inspection_photos/PROCESSED/{inspection_folder.name}/{destination.name}"
             
             InspectionPhoto.objects.create(
                 inspection=inspection,

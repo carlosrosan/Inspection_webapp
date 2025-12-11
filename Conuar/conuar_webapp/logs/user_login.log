@@ -115,3 +115,8 @@ INFO 2025-12-10 17:19:31,706 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: S
 INFO 2025-12-10 17:45:19,849 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
 INFO 2025-12-10 17:45:20,327 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
 INFO 2025-12-10 18:22:43,114 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2025-12-11 17:02:44,624 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-11 17:02:44,895 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-11 17:18:58,776 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-11 17:18:58,999 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-11 17:29:06,722 LOGOUT - User: admin, IP: 127.0.0.1

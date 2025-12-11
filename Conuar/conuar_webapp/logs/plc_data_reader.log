@@ -25890,3 +25890,776 @@ NameError: cannot access free variable 'User' where it is not associated with a 
 2025-12-11 02:49:36,505 - INFO - Procesamiento de ciclos PLC
 2025-12-11 02:49:36,505 - INFO - Ciclos detectados: 0
 2025-12-11 02:49:36,506 - INFO - ================================================================================
+2025-12-11 16:51:00,645 - INFO - ✓ Successfully imported plc_data_reader
+2025-12-11 16:51:00,646 - INFO - Loading initial PLC data from CSV...
+2025-12-11 16:51:00,728 - INFO - Cargados 9 hashes de registros existentes
+2025-12-11 16:51:00,728 - INFO - Cargando datos nuevos desde: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv
+2025-12-11 16:51:00,729 - INFO - Encontradas 16 nuevas líneas para procesar
+2025-12-11 16:51:00,741 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 936d70c6...
+2025-12-11 16:51:00,743 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 78c242ac...
+2025-12-11 16:51:00,747 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 670bcbcd...
+2025-12-11 16:51:00,754 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 68bf9270...
+2025-12-11 16:51:00,759 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: ab9b8936...
+2025-12-11 16:51:00,764 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 9671d6a2...
+2025-12-11 16:51:00,768 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 709da6a5...
+2025-12-11 16:51:00,771 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 05430a94...
+2025-12-11 16:51:00,774 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: e0612a3b...
+2025-12-11 16:51:00,777 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: e388fb29...
+2025-12-11 16:51:00,780 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 7a490dda...
+2025-12-11 16:51:00,783 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: f7b93f19...
+2025-12-11 16:51:00,787 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 50c97686...
+2025-12-11 16:51:00,789 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:51:00, Hash: 1dd0fe4b...
+2025-12-11 16:51:00,789 - INFO - [SUCCESS] 14 nuevos registros guardados exitosamente
+2025-12-11 16:51:00,790 - INFO - ✓ 14 nuevos registros PLC cargados
+2025-12-11 16:51:00,790 - INFO - Iniciando monitor de CSV en background...
+2025-12-11 16:51:00,791 - INFO - Monitor de CSV iniciado en background (cada 30s)
+2025-12-11 16:51:00,791 - INFO - ✓ Monitor de CSV iniciado - verificará nuevos datos cada 30 segundos
+2025-12-11 16:51:00,798 - INFO - ✓ Successfully imported plc_data_processor
+2025-12-11 16:51:00,798 - INFO - Iniciando monitor de fotos en background...
+2025-12-11 16:51:00,799 - INFO - Monitor de ciclos iniciado en background (cada 30s)
+2025-12-11 16:51:00,799 - INFO - ✓ Monitor de fotos iniciado - creará inspecciones cada 30 segundos
+2025-12-11 16:51:00,801 - INFO - ============================================================
+2025-12-11 16:51:00,801 - INFO - Sistema Conuar iniciado completamente
+2025-12-11 16:51:00,801 - INFO -   - Monitor CSV: ✓ Activo (cada 30s)
+2025-12-11 16:51:00,801 - INFO -   - Monitor Fotos: ✓ Activo (cada 30s)
+2025-12-11 16:51:00,801 - INFO - Cargados 23 hashes de registros existentes
+2025-12-11 16:51:00,802 - INFO - ============================================================
+2025-12-11 16:51:00,802 - INFO - ================================================================================
+2025-12-11 16:51:00,803 - INFO - Iniciando monitor de archivo CSV
+2025-12-11 16:51:00,803 - INFO - Archivo: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv
+2025-12-11 16:51:00,803 - INFO - Intervalo: 30 segundos
+2025-12-11 16:51:00,803 - INFO - Presione Ctrl+C para detener...
+2025-12-11 16:51:00,804 - INFO - ================================================================================
+2025-12-11 16:51:00,804 - INFO - [Ciclo 1] Verificando archivo CSV...
+2025-12-11 16:51:00,819 - INFO - Watching for file changes with StatReloader
+2025-12-11 16:51:00,843 - INFO - Cargadas 1 fotos ya procesadas
+2025-12-11 16:51:00,843 - INFO - ================================================================================
+2025-12-11 16:51:00,843 - INFO - Iniciando monitor de ciclos PLC e inspecciones
+2025-12-11 16:51:00,844 - INFO - Intervalo: 30 segundos
+2025-12-11 16:51:00,844 - INFO - Presione Ctrl+C para detener...
+2025-12-11 16:51:00,844 - INFO - ================================================================================
+2025-12-11 16:51:00,844 - INFO - [Ciclo 1] Buscando ciclos PLC pendientes...
+2025-12-11 16:51:00,846 - INFO - Encontrados 15 registros raw no procesados
+2025-12-11 16:51:00,847 - INFO - ================================================================================
+2025-12-11 16:51:00,847 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:51:00,847 - INFO - Ciclos detectados: 2
+2025-12-11 16:51:00,847 - INFO - ================================================================================
+2025-12-11 16:51:00,847 - INFO - [Ciclo 1/2] Procesando filas PLC (11 to 15)
+2025-12-11 16:51:00,871 - WARNING - No se encontraron fotos para el ciclo Ciclo1-EC1-2025-12-11T16:51:00+00:00. Se marcan las filas como procesadas sin crear inspección.
+2025-12-11 16:51:00,899 - INFO - [Ciclo 2/2] Procesando filas PLC (17 to 21)
+2025-12-11 16:51:00,905 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:51:00,908 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:51:00,914 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:51:00,917 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:51:00,921 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:51:00,921 - WARNING - No se encontraron fotos para el ciclo Ciclo2-EC123-2025-12-11T16:51:00+00:00. Se marcan las filas como procesadas sin crear inspección.
+2025-12-11 16:51:00,927 - WARNING - Ciclos con error: 2
+2025-12-11 16:51:00,928 - INFO - [Ciclo 1] Ciclos detectados: 2, Inspecciones creadas: 0, Errores: 2
+2025-12-11 16:51:30,806 - INFO - [Ciclo 2] Verificando archivo CSV...
+2025-12-11 16:51:30,929 - INFO - [Ciclo 2] Buscando ciclos PLC pendientes...
+2025-12-11 16:51:30,931 - INFO - Encontrados 5 registros raw no procesados
+2025-12-11 16:51:30,932 - INFO - ================================================================================
+2025-12-11 16:51:30,933 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:51:30,933 - INFO - Ciclos detectados: 0
+2025-12-11 16:51:30,934 - INFO - ================================================================================
+2025-12-11 16:52:00,810 - INFO - [Ciclo 3] Verificando archivo CSV...
+2025-12-11 16:52:00,935 - INFO - [Ciclo 3] Buscando ciclos PLC pendientes...
+2025-12-11 16:52:00,936 - INFO - Encontrados 5 registros raw no procesados
+2025-12-11 16:52:00,937 - INFO - ================================================================================
+2025-12-11 16:52:00,937 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:52:00,938 - INFO - Ciclos detectados: 0
+2025-12-11 16:52:00,938 - INFO - ================================================================================
+2025-12-11 16:52:30,814 - INFO - [Ciclo 4] Verificando archivo CSV...
+2025-12-11 16:52:30,939 - INFO - [Ciclo 4] Buscando ciclos PLC pendientes...
+2025-12-11 16:52:30,941 - INFO - Encontrados 5 registros raw no procesados
+2025-12-11 16:52:30,942 - INFO - ================================================================================
+2025-12-11 16:52:30,942 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:52:30,942 - INFO - Ciclos detectados: 0
+2025-12-11 16:52:30,943 - INFO - ================================================================================
+2025-12-11 16:53:00,817 - INFO - [Ciclo 5] Verificando archivo CSV...
+2025-12-11 16:53:00,944 - INFO - [Ciclo 5] Buscando ciclos PLC pendientes...
+2025-12-11 16:53:00,947 - INFO - Encontrados 5 registros raw no procesados
+2025-12-11 16:53:00,947 - INFO - ================================================================================
+2025-12-11 16:53:00,947 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:53:00,948 - INFO - Ciclos detectados: 0
+2025-12-11 16:53:00,948 - INFO - ================================================================================
+2025-12-11 16:53:30,819 - INFO - [Ciclo 6] Verificando archivo CSV...
+2025-12-11 16:53:30,950 - INFO - [Ciclo 6] Buscando ciclos PLC pendientes...
+2025-12-11 16:53:30,952 - INFO - Encontrados 5 registros raw no procesados
+2025-12-11 16:53:30,952 - INFO - ================================================================================
+2025-12-11 16:53:30,953 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:53:30,953 - INFO - Ciclos detectados: 0
+2025-12-11 16:53:30,953 - INFO - ================================================================================
+2025-12-11 16:54:00,822 - INFO - [Ciclo 7] Verificando archivo CSV...
+2025-12-11 16:54:00,823 - INFO - Encontradas 6 nuevas líneas para procesar
+2025-12-11 16:54:00,832 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:54:00, Hash: 739ef13d...
+2025-12-11 16:54:00,837 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:54:00, Hash: 145e24eb...
+2025-12-11 16:54:00,841 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:54:00, Hash: 82920b95...
+2025-12-11 16:54:00,860 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:54:00, Hash: 9f351f21...
+2025-12-11 16:54:00,864 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:54:00, Hash: 8270eef3...
+2025-12-11 16:54:00,868 - INFO - [NEW] Dato guardado - Timestamp: 2025-12-11 16:54:00, Hash: d8ff7d81...
+2025-12-11 16:54:00,868 - INFO - [SUCCESS] 6 nuevos registros guardados exitosamente
+2025-12-11 16:54:00,868 - INFO - [Ciclo 7] Nuevos: 6, Errores: 0
+2025-12-11 16:54:00,954 - INFO - [Ciclo 7] Buscando ciclos PLC pendientes...
+2025-12-11 16:54:00,957 - INFO - Encontrados 11 registros raw no procesados
+2025-12-11 16:54:00,957 - INFO - ================================================================================
+2025-12-11 16:54:00,958 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:54:00,958 - INFO - Ciclos detectados: 1
+2025-12-11 16:54:00,958 - INFO - ================================================================================
+2025-12-11 16:54:00,959 - INFO - [Ciclo 1/1] Procesando filas PLC (24 to 28)
+2025-12-11 16:54:00,966 - INFO - Foto Ciclo2-EC123-1F-041225_154941-NOK.bmp: defecto_from_photo=True, defecto_from_csv=False, defecto_encontrado=True
+2025-12-11 16:54:00,966 - INFO - Creada carpeta de inspección: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_photos\PROCESSED\Ciclo2-EC123-1F-041225_154941-NOK
+2025-12-11 16:54:00,974 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:54:00,978 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:54:00,983 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:54:00,987 - WARNING - No se encontró foto en STAGING para ciclo Ciclo2 ID 1F
+2025-12-11 16:54:00,989 - INFO - Inspección Ciclo2-EC123-2025-12-11T16:54:00+00:00: defectos encontrados en 1 de 1 fotos
+2025-12-11 16:54:01,065 - INFO - Estadísticas de máquina actualizadas - Total: 2
+2025-12-11 16:54:01,069 - INFO - Inspecciones creadas: 1
+2025-12-11 16:54:01,069 - INFO - [Ciclo 7] Ciclos detectados: 1, Inspecciones creadas: 1, Errores: 0
+2025-12-11 16:54:30,869 - INFO - [Ciclo 8] Verificando archivo CSV...
+2025-12-11 16:54:31,070 - INFO - [Ciclo 8] Buscando ciclos PLC pendientes...
+2025-12-11 16:54:31,072 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:54:31,073 - INFO - ================================================================================
+2025-12-11 16:54:31,074 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:54:31,074 - INFO - Ciclos detectados: 0
+2025-12-11 16:54:31,074 - INFO - ================================================================================
+2025-12-11 16:55:00,873 - INFO - [Ciclo 9] Verificando archivo CSV...
+2025-12-11 16:55:01,077 - INFO - [Ciclo 9] Buscando ciclos PLC pendientes...
+2025-12-11 16:55:01,077 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:55:01,077 - INFO - ================================================================================
+2025-12-11 16:55:01,077 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:55:01,077 - INFO - Ciclos detectados: 0
+2025-12-11 16:55:01,077 - INFO - ================================================================================
+2025-12-11 16:55:30,877 - INFO - [Ciclo 10] Verificando archivo CSV...
+2025-12-11 16:55:31,084 - INFO - [Ciclo 10] Buscando ciclos PLC pendientes...
+2025-12-11 16:55:31,084 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:55:31,089 - INFO - ================================================================================
+2025-12-11 16:55:31,089 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:55:31,089 - INFO - Ciclos detectados: 0
+2025-12-11 16:55:31,089 - INFO - ================================================================================
+2025-12-11 16:56:00,881 - INFO - [Ciclo 11] Verificando archivo CSV...
+2025-12-11 16:56:01,093 - INFO - [Ciclo 11] Buscando ciclos PLC pendientes...
+2025-12-11 16:56:01,093 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:56:01,093 - INFO - ================================================================================
+2025-12-11 16:56:01,093 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:56:01,093 - INFO - Ciclos detectados: 0
+2025-12-11 16:56:01,093 - INFO - ================================================================================
+2025-12-11 16:56:30,884 - INFO - [Ciclo 12] Verificando archivo CSV...
+2025-12-11 16:56:31,099 - INFO - [Ciclo 12] Buscando ciclos PLC pendientes...
+2025-12-11 16:56:31,099 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:56:31,099 - INFO - ================================================================================
+2025-12-11 16:56:31,104 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:56:31,104 - INFO - Ciclos detectados: 0
+2025-12-11 16:56:31,104 - INFO - ================================================================================
+2025-12-11 16:57:00,888 - INFO - [Ciclo 13] Verificando archivo CSV...
+2025-12-11 16:57:01,107 - INFO - [Ciclo 13] Buscando ciclos PLC pendientes...
+2025-12-11 16:57:01,107 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:57:01,107 - INFO - ================================================================================
+2025-12-11 16:57:01,107 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:57:01,107 - INFO - Ciclos detectados: 0
+2025-12-11 16:57:01,107 - INFO - ================================================================================
+2025-12-11 16:57:30,891 - INFO - [Ciclo 14] Verificando archivo CSV...
+2025-12-11 16:57:31,113 - INFO - [Ciclo 14] Buscando ciclos PLC pendientes...
+2025-12-11 16:57:31,117 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:57:31,117 - INFO - ================================================================================
+2025-12-11 16:57:31,117 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:57:31,117 - INFO - Ciclos detectados: 0
+2025-12-11 16:57:31,117 - INFO - ================================================================================
+2025-12-11 16:58:00,894 - INFO - [Ciclo 15] Verificando archivo CSV...
+2025-12-11 16:58:01,123 - INFO - [Ciclo 15] Buscando ciclos PLC pendientes...
+2025-12-11 16:58:01,123 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:58:01,123 - INFO - ================================================================================
+2025-12-11 16:58:01,123 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:58:01,123 - INFO - Ciclos detectados: 0
+2025-12-11 16:58:01,123 - INFO - ================================================================================
+2025-12-11 16:58:30,897 - INFO - [Ciclo 16] Verificando archivo CSV...
+2025-12-11 16:58:31,132 - INFO - [Ciclo 16] Buscando ciclos PLC pendientes...
+2025-12-11 16:58:31,132 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:58:31,132 - INFO - ================================================================================
+2025-12-11 16:58:31,132 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:58:31,132 - INFO - Ciclos detectados: 0
+2025-12-11 16:58:31,132 - INFO - ================================================================================
+2025-12-11 16:59:00,902 - INFO - [Ciclo 17] Verificando archivo CSV...
+2025-12-11 16:59:01,141 - INFO - [Ciclo 17] Buscando ciclos PLC pendientes...
+2025-12-11 16:59:01,141 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:59:01,141 - INFO - ================================================================================
+2025-12-11 16:59:01,141 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:59:01,141 - INFO - Ciclos detectados: 0
+2025-12-11 16:59:01,141 - INFO - ================================================================================
+2025-12-11 16:59:30,905 - INFO - [Ciclo 18] Verificando archivo CSV...
+2025-12-11 16:59:31,148 - INFO - [Ciclo 18] Buscando ciclos PLC pendientes...
+2025-12-11 16:59:31,152 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 16:59:31,153 - INFO - ================================================================================
+2025-12-11 16:59:31,154 - INFO - Procesamiento de ciclos PLC
+2025-12-11 16:59:31,155 - INFO - Ciclos detectados: 0
+2025-12-11 16:59:31,155 - INFO - ================================================================================
+2025-12-11 17:00:00,907 - INFO - [Ciclo 19] Verificando archivo CSV...
+2025-12-11 17:00:01,156 - INFO - [Ciclo 19] Buscando ciclos PLC pendientes...
+2025-12-11 17:00:01,156 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:00:01,156 - INFO - ================================================================================
+2025-12-11 17:00:01,156 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:00:01,156 - INFO - Ciclos detectados: 0
+2025-12-11 17:00:01,156 - INFO - ================================================================================
+2025-12-11 17:00:30,910 - INFO - [Ciclo 20] Verificando archivo CSV...
+2025-12-11 17:00:31,163 - INFO - [Ciclo 20] Buscando ciclos PLC pendientes...
+2025-12-11 17:00:31,163 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:00:31,163 - INFO - ================================================================================
+2025-12-11 17:00:31,163 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:00:31,163 - INFO - Ciclos detectados: 0
+2025-12-11 17:00:31,163 - INFO - ================================================================================
+2025-12-11 17:01:00,913 - INFO - [Ciclo 21] Verificando archivo CSV...
+2025-12-11 17:01:01,173 - INFO - [Ciclo 21] Buscando ciclos PLC pendientes...
+2025-12-11 17:01:01,173 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:01:01,173 - INFO - ================================================================================
+2025-12-11 17:01:01,177 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:01:01,177 - INFO - Ciclos detectados: 0
+2025-12-11 17:01:01,177 - INFO - ================================================================================
+2025-12-11 17:01:30,916 - INFO - [Ciclo 22] Verificando archivo CSV...
+2025-12-11 17:01:31,181 - INFO - [Ciclo 22] Buscando ciclos PLC pendientes...
+2025-12-11 17:01:31,181 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:01:31,181 - INFO - ================================================================================
+2025-12-11 17:01:31,181 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:01:31,181 - INFO - Ciclos detectados: 0
+2025-12-11 17:01:31,181 - INFO - ================================================================================
+2025-12-11 17:02:00,920 - INFO - [Ciclo 23] Verificando archivo CSV...
+2025-12-11 17:02:01,187 - INFO - [Ciclo 23] Buscando ciclos PLC pendientes...
+2025-12-11 17:02:01,190 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:02:01,191 - INFO - ================================================================================
+2025-12-11 17:02:01,192 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:02:01,193 - INFO - Ciclos detectados: 0
+2025-12-11 17:02:01,193 - INFO - ================================================================================
+2025-12-11 17:02:24,487 - INFO - "GET / HTTP/1.1" 302 0
+2025-12-11 17:02:24,496 - INFO - "GET /inspections/ HTTP/1.1" 302 0
+2025-12-11 17:02:24,533 - INFO - "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+2025-12-11 17:02:24,629 - INFO - "GET /static/css/custom.css HTTP/1.1" 200 8902
+2025-12-11 17:02:24,634 - INFO - "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+2025-12-11 17:02:24,637 - INFO - "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+2025-12-11 17:02:24,789 - INFO - "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+2025-12-11 17:02:30,923 - INFO - [Ciclo 24] Verificando archivo CSV...
+2025-12-11 17:02:31,194 - INFO - [Ciclo 24] Buscando ciclos PLC pendientes...
+2025-12-11 17:02:31,199 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:02:31,200 - INFO - ================================================================================
+2025-12-11 17:02:31,202 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:02:31,202 - INFO - Ciclos detectados: 0
+2025-12-11 17:02:31,203 - INFO - ================================================================================
+2025-12-11 17:02:44,901 - INFO - "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+2025-12-11 17:02:44,963 - INFO - "GET /inspections/ HTTP/1.1" 200 30160
+2025-12-11 17:02:53,153 - INFO - "GET /inspection/5/ HTTP/1.1" 200 28088
+2025-12-11 17:02:53,189 - INFO - "GET /media/inspection_photos/PROCESSED/Ciclo2-EC123-1F-041225_154941-NOK/Ciclo2-EC123-1F-041225_154941-NOK.bmp HTTP/1.1" 200 5014632
+2025-12-11 17:03:00,928 - INFO - [Ciclo 25] Verificando archivo CSV...
+2025-12-11 17:03:01,205 - INFO - [Ciclo 25] Buscando ciclos PLC pendientes...
+2025-12-11 17:03:01,211 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:03:01,212 - INFO - ================================================================================
+2025-12-11 17:03:01,212 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:03:01,213 - INFO - Ciclos detectados: 0
+2025-12-11 17:03:01,214 - INFO - ================================================================================
+2025-12-11 17:03:30,929 - INFO - [Ciclo 26] Verificando archivo CSV...
+2025-12-11 17:03:31,215 - INFO - [Ciclo 26] Buscando ciclos PLC pendientes...
+2025-12-11 17:03:31,219 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:03:31,220 - INFO - ================================================================================
+2025-12-11 17:03:31,221 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:03:31,221 - INFO - Ciclos detectados: 0
+2025-12-11 17:03:31,222 - INFO - ================================================================================
+2025-12-11 17:04:00,933 - INFO - [Ciclo 27] Verificando archivo CSV...
+2025-12-11 17:04:01,223 - INFO - [Ciclo 27] Buscando ciclos PLC pendientes...
+2025-12-11 17:04:01,228 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:04:01,229 - INFO - ================================================================================
+2025-12-11 17:04:01,230 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:04:01,230 - INFO - Ciclos detectados: 0
+2025-12-11 17:04:01,230 - INFO - ================================================================================
+2025-12-11 17:04:30,936 - INFO - [Ciclo 28] Verificando archivo CSV...
+2025-12-11 17:04:31,232 - INFO - [Ciclo 28] Buscando ciclos PLC pendientes...
+2025-12-11 17:04:31,237 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:04:31,237 - INFO - ================================================================================
+2025-12-11 17:04:31,239 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:04:31,239 - INFO - Ciclos detectados: 0
+2025-12-11 17:04:31,241 - INFO - ================================================================================
+2025-12-11 17:05:00,940 - INFO - [Ciclo 29] Verificando archivo CSV...
+2025-12-11 17:05:01,242 - INFO - [Ciclo 29] Buscando ciclos PLC pendientes...
+2025-12-11 17:05:01,245 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:05:01,246 - INFO - ================================================================================
+2025-12-11 17:05:01,246 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:05:01,246 - INFO - Ciclos detectados: 0
+2025-12-11 17:05:01,247 - INFO - ================================================================================
+2025-12-11 17:18:41,138 - INFO - ✓ Successfully imported plc_data_reader
+2025-12-11 17:18:41,139 - INFO - Loading initial PLC data from CSV...
+2025-12-11 17:18:41,146 - INFO - Cargados 29 hashes de registros existentes
+2025-12-11 17:18:41,146 - INFO - Cargando datos nuevos desde: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv
+2025-12-11 17:18:41,148 - INFO - ✓ No hay nuevos registros PLC para cargar (ya están en la base de datos)
+2025-12-11 17:18:41,148 - INFO - Iniciando monitor de CSV en background...
+2025-12-11 17:18:41,149 - INFO - Monitor de CSV iniciado en background (cada 30s)
+2025-12-11 17:18:41,149 - INFO - ✓ Monitor de CSV iniciado - verificará nuevos datos cada 30 segundos
+2025-12-11 17:18:41,151 - INFO - ✓ Successfully imported plc_data_processor
+2025-12-11 17:18:41,152 - INFO - Iniciando monitor de fotos en background...
+2025-12-11 17:18:41,153 - INFO - Monitor de ciclos iniciado en background (cada 30s)
+2025-12-11 17:18:41,153 - INFO - ✓ Monitor de fotos iniciado - creará inspecciones cada 30 segundos
+2025-12-11 17:18:41,154 - INFO - ============================================================
+2025-12-11 17:18:41,154 - INFO - Sistema Conuar iniciado completamente
+2025-12-11 17:18:41,156 - INFO -   - Monitor CSV: ✓ Activo (cada 30s)
+2025-12-11 17:18:41,156 - INFO - Cargados 29 hashes de registros existentes
+2025-12-11 17:18:41,156 - INFO -   - Monitor Fotos: ✓ Activo (cada 30s)
+2025-12-11 17:18:41,156 - INFO - ================================================================================
+2025-12-11 17:18:41,156 - INFO - ============================================================
+2025-12-11 17:18:41,157 - INFO - Iniciando monitor de archivo CSV
+2025-12-11 17:18:41,157 - INFO - Archivo: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv
+2025-12-11 17:18:41,158 - INFO - Intervalo: 30 segundos
+2025-12-11 17:18:41,159 - INFO - Presione Ctrl+C para detener...
+2025-12-11 17:18:41,159 - INFO - ================================================================================
+2025-12-11 17:18:41,159 - INFO - [Ciclo 1] Verificando archivo CSV...
+2025-12-11 17:18:41,162 - INFO - Cargadas 2 fotos ya procesadas
+2025-12-11 17:18:41,163 - INFO - ================================================================================
+2025-12-11 17:18:41,163 - INFO - Iniciando monitor de ciclos PLC e inspecciones
+2025-12-11 17:18:41,163 - INFO - Intervalo: 30 segundos
+2025-12-11 17:18:41,163 - INFO - Presione Ctrl+C para detener...
+2025-12-11 17:18:41,163 - INFO - ================================================================================
+2025-12-11 17:18:41,163 - INFO - [Ciclo 1] Buscando ciclos PLC pendientes...
+2025-12-11 17:18:41,165 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:18:41,165 - INFO - ================================================================================
+2025-12-11 17:18:41,165 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:18:41,165 - INFO - Ciclos detectados: 0
+2025-12-11 17:18:41,165 - INFO - ================================================================================
+2025-12-11 17:18:41,176 - INFO - Watching for file changes with StatReloader
+2025-12-11 17:18:45,824 - INFO - "GET /logout/ HTTP/1.1" 302 0
+2025-12-11 17:18:45,831 - INFO - "GET /login/ HTTP/1.1" 200 16549
+2025-12-11 17:18:59,005 - INFO - "POST /login/ HTTP/1.1" 302 0
+2025-12-11 17:18:59,051 - INFO - "GET /inspections/ HTTP/1.1" 200 30160
+2025-12-11 17:19:02,832 - INFO - "GET /inspection/5/ HTTP/1.1" 200 28088
+2025-12-11 17:19:08,197 - WARNING - Need a valid file name!
+'<img src="file://C:\\Users\\USER\\Documents\\GitHub\\Inspection_webapp\\Conuar\\conuar_webapp\\static\\assets\\logo_conuar1.svg" alt="Logo Conuar"/>'
+2025-12-11 17:19:08,212 - WARNING - Need a valid file name!
+'<img src="file://C:\\Users\\USER\\Documents\\GitHub\\Inspection_webapp\\Conuar\\conuar_webapp\\static\\assets\\logo_conuar1.svg" alt="Logo Conuar"/>'
+2025-12-11 17:19:08,229 - WARNING - Need a valid file name!
+'<img src="file://C:\\Users\\USER\\Documents\\GitHub\\Inspection_webapp\\Conuar\\conuar_webapp\\media\\inspection_photos\\PROCESSED\\Ciclo2-EC123-1F-041225_154941-NOK\\Ciclo2-EC123-1F-041225_154941-NOK.bmp" alt="Ciclo Ciclo2 ID 1F" style="max-width: 100%; height: auto; margin: 10px 0;"/>'
+2025-12-11 17:19:08,245 - INFO - "GET /inspection/5/pdf/ HTTP/1.1" 200 4886
+2025-12-11 17:19:11,161 - INFO - [Ciclo 2] Verificando archivo CSV...
+2025-12-11 17:19:11,166 - INFO - [Ciclo 2] Buscando ciclos PLC pendientes...
+2025-12-11 17:19:11,169 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:19:11,169 - INFO - ================================================================================
+2025-12-11 17:19:11,170 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:19:11,170 - INFO - Ciclos detectados: 0
+2025-12-11 17:19:11,170 - INFO - ================================================================================
+2025-12-11 17:19:41,167 - INFO - [Ciclo 3] Verificando archivo CSV...
+2025-12-11 17:19:41,171 - INFO - [Ciclo 3] Buscando ciclos PLC pendientes...
+2025-12-11 17:19:41,171 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:19:41,171 - INFO - ================================================================================
+2025-12-11 17:19:41,171 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:19:41,171 - INFO - Ciclos detectados: 0
+2025-12-11 17:19:41,171 - INFO - ================================================================================
+2025-12-11 17:20:11,173 - INFO - [Ciclo 4] Verificando archivo CSV...
+2025-12-11 17:20:11,177 - INFO - [Ciclo 4] Buscando ciclos PLC pendientes...
+2025-12-11 17:20:11,181 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:20:11,181 - INFO - ================================================================================
+2025-12-11 17:20:11,181 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:20:11,181 - INFO - Ciclos detectados: 0
+2025-12-11 17:20:11,181 - INFO - ================================================================================
+2025-12-11 17:20:41,176 - INFO - [Ciclo 5] Verificando archivo CSV...
+2025-12-11 17:20:41,186 - INFO - [Ciclo 5] Buscando ciclos PLC pendientes...
+2025-12-11 17:20:41,189 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:20:41,189 - INFO - ================================================================================
+2025-12-11 17:20:41,189 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:20:41,189 - INFO - Ciclos detectados: 0
+2025-12-11 17:20:41,189 - INFO - ================================================================================
+2025-12-11 17:21:11,180 - INFO - [Ciclo 6] Verificando archivo CSV...
+2025-12-11 17:21:11,192 - INFO - [Ciclo 6] Buscando ciclos PLC pendientes...
+2025-12-11 17:21:11,192 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:21:11,192 - INFO - ================================================================================
+2025-12-11 17:21:11,192 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:21:11,192 - INFO - Ciclos detectados: 0
+2025-12-11 17:21:11,192 - INFO - ================================================================================
+2025-12-11 17:21:41,183 - INFO - [Ciclo 7] Verificando archivo CSV...
+2025-12-11 17:21:41,198 - INFO - [Ciclo 7] Buscando ciclos PLC pendientes...
+2025-12-11 17:21:41,198 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:21:41,198 - INFO - ================================================================================
+2025-12-11 17:21:41,198 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:21:41,198 - INFO - Ciclos detectados: 0
+2025-12-11 17:21:41,198 - INFO - ================================================================================
+2025-12-11 17:22:11,186 - INFO - [Ciclo 8] Verificando archivo CSV...
+2025-12-11 17:22:11,206 - INFO - [Ciclo 8] Buscando ciclos PLC pendientes...
+2025-12-11 17:22:11,206 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:22:11,206 - INFO - ================================================================================
+2025-12-11 17:22:11,206 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:22:11,206 - INFO - Ciclos detectados: 0
+2025-12-11 17:22:11,206 - INFO - ================================================================================
+2025-12-11 17:22:41,189 - INFO - [Ciclo 9] Verificando archivo CSV...
+2025-12-11 17:22:41,212 - INFO - [Ciclo 9] Buscando ciclos PLC pendientes...
+2025-12-11 17:22:41,212 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:22:41,212 - INFO - ================================================================================
+2025-12-11 17:22:41,212 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:22:41,212 - INFO - Ciclos detectados: 0
+2025-12-11 17:22:41,212 - INFO - ================================================================================
+2025-12-11 17:23:11,192 - INFO - [Ciclo 10] Verificando archivo CSV...
+2025-12-11 17:23:11,220 - INFO - [Ciclo 10] Buscando ciclos PLC pendientes...
+2025-12-11 17:23:11,220 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:23:11,220 - INFO - ================================================================================
+2025-12-11 17:23:11,220 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:23:11,220 - INFO - Ciclos detectados: 0
+2025-12-11 17:23:11,220 - INFO - ================================================================================
+2025-12-11 17:23:41,195 - INFO - [Ciclo 11] Verificando archivo CSV...
+2025-12-11 17:23:41,230 - INFO - [Ciclo 11] Buscando ciclos PLC pendientes...
+2025-12-11 17:23:41,230 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:23:41,230 - INFO - ================================================================================
+2025-12-11 17:23:41,230 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:23:41,230 - INFO - Ciclos detectados: 0
+2025-12-11 17:23:41,230 - INFO - ================================================================================
+2025-12-11 17:24:11,197 - INFO - [Ciclo 12] Verificando archivo CSV...
+2025-12-11 17:24:11,237 - INFO - [Ciclo 12] Buscando ciclos PLC pendientes...
+2025-12-11 17:24:11,237 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:24:11,237 - INFO - ================================================================================
+2025-12-11 17:24:11,237 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:24:11,237 - INFO - Ciclos detectados: 0
+2025-12-11 17:24:11,237 - INFO - ================================================================================
+2025-12-11 17:24:41,203 - INFO - [Ciclo 13] Verificando archivo CSV...
+2025-12-11 17:24:41,243 - INFO - [Ciclo 13] Buscando ciclos PLC pendientes...
+2025-12-11 17:24:41,243 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:24:41,243 - INFO - ================================================================================
+2025-12-11 17:24:41,243 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:24:41,243 - INFO - Ciclos detectados: 0
+2025-12-11 17:24:41,243 - INFO - ================================================================================
+2025-12-11 17:25:11,207 - INFO - [Ciclo 14] Verificando archivo CSV...
+2025-12-11 17:25:11,250 - INFO - [Ciclo 14] Buscando ciclos PLC pendientes...
+2025-12-11 17:25:11,250 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:25:11,250 - INFO - ================================================================================
+2025-12-11 17:25:11,250 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:25:11,250 - INFO - Ciclos detectados: 0
+2025-12-11 17:25:11,250 - INFO - ================================================================================
+2025-12-11 17:25:41,210 - INFO - [Ciclo 15] Verificando archivo CSV...
+2025-12-11 17:25:41,257 - INFO - [Ciclo 15] Buscando ciclos PLC pendientes...
+2025-12-11 17:25:41,259 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:25:41,259 - INFO - ================================================================================
+2025-12-11 17:25:41,259 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:25:41,259 - INFO - Ciclos detectados: 0
+2025-12-11 17:25:41,259 - INFO - ================================================================================
+2025-12-11 17:26:11,218 - INFO - [Ciclo 16] Verificando archivo CSV...
+2025-12-11 17:26:11,269 - INFO - [Ciclo 16] Buscando ciclos PLC pendientes...
+2025-12-11 17:26:11,270 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:26:11,270 - INFO - ================================================================================
+2025-12-11 17:26:11,270 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:26:11,270 - INFO - Ciclos detectados: 0
+2025-12-11 17:26:11,270 - INFO - ================================================================================
+2025-12-11 17:26:41,221 - INFO - [Ciclo 17] Verificando archivo CSV...
+2025-12-11 17:26:41,273 - INFO - [Ciclo 17] Buscando ciclos PLC pendientes...
+2025-12-11 17:26:41,273 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:26:41,273 - INFO - ================================================================================
+2025-12-11 17:26:41,273 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:26:41,273 - INFO - Ciclos detectados: 0
+2025-12-11 17:26:41,273 - INFO - ================================================================================
+2025-12-11 17:27:11,225 - INFO - [Ciclo 18] Verificando archivo CSV...
+2025-12-11 17:27:11,282 - INFO - [Ciclo 18] Buscando ciclos PLC pendientes...
+2025-12-11 17:27:11,282 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:27:11,282 - INFO - ================================================================================
+2025-12-11 17:27:11,282 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:27:11,282 - INFO - Ciclos detectados: 0
+2025-12-11 17:27:11,282 - INFO - ================================================================================
+2025-12-11 17:27:41,228 - INFO - [Ciclo 19] Verificando archivo CSV...
+2025-12-11 17:27:41,288 - INFO - [Ciclo 19] Buscando ciclos PLC pendientes...
+2025-12-11 17:27:41,294 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:27:41,294 - INFO - ================================================================================
+2025-12-11 17:27:41,294 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:27:41,294 - INFO - Ciclos detectados: 0
+2025-12-11 17:27:41,294 - INFO - ================================================================================
+2025-12-11 17:28:11,233 - INFO - [Ciclo 20] Verificando archivo CSV...
+2025-12-11 17:28:11,297 - INFO - [Ciclo 20] Buscando ciclos PLC pendientes...
+2025-12-11 17:28:11,302 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:28:11,302 - INFO - ================================================================================
+2025-12-11 17:28:11,302 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:28:11,302 - INFO - Ciclos detectados: 0
+2025-12-11 17:28:11,302 - INFO - ================================================================================
+2025-12-11 17:28:41,241 - INFO - [Ciclo 21] Verificando archivo CSV...
+2025-12-11 17:28:41,307 - INFO - [Ciclo 21] Buscando ciclos PLC pendientes...
+2025-12-11 17:28:41,307 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:28:41,307 - INFO - ================================================================================
+2025-12-11 17:28:41,307 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:28:41,307 - INFO - Ciclos detectados: 0
+2025-12-11 17:28:41,307 - INFO - ================================================================================
+2025-12-11 17:29:06,737 - INFO - - Broken pipe from ('127.0.0.1', 59455)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 55401)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 61070)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 52938)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 65493)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 59268)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 51956)
+2025-12-11 17:29:06,745 - INFO - - Broken pipe from ('127.0.0.1', 63306)
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 60358)
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 61594)
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 52066)
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 56331)
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 62453)
+2025-12-11 17:29:06,760 - INFO - "GET /logout/ HTTP/1.1" 302 0
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 53182)
+2025-12-11 17:29:06,760 - INFO - "GET /login/ HTTP/1.1" 200 16549
+2025-12-11 17:29:06,760 - INFO - - Broken pipe from ('127.0.0.1', 62709)
+2025-12-11 17:29:11,244 - INFO - [Ciclo 22] Verificando archivo CSV...
+2025-12-11 17:29:11,318 - INFO - [Ciclo 22] Buscando ciclos PLC pendientes...
+2025-12-11 17:29:11,320 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:29:11,320 - INFO - ================================================================================
+2025-12-11 17:29:11,320 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:29:11,320 - INFO - Ciclos detectados: 0
+2025-12-11 17:29:11,320 - INFO - ================================================================================
+2025-12-11 17:29:41,249 - INFO - [Ciclo 23] Verificando archivo CSV...
+2025-12-11 17:29:41,323 - INFO - [Ciclo 23] Buscando ciclos PLC pendientes...
+2025-12-11 17:29:41,323 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:29:41,323 - INFO - ================================================================================
+2025-12-11 17:29:41,323 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:29:41,323 - INFO - Ciclos detectados: 0
+2025-12-11 17:29:41,323 - INFO - ================================================================================
+2025-12-11 17:30:11,250 - INFO - [Ciclo 24] Verificando archivo CSV...
+2025-12-11 17:30:11,331 - INFO - [Ciclo 24] Buscando ciclos PLC pendientes...
+2025-12-11 17:30:11,331 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:30:11,331 - INFO - ================================================================================
+2025-12-11 17:30:11,331 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:30:11,331 - INFO - Ciclos detectados: 0
+2025-12-11 17:30:11,331 - INFO - ================================================================================
+2025-12-11 17:30:41,255 - INFO - [Ciclo 25] Verificando archivo CSV...
+2025-12-11 17:30:41,339 - INFO - [Ciclo 25] Buscando ciclos PLC pendientes...
+2025-12-11 17:30:41,339 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:30:41,339 - INFO - ================================================================================
+2025-12-11 17:30:41,339 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:30:41,339 - INFO - Ciclos detectados: 0
+2025-12-11 17:30:41,348 - INFO - ================================================================================
+2025-12-11 17:31:11,259 - INFO - [Ciclo 26] Verificando archivo CSV...
+2025-12-11 17:31:11,349 - INFO - [Ciclo 26] Buscando ciclos PLC pendientes...
+2025-12-11 17:31:11,352 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:31:11,355 - INFO - ================================================================================
+2025-12-11 17:31:11,355 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:31:11,355 - INFO - Ciclos detectados: 0
+2025-12-11 17:31:11,355 - INFO - ================================================================================
+2025-12-11 17:31:41,266 - INFO - [Ciclo 27] Verificando archivo CSV...
+2025-12-11 17:31:41,358 - INFO - [Ciclo 27] Buscando ciclos PLC pendientes...
+2025-12-11 17:31:41,361 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:31:41,361 - INFO - ================================================================================
+2025-12-11 17:31:41,361 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:31:41,361 - INFO - Ciclos detectados: 0
+2025-12-11 17:31:41,361 - INFO - ================================================================================
+2025-12-11 17:32:11,274 - INFO - [Ciclo 28] Verificando archivo CSV...
+2025-12-11 17:32:11,366 - INFO - [Ciclo 28] Buscando ciclos PLC pendientes...
+2025-12-11 17:32:11,366 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:32:11,366 - INFO - ================================================================================
+2025-12-11 17:32:11,366 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:32:11,366 - INFO - Ciclos detectados: 0
+2025-12-11 17:32:11,366 - INFO - ================================================================================
+2025-12-11 17:32:41,277 - INFO - [Ciclo 29] Verificando archivo CSV...
+2025-12-11 17:32:41,375 - INFO - [Ciclo 29] Buscando ciclos PLC pendientes...
+2025-12-11 17:32:41,375 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:32:41,375 - INFO - ================================================================================
+2025-12-11 17:32:41,375 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:32:41,375 - INFO - Ciclos detectados: 0
+2025-12-11 17:32:41,375 - INFO - ================================================================================
+2025-12-11 17:33:11,280 - INFO - [Ciclo 30] Verificando archivo CSV...
+2025-12-11 17:33:11,384 - INFO - [Ciclo 30] Buscando ciclos PLC pendientes...
+2025-12-11 17:33:11,391 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:33:11,391 - INFO - ================================================================================
+2025-12-11 17:33:11,391 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:33:11,391 - INFO - Ciclos detectados: 0
+2025-12-11 17:33:11,391 - INFO - ================================================================================
+2025-12-11 17:33:41,286 - INFO - [Ciclo 31] Verificando archivo CSV...
+2025-12-11 17:33:41,396 - INFO - [Ciclo 31] Buscando ciclos PLC pendientes...
+2025-12-11 17:33:41,397 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:33:41,397 - INFO - ================================================================================
+2025-12-11 17:33:41,397 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:33:41,397 - INFO - Ciclos detectados: 0
+2025-12-11 17:33:41,397 - INFO - ================================================================================
+2025-12-11 17:34:11,288 - INFO - [Ciclo 32] Verificando archivo CSV...
+2025-12-11 17:34:11,405 - INFO - [Ciclo 32] Buscando ciclos PLC pendientes...
+2025-12-11 17:34:11,410 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:34:11,410 - INFO - ================================================================================
+2025-12-11 17:34:11,410 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:34:11,410 - INFO - Ciclos detectados: 0
+2025-12-11 17:34:11,410 - INFO - ================================================================================
+2025-12-11 17:34:41,293 - INFO - [Ciclo 33] Verificando archivo CSV...
+2025-12-11 17:34:41,414 - INFO - [Ciclo 33] Buscando ciclos PLC pendientes...
+2025-12-11 17:34:41,414 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:34:41,414 - INFO - ================================================================================
+2025-12-11 17:34:41,414 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:34:41,414 - INFO - Ciclos detectados: 0
+2025-12-11 17:34:41,414 - INFO - ================================================================================
+2025-12-11 17:35:11,294 - INFO - [Ciclo 34] Verificando archivo CSV...
+2025-12-11 17:35:11,421 - INFO - [Ciclo 34] Buscando ciclos PLC pendientes...
+2025-12-11 17:35:11,421 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:35:11,421 - INFO - ================================================================================
+2025-12-11 17:35:11,421 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:35:11,421 - INFO - Ciclos detectados: 0
+2025-12-11 17:35:11,421 - INFO - ================================================================================
+2025-12-11 17:35:41,297 - INFO - [Ciclo 35] Verificando archivo CSV...
+2025-12-11 17:35:41,427 - INFO - [Ciclo 35] Buscando ciclos PLC pendientes...
+2025-12-11 17:35:41,427 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:35:41,427 - INFO - ================================================================================
+2025-12-11 17:35:41,427 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:35:41,427 - INFO - Ciclos detectados: 0
+2025-12-11 17:35:41,427 - INFO - ================================================================================
+2025-12-11 17:36:11,300 - INFO - [Ciclo 36] Verificando archivo CSV...
+2025-12-11 17:36:11,437 - INFO - [Ciclo 36] Buscando ciclos PLC pendientes...
+2025-12-11 17:36:11,437 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:36:11,437 - INFO - ================================================================================
+2025-12-11 17:36:11,437 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:36:11,437 - INFO - Ciclos detectados: 0
+2025-12-11 17:36:11,437 - INFO - ================================================================================
+2025-12-11 17:36:41,305 - INFO - [Ciclo 37] Verificando archivo CSV...
+2025-12-11 17:36:41,444 - INFO - [Ciclo 37] Buscando ciclos PLC pendientes...
+2025-12-11 17:36:41,444 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:36:41,444 - INFO - ================================================================================
+2025-12-11 17:36:41,444 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:36:41,444 - INFO - Ciclos detectados: 0
+2025-12-11 17:36:41,444 - INFO - ================================================================================
+2025-12-11 17:37:11,306 - INFO - [Ciclo 38] Verificando archivo CSV...
+2025-12-11 17:37:11,452 - INFO - [Ciclo 38] Buscando ciclos PLC pendientes...
+2025-12-11 17:37:11,452 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:37:11,452 - INFO - ================================================================================
+2025-12-11 17:37:11,452 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:37:11,452 - INFO - Ciclos detectados: 0
+2025-12-11 17:37:11,452 - INFO - ================================================================================
+2025-12-11 17:37:41,312 - INFO - [Ciclo 39] Verificando archivo CSV...
+2025-12-11 17:37:41,459 - INFO - [Ciclo 39] Buscando ciclos PLC pendientes...
+2025-12-11 17:37:41,459 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:37:41,459 - INFO - ================================================================================
+2025-12-11 17:37:41,459 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:37:41,459 - INFO - Ciclos detectados: 0
+2025-12-11 17:37:41,459 - INFO - ================================================================================
+2025-12-11 17:38:11,316 - INFO - [Ciclo 40] Verificando archivo CSV...
+2025-12-11 17:38:11,471 - INFO - [Ciclo 40] Buscando ciclos PLC pendientes...
+2025-12-11 17:38:11,471 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:38:11,471 - INFO - ================================================================================
+2025-12-11 17:38:11,471 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:38:11,471 - INFO - Ciclos detectados: 0
+2025-12-11 17:38:11,471 - INFO - ================================================================================
+2025-12-11 17:38:41,321 - INFO - [Ciclo 41] Verificando archivo CSV...
+2025-12-11 17:38:41,479 - INFO - [Ciclo 41] Buscando ciclos PLC pendientes...
+2025-12-11 17:38:41,479 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:38:41,479 - INFO - ================================================================================
+2025-12-11 17:38:41,479 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:38:41,479 - INFO - Ciclos detectados: 0
+2025-12-11 17:38:41,479 - INFO - ================================================================================
+2025-12-11 17:39:11,326 - INFO - [Ciclo 42] Verificando archivo CSV...
+2025-12-11 17:39:11,486 - INFO - [Ciclo 42] Buscando ciclos PLC pendientes...
+2025-12-11 17:39:11,486 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:39:11,486 - INFO - ================================================================================
+2025-12-11 17:39:11,486 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:39:11,494 - INFO - Ciclos detectados: 0
+2025-12-11 17:39:11,494 - INFO - ================================================================================
+2025-12-11 17:39:41,334 - INFO - [Ciclo 43] Verificando archivo CSV...
+2025-12-11 17:39:41,497 - INFO - [Ciclo 43] Buscando ciclos PLC pendientes...
+2025-12-11 17:39:41,497 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:39:41,497 - INFO - ================================================================================
+2025-12-11 17:39:41,497 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:39:41,497 - INFO - Ciclos detectados: 0
+2025-12-11 17:39:41,497 - INFO - ================================================================================
+2025-12-11 17:40:11,341 - INFO - [Ciclo 44] Verificando archivo CSV...
+2025-12-11 17:40:11,503 - INFO - [Ciclo 44] Buscando ciclos PLC pendientes...
+2025-12-11 17:40:11,503 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:40:11,503 - INFO - ================================================================================
+2025-12-11 17:40:11,503 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:40:11,503 - INFO - Ciclos detectados: 0
+2025-12-11 17:40:11,503 - INFO - ================================================================================
+2025-12-11 17:40:41,348 - INFO - [Ciclo 45] Verificando archivo CSV...
+2025-12-11 17:40:41,513 - INFO - [Ciclo 45] Buscando ciclos PLC pendientes...
+2025-12-11 17:40:41,513 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:40:41,513 - INFO - ================================================================================
+2025-12-11 17:40:41,513 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:40:41,513 - INFO - Ciclos detectados: 0
+2025-12-11 17:40:41,513 - INFO - ================================================================================
+2025-12-11 17:41:11,352 - INFO - [Ciclo 46] Verificando archivo CSV...
+2025-12-11 17:41:11,523 - INFO - [Ciclo 46] Buscando ciclos PLC pendientes...
+2025-12-11 17:41:11,523 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:41:11,523 - INFO - ================================================================================
+2025-12-11 17:41:11,523 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:41:11,523 - INFO - Ciclos detectados: 0
+2025-12-11 17:41:11,523 - INFO - ================================================================================
+2025-12-11 17:41:41,356 - INFO - [Ciclo 47] Verificando archivo CSV...
+2025-12-11 17:41:41,529 - INFO - [Ciclo 47] Buscando ciclos PLC pendientes...
+2025-12-11 17:41:41,529 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:41:41,529 - INFO - ================================================================================
+2025-12-11 17:41:41,529 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:41:41,529 - INFO - Ciclos detectados: 0
+2025-12-11 17:41:41,529 - INFO - ================================================================================
+2025-12-11 17:42:11,361 - INFO - [Ciclo 48] Verificando archivo CSV...
+2025-12-11 17:42:11,537 - INFO - [Ciclo 48] Buscando ciclos PLC pendientes...
+2025-12-11 17:42:11,537 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:42:11,537 - INFO - ================================================================================
+2025-12-11 17:42:11,537 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:42:11,537 - INFO - Ciclos detectados: 0
+2025-12-11 17:42:11,537 - INFO - ================================================================================
+2025-12-11 17:42:41,365 - INFO - [Ciclo 49] Verificando archivo CSV...
+2025-12-11 17:42:41,543 - INFO - [Ciclo 49] Buscando ciclos PLC pendientes...
+2025-12-11 17:42:41,544 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:42:41,544 - INFO - ================================================================================
+2025-12-11 17:42:41,544 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:42:41,544 - INFO - Ciclos detectados: 0
+2025-12-11 17:42:41,544 - INFO - ================================================================================
+2025-12-11 17:43:11,368 - INFO - [Ciclo 50] Verificando archivo CSV...
+2025-12-11 17:43:11,555 - INFO - [Ciclo 50] Buscando ciclos PLC pendientes...
+2025-12-11 17:43:11,555 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:43:11,555 - INFO - ================================================================================
+2025-12-11 17:43:11,555 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:43:11,555 - INFO - Ciclos detectados: 0
+2025-12-11 17:43:11,565 - INFO - ================================================================================
+2025-12-11 17:43:41,373 - INFO - [Ciclo 51] Verificando archivo CSV...
+2025-12-11 17:43:41,568 - INFO - [Ciclo 51] Buscando ciclos PLC pendientes...
+2025-12-11 17:43:41,568 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:43:41,568 - INFO - ================================================================================
+2025-12-11 17:43:41,568 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:43:41,568 - INFO - Ciclos detectados: 0
+2025-12-11 17:43:41,568 - INFO - ================================================================================
+2025-12-11 17:44:11,378 - INFO - [Ciclo 52] Verificando archivo CSV...
+2025-12-11 17:44:11,574 - INFO - [Ciclo 52] Buscando ciclos PLC pendientes...
+2025-12-11 17:44:11,574 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:44:11,574 - INFO - ================================================================================
+2025-12-11 17:44:11,574 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:44:11,574 - INFO - Ciclos detectados: 0
+2025-12-11 17:44:11,582 - INFO - ================================================================================
+2025-12-11 17:44:41,382 - INFO - [Ciclo 53] Verificando archivo CSV...
+2025-12-11 17:44:41,583 - INFO - [Ciclo 53] Buscando ciclos PLC pendientes...
+2025-12-11 17:44:41,583 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:44:41,583 - INFO - ================================================================================
+2025-12-11 17:44:41,583 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:44:41,583 - INFO - Ciclos detectados: 0
+2025-12-11 17:44:41,583 - INFO - ================================================================================
+2025-12-11 17:45:11,385 - INFO - [Ciclo 54] Verificando archivo CSV...
+2025-12-11 17:45:11,592 - INFO - [Ciclo 54] Buscando ciclos PLC pendientes...
+2025-12-11 17:45:11,595 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:45:11,595 - INFO - ================================================================================
+2025-12-11 17:45:11,595 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:45:11,595 - INFO - Ciclos detectados: 0
+2025-12-11 17:45:11,595 - INFO - ================================================================================
+2025-12-11 17:48:40,846 - INFO - ✓ Successfully imported plc_data_reader
+2025-12-11 17:48:40,847 - INFO - Loading initial PLC data from CSV...
+2025-12-11 17:48:40,913 - INFO - Cargados 29 hashes de registros existentes
+2025-12-11 17:48:40,913 - INFO - Cargando datos nuevos desde: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv
+2025-12-11 17:48:40,914 - INFO - ✓ No hay nuevos registros PLC para cargar (ya están en la base de datos)
+2025-12-11 17:48:40,914 - INFO - Iniciando monitor de CSV en background...
+2025-12-11 17:48:40,916 - INFO - Monitor de CSV iniciado en background (cada 30s)
+2025-12-11 17:48:40,916 - INFO - ✓ Monitor de CSV iniciado - verificará nuevos datos cada 30 segundos
+2025-12-11 17:48:40,918 - INFO - ✓ Successfully imported plc_data_processor
+2025-12-11 17:48:40,918 - INFO - Iniciando monitor de fotos en background...
+2025-12-11 17:48:40,918 - INFO - Monitor de ciclos iniciado en background (cada 30s)
+2025-12-11 17:48:40,918 - INFO - ✓ Monitor de fotos iniciado - creará inspecciones cada 30 segundos
+2025-12-11 17:48:40,919 - INFO - ============================================================
+2025-12-11 17:48:40,919 - INFO - Sistema Conuar iniciado completamente
+2025-12-11 17:48:40,919 - INFO -   - Monitor CSV: ✓ Activo (cada 30s)
+2025-12-11 17:48:40,919 - INFO -   - Monitor Fotos: ✓ Activo (cada 30s)
+2025-12-11 17:48:40,919 - INFO - ============================================================
+2025-12-11 17:48:40,937 - INFO - Watching for file changes with StatReloader
+2025-12-11 17:48:40,941 - INFO - Cargados 29 hashes de registros existentes
+2025-12-11 17:48:40,941 - INFO - ================================================================================
+2025-12-11 17:48:40,941 - INFO - Iniciando monitor de archivo CSV
+2025-12-11 17:48:40,941 - INFO - Archivo: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv
+2025-12-11 17:48:40,942 - INFO - Intervalo: 30 segundos
+2025-12-11 17:48:40,942 - INFO - Presione Ctrl+C para detener...
+2025-12-11 17:48:40,942 - INFO - ================================================================================
+2025-12-11 17:48:40,942 - INFO - [Ciclo 1] Verificando archivo CSV...
+2025-12-11 17:48:40,947 - INFO - Cargadas 2 fotos ya procesadas
+2025-12-11 17:48:40,947 - INFO - ================================================================================
+2025-12-11 17:48:40,947 - INFO - Iniciando monitor de ciclos PLC e inspecciones
+2025-12-11 17:48:40,948 - INFO - Intervalo: 30 segundos
+2025-12-11 17:48:40,948 - INFO - Presione Ctrl+C para detener...
+2025-12-11 17:48:40,948 - INFO - ================================================================================
+2025-12-11 17:48:40,948 - INFO - [Ciclo 1] Buscando ciclos PLC pendientes...
+2025-12-11 17:48:40,952 - INFO - Encontrados 6 registros raw no procesados
+2025-12-11 17:48:40,953 - INFO - ================================================================================
+2025-12-11 17:48:40,953 - INFO - Procesamiento de ciclos PLC
+2025-12-11 17:48:40,953 - INFO - Ciclos detectados: 0
+2025-12-11 17:48:40,953 - INFO - ================================================================================
+2025-12-11 17:48:44,099 - INFO - "GET /login/ HTTP/1.1" 200 15790
+2025-12-11 17:48:44,236 - INFO - "GET /static/css/custom.css HTTP/1.1" 200 8902
+2025-12-11 17:48:44,239 - INFO - "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+2025-12-11 17:48:44,241 - INFO - "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+2025-12-11 17:48:44,359 - INFO - "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857

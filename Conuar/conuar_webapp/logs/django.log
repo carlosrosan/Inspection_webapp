@@ -1182,3 +1182,45 @@ INFO 2025-12-10 18:12:45,385 basehttp 1724 2528 "GET /inspection/1/pdf/ HTTP/1.1
 INFO 2025-12-10 18:22:43,121 basehttp 1724 21344 - Broken pipe from ('127.0.0.1', 50891)
 INFO 2025-12-10 18:22:43,138 basehttp 1724 6684 "GET /logout/ HTTP/1.1" 302 0
 INFO 2025-12-10 18:22:43,142 basehttp 1724 6684 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-11 16:51:00,819 autoreload 19544 19632 Watching for file changes with StatReloader
+INFO 2025-12-11 17:02:24,487 basehttp 19544 3856 "GET / HTTP/1.1" 302 0
+INFO 2025-12-11 17:02:24,496 basehttp 19544 3856 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-11 17:02:24,533 basehttp 19544 3856 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-11 17:02:24,629 basehttp 19544 3856 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-12-11 17:02:24,634 basehttp 19544 13316 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-12-11 17:02:24,637 basehttp 19544 13316 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-12-11 17:02:24,789 basehttp 19544 13316 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-12-11 17:02:44,901 basehttp 19544 13316 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-11 17:02:44,963 basehttp 19544 13316 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-11 17:02:53,153 basehttp 19544 13316 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-11 17:02:53,189 basehttp 19544 13316 "GET /media/inspection_photos/PROCESSED/Ciclo2-EC123-1F-041225_154941-NOK/Ciclo2-EC123-1F-041225_154941-NOK.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-11 17:18:41,176 autoreload 19880 18744 Watching for file changes with StatReloader
+INFO 2025-12-11 17:18:45,824 basehttp 19880 19384 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-11 17:18:45,831 basehttp 19880 19384 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-11 17:18:59,005 basehttp 19880 19384 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-11 17:18:59,051 basehttp 19880 19384 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-11 17:19:02,832 basehttp 19880 19384 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-11 17:19:08,245 basehttp 19880 19384 "GET /inspection/5/pdf/ HTTP/1.1" 200 4886
+INFO 2025-12-11 17:29:06,737 basehttp 19880 19616 - Broken pipe from ('127.0.0.1', 59455)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 17320 - Broken pipe from ('127.0.0.1', 55401)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 19040 - Broken pipe from ('127.0.0.1', 61070)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 19804 - Broken pipe from ('127.0.0.1', 52938)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 17424 - Broken pipe from ('127.0.0.1', 65493)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 18340 - Broken pipe from ('127.0.0.1', 59268)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 20368 - Broken pipe from ('127.0.0.1', 51956)
+INFO 2025-12-11 17:29:06,745 basehttp 19880 18444 - Broken pipe from ('127.0.0.1', 63306)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 19428 - Broken pipe from ('127.0.0.1', 60358)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 20028 - Broken pipe from ('127.0.0.1', 61594)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 18860 - Broken pipe from ('127.0.0.1', 52066)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 20108 - Broken pipe from ('127.0.0.1', 56331)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 7620 - Broken pipe from ('127.0.0.1', 62453)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 11424 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-11 17:29:06,760 basehttp 19880 4952 - Broken pipe from ('127.0.0.1', 53182)
+INFO 2025-12-11 17:29:06,760 basehttp 19880 11424 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-11 17:29:06,760 basehttp 19880 16988 - Broken pipe from ('127.0.0.1', 62709)
+INFO 2025-12-11 17:48:40,937 autoreload 17000 16924 Watching for file changes with StatReloader
+INFO 2025-12-11 17:48:44,099 basehttp 17000 8988 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-12-11 17:48:44,236 basehttp 17000 8988 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-12-11 17:48:44,239 basehttp 17000 9232 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-12-11 17:48:44,241 basehttp 17000 20260 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-12-11 17:48:44,359 basehttp 17000 20260 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857

@@ -16,11 +16,17 @@
         .header {
             text-align: center;
             margin-bottom: 30px;
+            border-bottom: 3px solid #0d6efd;
+            padding-bottom: 15px;
+        }
+        .header img {
+            max-height: 60px;
+            margin-bottom: 10px;
         }
         .header h1 {
             color: #0d6efd;
             font-size: 20pt;
-            margin-bottom: 10px;
+            margin: 10px 0;
         }
         .section {
             margin-bottom: 20px;
@@ -65,6 +71,23 @@
             border: 1px solid #ddd;
         }
         table.timeline-table tr:nth-child(even) {
+            background-color: #f8f9fa;
+        }
+        table.photo-summary-table {
+            margin-bottom: 20px;
+        }
+        table.photo-summary-table th {
+            background-color: #0d6efd;
+            color: white;
+            padding: 10px;
+            text-align: left;
+            font-weight: bold;
+        }
+        table.photo-summary-table td {
+            padding: 8px;
+            border: 1px solid #ddd;
+        }
+        table.photo-summary-table tr:nth-child(even) {
             background-color: #f8f9fa;
         }
         .badge {
@@ -128,28 +151,38 @@
             margin-bottom: 15px;
             text-align: justify;
         }
+        .page-break {
+            page-break-before: always;
+        }
+        .summary-section {
+            margin-bottom: 30px;
+        }
     </style>
 </head>
 <body>
+    <!-- First Page: Summary -->
     <div class="header">
+        {% if logo_path %}
+        <img src="file://{{ logo_path }}" alt="Logo Conuar" />
+        {% endif %}
         <h1>REPORTE DE INSPECCIÓN</h1>
-        <p>Sistema de Inspección ArByte</p>
+        <p>Sistema de Inspección Conuar</p>
     </div>
 
-    <div class="section">
-        <div class="section-title">INFORMACIÓN BÁSICA</div>
+    <div class="summary-section">
+        <div class="section-title">RESUMEN DE LA INSPECCIÓN</div>
         <table class="info-table">
             <tr>
-                <td>Título:</td>
-                <td>{{ inspection.title }}</td>
+                <td>Ciclo:</td>
+                <td>{{ inspection.batch_number|default:"N/A" }}</td>
             </tr>
             <tr>
-                <td>Producto:</td>
-                <td>{{ inspection.product_name }}</td>
+                <td>Elemento Combustible:</td>
+                <td>{{ inspection.serial_number|default:"N/A" }}</td>
             </tr>
             <tr>
-                <td>Tipo de Combustible:</td>
-                <td>{{ inspection.get_tipo_combustible_display }}</td>
+                <td>Inspector:</td>
+                <td>{{ inspection.inspector.get_full_name|default:inspection.inspector.username }}</td>
             </tr>
             <tr>
                 <td>Estado:</td>
@@ -173,40 +206,83 @@
                 <td>Resultado:</td>
                 <td>
                     {% if inspection.defecto_encontrado %}
-                        <span class="badge badge-danger">No Pasa</span>
+                        <span class="badge badge-danger">Error Detectado</span>
                     {% else %}
-                        <span class="badge badge-warning">Pasa</span>
+                        <span class="badge badge-success">Sin Error</span>
                     {% endif %}
                 </td>
             </tr>
-            <tr>
-                <td>Inspector:</td>
-                <td>{{ inspection.inspector.username }}</td>
-            </tr>
-            {% if inspection.product_code %}
-            <tr>
-                <td>Código del Producto:</td>
-                <td>{{ inspection.product_code }}</td>
-            </tr>
-            {% endif %}
-            {% if inspection.batch_number %}
-            <tr>
-                <td>Número de Lote:</td>
-                <td>{{ inspection.batch_number }}</td>
-            </tr>
-            {% endif %}
-            {% if inspection.serial_number %}
-            <tr>
-                <td>Número de Serie:</td>
-                <td>{{ inspection.serial_number }}</td>
-            </tr>
-            {% endif %}
-            {% if inspection.location %}
-            <tr>
-                <td>Ubicación:</td>
-                <td>{{ inspection.location }}</td>
-            </tr>
-            {% endif %}
+        </table>
+    </div>
+
+    {% if photo_data %}
+    <div class="section">
+        <div class="section-title">CÓDIGOS DE FOTO Y ESTADO</div>
+        <table class="photo-summary-table">
+            <thead>
+                <tr>
+                    <th>#</th>
+                    <th>Código de Foto</th>
+                    <th>Estado</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for photo_info in photo_data %}
+                <tr>
+                    <td>{{ forloop.counter }}</td>
+                    <td>{{ photo_info.code|default:"N/A" }}</td>
+                    <td>
+                        {% if photo_info.photo.defecto_encontrado %}
+                            <span class="badge badge-danger">Error</span>
+                        {% else %}
+                            <span class="badge badge-success">OK</span>
+                        {% endif %}
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </div>
+    {% endif %}
+
+    <!-- Second Page: Chronology -->
+    <div class="page-break"></div>
+    
+    <div class="header">
+        {% if logo_path %}
+        <img src="file://{{ logo_path }}" alt="Logo Conuar" />
+        {% endif %}
+        <h1>CRONOLOGÍA DE LA INSPECCIÓN</h1>
+    </div>
+
+    <div class="section">
+        <table class="timeline-table">
+            <thead>
+                <tr>
+                    <th>Evento</th>
+                    <th>Fecha y Hora</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Inspección Creada</td>
+                    <td>{{ inspection.created_at|date:"d/m/Y H:i" }}</td>
+                </tr>
+                <tr>
+                    <td>Inspección Iniciada</td>
+                    <td>{{ inspection.inspection_date|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% if inspection.completed_date %}
+                <tr>
+                    <td>Inspección Completada</td>
+                    <td>{{ inspection.completed_date|date:"d/m/Y H:i" }}</td>
+                </tr>
+                {% endif %}
+                <tr>
+                    <td>Última Actualización</td>
+                    <td>{{ inspection.updated_at|date:"d/m/Y H:i" }}</td>
+                </tr>
+            </tbody>
         </table>
     </div>
 
@@ -238,38 +314,6 @@
     </div>
     {% endif %}
 
-    <div class="section">
-        <div class="section-title">CRONOLOGÍA DE LA INSPECCIÓN</div>
-        <table class="timeline-table">
-            <thead>
-                <tr>
-                    <th>Evento</th>
-                    <th>Fecha y Hora</th>
-                </tr>
-            </thead>
-            <tbody>
-                <tr>
-                    <td>Inspección Creada</td>
-                    <td>{{ inspection.created_at|date:"d/m/Y H:i" }}</td>
-                </tr>
-                <tr>
-                    <td>Inspección Iniciada</td>
-                    <td>{{ inspection.inspection_date|date:"d/m/Y H:i" }}</td>
-                </tr>
-                {% if inspection.completed_date %}
-                <tr>
-                    <td>Inspección Completada</td>
-                    <td>{{ inspection.completed_date|date:"d/m/Y H:i" }}</td>
-                </tr>
-                {% endif %}
-                <tr>
-                    <td>Última Actualización</td>
-                    <td>{{ inspection.updated_at|date:"d/m/Y H:i" }}</td>
-                </tr>
-            </tbody>
-        </table>
-    </div>
-
     {% if photos %}
     <div class="section">
         <div class="section-title">FOTOS DE LA INSPECCIÓN ({{ photo_count }} foto{{ photo_count|pluralize }})</div>
@@ -277,12 +321,13 @@
         <div class="photo-section">
             <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}</div>
             {% if photo_info.path %}
-            <img src="{{ photo_info.path }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
+            <img src="file://{{ photo_info.path }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
             {% endif %}
             <div class="photo-info">
+                <strong>Código:</strong> {{ photo_info.code|default:"N/A" }} | 
                 <strong>Tipo:</strong> {{ photo_info.photo.photo_type|default:"General" }} | 
                 <strong>Subida:</strong> {{ photo_info.photo.uploaded_at|date:"d/m/Y H:i" }} | 
-                <strong>Defecto Detectado:</strong> {% if photo_info.photo.defecto_encontrado %}Sí{% else %}No{% endif %}
+                <strong>Estado:</strong> {% if photo_info.photo.defecto_encontrado %}<span class="badge badge-danger">Error</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}
             </div>
         </div>
         {% endfor %}
@@ -290,8 +335,7 @@
     {% endif %}
 
     <div class="footer">
-        Reporte generado el {{ generation_date|date:"d/m/Y a las H:i" }} - Sistema de Inspección ArByte
+        Reporte generado el {{ generation_date|date:"d/m/Y a las H:i" }} - Sistema de Inspección Conuar
     </div>
 </body>
 </html>
-
