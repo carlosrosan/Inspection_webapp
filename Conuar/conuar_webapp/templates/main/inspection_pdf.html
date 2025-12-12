@@ -21,7 +21,11 @@
         }
         .header img {
             max-height: 60px;
+            max-width: 200px;
             margin-bottom: 10px;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
         }
         .header h1 {
             color: #0d6efd;
@@ -80,12 +84,16 @@
             background-color: #0d6efd;
             color: white;
             padding: 10px;
-            text-align: left;
+            text-align: left !important;
             font-weight: bold;
         }
         table.photo-summary-table td {
             padding: 8px;
             border: 1px solid #ddd;
+            text-align: left !important;
+        }
+        table.photo-summary-table tbody tr td {
+            text-align: left !important;
         }
         table.photo-summary-table tr:nth-child(even) {
             background-color: #f8f9fa;
@@ -162,11 +170,15 @@
 <body>
     <!-- First Page: Summary -->
     <div class="header">
-        {% if logo_path %}
-        <img src="file://{{ logo_path }}" alt="Logo Conuar" />
+        {% if logo_data_uri %}
+        <img src="{{ logo_data_uri }}" alt="Logo Conuar" />
         {% endif %}
         <h1>REPORTE DE INSPECCIÓN</h1>
         <p>Sistema de Inspección Conuar</p>
+        <p style="font-size: 9pt; color: #666; margin-top: 10px;">
+            <strong>Fecha y Hora del Reporte:</strong> {{ generation_date|date:"d/m/Y H:i" }}<br>
+            <strong>Generado por:</strong> {{ generation_user.get_full_name|default:generation_user.username }}
+        </p>
     </div>
 
     <div class="summary-section">
@@ -217,21 +229,19 @@
 
     {% if photo_data %}
     <div class="section">
-        <div class="section-title">CÓDIGOS DE FOTO Y ESTADO</div>
+        <div class="section-title">Imagenes de la inspeción</div>
         <table class="photo-summary-table">
             <thead>
                 <tr>
-                    <th>#</th>
-                    <th>Código de Foto</th>
-                    <th>Estado</th>
+                    <th style="text-align: left !important;">Código de Foto</th>
+                    <th style="text-align: left !important;">Estado</th>
                 </tr>
             </thead>
             <tbody>
                 {% for photo_info in photo_data %}
                 <tr>
-                    <td>{{ forloop.counter }}</td>
-                    <td>{{ photo_info.code|default:"N/A" }}</td>
-                    <td>
+                    <td style="text-align: left !important;">{{ photo_info.code|default:"N/A" }}</td>
+                    <td style="text-align: left !important;">
                         {% if photo_info.photo.defecto_encontrado %}
                             <span class="badge badge-danger">Error</span>
                         {% else %}
@@ -249,9 +259,6 @@
     <div class="page-break"></div>
     
     <div class="header">
-        {% if logo_path %}
-        <img src="file://{{ logo_path }}" alt="Logo Conuar" />
-        {% endif %}
         <h1>CRONOLOGÍA DE LA INSPECCIÓN</h1>
     </div>
 
@@ -314,14 +321,14 @@
     </div>
     {% endif %}
 
-    {% if photos %}
+    {% if photo_data %}
     <div class="section">
         <div class="section-title">FOTOS DE LA INSPECCIÓN ({{ photo_count }} foto{{ photo_count|pluralize }})</div>
         {% for photo_info in photo_data %}
         <div class="photo-section">
             <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}</div>
-            {% if photo_info.path %}
-            <img src="file://{{ photo_info.path }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
+            {% if photo_info.data_uri %}
+            <img src="{{ photo_info.data_uri }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
             {% endif %}
             <div class="photo-info">
                 <strong>Código:</strong> {{ photo_info.code|default:"N/A" }} | 

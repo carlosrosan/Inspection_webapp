@@ -9,6 +9,7 @@ from django.core.cache import cache
 import logging
 import os
 import json
+import base64
 from .forms import SystemConfigurationForm, PasswordResetForm
 from .models import SystemConfiguration, User
 from .permissions import require_viewer, require_regular_user, require_supervisor, require_configuration_access
@@ -490,28 +491,121 @@ def inspection_pdf(request, inspection_id):
     for photo in photos:
         # Extract photo code from filename (filename without extension)
         photo_code = None
+        photo_path = None
         if photo.photo:
             photo_code = os.path.splitext(os.path.basename(photo.photo.name))[0]
+            # Get absolute path for the photo file
+            # Try multiple methods to get the path
+            try:
+                # Method 1: Try using photo.photo.path if available
+                if hasattr(photo.photo, 'path'):
+                    try:
+                        photo_path = os.path.abspath(photo.photo.path)
+                        if not os.path.exists(photo_path):
+                            photo_path = None
+                    except Exception:
+                        photo_path = None
+            except Exception:
+                photo_path = None
+            
+            # Method 2: If path not found, construct from MEDIA_ROOT
+            if not photo_path:
+                try:
+                    media_root = settings.MEDIA_ROOT
+                    if hasattr(media_root, '__fspath__'):
+                        media_root = str(media_root)
+                    elif isinstance(media_root, (str, bytes)):
+                        media_root = str(media_root)
+                    photo_path = os.path.abspath(os.path.join(media_root, photo.photo.name))
+                    if not os.path.exists(photo_path):
+                        photo_path = None
+                except Exception as e:
+                    logger.warning(f"Failed to construct photo path for photo {photo.id}: {e}")
+                    photo_path = None
+            
+            # Convert photo to base64 data URI for reliable embedding in PDF
+            photo_data_uri = None
+            if photo_path and os.path.exists(photo_path):
+                try:
+                    # Determine MIME type from file extension
+                    ext = os.path.splitext(photo_path)[1].lower()
+                    mime_types = {
+                        '.jpg': 'image/jpeg',
+                        '.jpeg': 'image/jpeg',
+                        '.png': 'image/png',
+                        '.bmp': 'image/bmp',
+                        '.gif': 'image/gif',
+                    }
+                    mime_type = mime_types.get(ext, 'image/jpeg')
+                    
+                    with open(photo_path, 'rb') as img_file:
+                        img_data = img_file.read()
+                        img_base64 = base64.b64encode(img_data).decode('utf-8')
+                        photo_data_uri = f"data:{mime_type};base64,{img_base64}"
+                    logger.debug(f"Photo {photo.id} loaded and encoded: {photo_path}")
+                except Exception as e:
+                    logger.warning(f"Failed to load photo {photo.id} from {photo_path}: {e}")
+                    photo_data_uri = None
+            else:
+                logger.warning(f"Photo {photo.id} path not found. Photo name: {photo.photo.name if photo.photo else 'None'}")
         
         photo_info = {
             'photo': photo,
-            'path': photo.photo.path if photo.photo else None,
+            'path': photo_path,  # Keep original path for reference
+            'data_uri': photo_data_uri,  # Base64 data URI for PDF
             'code': photo_code,
         }
         photo_data.append(photo_info)
     
-    # Get logo path - use absolute path for xhtml2pdf
-    if settings.STATICFILES_DIRS:
-        logo_path = os.path.abspath(os.path.join(settings.STATICFILES_DIRS[0], 'assets', 'logo_conuar1.svg'))
-    elif settings.STATIC_ROOT:
-        logo_path = os.path.abspath(os.path.join(settings.STATIC_ROOT, 'assets', 'logo_conuar1.svg'))
-    else:
-        # Fallback to BASE_DIR
-        logo_path = os.path.abspath(os.path.join(settings.BASE_DIR, 'static', 'assets', 'logo_conuar1.svg'))
+    # Get logo and convert to base64 data URI for reliable embedding
+    logo_data_uri = None
     
-    # Check if logo exists, if not set to None
-    if not os.path.exists(logo_path):
-        logo_path = None
+    # Try multiple paths to find the logo
+    possible_paths = []
+    
+    # Try STATICFILES_DIRS first (most common location)
+    if settings.STATICFILES_DIRS:
+        static_dir = settings.STATICFILES_DIRS[0]
+        if hasattr(static_dir, '__fspath__'):
+            static_dir = str(static_dir)
+        elif isinstance(static_dir, (str, bytes)):
+            static_dir = str(static_dir)
+        possible_paths.append(os.path.join(static_dir, 'assets', 'logo_conuar1.jpeg'))
+    
+    # Try BASE_DIR/static (fallback)
+    base_dir = settings.BASE_DIR
+    if hasattr(base_dir, '__fspath__'):
+        base_dir = str(base_dir)
+    elif isinstance(base_dir, (str, bytes)):
+        base_dir = str(base_dir)
+    possible_paths.append(os.path.join(base_dir, 'static', 'assets', 'logo_conuar1.jpeg'))
+    
+    # Try STATIC_ROOT (production)
+    if settings.STATIC_ROOT:
+        static_root = settings.STATIC_ROOT
+        if hasattr(static_root, '__fspath__'):
+            static_root = str(static_root)
+        elif isinstance(static_root, (str, bytes)):
+            static_root = str(static_root)
+        possible_paths.append(os.path.join(static_root, 'assets', 'logo_conuar1.jpeg'))
+    
+    # Find and encode the logo as base64
+    for path in possible_paths:
+        abs_path = os.path.abspath(path)
+        if os.path.exists(abs_path):
+            try:
+                with open(abs_path, 'rb') as img_file:
+                    img_data = img_file.read()
+                    img_base64 = base64.b64encode(img_data).decode('utf-8')
+                    logo_data_uri = f"data:image/jpeg;base64,{img_base64}"
+                    logger.info(f"Logo loaded and encoded for PDF: {abs_path}")
+                    break
+            except Exception as e:
+                logger.warning(f"Failed to load logo from {abs_path}: {e}")
+                continue
+    
+    if not logo_data_uri:
+        logger.warning(f"Logo not found for PDF. Tried paths: {possible_paths}")
     
     # Prepare context for the template
     context = {
@@ -519,23 +613,37 @@ def inspection_pdf(request, inspection_id):
         'photos': photos,
         'photo_data': photo_data,
         'generation_date': datetime.now(),
+        'generation_user': request.user,
         'photo_count': photos.count(),
-        'logo_path': logo_path,
+        'logo_data_uri': logo_data_uri,  # Use base64 data URI instead of path
     }
-    
+
     # Render the HTML template
     template = get_template('main/inspection_pdf.html')
     html = template.render(context)
     
+    # Log context info for debugging
+    logger.info(f"Generating PDF for inspection {inspection_id}")
+    logger.info(f"  Logo data URI: {'Present' if logo_data_uri else 'Missing'}")
+    logger.info(f"  Photo count: {len(photo_data)}")
+    logger.info(f"  Photos with data URIs: {sum(1 for p in photo_data if p.get('data_uri'))}")
+    
     # Create a BytesIO buffer for the PDF
     buffer = BytesIO()
     
-    # Generate PDF from HTML
-    pisa_status = pisa.CreatePDF(html, dest=buffer)
-    
-    # Check if PDF generation was successful
-    if pisa_status.err:
-        return HttpResponse('Error al generar el PDF: %s' % pisa_status.err, status=500)
+    # Generate PDF from HTML (no link_callback needed with base64 data URIs)
+    try:
+        pisa_status = pisa.CreatePDF(html, dest=buffer)
+        
+        # Check if PDF generation was successful
+        if pisa_status.err:
+            error_msg = f'Error al generar el PDF: {pisa_status.err}'
+            logger.error(f"PDF generation failed for inspection {inspection_id}: {pisa_status.err}")
+            return HttpResponse(error_msg, status=500)
+    except Exception as e:
+        error_msg = f'Error al generar el PDF: {str(e)}'
+        logger.exception(f"Exception during PDF generation for inspection {inspection_id}: {e}")
+        return HttpResponse(error_msg, status=500)
     
     # Get the value of the BytesIO buffer
     pdf = buffer.getvalue()

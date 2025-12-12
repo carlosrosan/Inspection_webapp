@@ -1224,3 +1224,152 @@ INFO 2025-12-11 17:48:44,236 basehttp 17000 8988 "GET /static/css/custom.css HTT
 INFO 2025-12-11 17:48:44,239 basehttp 17000 9232 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
 INFO 2025-12-11 17:48:44,241 basehttp 17000 20260 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
 INFO 2025-12-11 17:48:44,359 basehttp 17000 20260 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-12-11 17:52:59,498 autoreload 17000 16924 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 17:52:59,904 autoreload 12068 5664 Watching for file changes with StatReloader
+INFO 2025-12-11 17:54:00,961 autoreload 12068 5664 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 17:54:01,299 autoreload 2460 3340 Watching for file changes with StatReloader
+INFO 2025-12-11 17:56:09,496 basehttp 2460 6376 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-11 17:56:09,609 basehttp 2460 6376 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-11 17:56:10,937 basehttp 2460 6376 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-11 17:56:11,074 basehttp 2460 6376 "GET /media/inspection_photos/PROCESSED/Ciclo2-EC123-1F-041225_154941-NOK/Ciclo2-EC123-1F-041225_154941-NOK.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-11 17:56:17,337 basehttp 2460 6376 "GET /inspection/5/pdf/ HTTP/1.1" 200 5047
+INFO 2025-12-11 18:00:30,077 autoreload 2460 3340 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:00:33,073 autoreload 360 10792 Watching for file changes with StatReloader
+INFO 2025-12-11 18:05:31,616 autoreload 360 10792 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:05:31,981 autoreload 17260 8160 Watching for file changes with StatReloader
+INFO 2025-12-11 18:05:41,307 autoreload 17260 8160 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:05:41,658 autoreload 11696 2396 Watching for file changes with StatReloader
+INFO 2025-12-11 18:06:14,374 basehttp 11696 2428 - Broken pipe from ('127.0.0.1', 59516)
+INFO 2025-12-11 18:06:14,374 basehttp 11696 19032 - Broken pipe from ('127.0.0.1', 59784)
+INFO 2025-12-11 18:06:14,374 basehttp 11696 4296 - Broken pipe from ('127.0.0.1', 61324)
+INFO 2025-12-11 18:06:14,376 basehttp 11696 17740 - Broken pipe from ('127.0.0.1', 65341)
+INFO 2025-12-11 18:06:14,376 basehttp 11696 11780 - Broken pipe from ('127.0.0.1', 55770)
+INFO 2025-12-11 18:06:14,377 basehttp 11696 17556 - Broken pipe from ('127.0.0.1', 52160)
+INFO 2025-12-11 18:06:14,377 basehttp 11696 17856 - Broken pipe from ('127.0.0.1', 54486)
+INFO 2025-12-11 18:06:14,377 basehttp 11696 5220 - Broken pipe from ('127.0.0.1', 61905)
+INFO 2025-12-11 18:06:14,381 basehttp 11696 17944 - Broken pipe from ('127.0.0.1', 54397)
+INFO 2025-12-11 18:06:14,383 basehttp 11696 14492 - Broken pipe from ('127.0.0.1', 63944)
+INFO 2025-12-11 18:06:14,385 basehttp 11696 20212 - Broken pipe from ('127.0.0.1', 52964)
+INFO 2025-12-11 18:06:14,386 basehttp 11696 7876 - Broken pipe from ('127.0.0.1', 54510)
+INFO 2025-12-11 18:06:14,387 basehttp 11696 16352 - Broken pipe from ('127.0.0.1', 61041)
+INFO 2025-12-11 18:06:14,387 basehttp 11696 4796 - Broken pipe from ('127.0.0.1', 59131)
+INFO 2025-12-11 18:06:14,387 basehttp 11696 6472 - Broken pipe from ('127.0.0.1', 49650)
+INFO 2025-12-11 18:06:14,389 basehttp 11696 2708 - Broken pipe from ('127.0.0.1', 56909)
+INFO 2025-12-11 18:06:14,390 basehttp 11696 2552 - Broken pipe from ('127.0.0.1', 50383)
+INFO 2025-12-11 18:06:14,390 basehttp 11696 5636 - Broken pipe from ('127.0.0.1', 58897)
+INFO 2025-12-11 18:06:14,390 basehttp 11696 4644 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-11 18:06:14,391 basehttp 11696 9252 - Broken pipe from ('127.0.0.1', 55163)
+INFO 2025-12-11 18:06:14,391 basehttp 11696 8400 - Broken pipe from ('127.0.0.1', 49669)
+INFO 2025-12-11 18:06:14,392 basehttp 11696 9220 - Broken pipe from ('127.0.0.1', 50752)
+INFO 2025-12-11 18:06:14,394 basehttp 11696 12948 - Broken pipe from ('127.0.0.1', 51867)
+INFO 2025-12-11 18:06:14,394 basehttp 11696 17776 - Broken pipe from ('127.0.0.1', 59149)
+INFO 2025-12-11 18:06:14,394 basehttp 11696 19668 - Broken pipe from ('127.0.0.1', 56768)
+INFO 2025-12-11 18:06:14,395 basehttp 11696 7744 - Broken pipe from ('127.0.0.1', 56424)
+INFO 2025-12-11 18:06:14,395 basehttp 11696 11220 - Broken pipe from ('127.0.0.1', 58439)
+INFO 2025-12-11 18:06:14,396 basehttp 11696 17300 - Broken pipe from ('127.0.0.1', 57837)
+INFO 2025-12-11 18:06:14,473 basehttp 11696 4644 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-11 18:08:47,718 autoreload 11696 2396 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:08:48,075 autoreload 9260 20420 Watching for file changes with StatReloader
+INFO 2025-12-11 18:09:10,606 autoreload 9260 20420 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:09:10,952 autoreload 3464 19664 Watching for file changes with StatReloader
+INFO 2025-12-11 18:09:18,253 autoreload 3464 19664 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:09:18,605 autoreload 19708 15728 Watching for file changes with StatReloader
+INFO 2025-12-11 18:09:46,193 autoreload 19708 15728 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:09:46,544 autoreload 17136 7368 Watching for file changes with StatReloader
+INFO 2025-12-11 18:09:55,872 autoreload 17136 7368 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:09:56,227 autoreload 17980 9664 Watching for file changes with StatReloader
+INFO 2025-12-11 18:10:20,758 autoreload 17980 9664 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-11 18:10:21,101 autoreload 20152 20300 Watching for file changes with StatReloader
+INFO 2025-12-11 18:11:57,015 basehttp 20152 8640 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-11 18:11:57,127 basehttp 20152 8640 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-11 18:11:58,525 basehttp 20152 8640 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-11 18:12:03,409 basehttp 20152 8640 "GET /inspection/5/pdf/ HTTP/1.1" 200 5048
+INFO 2025-12-11 18:12:27,311 autoreload 14572 11628 Watching for file changes with StatReloader
+INFO 2025-12-11 18:12:30,139 basehttp 14572 12500 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-11 18:12:33,125 basehttp 14572 12500 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-11 18:12:33,128 basehttp 14572 12500 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-11 18:12:40,375 basehttp 14572 12500 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-11 18:12:40,416 basehttp 14572 12500 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-11 18:12:42,002 basehttp 14572 12500 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-11 18:12:43,714 basehttp 14572 12500 "GET /inspection/5/pdf/ HTTP/1.1" 200 5048
+INFO 2025-12-11 18:13:13,485 basehttp 14572 12500 "GET /inspection/5/pdf/ HTTP/1.1" 200 5048
+INFO 2025-12-12 07:58:48,764 autoreload 19276 3180 Watching for file changes with StatReloader
+INFO 2025-12-12 07:58:56,807 basehttp 19276 19896 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-12 07:58:56,848 basehttp 19276 19896 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-12 08:01:19,441 basehttp 19276 19896 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-12 08:01:19,529 basehttp 19276 19896 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-12 08:01:23,442 basehttp 19276 19896 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:05:00,015 autoreload 19276 3180 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:05:00,373 autoreload 8896 18956 Watching for file changes with StatReloader
+INFO 2025-12-12 08:05:41,143 autoreload 8896 18956 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:05:41,487 autoreload 4456 20140 Watching for file changes with StatReloader
+INFO 2025-12-12 08:09:28,904 autoreload 4456 20140 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:09:29,267 autoreload 18616 16144 Watching for file changes with StatReloader
+INFO 2025-12-12 08:10:36,906 autoreload 17864 9188 Watching for file changes with StatReloader
+INFO 2025-12-12 08:10:44,300 basehttp 17864 6628 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:10:46,355 basehttp 17864 6628 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:10:51,141 basehttp 17864 6628 "GET /inspection/5/pdf/ HTTP/1.1" 200 5045
+INFO 2025-12-12 08:15:25,612 autoreload 17864 9188 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:15:26,048 autoreload 15748 20004 Watching for file changes with StatReloader
+INFO 2025-12-12 08:16:25,072 autoreload 15748 20004 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:16:25,423 autoreload 3404 20228 Watching for file changes with StatReloader
+INFO 2025-12-12 08:17:34,385 autoreload 3404 20228 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:17:34,743 autoreload 17264 9776 Watching for file changes with StatReloader
+INFO 2025-12-12 08:17:43,418 basehttp 17264 8064 "GET /inspection/5/pdf/ HTTP/1.1" 200 5046
+INFO 2025-12-12 08:18:27,957 autoreload 17264 9776 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:18:28,336 autoreload 8808 8600 Watching for file changes with StatReloader
+INFO 2025-12-12 08:18:59,509 autoreload 18424 20332 Watching for file changes with StatReloader
+INFO 2025-12-12 08:19:03,456 basehttp 18424 2348 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:19:05,210 basehttp 18424 2348 "GET /inspection/5/pdf/ HTTP/1.1" 200 5046
+INFO 2025-12-12 08:22:06,744 autoreload 18948 18000 Watching for file changes with StatReloader
+INFO 2025-12-12 08:22:46,500 autoreload 18948 18000 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:22:46,842 autoreload 8728 20268 Watching for file changes with StatReloader
+INFO 2025-12-12 08:25:06,031 autoreload 8728 20268 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:25:06,371 autoreload 2484 2840 Watching for file changes with StatReloader
+INFO 2025-12-12 08:27:51,911 autoreload 2484 2840 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:27:52,261 autoreload 19712 16324 Watching for file changes with StatReloader
+INFO 2025-12-12 08:28:03,625 autoreload 19712 16324 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:28:03,992 autoreload 18844 11520 Watching for file changes with StatReloader
+INFO 2025-12-12 08:28:06,229 autoreload 18844 11520 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 08:28:06,582 autoreload 18700 19036 Watching for file changes with StatReloader
+INFO 2025-12-12 08:28:48,329 autoreload 5096 9688 Watching for file changes with StatReloader
+INFO 2025-12-12 08:28:52,309 basehttp 5096 3004 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:28:53,803 basehttp 5096 3004 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:28:55,120 basehttp 5096 3004 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-12 08:28:55,125 basehttp 5096 3004 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-12 08:29:31,877 basehttp 5096 3004 "POST /login/ HTTP/1.1" 200 16565
+INFO 2025-12-12 08:29:41,543 basehttp 5096 3004 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-12 08:29:41,578 basehttp 5096 3004 "GET /inspections/ HTTP/1.1" 200 30160
+INFO 2025-12-12 08:29:45,065 basehttp 5096 3004 "GET /inspection/5/ HTTP/1.1" 200 28088
+INFO 2025-12-12 08:29:47,315 basehttp 5096 3004 "GET /inspection/5/pdf/ HTTP/1.1" 200 5046
+INFO 2025-12-12 08:34:03,306 autoreload 2592 6596 Watching for file changes with StatReloader
+WARNING 2025-12-12 08:35:56,451 log 2592 10236 Not Found: /inspection/5/
+WARNING 2025-12-12 08:35:56,453 basehttp 2592 10236 "GET /inspection/5/ HTTP/1.1" 404 3903
+WARNING 2025-12-12 08:35:56,516 log 2592 10236 Not Found: /favicon.ico
+WARNING 2025-12-12 08:35:56,517 basehttp 2592 10236 "GET /favicon.ico HTTP/1.1" 404 4191
+INFO 2025-12-12 08:36:03,734 basehttp 2592 10236 "GET /inspections/ HTTP/1.1" 200 20668
+INFO 2025-12-12 08:36:22,435 autoreload 10796 508 Watching for file changes with StatReloader
+INFO 2025-12-12 08:36:34,810 basehttp 10796 7612 "GET /inspections/ HTTP/1.1" 200 24967
+INFO 2025-12-12 08:36:36,652 basehttp 10796 7612 "GET /inspection/2/ HTTP/1.1" 200 30980
+INFO 2025-12-12 08:36:36,787 basehttp 10796 7612 "GET /media/inspection_photos/PROCESSED/Ciclo2-EC123-1F-041225_154941-NOK/Ciclo2-EC123-1F-041225_154942-OK.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 08:36:36,792 basehttp 10796 17840 "GET /media/inspection_photos/PROCESSED/Ciclo2-EC123-1F-041225_154941-NOK/Ciclo2-EC123-1F-041225_154943-OK.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 08:36:44,970 basehttp 10796 17840 "GET /inspection/2/pdf/ HTTP/1.1" 200 5299
+INFO 2025-12-12 08:53:11,064 autoreload 5984 12572 Watching for file changes with StatReloader
+INFO 2025-12-12 08:53:14,989 basehttp 5984 6052 - Broken pipe from ('127.0.0.1', 53714)
+INFO 2025-12-12 08:53:17,532 basehttp 5984 18256 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-12 08:53:17,544 basehttp 5984 18256 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-12 08:53:24,529 basehttp 5984 18256 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-12 08:53:24,581 basehttp 5984 18256 "GET /inspections/ HTTP/1.1" 200 25314
+INFO 2025-12-12 08:53:26,392 basehttp 5984 18256 "GET /inspection/2/ HTTP/1.1" 200 30980
+INFO 2025-12-12 08:53:31,304 basehttp 5984 18256 "GET /inspection/2/pdf/ HTTP/1.1" 200 5302
+INFO 2025-12-12 09:11:43,354 autoreload 3248 16296 Watching for file changes with StatReloader
+INFO 2025-12-12 09:11:48,595 basehttp 3248 8728 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-12 09:11:48,603 basehttp 3248 8728 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-12 09:12:06,263 basehttp 3248 8728 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-12 09:12:06,308 basehttp 3248 8728 "GET /inspections/ HTTP/1.1" 200 25314
+INFO 2025-12-12 09:12:07,761 basehttp 3248 8728 "GET /inspection/2/ HTTP/1.1" 200 30980
+INFO 2025-12-12 09:12:11,469 basehttp 3248 8728 "GET /inspection/2/pdf/ HTTP/1.1" 200 3855286
+INFO 2025-12-12 09:16:57,603 autoreload 19552 19760 Watching for file changes with StatReloader
+INFO 2025-12-12 09:17:12,501 basehttp 19552 14388 "GET /inspection/2/ HTTP/1.1" 200 30980
+INFO 2025-12-12 09:17:16,174 basehttp 19552 14388 "GET /inspection/2/pdf/ HTTP/1.1" 200 3854950
+INFO 2025-12-12 09:17:48,440 basehttp 19552 14388 "GET /inspection/2/pdf/ HTTP/1.1" 200 3854951
