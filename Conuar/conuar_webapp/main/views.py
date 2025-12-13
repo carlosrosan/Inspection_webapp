@@ -18,6 +18,73 @@ from .permissions import require_viewer, require_regular_user, require_superviso
 logger = logging.getLogger('main.views')
 
 
+def get_photo_path_prefer_png(photo_field, media_root=None):
+    """
+    Get the path to a photo file, preferring PNG version if it exists.
+    
+    Args:
+        photo_field: Django ImageField instance
+        media_root: Optional MEDIA_ROOT path (will use settings if not provided)
+    
+    Returns:
+        Tuple of (actual_path, is_png) where actual_path is the file path to use
+        and is_png is True if PNG version was found, False otherwise.
+    """
+    from django.conf import settings
+    
+    if not photo_field or not photo_field.name:
+        return None, False
+    
+    if media_root is None:
+        media_root = settings.MEDIA_ROOT
+    
+    # Normalize media_root to string
+    if hasattr(media_root, '__fspath__'):
+        media_root = str(media_root)
+    elif isinstance(media_root, (str, bytes)):
+        media_root = str(media_root)
+    
+    # Get the base path (without extension) from the photo name
+    photo_name = photo_field.name
+    base_path = os.path.join(media_root, photo_name)
+    
+    # Try to get path from ImageField first
+    try:
+        if hasattr(photo_field, 'path'):
+            try:
+                original_path = os.path.abspath(photo_field.path)
+                if os.path.exists(original_path):
+                    base_path = original_path
+            except Exception:
+                pass
+    except Exception:
+        pass
+    
+    # If base_path doesn't exist, try constructing from MEDIA_ROOT
+    if not os.path.exists(base_path):
+        try:
+            base_path = os.path.abspath(os.path.join(media_root, photo_name))
+        except Exception:
+            return None, False
+    
+    # Get directory and base filename (without extension)
+    directory = os.path.dirname(base_path)
+    filename_with_ext = os.path.basename(base_path)
+    filename_base = os.path.splitext(filename_with_ext)[0]
+    
+    # First, try to find PNG version (preferred)
+    png_path = os.path.join(directory, f"{filename_base}.png")
+    if os.path.exists(png_path):
+        return os.path.abspath(png_path), True
+    
+    # If PNG doesn't exist, use the original file
+    if os.path.exists(base_path):
+        return os.path.abspath(base_path), False
+    
+    # If original doesn't exist either, return None
+    return None, False
+
+
 def about(request):
     """About page view"""
     context = {
@@ -314,6 +381,9 @@ def dashboard(request):
     # Generate chart data for last 30 days
     def generate_chart_data():
         """Generate chart data for the last 30 days"""
+        from django.contrib.auth import get_user_model
+        UserModel = get_user_model()  # Get User model to avoid scope issues
+        
         chart_labels = []
         all_inspectors_data = []
         inspector_data = []
@@ -331,7 +401,7 @@ def dashboard(request):
             all_inspectors_data.append(day_inspections)
         
         # Get inspector-specific data
-        inspectors = User.objects.filter(
+        inspectors = UserModel.objects.filter(
             inspections_conducted__isnull=False
         ).distinct().annotate(
             inspection_count=Count('inspections_conducted')
@@ -447,11 +517,43 @@ def inspection_detail(request, inspection_id):
     inspection = get_object_or_404(Inspection, id=inspection_id)
     photos = inspection.photos.all()
     
+    # Prepare photos with PNG URLs if available
+    # We'll create a list of dicts with photo info including preferred URL
+    photos_data = []
+    for photo in photos:
+        # Check if PNG version exists
+        photo_path, is_png = get_photo_path_prefer_png(photo.photo)
+        
+        # Determine the URL to use
+        if photo_path and is_png:
+            # Construct URL for PNG version
+            original_name = photo.photo.name
+            directory = os.path.dirname(original_name)
+            filename_base = os.path.splitext(os.path.basename(original_name))[0]
+            png_name = f"{directory}/{filename_base}.png"
+            
+            # Get the storage from the original photo field
+            try:
+                storage = photo.photo.storage
+                png_url = storage.url(png_name)
+            except Exception as e:
+                logger.warning(f"Failed to get PNG URL for photo {photo.id}: {e}")
+                png_url = None
+        else:
+            # Use original photo URL
+            png_url = None
+        
+        photos_data.append({
+            'photo_obj': photo,
+            'png_url': png_url,  # PNG URL if available, None otherwise
+        })
+    
     context = {
         'title': f'Inspección de Combustible: {inspection.title}',
         'description': f'Vista detallada de la inspección de calidad de {inspection.product_name}',
         'inspection': inspection,
-        'photos': photos,
+        'photos': photos,  # Keep original photos for compatibility (used in other parts of template)
+        'photos_data': photos_data,  # Add photos_data with PNG URLs (used for image display)
         'photo_count': photos.count(),
     }
     
@@ -492,36 +594,13 @@ def inspection_pdf(request, inspection_id):
         # Extract photo code from filename (filename without extension)
         photo_code = None
         photo_path = None
+        is_png = False
+        
         if photo.photo:
             photo_code = os.path.splitext(os.path.basename(photo.photo.name))[0]
-            # Get absolute path for the photo file
-            # Try multiple methods to get the path
-            try:
-                # Method 1: Try using photo.photo.path if available
-                if hasattr(photo.photo, 'path'):
-                    try:
-                        photo_path = os.path.abspath(photo.photo.path)
-                        if not os.path.exists(photo_path):
-                            photo_path = None
-                    except Exception:
-                        photo_path = None
-            except Exception:
-                photo_path = None
             
-            # Method 2: If path not found, construct from MEDIA_ROOT
-            if not photo_path:
-                try:
-                    media_root = settings.MEDIA_ROOT
-                    if hasattr(media_root, '__fspath__'):
-                        media_root = str(media_root)
-                    elif isinstance(media_root, (str, bytes)):
-                        media_root = str(media_root)
-                    photo_path = os.path.abspath(os.path.join(media_root, photo.photo.name))
-                    if not os.path.exists(photo_path):
-                        photo_path = None
-                except Exception as e:
-                    logger.warning(f"Failed to construct photo path for photo {photo.id}: {e}")
-                    photo_path = None
+            # Get photo path, preferring PNG version if available
+            photo_path, is_png = get_photo_path_prefer_png(photo.photo)
             
             # Convert photo to base64 data URI for reliable embedding in PDF
             photo_data_uri = None
@@ -542,7 +621,7 @@ def inspection_pdf(request, inspection_id):
                         img_data = img_file.read()
                         img_base64 = base64.b64encode(img_data).decode('utf-8')
                         photo_data_uri = f"data:{mime_type};base64,{img_base64}"
-                    logger.debug(f"Photo {photo.id} loaded and encoded: {photo_path}")
+                    logger.debug(f"Photo {photo.id} loaded and encoded: {photo_path} (PNG: {is_png})")
                 except Exception as e:
                     logger.warning(f"Failed to load photo {photo.id} from {photo_path}: {e}")
                     photo_data_uri = None
@@ -551,9 +630,10 @@ def inspection_pdf(request, inspection_id):
         
         photo_info = {
             'photo': photo,
-            'path': photo_path,  # Keep original path for reference
+            'path': photo_path,  # Actual file path (PNG if available, otherwise original)
             'data_uri': photo_data_uri,  # Base64 data URI for PDF
             'code': photo_code,
+            'is_png': is_png,  # Flag indicating if PNG version was used
         }
         photo_data.append(photo_info)
     
@@ -651,7 +731,30 @@ def inspection_pdf(request, inspection_id):
     
     # Create HTTP response
     response = HttpResponse(pdf, content_type='application/pdf')
-    filename = f'inspeccion_{inspection.id}_{inspection.title}_{datetime.now().strftime("%Y%m%d")}.pdf'
+    
+    # Generate filename from inspection code (use first photo code if available, or construct from batch/serial)
+    inspection_code = None
+    if photo_data and photo_data[0].get('code'):
+        # Use the photo code pattern (e.g., Ciclo2-EC123-1F-041225_154941)
+        inspection_code = photo_data[0]['code']
+        # Remove the status suffix (-NOK or -OK) if present
+        if inspection_code.endswith('-NOK') or inspection_code.endswith('-OK'):
+            inspection_code = inspection_code.rsplit('-', 1)[0]
+    elif inspection.batch_number and inspection.serial_number:
+        # Construct from batch and serial number
+        inspection_code = f"{inspection.batch_number}-{inspection.serial_number}"
+    elif inspection.batch_number:
+        inspection_code = inspection.batch_number
+    elif inspection.serial_number:
+        inspection_code = inspection.serial_number
+    else:
+        # Fallback to ID and date
+        inspection_code = f"inspeccion_{inspection.id}_{datetime.now().strftime('%Y%m%d')}"
+    
+    # Sanitize filename (remove invalid characters)
+    import re
+    filename = re.sub(r'[<>:"/\\|?*]', '_', inspection_code)
+    filename = f"{filename}.pdf"
     response['Content-Disposition'] = f'attachment; filename="{filename}"'
     
     return response

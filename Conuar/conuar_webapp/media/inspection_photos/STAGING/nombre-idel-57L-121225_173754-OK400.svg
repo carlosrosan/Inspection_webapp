@@ -1,0 +1,39 @@
+<svg     xmlns="http://www.w3.org/2000/svg"     xmlns:xlink="http://www.w3.org/1999/xlink"     version="1.1"     font-family="arial"     width="2448" height="2048" viewBox="0 0 2448 2048">
+<!--image nombre-idel-57L-121225_173754-OK400.bmp: /cam0/img/000000000000023?sz=2448,2048 -->
+<image x="0" y="0" width="2448px" height="2048px" xlink:href="nombre-idel-57L-121225_173754-OK400.bmp"/>
+<defs>
+<marker id="cam000000000006Dd1" viewBox="0 0 15 15" refX="7.5" refY="7.5" markerUnits="userSpaceOnUse" markerWidth="10.000000" markerHeight="10.000000" orient="auto">
+<path d="M 15 0 L 0 7.5 L 15 15 z" fill="#32CD32"/>
+</marker>
+
+</defs>
+<style>
+	.ds-cam0000000000002	{ font-size:9.00pt;stroke-width:2.00; }
+</style>
+<g data-c="C5" class="editable ds-cam0000000000002"></g>
+<g data-c="H5" class="ds-cam0000000000002"></g>
+<g data-c="W5" class="ds-cam0000000000002"></g>
+<g data-c="C8" class="ds-cam0000000000002"></g>
+<g data-c="C9" class="ds-cam0000000000002"></g>
+<g data-c="C10" class="ds-cam0000000000002"><text x="1743" y="321" style="fill:#00FF00" dominant-baseline="hanging" >OK</text>
+</g>
+<g data-c="C11" class="ds-cam0000000000002"></g>
+<g data-c="X12" class="ds-cam0000000000002"></g>
+<g data-c="F191" class="ds-cam0000000000002"><line x1="745.4" y1="1149.3" x2="746.3" y2="1035.3" stroke="#32CD32" />
+</g>
+<g data-c="M191" class="ds-cam0000000000002"><g>
+<line x1="748.2" y1="700.6" x2="750.5" y2="670.7" stroke="#32CD32"  marker-start="url(#cam000000000006Dd1)"/>
+<line x1="764.3" y1="686.8" x2="734.4" y2="684.5" stroke="#32CD32"  marker-start="url(#cam000000000006Dd1)"/>
+</g>
+</g>
+<g data-c="F192" class="ds-cam0000000000002"><line x1="743.2" y1="595.7" x2="740.6" y2="557.7" stroke="#32CD32" />
+</g>
+<g data-c="M192" class="ds-cam0000000000002"><g>
+<line x1="742.2" y1="1393.1" x2="744.6" y2="1363.2" stroke="#32CD32"  marker-start="url(#cam000000000006Dd1)"/>
+<line x1="758.4" y1="1379.4" x2="728.5" y2="1377" stroke="#32CD32"  marker-start="url(#cam000000000006Dd1)"/>
+</g>
+</g>
+<g data-c="F193" class="ds-cam0000000000002"><line x1="721.9" y1="1617.4" x2="726.8" y2="1563.4" stroke="#32CD32" />
+</g>
+<g data-c="F199" class="ds-cam0000000000002"></g>
+</svg>

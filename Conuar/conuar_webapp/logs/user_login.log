@@ -168,3 +168,31 @@ INFO 2025-12-12 09:17:47,189 Generating PDF for inspection 2
 INFO 2025-12-12 09:17:47,189   Logo data URI: Present
 INFO 2025-12-12 09:17:47,190   Photo count: 3
 INFO 2025-12-12 09:17:47,190   Photos with data URIs: 3
+INFO 2025-12-12 09:27:16,296 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2025-12-12 09:27:16,298 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2025-12-12 09:27:16,299 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2025-12-12 10:04:04,453 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-12 10:04:04,655 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-12 10:15:15,112 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-12 10:15:15,336 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-12 10:15:27,379 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2025-12-12 10:15:27,439 Generating PDF for inspection 2
+INFO 2025-12-12 10:15:27,440   Logo data URI: Present
+INFO 2025-12-12 10:15:27,440   Photo count: 3
+INFO 2025-12-12 10:15:27,441   Photos with data URIs: 3
+INFO 2025-12-12 17:50:44,212 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-12 17:50:44,391 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-12 18:09:55,822 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2025-12-12 18:09:56,438 Generating PDF for inspection 75
+INFO 2025-12-12 18:09:56,438   Logo data URI: Present
+INFO 2025-12-12 18:09:56,440   Photo count: 33
+INFO 2025-12-12 18:09:56,440   Photos with data URIs: 33
+INFO 2025-12-13 12:02:27,048 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-13 12:02:27,254 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-13 13:06:08,852 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2025-12-13 13:06:09,065 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2025-12-13 13:06:28,266 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2025-12-13 13:06:28,566 Generating PDF for inspection 2
+INFO 2025-12-13 13:06:28,566   Logo data URI: Present
+INFO 2025-12-13 13:06:28,567   Photo count: 38
+INFO 2025-12-13 13:06:28,567   Photos with data URIs: 38

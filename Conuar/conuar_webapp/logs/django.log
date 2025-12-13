@@ -1373,3 +1373,242 @@ INFO 2025-12-12 09:16:57,603 autoreload 19552 19760 Watching for file changes wi
 INFO 2025-12-12 09:17:12,501 basehttp 19552 14388 "GET /inspection/2/ HTTP/1.1" 200 30980
 INFO 2025-12-12 09:17:16,174 basehttp 19552 14388 "GET /inspection/2/pdf/ HTTP/1.1" 200 3854950
 INFO 2025-12-12 09:17:48,440 basehttp 19552 14388 "GET /inspection/2/pdf/ HTTP/1.1" 200 3854951
+INFO 2025-12-12 09:27:16,305 basehttp 19552 2856 - Broken pipe from ('127.0.0.1', 59874)
+INFO 2025-12-12 09:27:16,305 basehttp 19552 7700 - Broken pipe from ('127.0.0.1', 63005)
+INFO 2025-12-12 09:27:16,305 basehttp 19552 7380 - Broken pipe from ('127.0.0.1', 53314)
+INFO 2025-12-12 09:27:16,308 basehttp 19552 2868 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-12 09:27:16,312 basehttp 19552 2868 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-12 10:03:59,286 autoreload 17728 13528 Watching for file changes with StatReloader
+INFO 2025-12-12 10:04:04,663 basehttp 17728 19728 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-12 10:04:04,698 basehttp 17728 19728 "GET /inspections/ HTTP/1.1" 200 25314
+INFO 2025-12-12 10:04:06,666 basehttp 17728 19728 "GET /inspection/2/ HTTP/1.1" 200 30980
+ERROR 2025-12-12 10:04:09,154 log 17728 19728 Internal Server Error: /dashboard/
+Traceback (most recent call last):
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\exception.py", line 55, in inner
+    response = get_response(request)
+               ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\core\handlers\base.py", line 197, in _get_response
+    response = wrapped_callback(request, *callback_args, **callback_kwargs)
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\AppData\Local\Packages\PythonSoftwareFoundation.Python.3.11_qbz5n2kfra8p0\LocalCache\local-packages\Python311\site-packages\django\contrib\auth\decorators.py", line 23, in _wrapper_view
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\permissions.py", line 53, in wrapper
+    return view_func(request, *args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 346, in dashboard
+    chart_labels, all_inspectors_data, inspector_data, inspector_names = generate_chart_data()
+                                                                         ^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 334, in generate_chart_data
+    inspectors = User.objects.filter(
+                 ^^^^
+NameError: cannot access free variable 'User' where it is not associated with a value in enclosing scope
+ERROR 2025-12-12 10:04:09,158 basehttp 17728 19728 "GET /dashboard/ HTTP/1.1" 500 94254
+INFO 2025-12-12 10:05:30,484 autoreload 17728 13528 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 10:05:30,843 autoreload 10716 17600 Watching for file changes with StatReloader
+INFO 2025-12-12 10:05:41,185 autoreload 10716 17600 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 10:05:41,518 autoreload 20256 4296 Watching for file changes with StatReloader
+INFO 2025-12-12 10:06:08,103 autoreload 20256 4296 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 10:06:08,444 autoreload 15748 19768 Watching for file changes with StatReloader
+INFO 2025-12-12 10:14:46,965 autoreload 15748 19768 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py changed, reloading.
+INFO 2025-12-12 10:14:47,360 autoreload 7504 18120 Watching for file changes with StatReloader
+INFO 2025-12-12 10:15:04,407 autoreload 8744 1472 Watching for file changes with StatReloader
+INFO 2025-12-12 10:15:07,826 basehttp 8744 13240 "GET /dashboard/ HTTP/1.1" 302 0
+INFO 2025-12-12 10:15:07,832 basehttp 8744 13240 "GET /login/?next=/dashboard/ HTTP/1.1" 200 15905
+INFO 2025-12-12 10:15:15,344 basehttp 8744 13240 "POST /login/?next=/dashboard/ HTTP/1.1" 302 0
+INFO 2025-12-12 10:15:15,419 basehttp 8744 13240 "GET /dashboard/ HTTP/1.1" 200 18498
+INFO 2025-12-12 10:15:22,971 basehttp 8744 13240 "GET /inspections/ HTTP/1.1" 200 24967
+INFO 2025-12-12 10:15:25,576 basehttp 8744 13240 "GET /inspection/2/ HTTP/1.1" 200 30980
+INFO 2025-12-12 10:15:28,696 basehttp 8744 13240 "GET /inspection/2/pdf/ HTTP/1.1" 200 3855000
+INFO 2025-12-12 10:25:29,317 basehttp 8744 2916 - Broken pipe from ('127.0.0.1', 60149)
+INFO 2025-12-12 10:25:29,318 basehttp 8744 12196 - Broken pipe from ('127.0.0.1', 58212)
+INFO 2025-12-12 10:25:29,318 basehttp 8744 2852 - Broken pipe from ('127.0.0.1', 54603)
+INFO 2025-12-12 10:25:29,318 basehttp 8744 14292 - Broken pipe from ('127.0.0.1', 53620)
+INFO 2025-12-12 10:25:29,323 basehttp 8744 19964 - Broken pipe from ('127.0.0.1', 65449)
+INFO 2025-12-12 10:25:29,325 basehttp 8744 9796 - Broken pipe from ('127.0.0.1', 51764)
+INFO 2025-12-12 10:25:29,330 basehttp 8744 13364 - Broken pipe from ('127.0.0.1', 52921)
+INFO 2025-12-12 10:25:29,333 basehttp 8744 20160 - Broken pipe from ('127.0.0.1', 60422)
+INFO 2025-12-12 10:25:29,333 basehttp 8744 19468 - Broken pipe from ('127.0.0.1', 63722)
+INFO 2025-12-12 10:25:29,334 basehttp 8744 5772 - Broken pipe from ('127.0.0.1', 57398)
+INFO 2025-12-12 10:25:29,338 basehttp 8744 17284 - Broken pipe from ('127.0.0.1', 53444)
+INFO 2025-12-12 10:25:29,342 basehttp 8744 5984 - Broken pipe from ('127.0.0.1', 53571)
+INFO 2025-12-12 10:25:29,346 basehttp 8744 19828 - Broken pipe from ('127.0.0.1', 63074)
+INFO 2025-12-12 10:25:29,349 basehttp 8744 18748 - Broken pipe from ('127.0.0.1', 50768)
+INFO 2025-12-12 10:25:29,349 basehttp 8744 17836 - Broken pipe from ('127.0.0.1', 59046)
+INFO 2025-12-12 10:25:29,351 basehttp 8744 8908 - Broken pipe from ('127.0.0.1', 50776)
+INFO 2025-12-12 10:25:29,352 basehttp 8744 1964 - Broken pipe from ('127.0.0.1', 53682)
+INFO 2025-12-12 10:25:29,355 basehttp 8744 19156 - Broken pipe from ('127.0.0.1', 56311)
+INFO 2025-12-12 10:25:29,358 basehttp 8744 18808 - Broken pipe from ('127.0.0.1', 62004)
+INFO 2025-12-12 10:25:29,358 basehttp 8744 18324 - Broken pipe from ('127.0.0.1', 50880)
+INFO 2025-12-12 10:25:29,360 basehttp 8744 17740 - Broken pipe from ('127.0.0.1', 53832)
+INFO 2025-12-12 10:25:29,363 basehttp 8744 18540 - Broken pipe from ('127.0.0.1', 63008)
+INFO 2025-12-12 10:25:29,366 basehttp 8744 1476 - Broken pipe from ('127.0.0.1', 51574)
+INFO 2025-12-12 10:25:29,372 basehttp 8744 17912 - Broken pipe from ('127.0.0.1', 53014)
+INFO 2025-12-12 10:25:29,391 basehttp 8744 3632 - Broken pipe from ('127.0.0.1', 55148)
+INFO 2025-12-12 10:25:29,391 basehttp 8744 18036 - Broken pipe from ('127.0.0.1', 52765)
+INFO 2025-12-12 10:25:29,394 basehttp 8744 19448 - Broken pipe from ('127.0.0.1', 62509)
+INFO 2025-12-12 10:25:29,396 basehttp 8744 19876 - Broken pipe from ('127.0.0.1', 51893)
+INFO 2025-12-12 10:25:29,397 basehttp 8744 5496 - Broken pipe from ('127.0.0.1', 61254)
+INFO 2025-12-12 10:25:29,397 basehttp 8744 15828 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-12 10:25:29,400 basehttp 8744 15828 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-12 10:25:29,405 basehttp 8744 18932 - Broken pipe from ('127.0.0.1', 50109)
+INFO 2025-12-12 10:25:29,406 basehttp 8744 6536 - Broken pipe from ('127.0.0.1', 49858)
+INFO 2025-12-12 10:25:29,406 basehttp 8744 16336 - Broken pipe from ('127.0.0.1', 49640)
+INFO 2025-12-12 10:25:29,406 basehttp 8744 8152 - Broken pipe from ('127.0.0.1', 64694)
+INFO 2025-12-12 17:47:21,727 autoreload 9760 20444 Watching for file changes with StatReloader
+INFO 2025-12-12 17:50:32,665 basehttp 9760 22392 "GET / HTTP/1.1" 302 0
+INFO 2025-12-12 17:50:32,675 basehttp 9760 22392 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-12 17:50:32,714 basehttp 9760 22392 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-12 17:50:44,396 basehttp 9760 22392 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-12 17:50:44,450 basehttp 9760 22392 "GET /inspections/ HTTP/1.1" 200 25314
+INFO 2025-12-12 17:51:59,004 autoreload 2460 13304 Watching for file changes with StatReloader
+INFO 2025-12-12 17:54:03,674 basehttp 2460 3724 "GET /inspections/ HTTP/1.1" 200 24967
+INFO 2025-12-12 17:55:08,049 autoreload 17088 10644 Watching for file changes with StatReloader
+INFO 2025-12-12 17:58:30,696 autoreload 22992 11596 Watching for file changes with StatReloader
+INFO 2025-12-12 18:02:59,825 autoreload 16620 16164 Watching for file changes with StatReloader
+INFO 2025-12-12 18:03:34,741 basehttp 16620 15480 "GET /inspections/ HTTP/1.1" 200 24967
+INFO 2025-12-12 18:03:37,549 basehttp 16620 15480 "GET /inspections/ HTTP/1.1" 200 24967
+INFO 2025-12-12 18:09:34,785 basehttp 16620 20600 "GET /inspections/ HTTP/1.1" 200 29814
+INFO 2025-12-12 18:09:37,707 basehttp 16620 20600 "GET /inspection/75/ HTTP/1.1" 200 75499
+INFO 2025-12-12 18:09:37,962 basehttp 16620 20600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-103L-121225_174007-OK416.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,014 basehttp 16620 23696 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-118L-121225_174049-OK421.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,017 basehttp 16620 13520 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-117L-121225_174042-OK420.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,019 basehttp 16620 17600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-115L-121225_174030-OK418.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,020 basehttp 16620 17464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-114L-121225_174025-OK417.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,030 basehttp 16620 1980 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-116L-121225_174036-OK419.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,057 basehttp 16620 20600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-129L-121225_174107-OK422.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,104 basehttp 16620 23696 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-130L-121225_174112-OK423.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,108 basehttp 16620 13520 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-131L-121225_174118-OK424.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,111 basehttp 16620 17600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-132L-121225_174124-OK425.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,111 basehttp 16620 17464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-133L-121225_174131-OK426.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,116 basehttp 16620 1980 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-144L-121225_174149-OK427.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,151 basehttp 16620 20600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-145L-121225_174154-OK428.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,193 basehttp 16620 23696 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-146L-121225_174200-OK429.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,193 basehttp 16620 17600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-148L-121225_174213-OK431.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,196 basehttp 16620 17464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-159L-121225_174231-OK432.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,197 basehttp 16620 13520 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-147L-121225_174206-OK430.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,201 basehttp 16620 1980 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-160L-121225_174236-OK433.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,226 basehttp 16620 20600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-161L-121225_174242-OK434.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,279 basehttp 16620 17600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-163L-121225_174255-OK436.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,283 basehttp 16620 13520 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-175L-121225_174318-OK438.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,284 basehttp 16620 17464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-174L-121225_174313-OK437.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,287 basehttp 16620 1980 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-176L-121225_174324-OK439.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,301 basehttp 16620 23696 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-162L-121225_174248-OK435.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,331 basehttp 16620 20600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-177L-121225_174331-OK440.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,374 basehttp 16620 17600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-178L-121225_174337-OK441.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,376 basehttp 16620 17464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-190L-121225_174400-OK443.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,378 basehttp 16620 13520 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-189L-121225_174355-OK442.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,381 basehttp 16620 1980 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-191L-121225_174406-OK444.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,383 basehttp 16620 23696 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-192L-121225_174413-OK445.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,389 basehttp 16620 20600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-193L-121225_174419-OK446.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,403 basehttp 16620 17600 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-212L-121225_174425-OK447.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:09:38,422 basehttp 16620 17464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-213L-121225_174434-OK448.bmp HTTP/1.1" 200 5014632
+INFO 2025-12-12 18:10:22,459 basehttp 16620 17464 "GET /inspection/75/pdf/ HTTP/1.1" 200 67825295
+INFO 2025-12-12 18:11:51,093 basehttp 16620 19892 "GET /login/ HTTP/1.1" 200 15790
+INFO 2025-12-12 18:11:51,110 basehttp 16620 19892 "GET /static/css/custom.css HTTP/1.1" 200 8902
+INFO 2025-12-12 18:11:51,120 basehttp 16620 19744 "GET /static/assets/logo_conuar1.svg HTTP/1.1" 200 14909
+INFO 2025-12-12 18:11:51,122 basehttp 16620 19744 "GET /static/js/auto-logout.js HTTP/1.1" 200 7754
+INFO 2025-12-12 18:11:51,370 basehttp 16620 19744 "GET /static/assets/fav_icon.png HTTP/1.1" 200 113857
+INFO 2025-12-13 12:00:19,368 autoreload 1408 21588 Watching for file changes with StatReloader
+INFO 2025-12-13 12:00:23,347 basehttp 1408 10824 "GET / HTTP/1.1" 302 0
+INFO 2025-12-13 12:00:23,358 basehttp 1408 10824 "GET /inspections/ HTTP/1.1" 302 0
+INFO 2025-12-13 12:00:23,394 basehttp 1408 10824 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-13 12:00:23,882 basehttp 1408 10824 "GET /login/?next=/inspections/ HTTP/1.1" 200 15907
+INFO 2025-12-13 12:02:27,260 basehttp 1408 10824 "POST /login/?next=/inspections/ HTTP/1.1" 302 0
+INFO 2025-12-13 12:02:27,315 basehttp 1408 10824 "GET /inspections/ HTTP/1.1" 200 30161
+INFO 2025-12-13 12:02:31,366 basehttp 1408 10824 "GET /inspection/75/ HTTP/1.1" 200 76989
+INFO 2025-12-13 12:02:31,391 basehttp 1408 10824 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-103L-121225_174007-OK416.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,392 basehttp 1408 23464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-114L-121225_174025-OK417.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,396 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-117L-121225_174042-OK420.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,398 basehttp 1408 16832 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-118L-121225_174049-OK421.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,401 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-115L-121225_174030-OK418.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,410 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-129L-121225_174107-OK422.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,416 basehttp 1408 15540 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-116L-121225_174036-OK419.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,417 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-131L-121225_174118-OK424.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,420 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-132L-121225_174124-OK425.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,429 basehttp 1408 16832 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-130L-121225_174112-OK423.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,437 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-145L-121225_174154-OK428.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,438 basehttp 1408 15540 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-146L-121225_174200-OK429.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,440 basehttp 1408 10824 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-147L-121225_174206-OK430.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,446 basehttp 1408 23464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-133L-121225_174131-OK426.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,448 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-144L-121225_174149-OK427.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,451 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-148L-121225_174213-OK431.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,456 basehttp 1408 23464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-160L-121225_174236-OK433.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,474 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-161L-121225_174242-OK434.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,477 basehttp 1408 10824 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-159L-121225_174231-OK432.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,479 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-162L-121225_174248-OK435.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,493 basehttp 1408 15540 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-174L-121225_174313-OK437.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,496 basehttp 1408 16832 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-175L-121225_174318-OK438.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,498 basehttp 1408 23464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-163L-121225_174255-OK436.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,501 basehttp 1408 10824 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-177L-121225_174331-OK440.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,504 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-178L-121225_174337-OK441.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,508 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-176L-121225_174324-OK439.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,512 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-189L-121225_174355-OK442.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,530 basehttp 1408 23464 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-193L-121225_174419-OK446.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,530 basehttp 1408 10824 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-192L-121225_174413-OK445.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,533 basehttp 1408 16832 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-212L-121225_174425-OK447.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,535 basehttp 1408 19204 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-191L-121225_174406-OK444.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,538 basehttp 1408 15540 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-213L-121225_174434-OK448.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:02:31,541 basehttp 1408 21876 "GET /media/inspection_photos/PROCESSED/nombre-idel-103L-121225_174007-OK416/nombre-idel-190L-121225_174400-OK443.bmp HTTP/1.1" 304 0
+INFO 2025-12-13 12:12:34,467 basehttp 1408 2836 - Broken pipe from ('127.0.0.1', 64105)
+INFO 2025-12-13 12:12:34,468 basehttp 1408 21516 - Broken pipe from ('127.0.0.1', 55085)
+INFO 2025-12-13 12:12:34,468 basehttp 1408 16852 - Broken pipe from ('127.0.0.1', 60167)
+INFO 2025-12-13 12:12:34,470 basehttp 1408 13040 "GET /logout/ HTTP/1.1" 302 0
+INFO 2025-12-13 12:12:34,474 basehttp 1408 13040 "GET /login/ HTTP/1.1" 200 16549
+INFO 2025-12-13 12:13:53,499 autoreload 1408 21588 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\plc_data_processor.py changed, reloading.
+INFO 2025-12-13 12:13:54,905 autoreload 18772 7204 Watching for file changes with StatReloader
+INFO 2025-12-13 12:14:00,407 autoreload 18772 7204 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\plc_data_processor.py changed, reloading.
+INFO 2025-12-13 12:14:00,976 autoreload 22920 20972 Watching for file changes with StatReloader
+INFO 2025-12-13 12:14:07,514 autoreload 22920 20972 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\plc_data_processor.py changed, reloading.
+INFO 2025-12-13 12:14:08,048 autoreload 19864 20732 Watching for file changes with StatReloader
+INFO 2025-12-13 12:14:21,701 autoreload 19864 20732 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\photo_unificator.py changed, reloading.
+INFO 2025-12-13 12:14:22,316 autoreload 19832 23104 Watching for file changes with StatReloader
+INFO 2025-12-13 12:14:39,087 autoreload 19832 23104 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\photo_unificator.py changed, reloading.
+INFO 2025-12-13 12:14:39,655 autoreload 16752 8908 Watching for file changes with StatReloader
+INFO 2025-12-13 12:14:51,310 autoreload 16752 8908 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\photo_unificator.py changed, reloading.
+INFO 2025-12-13 12:14:51,902 autoreload 22104 16796 Watching for file changes with StatReloader
+INFO 2025-12-13 12:15:01,484 autoreload 22104 16796 C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\photo_unificator.py changed, reloading.
+INFO 2025-12-13 12:15:02,076 autoreload 18788 19768 Watching for file changes with StatReloader
+INFO 2025-12-13 13:05:01,056 autoreload 12004 19804 Watching for file changes with StatReloader
+INFO 2025-12-13 13:06:09,071 basehttp 12004 21384 "POST /login/ HTTP/1.1" 302 0
+INFO 2025-12-13 13:06:09,107 basehttp 12004 21384 "GET /inspections/ HTTP/1.1" 200 25312
+INFO 2025-12-13 13:06:11,894 basehttp 12004 21384 "GET /inspection/2/ HTTP/1.1" 200 85752
+INFO 2025-12-13 13:06:12,117 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-99L-121225_173943-OK412.png HTTP/1.1" 200 2254104
+INFO 2025-12-13 13:06:12,136 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-102L-121225_174000-OK415.png HTTP/1.1" 200 2253029
+INFO 2025-12-13 13:06:12,143 basehttp 12004 1620 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-100L-121225_173948-NOK413.png HTTP/1.1" 200 2369972
+INFO 2025-12-13 13:06:12,150 basehttp 12004 21384 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-88L-121225_173924-OK411.png HTTP/1.1" 200 2529261
+INFO 2025-12-13 13:06:12,161 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-114L-121225_174025-OK417.png HTTP/1.1" 200 2247282
+INFO 2025-12-13 13:06:12,186 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-115L-121225_174030-OK418.png HTTP/1.1" 200 2331106
+INFO 2025-12-13 13:06:12,190 basehttp 12004 21904 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-101L-121225_173954-OK414.png HTTP/1.1" 200 2195580
+INFO 2025-12-13 13:06:12,195 basehttp 12004 1620 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-116L-121225_174036-OK419.png HTTP/1.1" 200 2141290
+INFO 2025-12-13 13:06:12,198 basehttp 12004 5096 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-103L-121225_174007-OK416.png HTTP/1.1" 200 2419480
+INFO 2025-12-13 13:06:12,203 basehttp 12004 21384 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-117L-121225_174042-OK420.png HTTP/1.1" 200 2201161
+INFO 2025-12-13 13:06:12,208 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-118L-121225_174049-OK421.png HTTP/1.1" 200 2380445
+INFO 2025-12-13 13:06:12,230 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-129L-121225_174107-OK422.png HTTP/1.1" 200 2312767
+INFO 2025-12-13 13:06:12,239 basehttp 12004 21904 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-130L-121225_174112-OK423.png HTTP/1.1" 200 2318427
+INFO 2025-12-13 13:06:12,243 basehttp 12004 1620 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-131L-121225_174118-OK424.png HTTP/1.1" 200 2108614
+INFO 2025-12-13 13:06:12,244 basehttp 12004 5096 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-132L-121225_174124-OK425.png HTTP/1.1" 200 2128188
+INFO 2025-12-13 13:06:12,253 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-144L-121225_174149-OK427.png HTTP/1.1" 200 2388519
+INFO 2025-12-13 13:06:12,253 basehttp 12004 21384 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-133L-121225_174131-OK426.png HTTP/1.1" 200 2338699
+INFO 2025-12-13 13:06:12,280 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-145L-121225_174154-OK428.png HTTP/1.1" 200 2289563
+INFO 2025-12-13 13:06:12,286 basehttp 12004 21904 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-146L-121225_174200-OK429.png HTTP/1.1" 200 2130557
+INFO 2025-12-13 13:06:12,297 basehttp 12004 5096 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-147L-121225_174206-OK430.png HTTP/1.1" 200 2113157
+INFO 2025-12-13 13:06:12,304 basehttp 12004 1620 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-148L-121225_174213-OK431.png HTTP/1.1" 200 2316979
+INFO 2025-12-13 13:06:12,306 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-160L-121225_174236-OK433.png HTTP/1.1" 200 2253411
+INFO 2025-12-13 13:06:12,310 basehttp 12004 21384 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-159L-121225_174231-OK432.png HTTP/1.1" 200 2403203
+INFO 2025-12-13 13:06:12,336 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-161L-121225_174242-OK434.png HTTP/1.1" 200 2150007
+INFO 2025-12-13 13:06:12,341 basehttp 12004 21904 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-162L-121225_174248-OK435.png HTTP/1.1" 200 2118110
+INFO 2025-12-13 13:06:12,354 basehttp 12004 5096 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-163L-121225_174255-OK436.png HTTP/1.1" 200 2250565
+INFO 2025-12-13 13:06:12,359 basehttp 12004 1620 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-174L-121225_174313-OK437.png HTTP/1.1" 200 2380562
+INFO 2025-12-13 13:06:12,360 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-175L-121225_174318-OK438.png HTTP/1.1" 200 2245940
+INFO 2025-12-13 13:06:12,362 basehttp 12004 21384 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-176L-121225_174324-OK439.png HTTP/1.1" 200 2202260
+INFO 2025-12-13 13:06:12,381 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-177L-121225_174331-OK440.png HTTP/1.1" 200 2112557
+INFO 2025-12-13 13:06:12,381 basehttp 12004 21904 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-178L-121225_174337-OK441.png HTTP/1.1" 200 2217915
+INFO 2025-12-13 13:06:12,402 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-191L-121225_174406-OK444.png HTTP/1.1" 200 2245274
+INFO 2025-12-13 13:06:12,403 basehttp 12004 1620 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-190L-121225_174400-OK443.png HTTP/1.1" 200 2221160
+INFO 2025-12-13 13:06:12,417 basehttp 12004 21384 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-192L-121225_174413-OK445.png HTTP/1.1" 200 2130851
+INFO 2025-12-13 13:06:12,423 basehttp 12004 5096 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-189L-121225_174355-OK442.png HTTP/1.1" 200 2306475
+INFO 2025-12-13 13:06:12,429 basehttp 12004 21904 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-193L-121225_174419-OK446.png HTTP/1.1" 200 2271530
+INFO 2025-12-13 13:06:12,430 basehttp 12004 2536 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-212L-121225_174425-OK447.png HTTP/1.1" 200 2353485
+INFO 2025-12-13 13:06:12,436 basehttp 12004 20272 "GET /media/inspection_photos/PROCESSED/nombre-idel-88L-121225_173924-OK411/nombre-idel-213L-121225_174434-OK448.png HTTP/1.1" 200 2174624
+INFO 2025-12-13 13:06:58,716 basehttp 12004 20272 "GET /inspection/2/pdf/ HTTP/1.1" 200 104051194

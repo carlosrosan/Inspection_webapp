@@ -1,36 +1,165 @@
-SiguienteControl,FinControlCamara,HabilitacionCobot,FinControlCobot,CobotOk,CamaraCognexOk,DivesOk,TriggerCognex,ConfirmacionCognex,CicloActivo,ReiniciarCiclo,AbortarCiclo,FinCiclo,Bool_13,Bool_14,Bool_15,Bool_16,Bool_17,Bool_18,Bool_19,Bool_20,Bool_21,Bool_22,Bool_23,CicloEnMarcha,CicloEnPausa,Bool_26,Bool_27,Bool_28,Bool_29,Bool_30,SiempreUNO,PunteroControl,TotalControles,TiempoCicloMinutos,TiempoCicloSegundos,EstadoCiclo,PasoActivo,Int_06,Int_07,Habilitacion,ID,Nombre,zCarro,xPlato,xCamara,yCamara,zCamara,ID_EC,NombreCiclo
+datetime,CicloActivo,ReiniciarCiclo,AbortarCiclo,FinCiclo,ID_Control,Nombre_Control,ID_EC,NombreCiclo
+2025-12-12T18:44:59.165Z,true,false,false,false,,,test1,test1
 
-false,false,false,false,true,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,E888,Ciclo8
+2025-12-12T18:45:10.272Z,true,false,false,false,13L,,test1,test1
 
-false,false,false,false,true,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T18:45:15.318Z,true,false,true,false,,,test1,test1
 
-false,false,false,false,true,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T18:45:29.502Z,false,false,false,true,,,test1,test1
 
-false,false,false,false,true,true,true,false,false,true,false,true,false,false,false,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T18:50:35.887Z,false,false,false,true,,,test1,test1
 
-false,false,false,false,true,true,true,false,false,true,false,true,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T18:50:47.475Z,false,false,false,true,,,test1,test1
 
-false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T19:01:09.315Z,false,false,false,false,,,-,-
 
-false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T20:35:19.955Z,true,false,false,false,13L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T20:35:38.088Z,true,false,false,false,14L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC1,Ciclo1
+2025-12-12T20:35:43.136Z,true,false,false,false,15L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,1F,1F,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:35:47.164Z,true,false,false,false,16L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,1F,1F,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:35:51.191Z,true,false,false,false,17L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,true,false,true,false,false,false,false,false,false,false,false,false,false,false,false,true,true,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,1F,1F,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:35:57.247Z,true,false,false,false,18L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,true,false,true,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,1F,1F,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:36:01.270Z,true,false,false,false,19L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,false,false,false,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,1F,1F,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:36:05.290Z,true,false,false,false,24L,,idel,nombre
 
-false,false,false,false,true,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,1F,1F,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:36:23.430Z,true,false,false,false,25L,,idel,nombre
 
-false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:36:28.444Z,true,false,false,false,26L,,idel,nombre
 
-false,false,false,false,true,true,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,false,true,false,false,false,false,false,false,0,0,false,,,false,false,false,false,false,EC123,Ciclo2
+2025-12-12T20:36:35.508Z,true,false,false,false,27L,,idel,nombre
+
+2025-12-12T20:36:41.630Z,true,false,false,false,28L,,idel,nombre
+
+2025-12-12T20:36:47.652Z,true,false,false,false,39L,,idel,nombre
+
+2025-12-12T20:37:05.800Z,true,false,false,false,40L,,idel,nombre
+
+2025-12-12T20:37:10.834Z,true,false,false,false,41L,,idel,nombre
+
+2025-12-12T20:37:16.921Z,true,false,false,false,42L,,idel,nombre
+
+2025-12-12T20:37:22.965Z,true,false,false,false,43L,,idel,nombre
+
+2025-12-12T20:37:30.061Z,true,false,false,false,54L,,idel,nombre
+
+2025-12-12T20:37:48.247Z,true,false,false,false,55L,,idel,nombre
+
+2025-12-12T20:37:53.260Z,true,false,false,false,56L,,idel,nombre
+
+2025-12-12T20:37:59.312Z,true,false,false,false,57L,,idel,nombre
+
+2025-12-12T20:38:05.396Z,true,false,false,false,58L,,idel,nombre
+
+2025-12-12T20:38:11.425Z,true,false,false,false,69L,,idel,nombre
+
+2025-12-12T20:38:29.648Z,true,false,false,false,70L,,idel,nombre
+
+2025-12-12T20:38:34.664Z,true,false,false,false,71L,,idel,nombre
+
+2025-12-12T20:38:40.688Z,true,false,false,false,72L,,idel,nombre
+
+2025-12-12T20:38:47.724Z,true,false,false,false,73L,,idel,nombre
+
+2025-12-12T20:38:53.776Z,true,false,false,false,84L,,idel,nombre
+
+2025-12-12T20:39:11.912Z,true,false,false,false,85L,,idel,nombre
+
+2025-12-12T20:39:16.967Z,true,false,false,false,86L,,idel,nombre
+
+2025-12-12T20:39:22.985Z,true,false,false,false,87L,,idel,nombre
+
+2025-12-12T20:39:29.041Z,true,false,false,false,88L,,idel,nombre
+
+2025-12-12T20:39:36.090Z,true,false,false,false,99L,,idel,nombre
+
+2025-12-12T20:39:54.261Z,true,false,false,false,100L,,idel,nombre
+
+2025-12-12T20:39:59.281Z,true,false,false,false,101L,,idel,nombre
+
+2025-12-12T20:40:05.352Z,true,false,false,false,102L,,idel,nombre
+
+2025-12-12T20:40:11.417Z,true,false,false,false,103L,,idel,nombre
+
+2025-12-12T20:40:17.443Z,true,false,false,false,114L,,idel,nombre
+
+2025-12-12T20:40:35.661Z,true,false,false,false,115L,,idel,nombre
+
+2025-12-12T20:40:40.683Z,true,false,false,false,116L,,idel,nombre
+
+2025-12-12T20:40:47.692Z,true,false,false,false,117L,,idel,nombre
+
+2025-12-12T20:40:53.717Z,true,false,false,false,118L,,idel,nombre
+
+2025-12-12T20:40:59.754Z,true,false,false,false,129L,,idel,nombre
+
+2025-12-12T20:41:17.949Z,true,false,false,false,130L,,idel,nombre
+
+2025-12-12T20:41:22.956Z,true,false,false,false,131L,,idel,nombre
+
+2025-12-12T20:41:29.009Z,true,false,false,false,132L,,idel,nombre
+
+2025-12-12T20:41:36.063Z,true,false,false,false,133L,,idel,nombre
+
+2025-12-12T20:41:42.091Z,true,false,false,false,144L,,idel,nombre
+
+2025-12-12T20:42:00.285Z,true,false,false,false,145L,,idel,nombre
+
+2025-12-12T20:42:05.317Z,true,false,false,false,146L,,idel,nombre
+
+2025-12-12T20:42:11.375Z,true,false,false,false,147L,,idel,nombre
+
+2025-12-12T20:42:17.408Z,true,false,false,false,148L,,idel,nombre
+
+2025-12-12T20:42:24.486Z,true,false,false,false,159L,,idel,nombre
+
+2025-12-12T20:42:42.647Z,true,false,false,false,160L,,idel,nombre
+
+2025-12-12T20:42:46.726Z,true,false,false,false,161L,,idel,nombre
+
+2025-12-12T20:42:53.756Z,true,false,false,false,162L,,idel,nombre
+
+2025-12-12T20:42:59.793Z,true,false,false,false,163L,,idel,nombre
+
+2025-12-12T20:43:05.819Z,true,false,false,false,174L,,idel,nombre
+
+2025-12-12T20:43:24.008Z,true,false,false,false,175L,,idel,nombre
+
+2025-12-12T20:43:29.038Z,true,false,false,false,176L,,idel,nombre
+
+2025-12-12T20:43:35.116Z,true,false,false,false,177L,,idel,nombre
+
+2025-12-12T20:43:42.164Z,true,false,false,false,178L,,idel,nombre
+
+2025-12-12T20:43:48.185Z,true,false,false,false,189L,,idel,nombre
+
+2025-12-12T20:44:06.327Z,true,false,false,false,190L,,idel,nombre
+
+2025-12-12T20:44:11.389Z,true,false,false,false,191L,,idel,nombre
+
+2025-12-12T20:44:17.445Z,true,false,false,false,192L,,idel,nombre
+
+2025-12-12T20:44:23.479Z,true,false,false,false,193L,,idel,nombre
+
+2025-12-12T20:44:27.743Z,true,false,false,false,193L,,idel,nombre
+
+2025-12-12T20:44:29.767Z,true,false,false,false,212L,,idel,nombre
+
+2025-12-12T20:44:36.797Z,true,false,false,false,213L,,idel,nombre
+
+2025-12-12T20:44:44.887Z,true,false,false,false,,,idel,nombre
+
+2025-12-12T20:45:27.329Z,false,false,false,true,,,idel,nombre
+
+2025-12-12T20:45:57.657Z,false,false,false,false,,,idel,nombre
+
+2025-12-13T14:59:33.872Z,false,false,false,false,,,idel,nombre
+
+2025-12-13T15:02:00.717Z,false,false,false,false,,,idel,nombre
 

@@ -256,7 +256,7 @@
 </section>
 
 <!-- Photos Section -->
-{% if photos %}
+{% if photos_data %}
 <section class="section-padding bg-light">
     <div class="container">
         <div class="row text-center mb-5">
@@ -269,15 +269,24 @@
         </div>
         
         <div class="row g-4">
-            {% for photo in photos %}
+            {% for photo_data in photos_data %}
+            {% with photo=photo_data.photo_obj png_url=photo_data.png_url %}
             <div class="col-lg-4 col-md-6">
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-0">
+                        {% if png_url %}
+                        <img src="{{ png_url }}" 
+                             class="card-img-top" 
+                             alt="{{ photo.caption|default:'Foto de inspección' }}"
+                             style="height: 250px; object-fit: cover; cursor: pointer;"
+                             onclick="openPhotoModal('{{ png_url|escapejs }}', '{{ photo.caption|default:"Foto de inspección"|escapejs }}')">
+                        {% else %}
                         <img src="{{ photo.photo.url }}" 
                              class="card-img-top" 
                              alt="{{ photo.caption|default:'Foto de inspección' }}"
                              style="height: 250px; object-fit: cover; cursor: pointer;"
                              onclick="openPhotoModal('{{ photo.photo.url|escapejs }}', '{{ photo.caption|default:"Foto de inspección"|escapejs }}')">
+                        {% endif %}
                     </div>
                     <div class="card-footer bg-transparent">
                         <h6 class="card-title mb-2">{{ photo.caption|default:'Sin descripción' }}</h6>
@@ -299,6 +308,7 @@
                     </div>
                 </div>
             </div>
+            {% endwith %}
             {% endfor %}
         </div>
     </div>

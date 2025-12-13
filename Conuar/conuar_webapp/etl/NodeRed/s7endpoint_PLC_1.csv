@@ -1,0 +1,9 @@
+DB8,X1.1;CicloActivo
+DB8,X1.2;ReiniciarCiclo
+DB8,X1.3;AbortarCiclo
+DB8,X1.4;FinCiclo
+DB8,X3.7;SiempreUNO
+DB8,BYTE116.12;ID_Control
+DB8,BYTE128.62;Nombre_Control
+DB8,BYTE190.22;ID_EC
+DB8,BYTE212.42;NombreCiclo

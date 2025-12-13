@@ -4,9 +4,9 @@ PLC Data Processor - Sistema Conuar
 
 Este script agrupa lecturas PLC en ciclos, busca fotos en el directorio
 STAGING que cumplan el patrón
-    {NombreCiclo}-{ID_EC}-{ID}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
+    {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
     Ejemplo: Ciclo2-E123-3F-041225_154941-NOK.bmp
-Las fotos se matchean SOLO por los primeros 3 campos: {NombreCiclo}-{ID_EC}-{ID}
+Las fotos se matchean SOLO por los primeros 3 campos: {NombreCiclo}-{ID_EC}-{ID_Control}
 Un ciclo comienza cuando CicloActivo cambia a TRUE y termina cuando cambia a FALSE.
 Cada foto utilizada se mueve a PROCESSED y se vincula a la inspección resultante.
 
@@ -38,6 +38,13 @@ except Exception:
 
 # Imports de Django
 from main.models import PlcDataRaw, Inspection, InspectionPhoto, InspectionMachine, User
+
+# Import photo unificator (handle both standalone and Django contexts)
+try:
+    from etl.photo_unificator import unify_photo
+except ImportError:
+    # If running as standalone script, use relative import
+    from photo_unificator import unify_photo
 
 # Configurar logging
 logging.basicConfig(
@@ -106,17 +113,17 @@ class PlcDataProcessor:
     def _build_photo_match_prefix(self, row: dict) -> str:
         """
         Build the matching prefix for photos (first 3 fields only):
-        {NombreCiclo}-{ID_EC}-{ID}
+        {NombreCiclo}-{ID_EC}-{ID_Control}
         This is used to match photos regardless of date/time/falla values.
         """
         try:
             # Handle field names with/without leading spaces, handle booleans/empty values
             nombre_ciclo = self._get_field_value(row, 'NombreCiclo', ['nombre_ciclo'])
             id_ec = self._get_field_value(row, 'ID_EC', ['elemento_combustible'])
-            id_value = self._get_field_value(row, 'ID', ['id_puntero', 'PunteroControl'])
+            id_value = self._get_field_value(row, 'ID_Control', ['ID', 'id_puntero', 'PunteroControl'])
             
             if not nombre_ciclo or not id_ec or not id_value:
-                raise KeyError(f"Missing required fields for photo matching: NombreCiclo={nombre_ciclo!r}, ID_EC={id_ec!r}, ID={id_value!r}")
+                raise KeyError(f"Missing required fields for photo matching: NombreCiclo={nombre_ciclo!r}, ID_EC={id_ec!r}, ID_Control={id_value!r}")
             
             # Return only the first 3 fields for matching
             return f"{nombre_ciclo}-{id_ec}-{id_value}"
@@ -129,8 +136,8 @@ class PlcDataProcessor:
     def _find_staged_photo(self, row: dict) -> Optional[Path]:
         """
         Find photo in STAGING folder matching by first 3 fields only:
-        {NombreCiclo}-{ID_EC}-{ID}
-        Full format: {NombreCiclo}-{ID_EC}-{ID}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
+        {NombreCiclo}-{ID_EC}-{ID_Control}
+        Full format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
         Example: Ciclo2-E123-3F-041225_154941-NOK.bmp
         """
         try:
@@ -143,7 +150,7 @@ class PlcDataProcessor:
             return None
 
         # Search for photos that start with the match prefix
-        # Match pattern: {NombreCiclo}-{ID_EC}-{ID}-...
+        # Match pattern: {NombreCiclo}-{ID_EC}-{ID_Control}-...
         if not self.staging_photo_path.exists():
             return None
         
@@ -176,7 +183,7 @@ class PlcDataProcessor:
     def _extract_failure_from_photo_filename(self, photo_path: Path) -> bool:
         """
         Extract failure status from photo filename.
-        Photo format: {NombreCiclo}-{ID_EC}-{ID}-{Fecha}_{Hora}-{Falla}.bmp
+        Photo format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha}_{Hora}-{Falla}.bmp
         Where {Falla} is either 'NOK' (failure) or 'OK' (no failure)
         Returns True if failure detected (NOK), False otherwise (OK or not found)
         """
@@ -409,13 +416,13 @@ class PlcDataProcessor:
             # Skip rows with missing required fields for photo matching
             nombre_ciclo = self._get_field_value(payload, 'NombreCiclo', ['nombre_ciclo'])
             id_ec = self._get_field_value(payload, 'ID_EC', ['elemento_combustible'])
-            id_value = self._get_field_value(payload, 'ID', ['id_puntero', 'PunteroControl'])
+            id_value = self._get_field_value(payload, 'ID_Control', ['ID', 'id_puntero', 'PunteroControl'])
             
             if not nombre_ciclo or not id_ec or not id_value:
                 # Skip this row - missing required fields for photo matching
                 logger.debug(
                     f"Omitiendo fila del ciclo - campos faltantes: "
-                    f"NombreCiclo={nombre_ciclo!r}, ID_EC={id_ec!r}, ID={id_value!r}"
+                    f"NombreCiclo={nombre_ciclo!r}, ID_EC={id_ec!r}, ID_Control={id_value!r}"
                 )
                 continue
             
@@ -423,7 +430,7 @@ class PlcDataProcessor:
             if not photo_path:
                 logger.warning(
                     f"No se encontró foto en STAGING para ciclo {nombre_ciclo} "
-                    f"ID {id_value}"
+                    f"ID_Control {id_value}"
                 )
                 continue
             
@@ -460,29 +467,66 @@ class PlcDataProcessor:
                 inspection_folder.mkdir(parents=True, exist_ok=True)
                 logger.info(f"Creada carpeta de inspección: {inspection_folder}")
             
-            # Move photo to inspection-specific folder
-            destination = inspection_folder / photo_path.name
+            # Unify photo: overlay SVG on BMP and create PNG
+            # This must be done BEFORE moving files, so all files are in STAGING
+            png_path = None
             try:
-                shutil.move(str(photo_path), str(destination))
-            except FileNotFoundError:
-                logger.warning(f"La foto {photo_path} desapareció antes de moverla a PROCESSED")
-                continue
-            except shutil.Error as exc:
-                logger.warning(f"No se pudo mover {photo_path} a {destination}: {exc}")
+                logger.info(f"Unificando foto: {photo_path}")
+                png_path = unify_photo(photo_path)
+                if png_path:
+                    logger.info(f"Imagen unificada creada: {png_path}")
+                else:
+                    logger.warning(f"No se pudo crear imagen unificada para {photo_path}")
+            except Exception as e:
+                logger.error(f"Error al unificar foto {photo_path}: {e}")
+                # Continue processing even if unification fails
+            
+            # Find corresponding SVG file (same name, different extension)
+            svg_path = photo_path.with_suffix('.svg')
+            if not svg_path.exists():
+                svg_path = None
+            
+            # Prepare list of files to move: BMP, SVG (if exists), and PNG (if created)
+            files_to_move = []
+            if photo_path.exists():
+                files_to_move.append((photo_path, 'bmp'))
+            if svg_path and svg_path.exists():
+                files_to_move.append((svg_path, 'svg'))
+            if png_path and png_path.exists():
+                files_to_move.append((png_path, 'png'))
+            
+            # Move all related files to inspection-specific folder
+            moved_bmp = False
+            for file_path, file_type in files_to_move:
+                destination = inspection_folder / file_path.name
+                try:
+                    shutil.move(str(file_path), str(destination))
+                    logger.debug(f"Movido {file_type.upper()}: {file_path.name} -> {destination}")
+                    if file_type == 'bmp':
+                        moved_bmp = True
+                except FileNotFoundError:
+                    logger.warning(f"El archivo {file_path} desapareció antes de moverlo a PROCESSED")
+                except shutil.Error as exc:
+                    logger.warning(f"No se pudo mover {file_path} a {destination}: {exc}")
+            
+            # Only create InspectionPhoto record if BMP was successfully moved
+            if not moved_bmp:
+                logger.warning(f"BMP no fue movido, omitiendo registro de inspección para {photo_path.name}")
                 continue
 
-            # Update relative path to include the inspection folder
-            relative_path = f"inspection_photos/PROCESSED/{inspection_folder.name}/{destination.name}"
+            # Update relative path to include the inspection folder (use BMP for the record)
+            bmp_destination = inspection_folder / photo_path.name
+            relative_path = f"inspection_photos/PROCESSED/{inspection_folder.name}/{bmp_destination.name}"
             
             InspectionPhoto.objects.create(
                 inspection=inspection,
                 photo=relative_path,
-                caption=f"Ciclo {nombre_ciclo} ID {id_value}",
+                caption=f"Ciclo {nombre_ciclo} ID_Control {id_value}",
                 photo_type="plc_cycle",
                 defecto_encontrado=defecto_encontrado,
             )
 
-            self.processed_photos.add(destination.name)
+            self.processed_photos.add(bmp_destination.name)
             linked += 1
         
         # Update inspection defect status based on photos found
