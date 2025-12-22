@@ -333,8 +333,9 @@ class PlcDataProcessor:
             else:
                 inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
         
-        # Build natural key for inspection
-        natural_key = f"{nombre_ciclo}-{id_ec}-{inspection_date.isoformat()}"
+        # Build natural key for inspection - group by nombre_ciclo and id_ec only
+        # This ensures all cycles for the same cycle name and fuel element are grouped together
+        natural_key = f"{nombre_ciclo}-{id_ec}"
         
         # Check for defects: Falla="1" or "true" means NOK, otherwise OK
         defecto_encontrado = any(
@@ -407,8 +408,12 @@ class PlcDataProcessor:
         # Track defects found in photos for inspection-level defect detection
         defects_found_in_photos = []
         
-        # Track the inspection folder (created from first photo name)
-        inspection_folder = None
+        # Create inspection folder from inspection's product_code (consistent identifier)
+        # Use a sanitized version of product_code as folder name
+        inspection_folder_name = inspection.product_code.replace(':', '-').replace('/', '-')
+        inspection_folder = self.processed_photo_path / inspection_folder_name
+        inspection_folder.mkdir(parents=True, exist_ok=True)
+        logger.info(f"Usando carpeta de inspección: {inspection_folder}")
         
         for raw in cycle_rows:
             payload = raw._parsed_json
@@ -459,14 +464,6 @@ class PlcDataProcessor:
                 f"defecto_from_csv={defecto_from_csv}, defecto_encontrado={defecto_encontrado}"
             )
 
-            # Create inspection folder from first photo name (without extension)
-            if inspection_folder is None:
-                # Get photo name without extension for folder name
-                photo_name_without_ext = photo_path.stem  # Gets filename without extension
-                inspection_folder = self.processed_photo_path / photo_name_without_ext
-                inspection_folder.mkdir(parents=True, exist_ok=True)
-                logger.info(f"Creada carpeta de inspección: {inspection_folder}")
-            
             # Unify photo: overlay SVG on BMP and create PNG
             # This must be done BEFORE moving files, so all files are in STAGING
             png_path = None
