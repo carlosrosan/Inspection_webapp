@@ -5401,3 +5401,945 @@ datetime,CicloActivo,ReiniciarCiclo,AbortarCiclo,FinCiclo,ID_Control,Nombre_Cont
 
 2025-12-22T19:54:27.698Z,false,false,false,true,,,432534,dami
 
+2025-12-22T21:57:41.146Z,false,false,false,false,,,432534,dami
+
+2025-12-22T21:57:42.146Z,false,false,false,true,,,432534,dami
+
+2025-12-22T23:41:29.689Z,false,false,false,false,,,432534,dami
+
+2025-12-22T23:41:30.707Z,false,false,false,true,,,432534,dami
+
+2025-12-23T00:18:48.014Z,false,false,false,false,,,432534,dami
+
+2025-12-23T00:18:49.038Z,false,false,false,true,,,432534,dami
+
+2025-12-23T01:36:31.824Z,false,false,false,false,,,432534,dami
+
+2025-12-23T01:36:32.845Z,false,false,false,true,,,432534,dami
+
+2025-12-23T01:46:17.710Z,false,false,false,false,,,432534,dami
+
+2025-12-23T01:46:18.722Z,false,false,false,true,,,432534,dami
+
+2025-12-23T02:20:56.221Z,false,false,false,false,,,432534,dami
+
+2025-12-23T13:16:05.260Z,false,false,false,false,,,432534,dami
+
+2025-12-23T13:24:16.816Z,true,false,false,false,,,12,23
+
+2025-12-23T13:24:35.994Z,true,false,false,false,1F,,12,23
+
+2025-12-23T13:24:45.084Z,true,false,false,false,2F,,12,23
+
+2025-12-23T13:24:49.152Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:24:53.165Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:24:57.148Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:01.154Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:04.197Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:06.192Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:10.206Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:13.209Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:17.216Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:20.218Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:23.229Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:29.256Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:34.271Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:38.296Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:42.307Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:48.354Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:52.393Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:25:56.453Z,true,false,false,false,2OT,Rectitud EC,12,23
+
+2025-12-23T13:26:03.490Z,true,false,false,false,21F,Rectitud EC,12,23
+
+2025-12-23T13:26:05.507Z,true,false,false,false,22F,Rectitud EC,12,23
+
+2025-12-23T13:26:13.596Z,true,false,false,false,23F,Rectitud EC,12,23
+
+2025-12-23T13:26:22.633Z,true,false,false,false,24L,Rectitud EC,12,23
+
+2025-12-23T13:26:28.679Z,true,false,false,false,25L,Rectitud EC,12,23
+
+2025-12-23T13:26:33.712Z,true,false,false,false,26L,Rectitud EC,12,23
+
+2025-12-23T13:26:39.756Z,true,false,false,false,27L,Rectitud EC,12,23
+
+2025-12-23T13:26:45.790Z,true,false,false,false,28L,Rectitud EC,12,23
+
+2025-12-23T13:26:51.840Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:26:58.907Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:02.923Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:06.955Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:10.982Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:16.006Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:19.031Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:22.055Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:26.105Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:29.109Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:33.159Z,true,false,false,false,39L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:39.186Z,true,false,false,false,40L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:44.241Z,true,false,false,false,41L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:50.282Z,true,false,false,false,42L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:27:56.314Z,true,false,false,false,43L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:02.355Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:09.432Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:13.486Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:17.505Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:21.528Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:26.585Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:29.595Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:33.617Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:36.618Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:39.623Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:43.666Z,true,false,false,false,54L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:49.688Z,true,false,false,false,55L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:28:54.719Z,true,false,false,false,56L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:00.781Z,true,false,false,false,57L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:06.817Z,true,false,false,false,58L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:12.857Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:19.906Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:23.937Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:27.980Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:32.012Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:37.062Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:40.087Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:44.169Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:47.172Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:50.178Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:29:54.147Z,true,false,false,false,69L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:00.180Z,true,false,false,false,70L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:05.203Z,true,false,false,false,71L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:11.271Z,true,false,false,false,72L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:18.329Z,true,false,false,false,73L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:24.382Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:30.430Z,true,false,false,false,75F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:35.445Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:39.486Z,true,false,false,false,77F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:42.487Z,true,false,false,false,78F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:48.525Z,true,false,false,false,79F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:50.548Z,true,false,false,false,80F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:54.600Z,true,false,false,false,81F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:30:57.623Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:00.633Z,true,false,false,false,83F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:04.681Z,true,false,false,false,84L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:11.713Z,true,false,false,false,85L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:16.748Z,true,false,false,false,86L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:22.789Z,true,false,false,false,87L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:28.831Z,true,false,false,false,88L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:34.899Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:41.970Z,true,false,false,false,90F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:45.981Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:50.007Z,true,false,false,false,92F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:54.036Z,true,false,false,false,93F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:31:59.162Z,true,false,false,false,94F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:02.163Z,true,false,false,false,95F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:06.160Z,true,false,false,false,96F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:08.174Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:11.183Z,true,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:15.246Z,true,false,false,false,99L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:22.299Z,true,false,false,false,100L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:27.332Z,true,false,false,false,101L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:33.404Z,true,false,false,false,102L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:39.452Z,true,false,false,false,103L,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:45.494Z,true,false,false,false,104F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:52.536Z,true,false,false,false,105F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:32:56.546Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:33:00.586Z,true,false,false,false,107F,Distancia entre SE - Perpendicularidad SE,12,23
+
+2025-12-23T13:33:13.680Z,true,false,true,false,,,12,23
+
+2025-12-23T13:33:38.832Z,false,false,false,true,,,12,23
+
+2025-12-23T13:33:45.897Z,false,false,false,false,,,12,23
+
+2025-12-23T15:29:34.219Z,true,false,false,false,,,P,PRUEBA
+
+2025-12-23T15:29:53.439Z,true,false,false,false,1F,,P,PRUEBA
+
+2025-12-23T15:30:02.516Z,true,false,false,false,2F,,P,PRUEBA
+
+2025-12-23T15:30:06.566Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:10.607Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:14.658Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:18.708Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:20.729Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:23.774Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:27.827Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:30.859Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:33.877Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:37.934Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:40.968Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:47.038Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:52.084Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:30:56.181Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:31:00.175Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:31:06.184Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:31:10.216Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:31:14.273Z,true,false,false,false,2OT,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:20.285Z,true,false,false,false,21F,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:23.330Z,true,false,false,false,22F,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:31.388Z,true,false,false,false,23F,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:39.447Z,true,false,false,false,24L,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:46.509Z,true,false,false,false,25L,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:51.524Z,true,false,false,false,26L,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:31:57.568Z,true,false,false,false,27L,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:32:03.629Z,true,false,false,false,28L,Rectitud EC,P,PRUEBA
+
+2025-12-23T15:32:09.707Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:15.775Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:20.814Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:24.863Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:28.879Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:33.911Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:35.926Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:39.946Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:42.975Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:47.010Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:50.025Z,true,false,false,false,39L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:32:56.069Z,true,false,false,false,40L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:01.196Z,true,false,false,false,41L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:08.198Z,true,false,false,false,42L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:14.284Z,true,false,false,false,43L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:20.324Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:26.377Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:31.415Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:35.425Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:38.455Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:43.509Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:46.514Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:50.527Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:53.533Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:33:56.547Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:00.561Z,true,false,false,false,54L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:06.611Z,true,false,false,false,55L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:11.652Z,true,false,false,false,56L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:17.705Z,true,false,false,false,57L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:24.730Z,true,false,false,false,58L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:30.786Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:36.831Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:41.878Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:45.923Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:48.938Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:53.983Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:34:57.009Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:01.042Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:04.077Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:07.092Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:11.176Z,true,false,false,false,69L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:18.194Z,true,false,false,false,70L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:23.194Z,true,false,false,false,71L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:29.220Z,true,false,false,false,72L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:35.296Z,true,false,false,false,73L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:41.340Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:47.411Z,true,false,false,false,75F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:52.433Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:35:56.464Z,true,false,false,false,77F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:00.489Z,true,false,false,false,78F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:05.542Z,true,false,false,false,79F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:08.570Z,true,false,false,false,80F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:12.610Z,true,false,false,false,81F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:14.638Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:17.679Z,true,false,false,false,83F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:21.734Z,true,false,false,false,84L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:28.800Z,true,false,false,false,85L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:33.861Z,true,false,false,false,86L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:39.914Z,true,false,false,false,87L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:45.977Z,true,false,false,false,88L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:52.022Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:36:59.118Z,true,false,false,false,90F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:03.175Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:07.197Z,true,false,false,false,92F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:11.211Z,true,false,false,false,93F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:16.249Z,true,false,false,false,94F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:19.278Z,true,false,false,false,95F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:23.327Z,true,false,false,false,96F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:26.330Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:28.343Z,true,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:32.387Z,true,false,false,false,99L,Distancia entre SE - Perpendicularidad SE,P,PRUEBA
+
+2025-12-23T15:37:44.515Z,true,false,true,false,,,P,PRUEBA
+
+2025-12-23T15:38:09.799Z,false,false,false,true,,,P,PRUEBA
+
+2025-12-23T15:38:15.834Z,false,false,false,false,,,P,PRUEBA
+
+2025-12-23T16:49:00.966Z,true,false,false,false,,,UNO,COMPLETO
+
+2025-12-23T16:49:21.109Z,true,false,false,false,1F,,UNO,COMPLETO
+
+2025-12-23T16:49:30.220Z,true,false,false,false,2F,,UNO,COMPLETO
+
+2025-12-23T16:49:34.230Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:38.261Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:42.284Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:46.326Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:49.351Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:51.364Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:55.388Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:49:58.408Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:02.426Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:05.451Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:08.475Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:14.528Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:19.548Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:23.558Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:27.563Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:33.603Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:37.631Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:50:41.657Z,true,false,false,false,2OT,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:50:48.705Z,true,false,false,false,21F,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:50:50.729Z,true,false,false,false,22F,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:50:58.790Z,true,false,false,false,23F,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:51:07.847Z,true,false,false,false,24L,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:51:13.905Z,true,false,false,false,25L,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:51:18.958Z,true,false,false,false,26L,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:51:25.000Z,true,false,false,false,27L,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:51:31.054Z,true,false,false,false,28L,Rectitud EC,UNO,COMPLETO
+
+2025-12-23T16:51:37.094Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:51:44.135Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:51:48.195Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:51:52.219Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:51:56.202Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:01.219Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:04.229Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:08.262Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:11.305Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:14.315Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:18.335Z,true,false,false,false,39L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:24.377Z,true,false,false,false,40L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:29.403Z,true,false,false,false,41L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:35.451Z,true,false,false,false,42L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:41.478Z,true,false,false,false,43L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:48.532Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:54.551Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:52:58.591Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:02.607Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:06.645Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:11.668Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:14.696Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:18.727Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:21.755Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:24.803Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:28.830Z,true,false,false,false,54L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:34.854Z,true,false,false,false,55L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:39.911Z,true,false,false,false,56L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:45.943Z,true,false,false,false,57L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:51.991Z,true,false,false,false,58L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:53:59.042Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:05.077Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:10.090Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:13.117Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:17.195Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:22.214Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:25.220Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:29.230Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:32.250Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:35.260Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:39.297Z,true,false,false,false,69L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:46.349Z,true,false,false,false,70L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:51.375Z,true,false,false,false,71L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:54:57.454Z,true,false,false,false,72L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:03.484Z,true,false,false,false,73L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:09.545Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:15.585Z,true,false,false,false,75F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:20.619Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:24.629Z,true,false,false,false,77F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:28.653Z,true,false,false,false,78F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:33.677Z,true,false,false,false,79F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:36.694Z,true,false,false,false,80F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:39.736Z,true,false,false,false,81F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:42.768Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:45.756Z,true,false,false,false,83F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:49.763Z,true,false,false,false,84L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:55:56.830Z,true,false,false,false,85L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:01.829Z,true,false,false,false,86L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:07.896Z,true,false,false,false,87L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:13.903Z,true,false,false,false,88L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:20.942Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:26.942Z,true,false,false,false,90F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:30.967Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:34.993Z,true,false,false,false,92F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:39.030Z,true,false,false,false,93F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:44.083Z,true,false,false,false,94F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:47.077Z,true,false,false,false,95F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:51.089Z,true,false,false,false,96F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:54.119Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:56:57.137Z,true,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:01.222Z,true,false,false,false,99L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:07.212Z,true,false,false,false,100L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:12.242Z,true,false,false,false,101L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:19.255Z,true,false,false,false,102L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:25.286Z,true,false,false,false,103L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:31.297Z,true,false,false,false,104F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:37.333Z,true,false,false,false,105F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:42.390Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:46.438Z,true,false,false,false,107F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:50.440Z,true,false,false,false,108F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:55.500Z,true,false,false,false,109F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:57:58.531Z,true,false,false,false,110F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:01.548Z,true,false,false,false,111F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:04.559Z,true,false,false,false,112F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:07.577Z,true,false,false,false,113F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:11.636Z,true,false,false,false,114L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:18.662Z,true,false,false,false,115L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:23.694Z,true,false,false,false,116L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:29.730Z,true,false,false,false,117L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:35.786Z,true,false,false,false,118L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:41.830Z,true,false,false,false,119F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:48.886Z,true,false,false,false,120F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:52.918Z,true,false,false,false,121F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:58:56.942Z,true,false,false,false,122F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:00.944Z,true,false,false,false,123F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:05.984Z,true,false,false,false,124F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:09.002Z,true,false,false,false,125F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:13.030Z,true,false,false,false,126F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:16.030Z,true,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:19.047Z,true,false,false,false,128F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:22.061Z,true,false,false,false,129L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:29.133Z,true,false,false,false,130L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:34.155Z,true,false,false,false,131L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:40.212Z,true,false,false,false,132L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:47.239Z,true,false,false,false,133L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:53.310Z,true,false,false,false,134F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T16:59:59.344Z,true,false,false,false,135F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:03.367Z,true,false,false,false,136F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:07.400Z,true,false,false,false,137F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:11.430Z,true,false,false,false,138F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:16.471Z,true,false,false,false,139F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:19.487Z,true,false,false,false,140F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:23.521Z,true,false,false,false,141F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:26.528Z,true,false,false,false,142F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:29.538Z,true,false,false,false,143F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:33.553Z,true,false,false,false,144L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:40.599Z,true,false,false,false,145L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:45.630Z,true,false,false,false,146L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:51.675Z,true,false,false,false,147L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:00:57.735Z,true,false,false,false,148L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:03.763Z,true,false,false,false,149F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:09.844Z,true,false,false,false,150F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:14.848Z,true,false,false,false,151F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:18.883Z,true,false,false,false,152F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:22.928Z,true,false,false,false,153F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:27.959Z,true,false,false,false,154F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:30.994Z,true,false,false,false,155F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:34.023Z,true,false,false,false,156F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:37.030Z,true,false,false,false,157F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:40.039Z,true,false,false,false,158F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:44.063Z,true,false,false,false,159L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:51.107Z,true,false,false,false,160L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:01:56.130Z,true,false,false,false,161L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:02.201Z,true,false,false,false,162L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:08.205Z,true,false,false,false,163L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:14.266Z,true,false,false,false,164F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:21.332Z,true,false,false,false,165F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:25.373Z,true,false,false,false,166F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:29.430Z,true,false,false,false,167F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:33.430Z,true,false,false,false,168F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:38.454Z,true,false,false,false,169F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:41.467Z,true,false,false,false,170F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:45.489Z,true,false,false,false,171F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:48.512Z,true,false,false,false,172F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:51.530Z,true,false,false,false,173F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:02:55.556Z,true,false,false,false,174L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:01.582Z,true,false,false,false,175L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:06.628Z,true,false,false,false,176L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:12.639Z,true,false,false,false,177L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:19.698Z,true,false,false,false,178L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:25.746Z,true,false,false,false,179F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:31.773Z,true,false,false,false,180F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:36.814Z,true,false,false,false,181F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:39.819Z,true,false,false,false,182F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:43.833Z,true,false,false,false,183F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:48.883Z,true,false,false,false,184F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:51.889Z,true,false,false,false,185F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:55.932Z,true,false,false,false,186F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:03:58.954Z,true,false,false,false,187F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:01.961Z,true,false,false,false,188F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:05.995Z,true,false,false,false,189L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:13.031Z,true,false,false,false,190L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:18.077Z,true,false,false,false,191L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:24.114Z,true,false,false,false,192L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:30.206Z,true,false,false,false,193L,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:36.210Z,true,false,false,false,194F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:42.240Z,true,false,false,false,195F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:47.310Z,true,false,false,false,196F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:51.325Z,true,false,false,false,197F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:55.350Z,true,false,false,false,198F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:04:59.373Z,true,false,false,false,199F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:05:03.396Z,true,false,false,false,200F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:05:06.430Z,true,false,false,false,201F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:05:09.452Z,true,false,false,false,202F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:05:13.470Z,true,false,false,false,203F,Distancia entre SE - Perpendicularidad SE,UNO,COMPLETO
+
+2025-12-23T17:05:16.483Z,true,false,false,false,204LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:05:23.583Z,true,false,false,false,205LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:05:27.627Z,true,false,false,false,206LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:05:33.665Z,true,false,false,false,207LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:05:37.684Z,true,false,false,false,208LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:05:44.748Z,true,false,false,false,209LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:05:48.802Z,true,false,false,false,210F,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:06:07.907Z,true,false,false,false,211F,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:06:23.076Z,true,false,false,false,214L,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:06:29.123Z,true,false,false,false,213L,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:06:40.210Z,true,false,false,false,212L,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:06:49.237Z,true,false,false,false,215T,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:07:03.350Z,true,false,false,false,216LI+,Presencia de soldadura TVS - Fisuras soldadura TVS,UNO,COMPLETO
+
+2025-12-23T17:07:22.509Z,true,false,false,false,217LI+,Presencia de soldadura TVS - Fisuras soldadura TVS,UNO,COMPLETO
+
+2025-12-23T17:07:30.576Z,true,false,false,false,218LI+,Presencia de soldadura TVS - Fisuras soldadura TVS,UNO,COMPLETO
+
+2025-12-23T17:07:38.647Z,true,false,false,false,219LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:07:52.792Z,true,false,false,false,220LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:00.858Z,true,false,false,false,221LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:08.941Z,true,false,false,false,222LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:26.049Z,true,false,false,false,223LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:31.088Z,true,false,false,false,224LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:36.200Z,true,false,false,false,225LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:41.198Z,true,false,false,false,226LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:46.234Z,true,false,false,false,227LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:08:51.252Z,true,false,false,false,228LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:09:07.376Z,true,false,false,false,229LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:09:12.432Z,true,false,false,false,230LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:09:17.469Z,true,false,false,false,231LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:09:22.488Z,true,false,false,false,232LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:09:27.521Z,true,false,false,false,233LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,UNO,COMPLETO
+
+2025-12-23T17:09:32.538Z,true,false,false,false,234F,Tornillos del acople soldadura,UNO,COMPLETO
+
+2025-12-23T17:09:52.749Z,true,false,false,false,235F,Tornillos del acople soldadura,UNO,COMPLETO
+
+2025-12-23T17:09:58.774Z,true,false,false,false,236F,Tornillos del acople soldadura,UNO,COMPLETO
+
+2025-12-23T17:10:04.796Z,true,false,false,false,237F,Tornillos del acople soldadura,UNO,COMPLETO
+
+2025-12-23T17:10:07.808Z,true,false,false,false,238F,Tornillos del acople soldadura,UNO,COMPLETO
+
+2025-12-23T17:10:13.856Z,true,false,false,false,239F,Tornillos del acople soldadura,UNO,COMPLETO
+
+2025-12-23T17:10:19.899Z,true,false,false,false,,,UNO,COMPLETO
+
+2025-12-23T17:11:47.526Z,false,false,false,true,,,UNO,COMPLETO
+
+2025-12-23T17:16:31.501Z,false,false,false,false,,,UNO,COMPLETO
+
+2025-12-23T17:16:32.502Z,false,false,false,true,,,UNO,COMPLETO
+
+2025-12-23T17:19:47.776Z,false,false,false,false,,,UNO,COMPLETO
+

@@ -20,6 +20,7 @@ import time
 import shutil
 import logging
 import json
+import re
 from datetime import datetime
 from typing import Dict, List, Optional, Tuple
 from pathlib import Path
@@ -64,13 +65,28 @@ class PlcDataProcessor:
     def __init__(self):
         self.is_running = False
         
-        # Rutas de directorios de fotos
-        self.base_photo_path = Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_photos")
-        self.staging_photo_path = self.base_photo_path / "STAGING"
-        self.processed_photo_path = self.base_photo_path / "PROCESSED"
+        # Rutas de directorios de fotos (usar configuración centralizada)
+        try:
+            from config.paths_config import (
+                INSPECTION_PHOTOS_DIR,
+                INSPECTION_PHOTOS_STAGING_DIR,
+                INSPECTION_PHOTOS_PROCESSED_DIR,
+                ensure_directories_exist
+            )
+            ensure_directories_exist()
+            self.base_photo_path = Path(INSPECTION_PHOTOS_DIR)
+            self.staging_photo_path = Path(INSPECTION_PHOTOS_STAGING_DIR)
+            self.processed_photo_path = Path(INSPECTION_PHOTOS_PROCESSED_DIR)
+        except ImportError:
+            # Fallback a rutas hardcodeadas si no se puede importar la configuración
+            logger.warning("No se pudo importar config.paths_config, usando rutas por defecto")
+            self.base_photo_path = Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_photos")
+            self.staging_photo_path = self.base_photo_path / "STAGING"
+            self.processed_photo_path = self.base_photo_path / "PROCESSED"
+            self.processed_photo_path.mkdir(parents=True, exist_ok=True)
+        
         if not self.staging_photo_path.exists():
             logger.warning(f"Directorio STAGING no existe: {self.staging_photo_path}")
-        self.processed_photo_path.mkdir(parents=True, exist_ok=True)
 
         # Track processed photos to avoid reprocessing
         self.processed_photos: set = set()
@@ -133,13 +149,23 @@ class PlcDataProcessor:
             )
             raise
 
-    def _find_staged_photo(self, row: dict) -> Optional[Path]:
+    def _find_staged_photos(self, row: dict, exclude_photo_names: set = None) -> List[Path]:
         """
-        Find photo in STAGING folder matching by first 3 fields only:
+        Find ALL photos in STAGING folder matching by first 3 fields only:
         {NombreCiclo}-{ID_EC}-{ID_Control}
-        Full format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}.bmp
-        Example: Ciclo2-E123-3F-041225_154941-NOK.bmp
+        Full format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}{PhotoNumber}.bmp
+        Example: Ciclo2-E123-3F-041225_154941-NOK753.bmp or COMPLETO-UNO-1F-231225_134953-NOK754.bmp
+        
+        Args:
+            row: Dictionary with PLC data fields
+            exclude_photo_names: Set of photo filenames to exclude (already processed)
+        
+        Returns:
+            List of Path objects for all matching photos
         """
+        if exclude_photo_names is None:
+            exclude_photo_names = set()
+        
         try:
             # Build match prefix (first 3 fields only)
             match_prefix = self._build_photo_match_prefix(row)
@@ -147,28 +173,35 @@ class PlcDataProcessor:
             logger.warning(
                 f"Falta campo requerido {exc} en datos PLC para construir prefijo de foto"
             )
-            return None
+            return []
 
         # Search for photos that start with the match prefix
         # Match pattern: {NombreCiclo}-{ID_EC}-{ID_Control}-...
         if not self.staging_photo_path.exists():
-            return None
+            return []
         
-        # Try different extensions
+        matching_photos = []
+        
+        # Try different extensions - collect ALL matching photos
         for ext in (".bmp", ".jpg", ".jpeg", ".png"):
             # Look for files starting with the match prefix
             for photo_file in self.staging_photo_path.glob(f"{match_prefix}-*{ext}"):
                 # Verify it matches the pattern (starts with our prefix)
                 if photo_file.name.startswith(match_prefix + "-"):
-                    return photo_file
+                    # Skip if already processed
+                    if photo_file.name not in exclude_photo_names:
+                        matching_photos.append(photo_file)
         
         # Also try exact match if no date/time/falla pattern found
         for ext in (".bmp", ".jpg", ".jpeg", ".png"):
             candidate = self.staging_photo_path / f"{match_prefix}{ext}"
-            if candidate.exists():
-                return candidate
+            if candidate.exists() and candidate.name not in exclude_photo_names:
+                matching_photos.append(candidate)
         
-        return None
+        # Sort by filename for consistent ordering
+        matching_photos.sort(key=lambda p: p.name)
+        
+        return matching_photos
 
     def _is_boolean_true(self, value) -> bool:
         """Check if a value represents boolean TRUE"""
@@ -183,31 +216,58 @@ class PlcDataProcessor:
     def _extract_failure_from_photo_filename(self, photo_path: Path) -> bool:
         """
         Extract failure status from photo filename.
-        Photo format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha}_{Hora}-{Falla}.bmp
+        Photo format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha}_{Hora}-{Falla}{PhotoNumber}.bmp
         Where {Falla} is either 'NOK' (failure) or 'OK' (no failure)
+        And {PhotoNumber} is an optional integer from 1 to 4 digits (e.g., NOK753, OK123)
+        Examples: 
+          - COMPLETO-UNO-1F-231225_134953-NOK753.bmp (failure)
+          - COMPLETO-UNO-1F-231225_134953-OK123.bmp (no failure)
         Returns True if failure detected (NOK), False otherwise (OK or not found)
         """
         if not photo_path:
             return False
         
         filename = photo_path.name
+        filename_upper = filename.upper()
         
-        # Check if filename ends with -NOK.bmp or contains -NOK.
-        if '-NOK.' in filename.upper() or filename.upper().endswith('-NOK.BMP'):
+        # New format: Check for NOK followed by photo number (1-4 digits)
+        # Pattern: -NOK[0-9]{1,4}.ext 
+        # Pattern matches: -NOK1, -NOK12, -NOK753, -NOK1234
+        # Note: Also supports legacy format without numbers (-NOK.ext) for backward compatibility
+        nok_pattern = r'-NOK\d{0,4}\.'
+        if re.search(nok_pattern, filename_upper):
             return True
         
-        # Check if filename ends with -OK.bmp (explicitly OK, no failure)
-        if '-OK.' in filename.upper() or filename.upper().endswith('-OK.BMP'):
+        # Check if filename contains -OK followed by photo number (1-4 digits) or legacy format
+        # Pattern matches: -OK1, -OK12, -OK123, -OK1234, or legacy -OK.ext
+        ok_pattern = r'-OK\d{0,4}\.'
+        if re.search(ok_pattern, filename_upper):
+            return False
+        
+        # Legacy format support: Check if filename ends with -NOK.ext or contains -NOK.
+        if '-NOK.' in filename_upper or filename_upper.endswith('-NOK.BMP'):
+            return True
+        
+        # Legacy format: Check if filename ends with -OK.ext
+        if '-OK.' in filename_upper or filename_upper.endswith('-OK.BMP'):
             return False
         
         # If pattern not found, try to extract from end of filename
-        # Pattern: ...-{Falla}.bmp where Falla is NOK or OK
+        # Pattern: ...-{Falla}{PhotoNumber}.ext where Falla is NOK or OK, PhotoNumber is optional digits
         for ext in ('.bmp', '.jpg', '.jpeg', '.png'):
             if filename.lower().endswith(ext):
                 # Remove extension
                 name_without_ext = filename[:-len(ext)]
-                # Check if it ends with -NOK or -OK
-                if name_without_ext.upper().endswith('-NOK'):
+                # Check if it ends with -NOK followed by photo number (0-4 digits for backward compatibility)
+                # New format: -NOK123, legacy: -NOK
+                if re.search(r'-NOK\d{0,4}$', name_without_ext.upper()):
+                    return True
+                # Check if it ends with -OK followed by photo number (0-4 digits for backward compatibility)
+                # New format: -OK123, legacy: -OK
+                elif re.search(r'-OK\d{0,4}$', name_without_ext.upper()):
+                    return False
+                # Legacy: Check if it ends with -NOK or -OK
+                elif name_without_ext.upper().endswith('-NOK'):
                     return True
                 elif name_without_ext.upper().endswith('-OK'):
                     return False
@@ -216,14 +276,27 @@ class PlcDataProcessor:
         # Default: no failure detected if pattern not found
         return False
     
-    def _group_raw_rows_by_cycle(self, raw_rows: List[PlcDataRaw]) -> List[List[PlcDataRaw]]:
+    def _group_raw_rows_by_cycle(self, raw_rows: List[PlcDataRaw], wait_time_seconds: int = 300) -> List[List[PlcDataRaw]]:
         """
         Group raw rows into cycles based on CicloActivo changes.
         Cycle starts when CicloActivo changes to TRUE, ends when it changes to FALSE.
+        
+        IMPORTANT: Only includes cycles that ended at least wait_time_seconds ago.
+        This ensures we wait before processing a cycle (creating inspection, inspection folder,
+        and moving photos) to allow photos to arrive in STAGING folder after the inspection ends.
         """
         cycles, current = [], []
         collecting = False
         prev_ciclo_activo = False
+        
+        # Get current time for comparison
+        from django.utils import timezone
+        try:
+            # Use timezone-aware datetime (Django default)
+            now = timezone.now()
+        except Exception:
+            # Fallback to naive datetime if timezone is not configured
+            now = datetime.now()
         
         for raw in raw_rows:
             data = json.loads(raw.json_data)
@@ -244,15 +317,52 @@ class PlcDataProcessor:
                 
                 # End cycle when CicloActivo changes from TRUE to FALSE
                 if not is_active and prev_ciclo_activo:
-                    cycles.append(current)
+                    # This is the moment when the cycle ended (CicloActivo became False)
+                    # We need to wait wait_time_seconds before processing this cycle
+                    # (creating inspection, inspection folder, and moving photos)
+                    cycle_end_time = raw.timestamp
+                    
+                    # Ensure both datetimes are in the same format for comparison
+                    # Convert cycle_end_time to match now's timezone awareness
+                    if cycle_end_time.tzinfo is not None and now.tzinfo is None:
+                        # Convert timezone-aware to naive for comparison
+                        cycle_end_time = cycle_end_time.replace(tzinfo=None)
+                    elif cycle_end_time.tzinfo is None and now.tzinfo is not None:
+                        # Convert naive to timezone-aware for comparison
+                        # Assume naive datetime is in local timezone
+                        cycle_end_time = timezone.make_aware(cycle_end_time)
+                    time_since_end = (now - cycle_end_time).total_seconds()
+                    
+                    # Only process this cycle (add to cycles list) if it ended at least wait_time_seconds ago
+                    # This ensures photos have time to arrive in STAGING folder
+                    if time_since_end >= wait_time_seconds:
+                        # Cycle has waited long enough - add it for processing
+                        cycles.append(current)
+                        logger.info(
+                            f"Ciclo completado hace {time_since_end:.1f} segundos "
+                            f"(espera mínima: {wait_time_seconds}s) - Procesando ciclo: "
+                            f"crear inspección, carpeta de inspección y mover fotos"
+                        )
+                    else:
+                        # Cycle hasn't waited long enough yet - skip it for now
+                        # It will be checked again in the next iteration
+                        remaining_wait = wait_time_seconds - time_since_end
+                        logger.info(
+                            f"Ciclo completado hace {time_since_end:.1f} segundos. "
+                            f"Esperando {remaining_wait:.1f} segundos más antes de procesar "
+                            f"(crear inspección, carpeta y mover fotos) - para que lleguen fotos a STAGING"
+                        )
+                    
+                    # Reset state for next cycle (whether we processed this one or skipped it)
                     current, collecting = [], False
                     prev_ciclo_activo = False
                 elif is_active:
                     prev_ciclo_activo = True
         
-        # If still collecting at the end, add the current cycle
+        # If still collecting at the end, don't add the current cycle (it hasn't ended yet)
         if collecting and current:
-            cycles.append(current)
+            logger.debug("Ciclo aún activo (CicloActivo=True), no se procesará hasta que CicloActivo cambie a False")
+            # Don't add it to cycles - it will be processed in the next iteration after it ends
         
         return cycles
 
@@ -395,6 +505,31 @@ class PlcDataProcessor:
             )
         
         inspection.save()
+        
+        # Automatically generate and save PDF report after inspection is completed
+        try:
+            from main.views import generate_inspection_pdf_to_file
+            logger.info(f"Attempting to generate PDF for inspection {inspection.id}...")
+            pdf_bytes, pdf_path = generate_inspection_pdf_to_file(inspection.id, save_to_disk=True)
+            if pdf_path:
+                logger.info(f"PDF report automatically generated and saved: {pdf_path}")
+                logger.info(f"PDF file exists: {os.path.exists(pdf_path) if pdf_path else False}")
+            else:
+                logger.warning(f"PDF generation returned no file path for inspection {inspection.id}")
+                if pdf_bytes:
+                    logger.warning(f"PDF bytes were generated ({len(pdf_bytes)} bytes) but save failed")
+                else:
+                    logger.warning(f"PDF generation failed completely for inspection {inspection.id}")
+        except ImportError as e:
+            logger.error(f"Failed to import PDF generation function for inspection {inspection.id}: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+        except Exception as e:
+            logger.error(f"Error generating PDF for inspection {inspection.id}: {e}")
+            # Don't fail the cycle processing if PDF generation fails
+            import traceback
+            logger.error(traceback.format_exc())
+        
         for raw in cycle_rows:
             raw.processed = True
             raw.save(update_fields=["processed"])
@@ -431,100 +566,109 @@ class PlcDataProcessor:
                 )
                 continue
             
-            photo_path = self._find_staged_photo(payload)
-            if not photo_path:
+            # Find ALL matching photos for this prefix (not just the first one)
+            matching_photos = self._find_staged_photos(payload, exclude_photo_names=linked_photo_names)
+            
+            if not matching_photos:
                 logger.warning(
-                    f"No se encontró foto en STAGING para ciclo {nombre_ciclo} "
-                    f"ID_Control {id_value}"
+                    f"No se encontraron fotos en STAGING para ciclo {nombre_ciclo} "
+                    f"ID_Control {id_value} (prefijo: {nombre_ciclo}-{id_ec}-{id_value})"
                 )
                 continue
             
-            # Skip if we've already linked this photo (avoid duplicates)
-            if photo_path.name in linked_photo_names:
-                logger.debug(f"Foto {photo_path.name} ya vinculada, omitiendo duplicado")
-                continue
-            
-            linked_photo_names.add(photo_path.name)
-            
-            # Extract defect status from photo filename BEFORE moving (most reliable source)
-            defect_from_photo = self._extract_failure_from_photo_filename(photo_path)
-            defects_found_in_photos.append(defect_from_photo)
-            
-            # Also check CSV Falla field as fallback
-            falla = self._get_field_value(payload, 'Falla')
-            if not falla:
-                falla = payload.get('Falla') or payload.get(' Falla', '0')
-            defecto_from_csv = self._is_boolean_true(falla) or (payload.get("defecto") == "NOK")
-            
-            # Use photo filename as primary source, CSV as fallback
-            defecto_encontrado = defect_from_photo or defecto_from_csv
-            
             logger.info(
-                f"Foto {photo_path.name}: defecto_from_photo={defect_from_photo}, "
-                f"defecto_from_csv={defecto_from_csv}, defecto_encontrado={defecto_encontrado}"
+                f"Encontradas {len(matching_photos)} fotos para ciclo {nombre_ciclo} "
+                f"ID_Control {id_value}: {[p.name for p in matching_photos]}"
             )
+            
+            # Process all matching photos
+            for photo_path in matching_photos:
+                # Skip if we've already linked this photo (should not happen, but safety check)
+                if photo_path.name in linked_photo_names:
+                    logger.debug(f"Foto {photo_path.name} ya vinculada, omitiendo duplicado")
+                    continue
+                
+                linked_photo_names.add(photo_path.name)
+                
+                # Extract defect status from photo filename BEFORE moving (most reliable source)
+                defect_from_photo = self._extract_failure_from_photo_filename(photo_path)
+                defects_found_in_photos.append(defect_from_photo)
+                
+                # Also check CSV Falla field as fallback
+                falla = self._get_field_value(payload, 'Falla')
+                if not falla:
+                    falla = payload.get('Falla') or payload.get(' Falla', '0')
+                defecto_from_csv = self._is_boolean_true(falla) or (payload.get("defecto") == "NOK")
+                
+                # Use photo filename as primary source, CSV as fallback
+                defecto_encontrado = defect_from_photo or defecto_from_csv
+                
+                logger.info(
+                    f"Foto {photo_path.name}: defecto_from_photo={defect_from_photo}, "
+                    f"defecto_from_csv={defecto_from_csv}, defecto_encontrado={defecto_encontrado}"
+                )
 
-            # Unify photo: overlay SVG on BMP and create PNG
-            # This must be done BEFORE moving files, so all files are in STAGING
-            png_path = None
-            try:
-                logger.info(f"Unificando foto: {photo_path}")
-                png_path = unify_photo(photo_path)
-                if png_path:
-                    logger.info(f"Imagen unificada creada: {png_path}")
-                else:
-                    logger.warning(f"No se pudo crear imagen unificada para {photo_path}")
-            except Exception as e:
-                logger.error(f"Error al unificar foto {photo_path}: {e}")
-                # Continue processing even if unification fails
-            
-            # Find corresponding SVG file (same name, different extension)
-            svg_path = photo_path.with_suffix('.svg')
-            if not svg_path.exists():
-                svg_path = None
-            
-            # Prepare list of files to move: BMP, SVG (if exists), and PNG (if created)
-            files_to_move = []
-            if photo_path.exists():
-                files_to_move.append((photo_path, 'bmp'))
-            if svg_path and svg_path.exists():
-                files_to_move.append((svg_path, 'svg'))
-            if png_path and png_path.exists():
-                files_to_move.append((png_path, 'png'))
-            
-            # Move all related files to inspection-specific folder
-            moved_bmp = False
-            for file_path, file_type in files_to_move:
-                destination = inspection_folder / file_path.name
+                # Unify photo: overlay SVG on BMP and create PNG
+                # This must be done BEFORE moving files, so all files are in STAGING
+                png_path = None
                 try:
-                    shutil.move(str(file_path), str(destination))
-                    logger.debug(f"Movido {file_type.upper()}: {file_path.name} -> {destination}")
-                    if file_type == 'bmp':
-                        moved_bmp = True
-                except FileNotFoundError:
-                    logger.warning(f"El archivo {file_path} desapareció antes de moverlo a PROCESSED")
-                except shutil.Error as exc:
-                    logger.warning(f"No se pudo mover {file_path} a {destination}: {exc}")
-            
-            # Only create InspectionPhoto record if BMP was successfully moved
-            if not moved_bmp:
-                logger.warning(f"BMP no fue movido, omitiendo registro de inspección para {photo_path.name}")
-                continue
+                    logger.info(f"Unificando foto: {photo_path}")
+                    png_path = unify_photo(photo_path)
+                    if png_path:
+                        logger.info(f"Imagen unificada creada: {png_path}")
+                    else:
+                        logger.warning(f"No se pudo crear imagen unificada para {photo_path}")
+                except Exception as e:
+                    logger.error(f"Error al unificar foto {photo_path}: {e}")
+                    # Continue processing even if unification fails
+                
+                # Find corresponding SVG file (same name, different extension)
+                svg_path = photo_path.with_suffix('.svg')
+                if not svg_path.exists():
+                    svg_path = None
+                
+                # Prepare list of files to move: BMP, SVG (if exists), and PNG (if created)
+                files_to_move = []
+                if photo_path.exists():
+                    files_to_move.append((photo_path, 'bmp'))
+                if svg_path and svg_path.exists():
+                    files_to_move.append((svg_path, 'svg'))
+                if png_path and png_path.exists():
+                    files_to_move.append((png_path, 'png'))
+                
+                # Move all related files to inspection-specific folder
+                moved_bmp = False
+                for file_path, file_type in files_to_move:
+                    destination = inspection_folder / file_path.name
+                    try:
+                        shutil.move(str(file_path), str(destination))
+                        logger.debug(f"Movido {file_type.upper()}: {file_path.name} -> {destination}")
+                        if file_type == 'bmp':
+                            moved_bmp = True
+                    except FileNotFoundError:
+                        logger.warning(f"El archivo {file_path} desapareció antes de moverlo a PROCESSED")
+                    except shutil.Error as exc:
+                        logger.warning(f"No se pudo mover {file_path} a {destination}: {exc}")
+                
+                # Only create InspectionPhoto record if BMP was successfully moved
+                if not moved_bmp:
+                    logger.warning(f"BMP no fue movido, omitiendo registro de inspección para {photo_path.name}")
+                    continue
 
-            # Update relative path to include the inspection folder (use BMP for the record)
-            bmp_destination = inspection_folder / photo_path.name
-            relative_path = f"inspection_photos/PROCESSED/{inspection_folder.name}/{bmp_destination.name}"
-            
-            InspectionPhoto.objects.create(
-                inspection=inspection,
-                photo=relative_path,
-                caption=f"Ciclo {nombre_ciclo} ID_Control {id_value}",
-                photo_type="plc_cycle",
-                defecto_encontrado=defecto_encontrado,
-            )
+                # Update relative path to include the inspection folder (use BMP for the record)
+                bmp_destination = inspection_folder / photo_path.name
+                relative_path = f"inspection_photos/PROCESSED/{inspection_folder.name}/{bmp_destination.name}"
+                
+                InspectionPhoto.objects.create(
+                    inspection=inspection,
+                    photo=relative_path,
+                    caption=f"Ciclo {nombre_ciclo} ID_Control {id_value}",
+                    photo_type="plc_cycle",
+                    defecto_encontrado=defecto_encontrado,
+                )
 
-            self.processed_photos.add(bmp_destination.name)
-            linked += 1
+                self.processed_photos.add(bmp_destination.name)
+                linked += 1
         
         # Update inspection defect status based on photos found
         if defects_found_in_photos:

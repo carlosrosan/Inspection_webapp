@@ -559,6 +559,207 @@ def inspection_detail(request, inspection_id):
     
     return render(request, 'main/inspection_detail.html', context)
 
+def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
+    """
+    Generate PDF report for an inspection and optionally save to disk.
+    
+    Args:
+        inspection_id: ID of the inspection to generate PDF for
+        save_to_disk: If True, save PDF to inspection_reports directory
+    
+    Returns:
+        Tuple of (pdf_bytes, file_path) where file_path is None if save_to_disk=False
+    """
+    from .models import Inspection, InspectionPhoto
+    from django.shortcuts import get_object_or_404
+    from django.template.loader import get_template
+    from django.conf import settings
+    from datetime import datetime
+    from io import BytesIO
+    import os
+    import re
+    
+    # Try to import xhtml2pdf
+    try:
+        from xhtml2pdf import pisa
+    except ImportError:
+        logger.error("xhtml2pdf module not installed. Cannot generate PDF.")
+        return None, None
+    
+    # Get the inspection by id
+    try:
+        inspection = Inspection.objects.get(id=inspection_id)
+    except Inspection.DoesNotExist:
+        logger.error(f"Inspection {inspection_id} not found for PDF generation")
+        return None, None
+    
+    photos = inspection.photos.all()
+    
+    # Prepare photo data with file paths and codes (same logic as inspection_pdf)
+    photo_data = []
+    for photo in photos:
+        photo_code = None
+        photo_path = None
+        is_png = False
+        
+        if photo.photo:
+            photo_code = os.path.splitext(os.path.basename(photo.photo.name))[0]
+            photo_path, is_png = get_photo_path_prefer_png(photo.photo)
+            
+            # Convert photo to base64 data URI (with compression for OK PNGs)
+            photo_data_uri = None
+            if photo_path and os.path.exists(photo_path):
+                try:
+                    ext = os.path.splitext(photo_path)[1].lower()
+                    mime_types = {
+                        '.jpg': 'image/jpeg',
+                        '.jpeg': 'image/jpeg',
+                        '.png': 'image/png',
+                        '.bmp': 'image/bmp',
+                        '.gif': 'image/gif',
+                    }
+                    mime_type = mime_types.get(ext, 'image/jpeg')
+                    
+                    with open(photo_path, 'rb') as img_file:
+                        img_data = img_file.read()
+                        
+                        # Compress OK (non-failure) PNG photos by 90% for PDF
+                        if is_png and not photo.defecto_encontrado:
+                            try:
+                                from PIL import Image
+                                img = Image.open(BytesIO(img_data))
+                                original_width, original_height = img.size
+                                new_width = int(original_width * 0.316)  # sqrt(0.1) ≈ 0.316
+                                new_height = int(original_height * 0.316)
+                                img_resized = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+                                output = BytesIO()
+                                img_resized.save(output, format='PNG', optimize=True, compress_level=9)
+                                img_data = output.getvalue()
+                                output.close()
+                                logger.debug(f"Photo {photo.id} compressed (OK PNG, 90% reduction) for PDF save")
+                            except Exception as e:
+                                logger.warning(f"Failed to compress photo {photo.id} for PDF save: {e}")
+                        
+                        img_base64 = base64.b64encode(img_data).decode('utf-8')
+                        photo_data_uri = f"data:{mime_type};base64,{img_base64}"
+                except Exception as e:
+                    logger.warning(f"Failed to load photo {photo.id} from {photo_path}: {e}")
+                    photo_data_uri = None
+        
+        photo_info = {
+            'photo': photo,
+            'path': photo_path,
+            'data_uri': photo_data_uri,
+            'code': photo_code,
+            'is_png': is_png,
+        }
+        photo_data.append(photo_info)
+    
+    # Get logo (same logic as inspection_pdf)
+    logo_data_uri = None
+    possible_paths = []
+    if settings.STATICFILES_DIRS:
+        static_dir = settings.STATICFILES_DIRS[0]
+        if hasattr(static_dir, '__fspath__'):
+            static_dir = str(static_dir)
+        possible_paths.append(os.path.join(static_dir, 'assets', 'logo_conuar1.jpeg'))
+    
+    base_dir = settings.BASE_DIR
+    if hasattr(base_dir, '__fspath__'):
+        base_dir = str(base_dir)
+    possible_paths.append(os.path.join(base_dir, 'static', 'assets', 'logo_conuar1.jpeg'))
+    
+    if settings.STATIC_ROOT:
+        static_root = settings.STATIC_ROOT
+        if hasattr(static_root, '__fspath__'):
+            static_root = str(static_root)
+        possible_paths.append(os.path.join(static_root, 'assets', 'logo_conuar1.jpeg'))
+    
+    for path in possible_paths:
+        abs_path = os.path.abspath(path)
+        if os.path.exists(abs_path):
+            try:
+                with open(abs_path, 'rb') as img_file:
+                    img_data = img_file.read()
+                    img_base64 = base64.b64encode(img_data).decode('utf-8')
+                    logo_data_uri = f"data:image/jpeg;base64,{img_base64}"
+                    break
+            except Exception:
+                continue
+    
+    # Prepare context
+    context = {
+        'inspection': inspection,
+        'photos': photos,
+        'photo_data': photo_data,
+        'generation_date': datetime.now(),
+        'generation_user': None,  # No user for automated generation
+        'photo_count': photos.count(),
+        'logo_data_uri': logo_data_uri,
+    }
+    
+    # Render HTML template
+    template = get_template('main/inspection_pdf.html')
+    html = template.render(context)
+    
+    # Generate PDF
+    buffer = BytesIO()
+    try:
+        pisa_status = pisa.CreatePDF(html, dest=buffer)
+        if pisa_status.err:
+            logger.error(f"PDF generation failed for inspection {inspection_id}: {pisa_status.err}")
+            return None, None
+    except Exception as e:
+        logger.exception(f"Exception during PDF generation for inspection {inspection_id}: {e}")
+        return None, None
+    
+    pdf_bytes = buffer.getvalue()
+    buffer.close()
+    
+    # Save to disk if requested
+    file_path = None
+    if save_to_disk:
+        try:
+            from config.paths_config import INSPECTION_REPORTS_DIR
+            from config.paths_config import ensure_directories_exist
+            ensure_directories_exist()
+            
+            # Generate filename
+            inspection_code = None
+            if photo_data and photo_data[0].get('code'):
+                inspection_code = photo_data[0]['code']
+                if inspection_code.endswith('-NOK') or inspection_code.endswith('-OK'):
+                    inspection_code = inspection_code.rsplit('-', 1)[0]
+            elif inspection.batch_number and inspection.serial_number:
+                inspection_code = f"{inspection.batch_number}-{inspection.serial_number}"
+            elif inspection.batch_number:
+                inspection_code = inspection.batch_number
+            elif inspection.serial_number:
+                inspection_code = inspection.serial_number
+            else:
+                inspection_code = f"inspeccion_{inspection.id}_{datetime.now().strftime('%Y%m%d')}"
+            
+            filename = re.sub(r'[<>:"/\\|?*]', '_', inspection_code)
+            filename = f"{filename}.pdf"
+            # Convert Path object to string
+            reports_dir = str(INSPECTION_REPORTS_DIR)
+            file_path = os.path.join(reports_dir, filename)
+            
+            # Write PDF to file
+            with open(file_path, 'wb') as f:
+                f.write(pdf_bytes)
+            
+            logger.info(f"PDF saved to disk: {file_path}")
+            logger.info(f"PDF file size: {len(pdf_bytes)} bytes")
+        except Exception as e:
+            logger.error(f"Failed to save PDF to disk for inspection {inspection_id}: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            file_path = None
+    
+    return pdf_bytes, file_path
+
+
 @login_required(login_url='main:login')
 @require_viewer  # Viewer, Regular User, and Supervisor can download PDF reports
 def inspection_pdf(request, inspection_id):
@@ -619,9 +820,37 @@ def inspection_pdf(request, inspection_id):
                     
                     with open(photo_path, 'rb') as img_file:
                         img_data = img_file.read()
+                        
+                        # Compress OK (non-failure) PNG photos by 90% for PDF
+                        if is_png and not photo.defecto_encontrado:
+                            try:
+                                from PIL import Image
+                                # Open image with PIL
+                                img = Image.open(BytesIO(img_data))
+                                
+                                # Resize to ~32% of original dimensions (0.32^2 ≈ 0.1 = 10% area = 90% reduction)
+                                original_width, original_height = img.size
+                                new_width = int(original_width * 0.316)  # sqrt(0.1) ≈ 0.316
+                                new_height = int(original_height * 0.316)
+                                
+                                # Resize with high-quality resampling
+                                img_resized = img.resize((new_width, new_height), Image.Resampling.LANCZOS)
+                                
+                                # Save to BytesIO with optimization
+                                output = BytesIO()
+                                img_resized.save(output, format='PNG', optimize=True, compress_level=9)
+                                img_data = output.getvalue()
+                                output.close()
+                                
+                                logger.debug(f"Photo {photo.id} compressed (OK PNG, 90% reduction): {photo_path}")
+                                logger.debug(f"  Original size: {original_width}x{original_height}, New size: {new_width}x{new_height}")
+                            except Exception as e:
+                                logger.warning(f"Failed to compress photo {photo.id}: {e}. Using original image.")
+                                # Continue with original img_data if compression fails
+                        
                         img_base64 = base64.b64encode(img_data).decode('utf-8')
                         photo_data_uri = f"data:{mime_type};base64,{img_base64}"
-                    logger.debug(f"Photo {photo.id} loaded and encoded: {photo_path} (PNG: {is_png})")
+                    logger.debug(f"Photo {photo.id} loaded and encoded: {photo_path} (PNG: {is_png}, Defect: {photo.defecto_encontrado})")
                 except Exception as e:
                     logger.warning(f"Failed to load photo {photo.id} from {photo_path}: {e}")
                     photo_data_uri = None
@@ -756,6 +985,22 @@ def inspection_pdf(request, inspection_id):
     filename = re.sub(r'[<>:"/\\|?*]', '_', inspection_code)
     filename = f"{filename}.pdf"
     response['Content-Disposition'] = f'attachment; filename="{filename}"'
+    
+    # Also save PDF to disk automatically
+    try:
+        from config.paths_config import INSPECTION_REPORTS_DIR
+        from config.paths_config import ensure_directories_exist
+        ensure_directories_exist()
+        reports_dir = str(INSPECTION_REPORTS_DIR)
+        file_path = os.path.join(reports_dir, filename)
+        with open(file_path, 'wb') as f:
+            f.write(pdf)
+        logger.info(f"PDF also saved to disk: {file_path}")
+        logger.info(f"PDF file size: {len(pdf)} bytes")
+    except Exception as e:
+        logger.warning(f"Failed to save PDF to disk: {e}")
+        import traceback
+        logger.warning(traceback.format_exc())
     
     return response
 

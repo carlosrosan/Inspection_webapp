@@ -164,6 +164,20 @@ AUTH_USER_MODEL = 'main.User'
 MEDIA_URL = '/media/'
 MEDIA_ROOT = BASE_DIR / 'media'
 
+# Import path configuration
+from config.paths_config import (
+    INSPECTION_PHOTOS_DIR as PHOTOS_DIR_PATH,
+    INSPECTION_REPORTS_DIR as REPORTS_DIR_PATH,
+    INSPECTION_PHOTOS_STAGING_DIR as STAGING_DIR_PATH,
+    INSPECTION_PHOTOS_PROCESSED_DIR as PROCESSED_DIR_PATH,
+)
+
+# Inspection system directory paths (as strings for Django settings compatibility)
+INSPECTION_PHOTOS_BASE_DIR = str(PHOTOS_DIR_PATH)
+INSPECTION_REPORTS_DIR = str(REPORTS_DIR_PATH)
+INSPECTION_PHOTOS_STAGING_DIR = str(STAGING_DIR_PATH)
+INSPECTION_PHOTOS_PROCESSED_DIR = str(PROCESSED_DIR_PATH)
+
 # Session timeout settings (10 minutes = 600 seconds)
 SESSION_COOKIE_AGE = 600  # 10 minutes in seconds
 SESSION_SAVE_EVERY_REQUEST = True  # Update session on every request

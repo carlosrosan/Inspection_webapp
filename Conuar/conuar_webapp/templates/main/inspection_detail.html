@@ -10,9 +10,27 @@
         <a href="{% url 'main:inspection_list' %}" class="btn btn-primary" role="button">
             <i class="fas fa-arrow-left me-2"></i>Vuelve a la lista
         </a>
-        <a href="{% url 'main:inspection_pdf' inspection.id %}" class="btn btn-danger" role="button" target="_blank">
+        <a href="{% url 'main:inspection_pdf' inspection.id %}" class="btn btn-danger" role="button" target="_blank" id="pdfDownloadBtn">
             <i class="fas fa-file-pdf me-2"></i>Descargar PDF
         </a>
+    </div>
+</div>
+
+<!-- PDF Generation Loading Modal -->
+<div class="modal fade" id="pdfLoadingModal" tabindex="-1" aria-labelledby="pdfLoadingModalLabel" aria-hidden="true" data-bs-backdrop="static" data-bs-keyboard="false">
+    <div class="modal-dialog modal-dialog-centered">
+        <div class="modal-content">
+            <div class="modal-body text-center py-5">
+                <div class="spinner-border text-danger" role="status" style="width: 3rem; height: 3rem;">
+                    <span class="visually-hidden">Generando PDF...</span>
+                </div>
+                <h5 class="mt-4 mb-2">Generando Reporte PDF</h5>
+                <p class="text-muted mb-0">Por favor espere, esto puede tomar unos momentos...</p>
+                <div class="progress mt-4" style="height: 25px;">
+                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-danger" role="progressbar" style="width: 100%" aria-valuenow="100" aria-valuemin="0" aria-valuemax="100"></div>
+                </div>
+            </div>
+        </div>
     </div>
 </div>
 
@@ -377,6 +395,44 @@
     var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
     var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
         return new bootstrap.Tooltip(tooltipTriggerEl);
+    });
+    
+    // PDF Download with loading indicator
+    document.addEventListener('DOMContentLoaded', function() {
+        const pdfDownloadBtn = document.getElementById('pdfDownloadBtn');
+        const pdfLoadingModal = new bootstrap.Modal(document.getElementById('pdfLoadingModal'));
+        
+        if (pdfDownloadBtn) {
+            pdfDownloadBtn.addEventListener('click', function(e) {
+                // Show loading modal
+                pdfLoadingModal.show();
+                
+                // The download will happen in a new window, so we'll hide the modal after a delay
+                // or when the window closes (if we can detect it)
+                const pdfUrl = this.href;
+                
+                // Open PDF in new window
+                const pdfWindow = window.open(pdfUrl, '_blank');
+                
+                // Try to detect when the PDF is loaded/closed
+                // Note: This is a workaround since we can't reliably detect PDF download completion
+                const checkClosed = setInterval(function() {
+                    if (pdfWindow && pdfWindow.closed) {
+                        clearInterval(checkClosed);
+                        pdfLoadingModal.hide();
+                    }
+                }, 500);
+                
+                // Fallback: Hide modal after 10 seconds (should be enough for PDF generation)
+                setTimeout(function() {
+                    clearInterval(checkClosed);
+                    pdfLoadingModal.hide();
+                }, 10000);
+                
+                // Allow default behavior to proceed
+                // Don't prevent default, let the link work normally
+            });
+        }
     });
 </script>
 {% endblock %}
