@@ -193,6 +193,28 @@
                                     <p class="text-muted mb-0">{{ inspection.inspection_date|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
+                            {% if inspection.photo_start_timestamp %}
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-camera"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Primera Foto Capturada</h6>
+                                    <p class="text-muted mb-0">{{ inspection.photo_start_timestamp|date:"M d, Y H:i:s" }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
+                            {% if inspection.photo_finish_timestamp %}
+                            <div class="timeline-item d-flex mb-3">
+                                <div class="timeline-icon bg-warning text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
+                                    <i class="fas fa-camera-retro"></i>
+                                </div>
+                                <div class="timeline-content">
+                                    <h6 class="mb-1">Última Foto Capturada</h6>
+                                    <p class="text-muted mb-0">{{ inspection.photo_finish_timestamp|date:"M d, Y H:i:s" }}</p>
+                                </div>
+                            </div>
+                            {% endif %}
                             {% if inspection.completed_date %}
                             <div class="timeline-item d-flex mb-3">
                                 <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">

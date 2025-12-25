@@ -163,6 +163,8 @@ class Inspection(models.Model):
     location = models.CharField(max_length=200, blank=True, help_text="Ubicación donde se realizó la inspección")
     inspection_date = models.DateTimeField(default=timezone.now, help_text="Fecha y hora de la inspección")
     completed_date = models.DateTimeField(null=True, blank=True, help_text="Fecha cuando se completó la inspección")
+    photo_start_timestamp = models.DateTimeField(null=True, blank=True, help_text="Timestamp de la primera foto de la inspección (extraído del nombre del archivo)")
+    photo_finish_timestamp = models.DateTimeField(null=True, blank=True, help_text="Timestamp de la última foto de la inspección (extraído del nombre del archivo)")
     
     # Inspector Information
     inspector = models.ForeignKey(

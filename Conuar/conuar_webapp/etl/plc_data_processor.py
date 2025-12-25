@@ -213,6 +213,47 @@ class PlcDataProcessor:
             return value == 1
         return False
     
+    def _extract_timestamp_from_photo_filename(self, photo_path: Path) -> Optional[datetime]:
+        """
+        Extract timestamp from photo filename.
+        Photo format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha formato DDMMYY}_{Hora formato HHMMss}-{Falla}{PhotoNumber}.bmp
+        Example: COMPLETO-UNO-1F-231225_134953-NOK753.bmp
+        Returns datetime object if timestamp found, None otherwise.
+        """
+        if not photo_path:
+            return None
+        
+        filename = photo_path.name
+        
+        # Pattern: -DDMMYY_HHMMSS- (date and time in filename)
+        # Match pattern: -DDMMYY_HHMMSS- where DDMMYY is date and HHMMSS is time
+        timestamp_pattern = r'-(\d{6})_(\d{6})-'
+        match = re.search(timestamp_pattern, filename)
+        
+        if match:
+            fecha_str = match.group(1)  # DDMMYY
+            hora_str = match.group(2)   # HHMMSS
+            
+            try:
+                # Parse DDMMYY format
+                day = int(fecha_str[0:2])
+                month = int(fecha_str[2:4])
+                year = 2000 + int(fecha_str[4:6])  # Assume 20XX
+                
+                # Parse HHMMSS format
+                hour = int(hora_str[0:2])
+                minute = int(hora_str[2:4])
+                second = int(hora_str[4:6])
+                
+                # Create datetime object
+                photo_timestamp = datetime(year, month, day, hour, minute, second)
+                return photo_timestamp
+            except (ValueError, IndexError) as e:
+                logger.warning(f"Error parsing timestamp from photo filename {filename}: {e}")
+                return None
+        
+        return None
+    
     def _extract_failure_from_photo_filename(self, photo_path: Path) -> bool:
         """
         Extract failure status from photo filename.
@@ -542,6 +583,8 @@ class PlcDataProcessor:
         linked_photo_names = set()
         # Track defects found in photos for inspection-level defect detection
         defects_found_in_photos = []
+        # Track photo timestamps to determine inspection start and finish times
+        photo_timestamps = []
         
         # Create inspection folder from inspection's product_code (consistent identifier)
         # Use a sanitized version of product_code as folder name
@@ -560,7 +603,7 @@ class PlcDataProcessor:
             
             if not nombre_ciclo or not id_ec or not id_value:
                 # Skip this row - missing required fields for photo matching
-                logger.debug(
+                logger.warning(
                     f"Omitiendo fila del ciclo - campos faltantes: "
                     f"NombreCiclo={nombre_ciclo!r}, ID_EC={id_ec!r}, ID_Control={id_value!r}"
                 )
@@ -589,6 +632,12 @@ class PlcDataProcessor:
                     continue
                 
                 linked_photo_names.add(photo_path.name)
+                
+                # Extract timestamp from photo filename BEFORE moving
+                photo_timestamp = self._extract_timestamp_from_photo_filename(photo_path)
+                if photo_timestamp:
+                    photo_timestamps.append(photo_timestamp)
+                    logger.debug(f"Timestamp extraído de {photo_path.name}: {photo_timestamp}")
                 
                 # Extract defect status from photo filename BEFORE moving (most reliable source)
                 defect_from_photo = self._extract_failure_from_photo_filename(photo_path)
@@ -678,8 +727,236 @@ class PlcDataProcessor:
                 f"Inspección {inspection.product_code}: "
                 f"defectos encontrados en {sum(defects_found_in_photos)} de {len(defects_found_in_photos)} fotos"
             )
+        
+        # Update inspection photo timestamps (start and finish) based on photo filenames
+        if photo_timestamps:
+            photo_start = min(photo_timestamps)
+            photo_finish = max(photo_timestamps)
+            inspection.photo_start_timestamp = photo_start
+            inspection.photo_finish_timestamp = photo_finish
+            inspection.save(update_fields=['photo_start_timestamp', 'photo_finish_timestamp'])
+            logger.info(
+                f"Inspección {inspection.product_code}: "
+                f"timestamps de fotos actualizados - Inicio: {photo_start}, Fin: {photo_finish}"
+            )
 
         return linked
+
+    def _extract_prefix_from_photo_filename(self, photo_path: Path) -> Optional[Tuple[str, str, str]]:
+        """
+        Extract prefix components from photo filename.
+        Photo format: {NombreCiclo}-{ID_EC}-{ID_Control}-{Fecha}_{Hora}-{Falla}{PhotoNumber}.bmp
+        Returns tuple (nombre_ciclo, id_ec, id_control) if successful, None otherwise.
+        """
+        if not photo_path:
+            return None
+        
+        filename = photo_path.stem  # Get filename without extension
+        
+        # Pattern: First 3 fields separated by dashes
+        # Example: COMPLETO-UNO-1F-231225_134953-NOK753 -> COMPLETO, UNO, 1F
+        parts = filename.split('-')
+        
+        if len(parts) >= 3:
+            nombre_ciclo = parts[0]
+            id_ec = parts[1]
+            id_control = parts[2]
+            return (nombre_ciclo, id_ec, id_control)
+        
+        return None
+
+    def _recover_orphaned_photos(self) -> Dict[str, int]:
+        """
+        Scan STAGING folder for orphaned photos and attempt to match them to existing inspections.
+        Only matches photos to inspections where:
+        - Photo prefix (NombreCiclo-ID_EC-ID_Control) matches inspection's product_code pattern
+        - Photo timestamp is between inspection's photo_start_timestamp and photo_finish_timestamp
+        
+        Returns:
+            Dictionary with recovery statistics
+        """
+        recovery_stats = {
+            "photos_scanned": 0,
+            "photos_matched": 0,
+            "photos_linked": 0,
+            "errors": 0
+        }
+        
+        if not self.staging_photo_path.exists():
+            logger.debug("Directorio STAGING no existe, saltando recuperación de fotos huérfanas")
+            return recovery_stats
+        
+        logger.info("Iniciando escaneo de recuperación de fotos huérfanas en STAGING...")
+        
+        # Get all photos in STAGING that haven't been processed
+        all_staging_photos = []
+        for ext in (".bmp", ".jpg", ".jpeg", ".png"):
+            all_staging_photos.extend(list(self.staging_photo_path.glob(f"*{ext}")))
+        
+        recovery_stats["photos_scanned"] = len(all_staging_photos)
+        logger.info(f"Encontradas {recovery_stats['photos_scanned']} fotos en STAGING para escanear")
+        
+        # Get all processed photo filenames to exclude
+        processed_photo_names = set()
+        try:
+            photo_records = InspectionPhoto.objects.all().values_list('photo', flat=True)
+            for photo_path in photo_records:
+                if photo_path:
+                    filename = Path(photo_path).name
+                    processed_photo_names.add(filename)
+        except Exception as e:
+            logger.warning(f"Error cargando fotos procesadas para recuperación: {e}")
+        
+        # Process each photo
+        for photo_path in all_staging_photos:
+            # Skip if already processed
+            if photo_path.name in processed_photo_names:
+                continue
+            
+            # Skip if in our processed_photos set
+            if photo_path.name in self.processed_photos:
+                continue
+            
+            try:
+                # Extract prefix from photo filename
+                prefix_parts = self._extract_prefix_from_photo_filename(photo_path)
+                if not prefix_parts:
+                    logger.debug(f"No se pudo extraer prefijo de {photo_path.name}, omitiendo")
+                    continue
+                
+                nombre_ciclo, id_ec, id_control = prefix_parts
+                
+                # Extract timestamp from photo filename
+                photo_timestamp = self._extract_timestamp_from_photo_filename(photo_path)
+                if not photo_timestamp:
+                    logger.debug(f"No se pudo extraer timestamp de {photo_path.name}, omitiendo")
+                    continue
+                
+                # Build product_code pattern (first 2 fields: NombreCiclo-ID_EC)
+                # This matches how inspections are created in _create_or_fetch_cycle_inspection
+                product_code_pattern = f"{nombre_ciclo}-{id_ec}"
+                
+                # Find matching inspections by product_code
+                matching_inspections = Inspection.objects.filter(
+                    product_code=product_code_pattern
+                )
+                
+                recovery_stats["photos_matched"] += 1
+                
+                # Try to match to an inspection where timestamp is within range
+                matched_inspection = None
+                for inspection in matching_inspections:
+                    # Check if photo timestamp is between inspection's photo timestamps
+                    # Both timestamps must exist for strict matching
+                    if (inspection.photo_start_timestamp and 
+                        inspection.photo_finish_timestamp and
+                        inspection.photo_start_timestamp <= photo_timestamp <= inspection.photo_finish_timestamp):
+                        matched_inspection = inspection
+                        break
+                
+                if not matched_inspection:
+                    logger.debug(
+                        f"Foto {photo_path.name} no coincide con ninguna inspección existente "
+                        f"(prefijo: {product_code_pattern}, timestamp: {photo_timestamp})"
+                    )
+                    continue
+                
+                logger.info(
+                    f"Foto huérfana encontrada y vinculada: {photo_path.name} -> "
+                    f"Inspección {matched_inspection.id} ({matched_inspection.product_code})"
+                )
+                
+                # Link photo to inspection (similar to _link_cycle_photos logic)
+                inspection_folder_name = matched_inspection.product_code.replace(':', '-').replace('/', '-')
+                inspection_folder = self.processed_photo_path / inspection_folder_name
+                inspection_folder.mkdir(parents=True, exist_ok=True)
+                
+                # Extract defect status from photo filename
+                defect_from_photo = self._extract_failure_from_photo_filename(photo_path)
+                
+                # Unify photo if needed
+                png_path = None
+                try:
+                    png_path = unify_photo(photo_path)
+                    if png_path:
+                        logger.debug(f"Imagen unificada creada para recuperación: {png_path}")
+                except Exception as e:
+                    logger.warning(f"Error al unificar foto {photo_path} durante recuperación: {e}")
+                
+                # Find corresponding SVG file
+                svg_path = photo_path.with_suffix('.svg')
+                if not svg_path.exists():
+                    svg_path = None
+                
+                # Move files to inspection folder
+                files_to_move = []
+                if photo_path.exists():
+                    files_to_move.append((photo_path, 'bmp'))
+                if svg_path and svg_path.exists():
+                    files_to_move.append((svg_path, 'svg'))
+                if png_path and png_path.exists():
+                    files_to_move.append((png_path, 'png'))
+                
+                moved_bmp = False
+                for file_path, file_type in files_to_move:
+                    destination = inspection_folder / file_path.name
+                    try:
+                        shutil.move(str(file_path), str(destination))
+                        if file_type == 'bmp':
+                            moved_bmp = True
+                    except FileNotFoundError:
+                        logger.warning(f"El archivo {file_path} desapareció antes de moverlo durante recuperación")
+                    except shutil.Error as exc:
+                        logger.warning(f"No se pudo mover {file_path} a {destination} durante recuperación: {exc}")
+                
+                if not moved_bmp:
+                    logger.warning(f"BMP no fue movido durante recuperación, omitiendo registro para {photo_path.name}")
+                    continue
+                
+                # Create InspectionPhoto record
+                bmp_destination = inspection_folder / photo_path.name
+                relative_path = f"inspection_photos/PROCESSED/{inspection_folder.name}/{bmp_destination.name}"
+                
+                InspectionPhoto.objects.create(
+                    inspection=matched_inspection,
+                    photo=relative_path,
+                    caption=f"Recuperado: Ciclo {nombre_ciclo} ID_Control {id_control}",
+                    photo_type="plc_cycle",
+                    defecto_encontrado=defect_from_photo,
+                )
+                
+                # Update inspection timestamps if needed
+                if (not matched_inspection.photo_start_timestamp or 
+                    photo_timestamp < matched_inspection.photo_start_timestamp):
+                    matched_inspection.photo_start_timestamp = photo_timestamp
+                
+                if (not matched_inspection.photo_finish_timestamp or 
+                    photo_timestamp > matched_inspection.photo_finish_timestamp):
+                    matched_inspection.photo_finish_timestamp = photo_timestamp
+                
+                matched_inspection.save(update_fields=['photo_start_timestamp', 'photo_finish_timestamp'])
+                
+                # Update inspection defect status if photo shows defect
+                if defect_from_photo:
+                    matched_inspection.defecto_encontrado = True
+                    matched_inspection.save(update_fields=['defecto_encontrado'])
+                
+                self.processed_photos.add(bmp_destination.name)
+                recovery_stats["photos_linked"] += 1
+                
+            except Exception as e:
+                recovery_stats["errors"] += 1
+                logger.error(f"Error procesando foto huérfana {photo_path.name}: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
+        
+        if recovery_stats["photos_linked"] > 0:
+            logger.info(
+                f"Recuperación completada: {recovery_stats['photos_linked']} fotos vinculadas de "
+                f"{recovery_stats['photos_scanned']} escaneadas"
+            )
+        
+        return recovery_stats
 
     def _load_processed_photos(self):
         """Cargar fotos ya procesadas desde la base de datos"""
@@ -827,6 +1104,15 @@ class PlcDataProcessor:
                         f"Inspecciones creadas: {summary['inspections']}, "
                         f"Errores: {summary['errors']}"
                     )
+                
+                # Run recovery scan periodically (every 10 cycles = ~5 minutes at 30s interval)
+                if cycle_count % 10 == 0:
+                    logger.info(f"[Ciclo {cycle_count}] Ejecutando escaneo de recuperación de fotos huérfanas...")
+                    recovery_stats = self._recover_orphaned_photos()
+                    if recovery_stats["photos_linked"] > 0:
+                        logger.info(
+                            f"[Ciclo {cycle_count}] Recuperación: {recovery_stats['photos_linked']} fotos vinculadas"
+                        )
 
                 if self.is_running:
                     time.sleep(interval_seconds)
