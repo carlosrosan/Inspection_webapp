@@ -27,8 +27,9 @@ def get_photo_path_prefer_png(photo_field, media_root=None):
         media_root: Optional MEDIA_ROOT path (will use settings if not provided)
     
     Returns:
-        Tuple of (actual_path, is_png) where actual_path is the file path to use
+        Tuple of (relative_path, is_png) where relative_path is the path relative to MEDIA_ROOT
         and is_png is True if PNG version was found, False otherwise.
+        Returns (None, False) if file doesn't exist.
     """
     from django.conf import settings
     
@@ -75,11 +76,23 @@ def get_photo_path_prefer_png(photo_field, media_root=None):
     # First, try to find PNG version (preferred)
     png_path = os.path.join(directory, f"{filename_base}.png")
     if os.path.exists(png_path):
-        return os.path.abspath(png_path), True
+        # Convert absolute path to relative path from MEDIA_ROOT
+        abs_media_root = os.path.abspath(media_root)
+        abs_png_path = os.path.abspath(png_path)
+        relative_path = os.path.relpath(abs_png_path, abs_media_root)
+        # Normalize path separators for URL (use forward slashes)
+        relative_path = relative_path.replace('\\', '/')
+        return relative_path, True
     
     # If PNG doesn't exist, use the original file
     if os.path.exists(base_path):
-        return os.path.abspath(base_path), False
+        # Convert absolute path to relative path from MEDIA_ROOT
+        abs_media_root = os.path.abspath(media_root)
+        abs_base_path = os.path.abspath(base_path)
+        relative_path = os.path.relpath(abs_base_path, abs_media_root)
+        # Normalize path separators for URL (use forward slashes)
+        relative_path = relative_path.replace('\\', '/')
+        return relative_path, False
     
     # If original doesn't exist either, return None
     return None, False
@@ -517,44 +530,37 @@ def inspection_detail(request, inspection_id):
     inspection = get_object_or_404(Inspection, id=inspection_id)
     photos = inspection.photos.all()
     
-    # Prepare photos with PNG URLs if available
-    # We'll create a list of dicts with photo info including preferred URL
+    # Prepare photos with PNG URLs - ONLY include photos that have PNG versions
+    from django.conf import settings
     photos_data = []
     for photo in photos:
-        # Check if PNG version exists
-        photo_path, is_png = get_photo_path_prefer_png(photo.photo)
+        # Check if PNG version exists (returns relative path from MEDIA_ROOT)
+        relative_path, is_png = get_photo_path_prefer_png(photo.photo)
         
-        # Determine the URL to use
-        if photo_path and is_png:
-            # Construct URL for PNG version
-            original_name = photo.photo.name
-            directory = os.path.dirname(original_name)
-            filename_base = os.path.splitext(os.path.basename(original_name))[0]
-            png_name = f"{directory}/{filename_base}.png"
-            
-            # Get the storage from the original photo field
+        # Only process photos that have PNG versions
+        if relative_path and is_png:
+            # Construct URL using MEDIA_URL + relative path
             try:
-                storage = photo.photo.storage
-                png_url = storage.url(png_name)
+                png_url = settings.MEDIA_URL + relative_path
+                
+                # Only add to photos_data if we successfully got the PNG URL
+                photos_data.append({
+                    'photo_obj': photo,
+                    'png_url': png_url,
+                })
             except Exception as e:
-                logger.warning(f"Failed to get PNG URL for photo {photo.id}: {e}")
-                png_url = None
-        else:
-            # Use original photo URL
-            png_url = None
-        
-        photos_data.append({
-            'photo_obj': photo,
-            'png_url': png_url,  # PNG URL if available, None otherwise
-        })
+                logger.warning(f"Failed to construct PNG URL for photo {photo.id}: {e}")
+                # Skip this photo if we can't get the PNG URL
+                continue
+        # If PNG doesn't exist, skip this photo entirely (don't add to photos_data)
     
     context = {
         'title': f'Inspección de Combustible: {inspection.title}',
         'description': f'Vista detallada de la inspección de calidad de {inspection.product_name}',
         'inspection': inspection,
         'photos': photos,  # Keep original photos for compatibility (used in other parts of template)
-        'photos_data': photos_data,  # Add photos_data with PNG URLs (used for image display)
-        'photo_count': photos.count(),
+        'photos_data': photos_data,  # Only photos with PNG versions
+        'photo_count': len(photos_data),  # Count only PNG photos
     }
     
     return render(request, 'main/inspection_detail.html', context)
@@ -604,7 +610,14 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
         
         if photo.photo:
             photo_code = os.path.splitext(os.path.basename(photo.photo.name))[0]
-            photo_path, is_png = get_photo_path_prefer_png(photo.photo)
+            relative_path, is_png = get_photo_path_prefer_png(photo.photo)
+            
+            # Convert relative path to absolute path for file operations
+            photo_path = None
+            if relative_path:
+                photo_path = os.path.join(settings.MEDIA_ROOT, relative_path)
+                # Normalize path separators for the current OS
+                photo_path = os.path.normpath(photo_path)
             
             # Convert photo to base64 data URI (with compression for OK PNGs)
             photo_data_uri = None
@@ -724,6 +737,13 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
             from config.paths_config import ensure_directories_exist
             ensure_directories_exist()
             
+            # Explicitly set the reports directory to the specified path
+            # This ensures PDFs are saved to: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports
+            reports_dir = str(INSPECTION_REPORTS_DIR)
+            
+            # Ensure the directory exists
+            os.makedirs(reports_dir, exist_ok=True)
+            
             # Generate filename
             inspection_code = None
             if photo_data and photo_data[0].get('code'):
@@ -741,16 +761,16 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
             
             filename = re.sub(r'[<>:"/\\|?*]', '_', inspection_code)
             filename = f"{filename}.pdf"
-            # Convert Path object to string
-            reports_dir = str(INSPECTION_REPORTS_DIR)
             file_path = os.path.join(reports_dir, filename)
             
             # Write PDF to file
             with open(file_path, 'wb') as f:
                 f.write(pdf_bytes)
             
-            logger.info(f"PDF saved to disk: {file_path}")
-            logger.info(f"PDF file size: {len(pdf_bytes)} bytes")
+            logger.info(f"PDF guardado automáticamente en: {file_path}")
+            logger.info(f"Directorio de reportes: {reports_dir}")
+            logger.info(f"Tamaño del archivo PDF: {len(pdf_bytes)} bytes")
+            logger.info(f"Archivo existe: {os.path.exists(file_path)}")
         except Exception as e:
             logger.error(f"Failed to save PDF to disk for inspection {inspection_id}: {e}")
             import traceback
@@ -800,8 +820,15 @@ def inspection_pdf(request, inspection_id):
         if photo.photo:
             photo_code = os.path.splitext(os.path.basename(photo.photo.name))[0]
             
-            # Get photo path, preferring PNG version if available
-            photo_path, is_png = get_photo_path_prefer_png(photo.photo)
+            # Get photo path, preferring PNG version if available (returns relative path)
+            relative_path, is_png = get_photo_path_prefer_png(photo.photo)
+            
+            # Convert relative path to absolute path for file operations
+            photo_path = None
+            if relative_path:
+                photo_path = os.path.join(settings.MEDIA_ROOT, relative_path)
+                # Normalize path separators for the current OS
+                photo_path = os.path.normpath(photo_path)
             
             # Convert photo to base64 data URI for reliable embedding in PDF
             photo_data_uri = None

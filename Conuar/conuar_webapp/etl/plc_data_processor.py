@@ -547,29 +547,9 @@ class PlcDataProcessor:
         
         inspection.save()
         
-        # Automatically generate and save PDF report after inspection is completed
-        try:
-            from main.views import generate_inspection_pdf_to_file
-            logger.info(f"Attempting to generate PDF for inspection {inspection.id}...")
-            pdf_bytes, pdf_path = generate_inspection_pdf_to_file(inspection.id, save_to_disk=True)
-            if pdf_path:
-                logger.info(f"PDF report automatically generated and saved: {pdf_path}")
-                logger.info(f"PDF file exists: {os.path.exists(pdf_path) if pdf_path else False}")
-            else:
-                logger.warning(f"PDF generation returned no file path for inspection {inspection.id}")
-                if pdf_bytes:
-                    logger.warning(f"PDF bytes were generated ({len(pdf_bytes)} bytes) but save failed")
-                else:
-                    logger.warning(f"PDF generation failed completely for inspection {inspection.id}")
-        except ImportError as e:
-            logger.error(f"Failed to import PDF generation function for inspection {inspection.id}: {e}")
-            import traceback
-            logger.error(traceback.format_exc())
-        except Exception as e:
-            logger.error(f"Error generating PDF for inspection {inspection.id}: {e}")
-            # Don't fail the cycle processing if PDF generation fails
-            import traceback
-            logger.error(traceback.format_exc())
+        # Note: PDF generation now happens in _link_cycle_photos() after the last photo is processed
+        # This ensures the PDF is generated immediately when all photos are linked
+        # No need to generate here again to avoid duplicate generation
         
         for raw in cycle_rows:
             raw.processed = True
@@ -739,6 +719,34 @@ class PlcDataProcessor:
                 f"Inspección {inspection.product_code}: "
                 f"timestamps de fotos actualizados - Inicio: {photo_start}, Fin: {photo_finish}"
             )
+
+        # Generate PDF automatically when the last photo is processed
+        # This ensures PDF is created immediately after all photos are linked
+        if linked > 0:
+            try:
+                from main.views import generate_inspection_pdf_to_file
+                logger.info(
+                    f"Última foto procesada para inspección {inspection.id} ({inspection.product_code}). "
+                    f"Generando PDF automáticamente..."
+                )
+                pdf_bytes, pdf_path = generate_inspection_pdf_to_file(inspection.id, save_to_disk=True)
+                if pdf_path:
+                    logger.info(f"PDF generado y guardado automáticamente: {pdf_path}")
+                    logger.info(f"PDF existe en disco: {os.path.exists(pdf_path)}")
+                    logger.info(f"Tamaño del PDF: {len(pdf_bytes) if pdf_bytes else 0} bytes")
+                else:
+                    logger.warning(
+                        f"PDF no se pudo guardar para inspección {inspection.id}. "
+                        f"Bytes generados: {len(pdf_bytes) if pdf_bytes else 0}"
+                    )
+            except ImportError as e:
+                logger.error(f"Error al importar función de generación de PDF: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
+            except Exception as e:
+                logger.error(f"Error generando PDF automáticamente para inspección {inspection.id}: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
 
         return linked
 
@@ -940,6 +948,23 @@ class PlcDataProcessor:
                 if defect_from_photo:
                     matched_inspection.defecto_encontrado = True
                     matched_inspection.save(update_fields=['defecto_encontrado'])
+                
+                # Generate PDF automatically after recovering orphaned photo
+                # This ensures PDF is updated when new photos are linked to existing inspections
+                try:
+                    from main.views import generate_inspection_pdf_to_file
+                    logger.info(
+                        f"Foto huérfana vinculada a inspección {matched_inspection.id}. "
+                        f"Regenerando PDF automáticamente..."
+                    )
+                    pdf_bytes, pdf_path = generate_inspection_pdf_to_file(matched_inspection.id, save_to_disk=True)
+                    if pdf_path:
+                        logger.info(f"PDF regenerado y guardado: {pdf_path}")
+                    else:
+                        logger.warning(f"PDF no se pudo regenerar para inspección {matched_inspection.id}")
+                except Exception as e:
+                    logger.warning(f"Error regenerando PDF después de recuperar foto huérfana: {e}")
+                    # Don't fail recovery if PDF generation fails
                 
                 self.processed_photos.add(bmp_destination.name)
                 recovery_stats["photos_linked"] += 1

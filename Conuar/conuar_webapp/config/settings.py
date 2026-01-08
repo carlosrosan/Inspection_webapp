@@ -29,7 +29,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-!bq**1h^me8r#e=ncn-oeb+4v(15lti6dlj(!m!5h&0mwh#o*b'
 
 # SECURITY WARNING: don't run with debug turned on in production!
-DEBUG = False
+DEBUG = True
 
 #ALLOWED_HOSTS = os.getenv('ALLOWED_HOSTS', '').split(',') if os.getenv('ALLOWED_HOSTS') else []
 
@@ -179,7 +179,7 @@ INSPECTION_PHOTOS_STAGING_DIR = str(STAGING_DIR_PATH)
 INSPECTION_PHOTOS_PROCESSED_DIR = str(PROCESSED_DIR_PATH)
 
 # Session timeout settings (10 minutes = 600 seconds)
-SESSION_COOKIE_AGE = 600  # 10 minutes in seconds
+SESSION_COOKIE_AGE = 28800  # 10 minutes in seconds
 SESSION_SAVE_EVERY_REQUEST = True  # Update session on every request
 SESSION_EXPIRE_AT_BROWSER_CLOSE = True  # Session expires when browser closes
 

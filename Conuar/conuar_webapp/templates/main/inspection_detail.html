@@ -308,10 +308,12 @@
             </div>
         </div>
         
-        <div class="row g-4">
+        <div class="row g-4" id="photosContainer">
             {% for photo_data in photos_data %}
             {% with photo=photo_data.photo_obj png_url=photo_data.png_url %}
-            <div class="col-lg-4 col-md-6">
+            <div class="col-lg-4 col-md-6 photo-item" 
+                 data-photo-index="{{ forloop.counter0 }}" 
+                 {% if forloop.counter0 >= 15 %}style="display: none;"{% endif %}>
                 <div class="card border-0 shadow-sm h-100">
                     <div class="card-body p-0">
                         {% if png_url %}
@@ -351,6 +353,16 @@
             {% endwith %}
             {% endfor %}
         </div>
+        
+        <!-- Loading indicator for lazy loading -->
+        {% if photos_data|length > 15 %}
+        <div id="photoLoadingIndicator" class="text-center mt-4" style="display: none;">
+            <div class="spinner-border text-primary" role="status">
+                <span class="visually-hidden">Cargando más fotos...</span>
+            </div>
+            <p class="mt-2 text-muted">Cargando más fotos...</p>
+        </div>
+        {% endif %}
     </div>
 </section>
 {% else %}
@@ -454,6 +466,79 @@
                 // Allow default behavior to proceed
                 // Don't prevent default, let the link work normally
             });
+        }
+        
+        // Lazy loading for photos
+        const photosPerPage = 15;
+        let currentLoaded = 15;
+        const photoItems = document.querySelectorAll('.photo-item');
+        const totalPhotos = photoItems.length;
+        const loadingIndicator = document.getElementById('photoLoadingIndicator');
+        let isLoading = false;
+        
+        // Function to load more photos
+        function loadMorePhotos() {
+            if (isLoading || currentLoaded >= totalPhotos) {
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
+                return;
+            }
+            
+            isLoading = true;
+            if (loadingIndicator) {
+                loadingIndicator.style.display = 'block';
+            }
+            
+            // Simulate a small delay for smooth loading
+            setTimeout(function() {
+                const endIndex = Math.min(currentLoaded + photosPerPage, totalPhotos);
+                
+                for (let i = currentLoaded; i < endIndex; i++) {
+                    if (photoItems[i]) {
+                        photoItems[i].style.display = 'block';
+                        // Add fade-in animation
+                        photoItems[i].style.opacity = '0';
+                        photoItems[i].style.transition = 'opacity 0.3s ease-in';
+                        setTimeout(function() {
+                            photoItems[i].style.opacity = '1';
+                        }, 10);
+                    }
+                }
+                
+                currentLoaded = endIndex;
+                isLoading = false;
+                
+                if (loadingIndicator) {
+                    loadingIndicator.style.display = 'none';
+                }
+                
+                // If all photos are loaded, remove scroll listener
+                if (currentLoaded >= totalPhotos) {
+                    window.removeEventListener('scroll', handleScroll);
+                }
+            }, 300);
+        }
+        
+        // Handle scroll event
+        function handleScroll() {
+            // Check if user has scrolled near the bottom of the page
+            const scrollTop = window.pageYOffset || document.documentElement.scrollTop;
+            const windowHeight = window.innerHeight;
+            const documentHeight = document.documentElement.scrollHeight;
+            
+            // Load more when user is 200px from the bottom
+            if (scrollTop + windowHeight >= documentHeight - 200) {
+                loadMorePhotos();
+            }
+        }
+        
+        // Only set up scroll listener if there are more than 15 photos
+        if (totalPhotos > photosPerPage) {
+            window.addEventListener('scroll', handleScroll);
+            
+            // Also check on initial load in case page is already scrolled
+            handleScroll();
         }
     });
 </script>

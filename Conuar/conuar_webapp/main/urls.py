@@ -1,6 +1,10 @@
 from django.urls import path
 from django.shortcuts import redirect
 from . import views
+from django.conf import settings
+from django.conf.urls.static import static
+# Serve static and media files during development
+# Always serve in development, even if DEBUG is False
 
 app_name = 'main'
 
@@ -20,4 +24,3 @@ urlpatterns = [
     path('inspection/<int:inspection_id>/', views.inspection_detail, name='inspection_detail'),
     path('inspection/<int:inspection_id>/pdf/', views.inspection_pdf, name='inspection_pdf'),
 ]
-
