@@ -82,7 +82,7 @@ class PlcDataReader:
                     if row[0]:
                         self.processed_hashes.add(row[0])
                 
-                logger.info(f"Cargados {len(self.processed_hashes)} hashes de registros existentes")
+                # logger.info(f"Cargados {len(self.processed_hashes)} hashes de registros existentes")
                 
         except Exception as e:
             logger.warning(f"No se pudieron cargar hashes existentes: {e}")
@@ -96,10 +96,10 @@ class PlcDataReader:
         """Verificar que el archivo CSV existe"""
         try:
             if self.csv_input_file.exists():
-                logger.debug(f"Archivo CSV encontrado: {self.csv_input_file}")
+                #logger.debug(f"Archivo CSV encontrado: {self.csv_input_file}")
                 return True
             else:
-                logger.error(f"Archivo CSV no encontrado: {self.csv_input_file}")
+                #logger.error(f"Archivo CSV no encontrado: {self.csv_input_file}")
                 return False
         except Exception as e:
             logger.error(f"Error verificando archivo CSV: {e}")
@@ -144,7 +144,7 @@ class PlcDataReader:
             # Add to processed hashes
             self.processed_hashes.add(json_hash)
             
-            logger.info(f"[NEW] Dato guardado - Timestamp: {timestamp}, Hash: {json_hash[:8]}...")
+            #logger.info(f"[NEW] Dato guardado - Timestamp: {timestamp}, Hash: {json_hash[:8]}...")
             return True
             
         except Exception as e:
@@ -234,13 +234,13 @@ class PlcDataReader:
         new_lines = self.read_new_lines()
         
         if not new_lines:
-            logger.debug("No hay nuevas líneas para procesar")
+            #logger.debug("No hay nuevas líneas para procesar")
             return {'new': 0, 'errors': 0}
         
         success_count = 0
         error_count = 0
         
-        logger.info(f"Encontradas {len(new_lines)} nuevas líneas para procesar")
+        #logger.info(f"Encontradas {len(new_lines)} nuevas líneas para procesar")
         
         for data_dict, line_hash in new_lines:
             try:
