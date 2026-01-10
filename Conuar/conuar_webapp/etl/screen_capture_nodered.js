@@ -85,7 +85,8 @@ if (cicloActivoCurrent && !cicloActivoPrevious) {
         nombreCiclo: NombreCiclo || 'UNKNOWN',
         id_ec: ID_EC || 'UNKNOWN',
         id_control: ID_Control || '',
-        timestamp: msg.payload.datetime
+        timestamp: msg.payload.datetime,
+        requestType: "StartRecord"
     };
     node.warn(">>> Inspection cycle STARTED - Starting screen recording");
     node.warn("    NombreCiclo: " + recordingCommand.nombreCiclo + ", ID_EC: " + recordingCommand.id_ec);
@@ -97,7 +98,8 @@ else if (!cicloActivoCurrent && cicloActivoPrevious) {
         action: 'stop',
         nombreCiclo: flow.get('currentNombreCiclo') || 'UNKNOWN',
         id_ec: flow.get('currentID_EC') || 'UNKNOWN',
-        timestamp: msg.payload.datetime
+        timestamp: msg.payload.datetime,
+        requestType: "StopRecord"
     };
     node.warn(">>> Inspection cycle ENDED - Stopping screen recording");
     node.warn("    NombreCiclo: " + recordingCommand.nombreCiclo + ", ID_EC: " + recordingCommand.id_ec);
@@ -115,11 +117,12 @@ if (cicloActivoCurrent) {
 if (recordingCommand) {
     // Create a new message for the recording command
     let recordingMsg = {
-        payload: recordingCommand,
-        topic: 'screen_recording',
-        timestamp: msg.payload.datetime
+        requestType: recordingCommand.requestType
+        //payload: recordingCommand,
+        //topic: 'screen_recording',
+        //timestamp: msg.payload.datetime
     };
-    
+
     // Send both messages: the original PLC data and the recording command
     // The recording command will be sent to a different output
     return [msg, recordingMsg];
