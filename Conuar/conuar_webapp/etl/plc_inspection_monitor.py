@@ -45,7 +45,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler('logs/plc_monitor.log'),
-        logging.StreamHandler()
+        #logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)

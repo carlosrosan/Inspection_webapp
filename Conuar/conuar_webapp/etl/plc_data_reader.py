@@ -41,7 +41,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_reader.log"),
-        logging.StreamHandler()
+        #logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)

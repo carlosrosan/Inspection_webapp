@@ -53,7 +53,7 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
         logging.FileHandler(r'C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_processor.log'),
-        logging.StreamHandler()
+        #logging.StreamHandler()
     ]
 )
 logger = logging.getLogger(__name__)
@@ -589,6 +589,14 @@ class PlcDataProcessor:
                 )
                 continue
             
+            # Skip rows with "tes" in ID_Control (case-insensitive) - exclusion tag for testing
+            if "tes" in id_value.lower():
+                logger.debug(
+                    f"Omitiendo fila del ciclo - ID_Control contiene 'tes' (exclusión de pruebas): "
+                    f"ID_Control={id_value!r}"
+                )
+                continue
+            
             # Find ALL matching photos for this prefix (not just the first one)
             matching_photos = self._find_staged_photos(payload, exclude_photo_names=linked_photo_names)
             
@@ -833,6 +841,14 @@ class PlcDataProcessor:
                     continue
                 
                 nombre_ciclo, id_ec, id_control = prefix_parts
+                
+                # Skip photos with "tes" in ID_Control (case-insensitive) - exclusion tag for testing
+                if "tes" in id_control.lower():
+                    logger.debug(
+                        f"Omitiendo foto huérfana - ID_Control contiene 'tes' (exclusión de pruebas): "
+                        f"{photo_path.name}, ID_Control={id_control!r}"
+                    )
+                    continue
                 
                 # Extract timestamp from photo filename
                 photo_timestamp = self._extract_timestamp_from_photo_filename(photo_path)

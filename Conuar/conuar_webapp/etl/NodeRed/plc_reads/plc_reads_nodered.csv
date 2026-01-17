@@ -9082,3 +9082,2791 @@ datetime,CicloActivo,ReiniciarCiclo,AbortarCiclo,FinCiclo,ID_Control,Nombre_Cont
 
 2026-01-10T13:02:19.958Z,false,false,false,false,,,P,P
 
+2026-01-11T12:00:03.400Z,false,false,false,false,,,P,P
+
+2026-01-12T12:55:56.754Z,false,false,false,false,,,-,-
+
+2026-01-12T13:02:48.873Z,false,false,false,false,,,-,-
+
+2026-01-12T13:03:42.407Z,false,false,false,false,,,-,-
+
+2026-01-12T13:47:19.348Z,true,false,false,false,,,Q,Q
+
+2026-01-12T13:47:32.443Z,true,false,false,false,1F,,Q,Q
+
+2026-01-12T13:47:51.699Z,true,false,false,false,2F,,Q,Q
+
+2026-01-12T13:47:55.740Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:47:59.802Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:03.815Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:07.880Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:10.891Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:13.926Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:16.954Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:19.987Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:24.027Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:27.126Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:30.132Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:36.170Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:42.213Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:45.245Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:49.298Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:56.358Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:48:59.402Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:49:03.427Z,true,false,false,false,2OT,Rectitud EC,Q,Q
+
+2026-01-12T13:49:04.429Z,true,false,false,false,21F,Rectitud EC,Q,Q
+
+2026-01-12T13:49:10.479Z,true,false,false,false,22F,Rectitud EC,Q,Q
+
+2026-01-12T13:49:18.528Z,true,false,false,false,23F,Rectitud EC,Q,Q
+
+2026-01-12T13:49:27.618Z,true,false,false,false,24L,Rectitud EC,Q,Q
+
+2026-01-12T13:49:33.675Z,true,false,false,false,25L,Rectitud EC,Q,Q
+
+2026-01-12T13:49:38.738Z,true,false,false,false,26L,Rectitud EC,Q,Q
+
+2026-01-12T13:49:44.818Z,true,false,false,false,27L,Rectitud EC,Q,Q
+
+2026-01-12T13:49:50.850Z,true,false,false,false,28L,Rectitud EC,Q,Q
+
+2026-01-12T13:49:56.903Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:50:03.998Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:50:08.039Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:15.723Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:19.789Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:25.855Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:28.887Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:32.926Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:35.962Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:39.003Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:43.042Z,true,false,false,false,39L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:49.119Z,true,false,false,false,40L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:51:54.180Z,true,false,false,false,41L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:52:00.264Z,true,false,false,false,42L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:52:06.330Z,true,false,false,false,43L,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:52:12.386Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:52:19.460Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:52:23.511Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:52:27.551Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,Q,Q
+
+2026-01-12T13:56:19.017Z,true,false,true,false,,,Q,Q
+
+2026-01-12T13:56:28.137Z,false,false,false,true,,,Q,Q
+
+2026-01-12T13:56:30.156Z,false,false,false,false,,,Q,Q
+
+2026-01-12T15:33:21.367Z,true,false,false,false,,,1,Torsion
+
+2026-01-12T15:34:09.874Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:10.881Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:11.896Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:12.900Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:13.914Z,true,false,false,false,21F,Rectitud EC,1,Torsion
+
+2026-01-12T15:34:14.929Z,true,false,false,false,25L,Rectitud EC,1,Torsion
+
+2026-01-12T15:34:15.935Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:16.950Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:17.969Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:18.981Z,true,false,false,false,42L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:19.982Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:20.992Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:21.993Z,true,false,false,false,55L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:23.003Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:24.013Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:25.027Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:26.032Z,true,false,false,false,72L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:27.041Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:28.053Z,true,false,false,false,80F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:29.087Z,true,false,false,false,85L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:30.084Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:31.095Z,true,false,false,false,93F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:32.173Z,true,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:33.161Z,true,false,false,false,102L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:34.161Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:35.179Z,true,false,false,false,110F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:36.167Z,true,false,false,false,114L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:37.185Z,true,false,false,false,118L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:38.191Z,true,false,false,false,122F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:39.183Z,true,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:40.200Z,true,false,false,false,131L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:41.204Z,true,false,false,false,135F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:42.206Z,true,false,false,false,139F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:43.230Z,true,false,false,false,143F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:44.228Z,true,false,false,false,148L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:45.222Z,true,false,false,false,152F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:46.234Z,true,false,false,false,156F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:47.238Z,true,false,false,false,160L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:48.245Z,true,false,false,false,164F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:49.256Z,true,false,false,false,169F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:50.279Z,true,false,false,false,173F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:51.298Z,true,false,false,false,177L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:52.302Z,true,false,false,false,182F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:53.329Z,true,false,false,false,186F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:54.346Z,true,false,false,false,190L,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:55.343Z,true,false,false,false,194F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:56.363Z,true,false,false,false,198F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:57.387Z,true,false,false,false,203F,Distancia entre SE - Perpendicularidad SE,1,Torsion
+
+2026-01-12T15:34:58.381Z,true,false,false,false,207LI+,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:34:59.377Z,true,false,false,false,211F,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:35:00.392Z,true,false,false,false,215T,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:35:01.407Z,true,false,false,false,220LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:35:02.418Z,true,false,false,false,224LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:35:03.421Z,true,false,false,false,228LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:35:04.423Z,true,false,false,false,232LI-,Presencia soldadura zapata PP - Fisura soldadura zapata PP,1,Torsion
+
+2026-01-12T15:35:05.443Z,true,false,false,false,236F,Tornillos del acople soldadura,1,Torsion
+
+2026-01-12T15:35:06.442Z,true,false,false,false,13T,Torsion,1,Torsion
+
+2026-01-12T15:35:12.547Z,true,false,false,false,12T,Torsion,1,Torsion
+
+2026-01-12T15:35:16.588Z,true,false,false,false,11T,Torsion,1,Torsion
+
+2026-01-12T15:35:21.627Z,true,false,false,false,10T,Torsion,1,Torsion
+
+2026-01-12T15:35:27.726Z,true,false,false,false,9T,Torsion,1,Torsion
+
+2026-01-12T15:35:34.794Z,true,false,false,false,8T,Torsion,1,Torsion
+
+2026-01-12T15:35:41.836Z,true,false,false,false,7T,Torsion,1,Torsion
+
+2026-01-12T15:35:47.902Z,true,false,false,false,6T,Torsion,1,Torsion
+
+2026-01-12T15:37:41.172Z,true,false,true,false,,,1,Torsion
+
+2026-01-12T15:38:13.484Z,false,false,false,true,,,1,Torsion
+
+2026-01-12T15:38:15.509Z,false,false,false,false,,,1,Torsion
+
+2026-01-12T15:44:10.219Z,true,false,false,false,,,-,Torsion
+
+2026-01-12T15:44:30.399Z,true,false,false,false,13T,Torsion,-,Torsion
+
+2026-01-12T15:44:35.447Z,true,false,false,false,12T,Torsion,-,Torsion
+
+2026-01-12T15:44:39.466Z,true,false,false,false,11T,Torsion,-,Torsion
+
+2026-01-12T15:44:45.532Z,true,false,false,false,10T,Torsion,-,Torsion
+
+2026-01-12T15:44:51.573Z,true,false,false,false,9T,Torsion,-,Torsion
+
+2026-01-12T15:44:58.661Z,true,false,false,false,8T,Torsion,-,Torsion
+
+2026-01-12T15:45:04.740Z,true,false,false,false,7T,Torsion,-,Torsion
+
+2026-01-12T15:45:11.814Z,true,false,false,false,6T,Torsion,-,Torsion
+
+2026-01-12T15:45:31.010Z,true,false,true,false,,,-,Torsion
+
+2026-01-12T15:46:03.360Z,false,false,false,true,,,-,Torsion
+
+2026-01-12T15:46:08.394Z,false,false,false,false,,,-,Torsion
+
+2026-01-12T15:49:27.269Z,false,false,false,false,13T,Torsion,-,Torsion
+
+2026-01-12T15:49:33.382Z,false,false,false,false,12T,Torsion,-,Torsion
+
+2026-01-12T15:49:36.446Z,false,false,false,false,11T,Torsion,-,Torsion
+
+2026-01-12T15:49:42.463Z,false,false,false,false,10T,Torsion,-,Torsion
+
+2026-01-12T15:49:48.551Z,false,false,false,false,9T,Torsion,-,Torsion
+
+2026-01-12T15:49:55.618Z,false,false,false,false,8T,Torsion,-,Torsion
+
+2026-01-12T15:50:01.671Z,false,false,false,false,7T,Torsion,-,Torsion
+
+2026-01-12T15:50:08.751Z,false,false,false,false,6T,Torsion,-,Torsion
+
+2026-01-12T15:50:15.836Z,false,false,false,false,5T,Torsion,-,Torsion
+
+2026-01-12T15:50:21.915Z,false,false,false,false,4T,Torsion,-,Torsion
+
+2026-01-12T15:50:28.949Z,false,false,false,false,3T,Torsion,-,Torsion
+
+2026-01-12T15:50:36.061Z,false,false,false,false,2T,Torsion,-,Torsion
+
+2026-01-12T15:50:43.087Z,false,false,false,false,1T,Torsion,-,Torsion
+
+2026-01-12T15:50:49.166Z,false,false,false,false,-,-,-,Torsion
+
+2026-01-12T15:51:00.362Z,false,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:01.351Z,false,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:02.360Z,false,false,false,false,69L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:03.349Z,false,false,false,false,73L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:04.360Z,false,false,false,false,77F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:05.379Z,false,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:06.393Z,false,false,false,false,86L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:07.359Z,false,false,false,false,90F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:08.391Z,false,false,false,false,94F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:09.376Z,false,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:10.381Z,false,false,false,false,102L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:11.395Z,false,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:12.446Z,false,false,false,false,111F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:13.434Z,false,false,false,false,115L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:14.435Z,false,false,false,false,119F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:15.443Z,false,false,false,false,123F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:16.458Z,false,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:17.473Z,false,false,false,false,132L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:18.473Z,false,false,false,false,136F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:19.472Z,false,false,false,false,140F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:20.474Z,false,false,false,false,144L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:21.489Z,false,false,false,false,148L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:22.519Z,false,false,false,false,152F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:23.511Z,false,false,false,false,157F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:24.540Z,false,false,false,false,161L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:25.564Z,false,false,false,false,165F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T15:51:26.532Z,false,false,false,false,,,-,Torsion
+
+2026-01-12T15:52:47.409Z,true,false,false,false,,,-,-
+
+2026-01-12T15:52:55.461Z,true,false,true,false,,,-,-
+
+2026-01-12T15:55:44.213Z,false,false,false,true,,,-,-
+
+2026-01-12T15:55:48.246Z,false,false,false,false,,,-,-
+
+2026-01-12T15:56:29.694Z,true,false,false,false,,,-,-
+
+2026-01-12T15:56:41.857Z,true,false,false,false,13T,Torsion,-,-
+
+2026-01-12T15:57:33.417Z,true,false,true,false,,,-,-
+
+2026-01-12T15:57:37.455Z,false,false,false,true,,,-,-
+
+2026-01-12T15:57:42.503Z,false,false,false,false,,,-,-
+
+2026-01-12T15:58:29.016Z,true,false,false,false,,,-,Torsion
+
+2026-01-12T15:58:49.324Z,true,false,false,false,13T,Torsion,-,Torsion
+
+2026-01-12T16:13:21.859Z,true,false,false,false,12T,Torsion,-,Torsion
+
+2026-01-12T16:13:25.889Z,true,false,false,false,11T,Torsion,-,Torsion
+
+2026-01-12T16:13:30.966Z,true,false,false,false,10T,Torsion,-,Torsion
+
+2026-01-12T16:13:37.008Z,true,false,false,false,9T,Torsion,-,Torsion
+
+2026-01-12T16:13:44.150Z,true,false,false,false,8T,Torsion,-,Torsion
+
+2026-01-12T16:13:51.174Z,true,false,false,false,7T,Torsion,-,Torsion
+
+2026-01-12T16:13:57.206Z,true,false,false,false,6T,Torsion,-,Torsion
+
+2026-01-12T16:14:04.283Z,true,false,false,false,5T,Torsion,-,Torsion
+
+2026-01-12T16:14:11.368Z,true,false,false,false,4T,Torsion,-,Torsion
+
+2026-01-12T16:14:17.461Z,true,false,false,false,3T,Torsion,-,Torsion
+
+2026-01-12T16:14:24.519Z,true,false,false,false,2T,Torsion,-,Torsion
+
+2026-01-12T16:14:31.600Z,true,false,false,false,1T,Torsion,-,Torsion
+
+2026-01-12T16:14:37.649Z,true,false,false,false,-,-,-,Torsion
+
+2026-01-12T16:14:49.811Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T16:14:50.813Z,true,false,false,false,69L,Distancia entre SE - Perpendicularidad SE,-,Torsion
+
+2026-01-12T16:14:53.815Z,true,false,true,false,,,-,Torsion
+
+2026-01-12T16:15:48.420Z,false,false,false,true,,,-,Torsion
+
+2026-01-12T16:15:51.476Z,false,false,false,false,,,-,Torsion
+
+2026-01-12T16:23:42.460Z,true,false,false,false,,,-,-
+
+2026-01-12T16:23:55.597Z,true,false,false,false,13T,Torsion,-,-
+
+2026-01-12T16:24:00.684Z,true,false,false,false,12T,Torsion,-,-
+
+2026-01-12T16:24:04.697Z,true,false,false,false,11T,Torsion,-,-
+
+2026-01-12T16:24:10.780Z,true,false,false,false,10T,Torsion,-,-
+
+2026-01-12T16:24:16.862Z,true,false,false,false,9T,Torsion,-,-
+
+2026-01-12T16:24:22.878Z,true,false,false,false,8T,Torsion,-,-
+
+2026-01-12T16:24:29.962Z,true,false,false,false,7T,Torsion,-,-
+
+2026-01-12T16:24:36.003Z,true,false,true,false,,,-,-
+
+2026-01-12T16:25:04.313Z,false,false,false,true,,,-,-
+
+2026-01-12T16:25:19.441Z,false,false,false,false,,,-,-
+
+2026-01-12T16:28:31.598Z,true,false,false,false,,,-,-
+
+2026-01-12T16:28:51.871Z,true,false,false,false,13T,Torsion,-,-
+
+2026-01-12T16:28:56.895Z,true,false,false,false,12T,Torsion,-,-
+
+2026-01-12T16:29:00.958Z,true,false,false,false,11T,Torsion,-,-
+
+2026-01-12T16:29:05.997Z,true,false,false,false,10T,Torsion,-,-
+
+2026-01-12T16:29:12.115Z,true,false,false,false,9T,Torsion,-,-
+
+2026-01-12T16:29:19.131Z,true,false,false,false,8T,Torsion,-,-
+
+2026-01-12T16:29:26.256Z,true,false,false,false,7T,Torsion,-,-
+
+2026-01-12T16:29:32.320Z,true,false,false,false,6T,Torsion,-,-
+
+2026-01-12T16:29:39.390Z,true,false,false,false,5T,Torsion,-,-
+
+2026-01-12T16:29:45.444Z,true,false,true,false,,,-,-
+
+2026-01-12T16:30:21.808Z,false,false,false,true,,,-,-
+
+2026-01-12T16:33:59.010Z,false,false,false,false,,,-,-
+
+2026-01-12T16:34:10.128Z,true,false,false,false,,,-,-
+
+2026-01-12T16:34:30.384Z,true,false,false,false,13T,Torsion,-,-
+
+2026-01-12T16:34:36.432Z,true,false,false,false,12T,Torsion,-,-
+
+2026-01-12T16:34:39.527Z,true,false,false,false,11T,Torsion,-,-
+
+2026-01-12T16:34:45.519Z,true,false,false,false,10T,Torsion,-,-
+
+2026-01-12T16:34:51.583Z,true,false,false,false,9T,Torsion,-,-
+
+2026-01-12T16:34:58.652Z,true,false,false,false,8T,Torsion,-,-
+
+2026-01-12T16:35:04.717Z,true,false,false,false,7T,Torsion,-,-
+
+2026-01-12T16:35:08.762Z,true,false,true,false,,,-,-
+
+2026-01-12T16:35:36.043Z,false,false,false,true,,,-,-
+
+2026-01-12T16:35:52.215Z,false,false,false,false,,,-,-
+
+2026-01-12T16:35:57.268Z,true,false,false,false,,,-,-
+
+2026-01-12T16:36:18.496Z,true,false,false,false,13T,Torsion,-,-
+
+2026-01-12T16:36:23.581Z,true,false,false,false,12T,Torsion,-,-
+
+2026-01-12T16:36:27.603Z,true,false,false,false,11T,Torsion,-,-
+
+2026-01-12T16:36:32.683Z,true,false,false,false,10T,Torsion,-,-
+
+2026-01-12T16:36:38.706Z,true,false,false,false,9T,Torsion,-,-
+
+2026-01-12T16:36:45.790Z,true,false,false,false,8T,Torsion,-,-
+
+2026-01-12T16:36:52.887Z,true,false,false,false,7T,Torsion,-,-
+
+2026-01-12T16:36:58.926Z,true,false,false,false,6T,Torsion,-,-
+
+2026-01-12T16:37:06.002Z,true,false,false,false,5T,Torsion,-,-
+
+2026-01-12T16:37:13.071Z,true,false,false,false,4T,Torsion,-,-
+
+2026-01-12T16:37:20.150Z,true,false,false,false,3T,Torsion,-,-
+
+2026-01-12T16:37:26.242Z,true,false,false,false,2T,Torsion,-,-
+
+2026-01-12T16:37:33.274Z,true,false,false,false,1T,Torsion,-,-
+
+2026-01-12T16:37:40.333Z,true,false,false,false,-,-,-,-
+
+2026-01-12T16:37:49.455Z,true,false,true,false,,,-,-
+
+2026-01-12T16:38:43.997Z,false,false,false,true,,,-,-
+
+2026-01-12T16:38:51.065Z,false,false,false,false,,,-,-
+
+2026-01-12T17:39:47.735Z,true,false,false,false,,,1,prueba
+
+2026-01-12T17:42:59.789Z,true,false,false,false,13T,Torsion,1,prueba
+
+2026-01-12T17:43:08.937Z,true,false,false,false,1F,Torsion,1,prueba
+
+2026-01-12T17:43:12.946Z,true,false,false,false,2F,Torsion,1,prueba
+
+2026-01-12T17:43:17.006Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:44:16.608Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:46:22.893Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:46:34.018Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:46:43.115Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:46:52.223Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:47:01.332Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:47:09.484Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:47:19.565Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:47:27.647Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T17:47:30.697Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,1,prueba
+
+2026-01-12T18:41:56.180Z,true,false,true,false,,,1,prueba
+
+2026-01-12T18:42:07.251Z,false,false,false,true,,,1,prueba
+
+2026-01-12T18:42:20.385Z,false,false,false,false,,,1,prueba
+
+2026-01-12T18:43:04.763Z,true,false,false,false,,,R,R
+
+2026-01-12T18:44:00.131Z,true,false,false,false,13T,Torsion,R,R
+
+2026-01-12T18:44:09.214Z,true,false,false,false,1F,Torsion,R,R
+
+2026-01-12T18:44:38.455Z,true,false,false,false,2F,Torsion,R,R
+
+2026-01-12T18:44:51.567Z,true,false,true,false,,,R,R
+
+2026-01-12T18:44:59.599Z,false,false,false,true,,,R,R
+
+2026-01-12T18:45:01.618Z,false,false,false,false,,,R,R
+
+2026-01-12T18:45:09.664Z,true,false,false,false,,,S,S
+
+2026-01-12T18:45:29.854Z,true,false,false,false,13T,Torsion,S,S
+
+2026-01-12T18:45:38.936Z,true,false,false,false,1F,Torsion,S,S
+
+2026-01-12T18:45:53.034Z,true,false,false,false,2F,Torsion,S,S
+
+2026-01-12T18:46:05.123Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:46:39.387Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:46:49.457Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:47:01.558Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:47:03.586Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:47:21.742Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:47:32.825Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:47:42.947Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:47:53.000Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:48:03.088Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:48:15.161Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:50:11.964Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:50:26.071Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:50:47.225Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:50:59.325Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:51:14.421Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:51:25.485Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:51:29.534Z,true,false,false,false,21F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:51:43.651Z,true,false,false,false,22F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:51:51.738Z,true,false,false,false,23F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:52:00.801Z,true,false,false,false,12T,Torsion,S,S
+
+2026-01-12T18:52:42.089Z,true,false,false,false,24L,Torsion,S,S
+
+2026-01-12T18:53:11.358Z,true,false,false,false,25L,Torsion,S,S
+
+2026-01-12T18:53:23.420Z,true,false,false,false,26L,Torsion,S,S
+
+2026-01-12T18:53:35.498Z,true,false,false,false,27L,Torsion,S,S
+
+2026-01-12T18:53:48.602Z,true,false,false,false,28L,Torsion,S,S
+
+2026-01-12T18:54:00.706Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:56:51.993Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:57:04.120Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:57:13.150Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:57:25.231Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:57:30.262Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:57:46.370Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:57:57.496Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:58:06.568Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:59:46.411Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T18:59:49.459Z,true,false,false,false,11T,Torsion,S,S
+
+2026-01-12T19:00:06.567Z,true,false,false,false,39L,Torsion,S,S
+
+2026-01-12T19:00:32.752Z,true,false,false,false,40L,Torsion,S,S
+
+2026-01-12T19:00:44.825Z,true,false,false,false,41L,Torsion,S,S
+
+2026-01-12T19:00:59.945Z,true,false,false,false,42L,Torsion,S,S
+
+2026-01-12T19:01:12.991Z,true,false,false,false,43L,Torsion,S,S
+
+2026-01-12T19:01:25.073Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:01:50.270Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:02:02.380Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:02:14.458Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:02:24.562Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:02:37.689Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:02:46.741Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:02:59.808Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:03:07.856Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:03:22.977Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:03:33.000Z,true,false,false,false,10T,Torsion,S,S
+
+2026-01-12T19:03:50.165Z,true,false,false,false,54L,Torsion,S,S
+
+2026-01-12T19:04:24.412Z,true,false,false,false,55L,Torsion,S,S
+
+2026-01-12T19:04:36.499Z,true,false,false,false,56L,Torsion,S,S
+
+2026-01-12T19:04:48.573Z,true,false,false,false,57L,Torsion,S,S
+
+2026-01-12T19:05:00.683Z,true,false,false,false,58L,Torsion,S,S
+
+2026-01-12T19:05:12.768Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:05:25.861Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:05:37.976Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:05:48.007Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:05:58.083Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:06:11.189Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:06:21.271Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:06:32.350Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:06:35.373Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:08:36.258Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:08:40.264Z,true,false,false,false,9T,Torsion,S,S
+
+2026-01-12T19:08:57.397Z,true,false,false,false,69L,Torsion,S,S
+
+2026-01-12T19:09:26.668Z,true,false,false,false,70L,Torsion,S,S
+
+2026-01-12T19:09:37.733Z,true,false,false,false,71L,Torsion,S,S
+
+2026-01-12T19:09:48.839Z,true,false,false,false,72L,Torsion,S,S
+
+2026-01-12T19:09:57.941Z,true,false,false,false,73L,Torsion,S,S
+
+2026-01-12T19:10:11.998Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:10:25.131Z,true,false,false,false,75F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:10:37.197Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:10:47.268Z,true,false,false,false,77F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:10:56.337Z,true,false,false,false,78F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:11:09.461Z,true,false,false,false,79F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:11:18.513Z,true,false,false,false,80F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:11:29.625Z,true,false,false,false,81F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:11:32.630Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:15:06.100Z,true,false,false,false,83F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:15:17.185Z,true,false,false,false,8T,Torsion,S,S
+
+2026-01-12T19:15:33.316Z,true,false,false,false,84L,Torsion,S,S
+
+2026-01-12T19:16:08.585Z,true,false,false,false,85L,Torsion,S,S
+
+2026-01-12T19:16:19.688Z,true,false,false,false,86L,Torsion,S,S
+
+2026-01-12T19:16:33.776Z,true,false,false,false,87L,Torsion,S,S
+
+2026-01-12T19:16:45.946Z,true,false,false,false,88L,Torsion,S,S
+
+2026-01-12T19:16:59.988Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:17:14.078Z,true,false,false,false,90F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:17:24.154Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:17:35.213Z,true,false,false,false,92F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:17:45.290Z,true,false,false,false,93F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:18:01.437Z,true,false,false,false,94F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:18:08.486Z,true,false,false,false,95F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:18:18.560Z,true,false,false,false,96F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:18:26.606Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:18:53.763Z,true,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:19:05.859Z,true,false,false,false,7T,Torsion,S,S
+
+2026-01-12T19:19:32.027Z,true,false,false,false,99L,Torsion,S,S
+
+2026-01-12T19:19:59.226Z,true,false,false,false,100L,Torsion,S,S
+
+2026-01-12T19:20:09.272Z,true,false,false,false,101L,Torsion,S,S
+
+2026-01-12T19:20:20.381Z,true,false,false,false,102L,Torsion,S,S
+
+2026-01-12T19:20:33.512Z,true,false,false,false,103L,Torsion,S,S
+
+2026-01-12T19:20:39.535Z,true,false,false,false,104F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:20:50.597Z,true,false,false,false,105F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:21:10.716Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:21:21.778Z,true,false,false,false,107F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:21:31.862Z,true,false,false,false,108F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:21:41.947Z,true,false,false,false,109F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:21:52.022Z,true,false,false,false,110F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:22:03.114Z,true,false,false,false,111F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:22:13.197Z,true,false,false,false,112F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:22:16.227Z,true,false,false,false,113F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:22:46.414Z,true,false,false,false,6T,Torsion,S,S
+
+2026-01-12T19:23:03.565Z,true,false,false,false,114L,Torsion,S,S
+
+2026-01-12T19:23:29.771Z,true,false,false,false,115L,Torsion,S,S
+
+2026-01-12T19:23:42.866Z,true,false,false,false,116L,Torsion,S,S
+
+2026-01-12T19:23:55.959Z,true,false,false,false,117L,Torsion,S,S
+
+2026-01-12T19:24:07.029Z,true,false,false,false,118L,Torsion,S,S
+
+2026-01-12T19:24:20.137Z,true,false,false,false,119F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:24:33.247Z,true,false,false,false,120F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:24:37.301Z,true,false,false,false,121F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:24:45.350Z,true,false,false,false,122F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:24:57.464Z,true,false,false,false,123F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:25:02.496Z,true,false,false,false,124F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:26:51.150Z,true,false,false,false,125F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:26:55.172Z,true,false,false,false,126F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:27:12.270Z,true,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,S,S
+
+2026-01-12T19:28:28.777Z,true,false,true,false,,,S,S
+
+2026-01-12T19:28:49.946Z,false,false,false,true,,,S,S
+
+2026-01-12T19:31:26.112Z,false,false,false,false,,,S,S
+
+2026-01-13T11:17:14.300Z,false,false,false,false,,,S,S
+
+2026-01-13T11:17:25.496Z,false,false,false,false,,,S,S
+
+2026-01-13T11:18:06.227Z,false,false,false,false,,,S,S
+
+2026-01-14T12:24:22.628Z,false,false,false,false,,,S,S
+
+2026-01-14T12:41:43.310Z,false,false,false,false,,,S,S
+
+2026-01-14T13:01:02.195Z,true,false,false,false,,,T,T
+
+2026-01-14T13:01:22.310Z,true,false,false,false,13T,Rectitud EC,T,T
+
+2026-01-14T13:01:40.437Z,true,false,false,false,1F,Rectitud EC,T,T
+
+2026-01-14T13:01:57.633Z,true,false,false,false,2F,Rectitud EC,T,T
+
+2026-01-14T13:20:32.479Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:21:01.712Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:21:05.732Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:21:41.017Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:22:00.197Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:22:12.278Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:22:24.308Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:22:38.404Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:22:47.461Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:23:00.564Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:23:17.693Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:23:36.811Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:23:58.954Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:24:09.026Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:24:20.116Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:47:10.483Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:47:23.604Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:47:34.714Z,true,false,false,false,21F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:47:40.760Z,true,false,false,false,22F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:48:20.099Z,true,false,false,false,23F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:48:30.162Z,true,false,false,false,12T,Rectitud EC,T,T
+
+2026-01-14T13:48:38.268Z,true,false,false,false,24L,Rectitud EC,T,T
+
+2026-01-14T13:49:48.810Z,true,false,false,false,25L,Rectitud EC,T,T
+
+2026-01-14T13:49:59.916Z,true,false,false,false,26L,Rectitud EC,T,T
+
+2026-01-14T13:50:05.944Z,true,false,false,false,27L,Rectitud EC,T,T
+
+2026-01-14T13:50:11.975Z,true,false,false,false,28L,Rectitud EC,T,T
+
+2026-01-14T13:50:18.024Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:25.073Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:29.112Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:33.143Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:37.187Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:42.283Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:45.289Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:48.288Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:52.265Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:55.277Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:50:58.317Z,true,false,false,false,11T,Rectitud EC,T,T
+
+2026-01-14T13:51:04.400Z,true,false,false,false,39L,Rectitud EC,T,T
+
+2026-01-14T13:51:11.423Z,true,false,false,false,40L,Rectitud EC,T,T
+
+2026-01-14T13:52:38.115Z,true,false,false,false,41L,Rectitud EC,T,T
+
+2026-01-14T13:52:44.156Z,true,false,false,false,42L,Rectitud EC,T,T
+
+2026-01-14T13:52:50.272Z,true,false,false,false,43L,Rectitud EC,T,T
+
+2026-01-14T13:52:57.296Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:03.292Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:07.299Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:11.316Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:15.349Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:39.472Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:48.538Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:53:53.592Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T13:54:00.624Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,T,T
+
+2026-01-14T14:05:42.578Z,true,false,true,false,,,T,T
+
+2026-01-14T14:06:00.739Z,false,false,false,true,,,T,T
+
+2026-01-14T14:06:04.760Z,false,false,false,false,,,T,T
+
+2026-01-14T14:58:52.394Z,true,false,false,false,,,U,U
+
+2026-01-14T14:59:12.538Z,true,false,false,false,13T,Rectitud EC,U,U
+
+2026-01-14T14:59:30.651Z,true,false,false,false,1F,Rectitud EC,U,U
+
+2026-01-14T14:59:48.778Z,true,false,false,false,2F,Rectitud EC,U,U
+
+2026-01-14T15:03:20.833Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:03:50.032Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:04:02.125Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:04:15.230Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:04:28.344Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:04:43.446Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:05:04.596Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:05:20.726Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,U,U
+
+2026-01-14T15:28:34.793Z,true,false,true,false,,,U,U
+
+2026-01-14T15:29:38.329Z,false,false,false,true,,,U,U
+
+2026-01-14T15:29:40.339Z,false,false,false,false,,,U,U
+
+2026-01-14T15:32:46.667Z,true,false,false,false,,,V,V
+
+2026-01-14T15:33:06.875Z,true,false,false,false,13T,Rectitud EC,V,V
+
+2026-01-14T15:33:34.066Z,true,false,false,false,1F,Rectitud EC,V,V
+
+2026-01-14T15:34:08.364Z,true,false,false,false,2F,Rectitud EC,V,V
+
+2026-01-14T15:34:19.454Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:34:30.550Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:34:46.678Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:35:00.804Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:35:03.823Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:35:25.981Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:35:41.106Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:35:56.240Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:36:10.307Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:36:26.435Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,V,V
+
+2026-01-14T15:38:30.400Z,true,false,true,false,,,V,V
+
+2026-01-14T15:38:51.570Z,false,false,false,true,,,V,V
+
+2026-01-14T15:38:55.600Z,false,false,false,false,,,V,V
+
+2026-01-14T15:39:09.738Z,true,false,false,false,,,W,W
+
+2026-01-14T15:39:29.828Z,true,false,false,false,13T,Rectitud EC,W,W
+
+2026-01-14T15:39:47.997Z,true,false,false,false,1F,Rectitud EC,W,W
+
+2026-01-14T15:41:19.814Z,true,false,false,false,2F,Rectitud EC,W,W
+
+2026-01-14T15:41:32.907Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:41:42.966Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:41:45.998Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:42:10.208Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:42:20.311Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:42:30.381Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:42:40.463Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:42:55.561Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:43:07.616Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:43:10.634Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,W,W
+
+2026-01-14T15:46:29.184Z,true,false,true,false,,,W,W
+
+2026-01-14T15:46:49.398Z,false,false,false,true,,,W,W
+
+2026-01-14T15:46:53.407Z,false,false,false,false,,,W,W
+
+2026-01-14T15:47:03.475Z,true,false,false,false,,,X,X
+
+2026-01-14T15:47:23.668Z,true,false,false,false,13T,Rectitud EC,X,X
+
+2026-01-14T15:47:41.853Z,true,false,false,false,1F,Rectitud EC,X,X
+
+2026-01-14T15:48:23.169Z,true,false,false,false,2F,Rectitud EC,X,X
+
+2026-01-14T15:48:34.310Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:48:38.311Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:49:02.465Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:49:13.539Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:49:24.637Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:49:35.747Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:50:05.973Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:50:15.039Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:50:29.173Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:50:40.307Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:51:15.555Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:52:03.873Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:52:15.941Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:52:43.210Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:52:55.319Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:53:12.488Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:53:23.598Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:54:42.350Z,true,false,false,false,21F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:55:44.818Z,true,false,false,false,22F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:56:00.947Z,true,false,false,false,23F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:56:18.073Z,true,false,false,false,12T,Rectitud EC,X,X
+
+2026-01-14T15:56:23.116Z,true,false,false,false,24L,Rectitud EC,X,X
+
+2026-01-14T15:56:50.382Z,true,false,false,false,25L,Rectitud EC,X,X
+
+2026-01-14T15:57:21.605Z,true,false,false,false,26L,Rectitud EC,X,X
+
+2026-01-14T15:57:36.697Z,true,false,false,false,27L,Rectitud EC,X,X
+
+2026-01-14T15:57:42.744Z,true,false,false,false,28L,Rectitud EC,X,X
+
+2026-01-14T15:58:10.946Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:59:09.442Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T15:59:13.461Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:02:55.312Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:02:59.315Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:03:14.442Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:03:24.557Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:03:46.748Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:04:00.908Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:04:41.235Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:04:54.354Z,true,false,false,false,11T,Rectitud EC,X,X
+
+2026-01-14T16:05:14.557Z,true,false,false,false,39L,Rectitud EC,X,X
+
+2026-01-14T16:05:21.648Z,true,false,false,false,40L,Rectitud EC,X,X
+
+2026-01-14T16:06:23.117Z,true,false,false,false,41L,Rectitud EC,X,X
+
+2026-01-14T16:06:50.361Z,true,false,false,false,42L,Rectitud EC,X,X
+
+2026-01-14T16:07:06.549Z,true,false,false,false,43L,Rectitud EC,X,X
+
+2026-01-14T16:07:22.693Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:07:43.873Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,X,X
+
+2026-01-14T16:09:34.876Z,true,false,true,false,,,X,X
+
+2026-01-14T16:09:42.945Z,false,false,false,true,,,X,X
+
+2026-01-14T16:09:51.021Z,false,false,false,false,,,X,X
+
+2026-01-14T16:19:35.108Z,true,false,false,false,,,Y,Y
+
+2026-01-14T16:19:55.323Z,true,false,false,false,13T,Rectitud EC,Y,Y
+
+2026-01-14T16:20:19.455Z,true,false,false,false,1F,Rectitud EC,Y,Y
+
+2026-01-14T16:20:47.697Z,true,false,false,false,2F,Rectitud EC,Y,Y
+
+2026-01-14T16:20:50.714Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:20:54.746Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:20:58.766Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:02.792Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:05.826Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:08.827Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:11.867Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:15.921Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:40.080Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:21:58.339Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:22:14.388Z,true,false,false,false,13L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:22:21.437Z,true,false,false,false,14L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:22:54.765Z,true,false,false,false,15L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:22:58.824Z,true,false,false,false,16L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:23:02.826Z,true,false,false,false,17L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:23:26.003Z,true,false,false,false,18L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:23:44.161Z,true,false,false,false,19L,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:24:04.351Z,true,false,false,false,21F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:24:39.672Z,true,false,false,false,22F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:25:06.898Z,true,false,false,false,23F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:25:27.055Z,true,false,false,false,12T,Rectitud EC,Y,Y
+
+2026-01-14T16:26:03.382Z,true,false,false,false,24L,Rectitud EC,Y,Y
+
+2026-01-14T16:26:44.754Z,true,false,false,false,25L,Rectitud EC,Y,Y
+
+2026-01-14T16:26:49.776Z,true,false,false,false,26L,Rectitud EC,Y,Y
+
+2026-01-14T16:26:55.861Z,true,false,false,false,27L,Rectitud EC,Y,Y
+
+2026-01-14T16:27:31.172Z,true,false,false,false,28L,Rectitud EC,Y,Y
+
+2026-01-14T16:28:03.416Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:28:43.783Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:28:47.850Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:28:51.875Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:28:55.916Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:29:11.008Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:29:14.050Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:29:17.070Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:29:21.103Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:29:36.262Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T16:29:58.388Z,true,false,false,false,11T,Rectitud EC,Y,Y
+
+2026-01-14T16:30:32.764Z,true,false,false,false,39L,Rectitud EC,Y,Y
+
+2026-01-14T16:31:21.150Z,true,false,false,false,40L,Rectitud EC,Y,Y
+
+2026-01-14T16:31:26.193Z,true,false,false,false,41L,Rectitud EC,Y,Y
+
+2026-01-14T16:31:32.324Z,true,false,false,false,42L,Rectitud EC,Y,Y
+
+2026-01-14T16:31:38.324Z,true,false,false,false,43L,Rectitud EC,Y,Y
+
+2026-01-14T16:32:19.596Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,Y,Y
+
+2026-01-14T17:01:55.877Z,true,false,true,false,,,Y,Y
+
+2026-01-14T17:02:03.939Z,false,false,false,true,,,Y,Y
+
+2026-01-14T17:02:08.982Z,false,false,false,false,,,Y,Y
+
+2026-01-15T21:02:35.299Z,false,false,false,false,,Torsion del acople and inconel pruebajafdsjigjsri,Y,Y
+
+2026-01-16T13:12:56.296Z,true,false,false,false,,,Z,Z
+
+2026-01-16T13:13:27.575Z,true,false,false,false,13T,Rectitud EC,Z,Z
+
+2026-01-16T13:14:19.036Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:14:25.081Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:15:10.458Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:15:18.522Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:15:26.544Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:15:35.599Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:15:43.626Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:15:48.683Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:15:53.708Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:16:00.725Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:16:06.767Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:16:13.831Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:16:19.883Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,Z,Z
+
+2026-01-16T13:16:24.934Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:16:31.986Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:16:35.011Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:16:46.122Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:16:54.233Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:17:03.285Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:17:18.426Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:17:26.512Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:17:34.598Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:17:41.694Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:17:43.694Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:18:05.899Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,Z,Z
+
+2026-01-16T13:18:27.107Z,true,false,false,false,12T,Rectitud EC,Z,Z
+
+2026-01-16T13:18:32.167Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:18:39.250Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:18:46.304Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:28:48.563Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,Z,Z
+
+2026-01-16T13:43:26.985Z,true,false,false,false,,Posicion 31,Z,Z
+
+2026-01-16T13:44:30.569Z,true,false,false,false,,Posicion 32,Z,Z
+
+2026-01-16T13:44:32.581Z,true,false,false,false,,,Z,Z
+
+2026-01-16T15:44:53.173Z,true,false,true,false,,,Z,Z
+
+2026-01-16T15:45:01.243Z,false,false,false,true,,,Z,Z
+
+2026-01-16T15:45:06.272Z,false,false,false,false,,,Z,Z
+
+2026-01-16T15:57:43.770Z,true,false,false,false,,,AA,AA
+
+2026-01-16T15:58:11.096Z,true,false,false,false,5.1,Posicion 1,AA,AA
+
+2026-01-16T15:58:17.121Z,true,false,false,false,4.1,Posicion 2,AA,AA
+
+2026-01-16T15:58:20.158Z,true,false,false,false,4.1,Posicion 3,AA,AA
+
+2026-01-16T15:58:22.172Z,true,false,false,false,4.1,Posicion 4,AA,AA
+
+2026-01-16T15:58:25.208Z,true,false,false,false,4.1,Posicion 5,AA,AA
+
+2026-01-16T16:02:30.879Z,true,false,true,false,,,AA,AA
+
+2026-01-16T16:02:31.902Z,false,false,false,true,,,AA,AA
+
+2026-01-16T16:02:34.910Z,false,false,false,false,,,AA,AA
+
+2026-01-16T16:02:45.984Z,true,false,false,false,,,BB,BB
+
+2026-01-16T16:03:06.225Z,true,false,false,false,13T,Rectitud EC,BB,BB
+
+2026-01-16T16:03:33.488Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:03:38.520Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:04:02.781Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:04:08.828Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:14.888Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:20.943Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:27.008Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:31.059Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:35.093Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:40.157Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:46.185Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:51.230Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:04:56.290Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:05:00.362Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:08.391Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:11.421Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:18.458Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:24.512Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:30.577Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:39.692Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:45.760Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:05:51.787Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:05:59.875Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:06:02.909Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:06:15.074Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:06:28.164Z,true,false,false,false,12T,Rectitud EC,BB,BB
+
+2026-01-16T16:06:33.203Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:06:41.289Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:06:46.344Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:06:53.404Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:07:03.531Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:07:12.671Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:07:21.741Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:07:28.807Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:07:34.879Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:07:40.933Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:07:46.999Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:07:53.064Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:08:01.162Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:08:05.178Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:08:10.239Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:08:15.286Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:08:20.354Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:08:25.391Z,true,false,false,false,11T,Rectitud EC,BB,BB
+
+2026-01-16T16:08:32.475Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:08:40.535Z,true,false,false,false,39L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:08:45.584Z,true,false,false,false,40L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:08:52.674Z,true,false,false,false,41L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:09:01.760Z,true,false,false,false,42L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:09:11.862Z,true,false,false,false,43L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:09:20.960Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:09:28.026Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:09:33.096Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:09:40.172Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:09:46.262Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:09:52.288Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:09:59.366Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:10:04.387Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:10:10.459Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:10:14.500Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:10:19.575Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:10:24.602Z,true,false,false,false,10T,Rectitud EC,BB,BB
+
+2026-01-16T16:10:31.689Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:10:39.760Z,true,false,false,false,54L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:10:44.807Z,true,false,false,false,55L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:10:51.895Z,true,false,false,false,56L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:11:02.017Z,true,false,false,false,57L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:11:11.104Z,true,false,false,false,58L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:11:20.244Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:11:27.298Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:11:33.370Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:11:39.424Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:11:45.493Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:11:51.566Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:11:59.681Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:12:03.677Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:12:09.738Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:12:13.787Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:12:18.854Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:12:23.905Z,true,false,false,false,9T,Rectitud EC,BB,BB
+
+2026-01-16T16:12:31.995Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:12:39.074Z,true,false,false,false,69L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:12:44.105Z,true,false,false,false,70L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:12:52.176Z,true,false,false,false,71L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:13:01.290Z,true,false,false,false,72L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:13:10.379Z,true,false,false,false,73L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:13:19.467Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:13:27.562Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:13:32.671Z,true,false,false,false,75F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:13:39.710Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:13:45.734Z,true,false,false,false,77F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:13:51.795Z,true,false,false,false,78F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:13:58.870Z,true,false,false,false,79F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:14:02.907Z,true,false,false,false,80F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:14:08.973Z,true,false,false,false,81F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:14:14.025Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:14:19.071Z,true,false,false,false,83F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:14:24.127Z,true,false,false,false,8T,Rectitud EC,BB,BB
+
+2026-01-16T16:14:31.193Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:14:39.277Z,true,false,false,false,84L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:14:44.317Z,true,false,false,false,85L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:14:52.410Z,true,false,false,false,86L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:15:01.511Z,true,false,false,false,87L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:15:10.604Z,true,false,false,false,88L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:15:19.695Z,true,false,false,false,testF,PURGA DE FOTO FRONTAL,BB,BB
+
+2026-01-16T16:15:27.753Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:15:32.784Z,true,false,false,false,90F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:15:39.874Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:15:44.888Z,true,false,false,false,92F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:15:50.935Z,true,false,false,false,93F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:15:59.010Z,true,false,false,false,94F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:16:03.076Z,true,false,false,false,95F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:16:09.151Z,true,false,false,false,96F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:16:13.194Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:16:18.272Z,true,false,false,false,98F,Distancia entre SE - Perpendicularidad SE,BB,BB
+
+2026-01-16T16:16:23.312Z,true,false,false,false,7T,Rectitud EC,BB,BB
+
+2026-01-16T16:16:31.403Z,true,false,false,false,testL,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:16:39.477Z,true,false,false,false,99L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:16:44.525Z,true,false,false,false,100L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:16:51.608Z,true,false,false,false,101L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:17:00.708Z,true,false,false,false,102L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:17:10.812Z,true,false,false,false,103L,PURGA DE FOTO LATERAL,BB,BB
+
+2026-01-16T16:17:22.939Z,true,false,true,false,,,BB,BB
+
+2026-01-16T16:17:53.203Z,false,false,false,true,,,BB,BB
+
+2026-01-16T16:18:05.339Z,false,false,false,false,,,BB,BB
+
+2026-01-16T16:21:39.483Z,true,false,false,false,,,CC,CC
+
+2026-01-16T16:22:11.812Z,true,false,false,false,13T,Rectitud EC,CC,CC
+
+2026-01-16T16:22:40.093Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:22:46.141Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:23:11.411Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:23:18.502Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:23:25.600Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:23:32.715Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:23:38.777Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:23:44.817Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:23:49.876Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:23:55.921Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:24:01.970Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:24:08.037Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:24:14.107Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:24:19.171Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:24:28.304Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:24:32.319Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:24:40.382Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:24:47.469Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:24:54.503Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:25:04.681Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:25:11.715Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:25:18.770Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:25:27.867Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:25:31.892Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:25:45.034Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:25:59.170Z,true,false,false,false,12T,Rectitud EC,CC,CC
+
+2026-01-16T16:26:05.232Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:26:13.323Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:26:19.396Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:26:28.496Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:26:38.676Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:26:48.721Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:26:58.830Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:27:07.935Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:14.004Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:22.098Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:29.179Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:35.265Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:44.375Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:49.396Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:27:55.453Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:28:01.531Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:28:07.593Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:28:13.680Z,true,false,false,false,11T,Rectitud EC,CC,CC
+
+2026-01-16T16:28:21.740Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:28:30.883Z,true,false,false,false,39L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:28:36.910Z,true,false,false,false,40L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:28:44.968Z,true,false,false,false,41L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:28:55.094Z,true,false,false,false,42L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:29:06.204Z,true,false,false,false,43L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:29:16.322Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:29:24.403Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:29:30.469Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:29:38.569Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:29:45.681Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:29:52.729Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:30:00.826Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:30:05.870Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:30:12.940Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:30:17.993Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:30:25.084Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:30:31.132Z,true,false,false,false,10T,Rectitud EC,CC,CC
+
+2026-01-16T16:30:39.225Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:30:47.301Z,true,false,false,false,54L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:30:53.386Z,true,false,false,false,55L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:31:02.497Z,true,false,false,false,56L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:31:12.599Z,true,false,false,false,57L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:31:22.693Z,true,false,false,false,58L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:31:32.781Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,CC,CC
+
+2026-01-16T16:31:41.870Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:31:47.939Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:31:56.011Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:02.053Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:09.117Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:18.222Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:23.288Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:29.376Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:35.407Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:41.470Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,CC,CC
+
+2026-01-16T16:32:48.515Z,true,false,false,false,9T,Rectitud EC,CC,CC
+
+2026-01-16T16:32:57.592Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:33:06.699Z,true,false,false,false,69L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:33:13.772Z,true,false,false,false,70L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:33:22.884Z,true,false,false,false,71L,PURGA DE FOTO LATERAL,CC,CC
+
+2026-01-16T16:33:26.903Z,true,false,true,false,,,CC,CC
+
+2026-01-16T16:34:28.530Z,false,false,false,true,,,CC,CC
+
+2026-01-16T16:34:39.677Z,false,false,false,false,,,CC,CC
+
+2026-01-16T16:34:50.716Z,true,false,false,false,,,DD,DD
+
+2026-01-16T16:35:10.936Z,true,false,false,false,13T,Rectitud EC,DD,DD
+
+2026-01-16T16:35:32.168Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:35:37.205Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:35:56.389Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:36:02.467Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:08.520Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:15.690Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:21.697Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:26.749Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:31.812Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:37.871Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:43.922Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:50.000Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:36:55.035Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:37:01.107Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:10.195Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:14.241Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:22.326Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:28.402Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:34.466Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:43.563Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:49.589Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:37:55.692Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:38:04.766Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:38:09.814Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:38:19.893Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:38:31.041Z,true,false,false,false,12T,Rectitud EC,DD,DD
+
+2026-01-16T16:38:38.111Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:38:47.218Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:38:53.271Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:39:00.344Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:39:09.453Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:39:17.535Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:39:26.679Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,DD,DD
+
+2026-01-16T16:39:35.738Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:39:41.798Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:39:48.811Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:39:54.874Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:00.939Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:09.015Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:14.067Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:20.100Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:25.174Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:31.231Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,DD,DD
+
+2026-01-16T16:40:37.278Z,true,false,false,false,11T,Rectitud EC,DD,DD
+
+2026-01-16T16:40:45.321Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,DD,DD
+
+2026-01-16T16:40:51.377Z,true,false,true,false,,,DD,DD
+
+2026-01-16T16:41:10.578Z,false,false,false,true,,,DD,DD
+
+2026-01-16T16:41:49.021Z,false,false,false,false,,,DD,DD
+
+2026-01-16T16:43:34.183Z,true,false,false,false,,,EE,EE
+
+2026-01-16T16:43:54.378Z,true,false,false,false,13T,Rectitud EC,EE,EE
+
+2026-01-16T16:44:15.600Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:44:21.687Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:44:40.872Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:44:47.921Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:44:54.958Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:02.016Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:09.079Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:15.139Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:20.203Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:27.273Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:33.370Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:39.404Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:46.486Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:45:51.519Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:01.612Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:06.703Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:14.777Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:21.874Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:28.953Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:38.065Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:45.144Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:46:51.211Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:47:01.328Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:47:06.387Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:47:17.516Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:47:28.690Z,true,false,false,false,12T,Rectitud EC,EE,EE
+
+2026-01-16T16:47:36.712Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:47:45.797Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:47:52.878Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:48:00.971Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:48:10.057Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:48:19.139Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,EE,EE
+
+2026-01-16T16:48:28.225Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,EE,EE
+
+2026-01-16T16:48:38.349Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:48:44.399Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:48:51.494Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:48:58.565Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:49:05.685Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:49:13.735Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,EE,EE
+
+2026-01-16T16:49:20.826Z,true,false,true,false,,,EE,EE
+
+2026-01-16T16:49:33.939Z,false,false,false,true,,,EE,EE
+
+2026-01-16T16:49:44.046Z,false,false,false,false,,,EE,EE
+
+2026-01-16T16:50:35.694Z,true,false,false,false,,,FF,FF
+
+2026-01-16T16:50:55.889Z,true,false,false,false,13T,Rectitud EC,FF,FF
+
+2026-01-16T16:51:18.146Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:51:25.212Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:51:45.425Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:51:53.502Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:01.573Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:08.689Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:16.751Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:23.817Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:30.908Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:37.977Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:45.048Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:52:53.134Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:53:00.199Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,FF,FF
+
+2026-01-16T16:53:07.281Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:53:17.405Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:53:23.472Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:53:32.550Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:53:40.690Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:53:48.730Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:53:58.866Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:54:06.926Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,FF,FF
+
+2026-01-16T16:54:15.024Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:54:25.120Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:54:31.186Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:54:43.313Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,FF,FF
+
+2026-01-16T16:54:52.393Z,true,false,true,false,,,FF,FF
+
+2026-01-16T16:55:11.599Z,false,false,false,true,,,FF,FF
+
+2026-01-16T16:55:15.685Z,false,false,false,false,,,FF,FF
+
+2026-01-16T16:57:52.245Z,true,false,false,false,,,GG,GG
+
+2026-01-16T16:58:12.487Z,true,false,false,false,13T,Rectitud EC,GG,GG
+
+2026-01-16T16:58:35.756Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T16:58:42.827Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T16:59:04.031Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T16:59:12.109Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T16:59:20.216Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T16:59:29.300Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T16:59:37.387Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T16:59:44.454Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T16:59:51.531Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T16:59:59.689Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T17:00:07.709Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T17:00:15.769Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T17:00:22.833Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T17:00:30.896Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:00:42.023Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:00:48.075Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:00:57.206Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:01:05.281Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:01:14.396Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:01:24.482Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:01:33.591Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:01:41.723Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T17:01:52.808Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T17:01:58.894Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T17:02:12.035Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T17:02:24.176Z,true,false,false,false,12T,Rectitud EC,GG,GG
+
+2026-01-16T17:02:33.281Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:02:44.415Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:02:52.489Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:03:01.610Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:03:12.729Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:03:22.835Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,GG,GG
+
+2026-01-16T17:03:33.923Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,GG,GG
+
+2026-01-16T17:03:45.038Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T17:03:52.125Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,GG,GG
+
+2026-01-16T17:04:00.187Z,true,false,true,false,,,GG,GG
+
+2026-01-16T17:04:09.296Z,false,false,false,true,,,GG,GG
+
+2026-01-16T17:05:07.895Z,false,false,false,false,,,GG,GG
+
+2026-01-16T17:22:55.902Z,true,false,false,false,,,HH,HH
+
+2026-01-16T17:23:16.122Z,true,false,false,false,13T,Rectitud EC,HH,HH
+
+2026-01-16T17:23:39.338Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,HH,HH
+
+2026-01-16T17:23:48.437Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,HH,HH
+
+2026-01-16T17:24:08.695Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,HH,HH
+
+2026-01-16T17:24:17.758Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:24:26.876Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:24:35.985Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:24:44.039Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:24:52.140Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:25:00.220Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:25:08.311Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:25:16.414Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:25:24.503Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:25:32.584Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,HH,HH
+
+2026-01-16T17:25:40.697Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:25:52.792Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:25:58.877Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:26:08.984Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:26:18.047Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:26:27.146Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:26:38.240Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:26:47.324Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,HH,HH
+
+2026-01-16T17:26:55.388Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,HH,HH
+
+2026-01-16T17:27:07.499Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,HH,HH
+
+2026-01-16T17:27:14.561Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,HH,HH
+
+2026-01-16T17:27:22.706Z,true,false,true,false,,,HH,HH
+
+2026-01-16T17:27:34.792Z,false,false,false,true,,,HH,HH
+
+2026-01-16T17:27:58.037Z,false,false,false,false,,,HH,HH
+
+2026-01-16T17:30:14.495Z,true,false,false,false,,,II,II
+
+2026-01-16T17:30:34.733Z,true,false,false,false,13T,Rectitud EC,II,II
+
+2026-01-16T17:30:57.990Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:31:07.071Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:31:29.299Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:31:38.402Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:31:47.484Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:31:56.542Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:06.697Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:14.731Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:22.814Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:31.911Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:41.013Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:49.062Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:32:58.172Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,II,II
+
+2026-01-16T17:33:06.240Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:33:18.391Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:33:26.492Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:33:36.610Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:33:45.699Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:33:54.758Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:34:06.908Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:34:15.967Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:34:25.088Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:34:37.205Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:34:45.304Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:34:58.448Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,II,II
+
+2026-01-16T17:35:12.587Z,true,false,false,false,12T,Rectitud EC,II,II
+
+2026-01-16T17:35:22.710Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:35:34.806Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:35:43.892Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:35:54.005Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:36:05.113Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,II,II
+
+2026-01-16T17:36:17.225Z,true,false,true,false,,,II,II
+
+2026-01-16T17:36:26.340Z,false,false,false,true,,,II,II
+
+2026-01-16T17:36:42.525Z,false,false,false,false,,,II,II
+
+2026-01-16T18:15:28.601Z,true,false,false,false,,,JJ,JJ
+
+2026-01-16T18:15:55.900Z,true,false,false,false,13T,Rectitud EC,JJ,JJ
+
+2026-01-16T18:16:19.132Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:16:28.251Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:16:49.497Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:16:59.615Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:17:08.744Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:17:17.828Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:17:26.906Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:17:36.018Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:17:44.101Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:17:52.171Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:18:01.269Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:18:10.403Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:18:19.478Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:18:27.567Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:18:39.718Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:18:46.761Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:19:32.246Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:19:41.359Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:19:51.469Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:20:02.604Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:20:11.727Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:20:21.780Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:20:33.919Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:20:40.978Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:20:55.138Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:21:24.493Z,true,false,false,false,12T,Rectitud EC,JJ,JJ
+
+2026-01-16T18:21:34.606Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:21:46.744Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:21:55.837Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:22:05.944Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:22:17.050Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:22:29.199Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:22:40.306Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:22:52.449Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:23:01.536Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:23:18.736Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:23:32.888Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:23:41.973Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:24:01.202Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:24:10.265Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:24:20.412Z,true,false,false,false,36F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:24:28.479Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:24:51.719Z,true,false,false,false,38F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:25:00.815Z,true,false,false,false,11T,Rectitud EC,JJ,JJ
+
+2026-01-16T18:25:11.924Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:25:24.056Z,true,false,false,false,39L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:25:33.137Z,true,false,false,false,40L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:25:43.221Z,true,false,false,false,41L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:25:54.329Z,true,false,false,false,42L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:26:06.421Z,true,false,false,false,43L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:26:18.539Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:26:29.636Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:26:38.747Z,true,false,false,false,45F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:26:48.859Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:26:57.953Z,true,false,false,false,47F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:27:08.043Z,true,false,false,false,48F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:27:18.139Z,true,false,false,false,49F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:27:26.228Z,true,false,false,false,50F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:27:35.320Z,true,false,false,false,51F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:27:43.406Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:27:52.506Z,true,false,false,false,53F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:28:01.601Z,true,false,false,false,10T,Rectitud EC,JJ,JJ
+
+2026-01-16T18:28:13.750Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:28:25.850Z,true,false,false,false,54L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:28:33.923Z,true,false,false,false,55L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:28:45.029Z,true,false,false,false,56L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:28:56.140Z,true,false,false,false,57L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:29:08.293Z,true,false,false,false,58L,PURGA DE FOTO LATERAL,JJ,JJ
+
+2026-01-16T18:29:19.422Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,JJ,JJ
+
+2026-01-16T18:29:31.558Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:29:40.645Z,true,false,false,false,60F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:29:49.758Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:29:59.858Z,true,false,false,false,62F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:30:08.930Z,true,false,false,false,63F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:30:19.027Z,true,false,false,false,64F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:30:28.125Z,true,false,false,false,65F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:30:37.216Z,true,false,false,false,66F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:30:45.320Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:30:54.408Z,true,false,false,false,68F,Distancia entre SE - Perpendicularidad SE,JJ,JJ
+
+2026-01-16T18:31:03.490Z,true,false,false,false,9T,Rectitud EC,JJ,JJ
+
+2026-01-16T18:31:15.614Z,true,false,true,false,,,JJ,JJ
+
+2026-01-16T18:31:33.816Z,false,false,false,true,,,JJ,JJ
+
+2026-01-16T18:31:42.918Z,false,false,false,false,,,JJ,JJ
+
+2026-01-16T18:36:06.731Z,true,false,false,false,,,KK,KK
+
+2026-01-16T18:36:26.926Z,true,false,false,false,13T,Rectitud EC,KK,KK
+
+2026-01-16T18:36:50.178Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:36:59.266Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:37:21.512Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:37:30.602Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:37:40.716Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:37:49.760Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:37:59.909Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:38:08.013Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:38:16.084Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:38:25.157Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:38:34.256Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:38:43.331Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:38:52.427Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:39:00.514Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:39:13.616Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:39:20.717Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:39:31.764Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:39:40.858Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:39:49.946Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:40:02.105Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:40:12.223Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:40:21.306Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:40:33.425Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:40:41.466Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:40:55.599Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:41:08.741Z,true,false,false,false,12T,Rectitud EC,KK,KK
+
+2026-01-16T18:41:18.833Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:41:30.953Z,true,false,false,false,24L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:41:40.021Z,true,false,false,false,25L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:41:51.131Z,true,false,false,false,26L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:42:03.249Z,true,false,false,false,27L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:42:14.358Z,true,false,false,false,28L,PURGA DE FOTO LATERAL,KK,KK
+
+2026-01-16T18:42:26.459Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,KK,KK
+
+2026-01-16T18:42:38.617Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:42:47.720Z,true,false,false,false,30F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:42:57.782Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:43:07.858Z,true,false,false,false,32F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:43:16.937Z,true,false,false,false,33F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:43:28.061Z,true,false,false,false,34F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:43:36.148Z,true,false,false,false,35F,Distancia entre SE - Perpendicularidad SE,KK,KK
+
+2026-01-16T18:43:43.223Z,true,false,true,false,,,KK,KK
+
+2026-01-16T18:43:58.375Z,false,false,false,true,,,KK,KK
+
+2026-01-16T18:44:19.602Z,false,false,false,false,,,KK,KK
+
+2026-01-16T18:45:33.409Z,true,false,false,false,,,LL,LL
+
+2026-01-16T18:45:53.622Z,true,false,false,false,13T,Rectitud EC,LL,LL
+
+2026-01-16T18:46:17.862Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:46:25.954Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:46:48.212Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:46:57.322Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:07.411Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:16.516Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:25.636Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:33.719Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:42.754Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:51.839Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:47:59.917Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:48:09.014Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:48:18.106Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,LL,LL
+
+2026-01-16T18:48:26.173Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:48:38.278Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:48:46.383Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:48:56.475Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:49:06.622Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:49:15.728Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:49:27.841Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:49:36.943Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,LL,LL
+
+2026-01-16T18:49:46.072Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:49:58.177Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:50:06.252Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:50:20.443Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,LL,LL
+
+2026-01-16T18:50:29.510Z,true,false,true,false,,,LL,LL
+
+2026-01-16T18:50:48.723Z,false,false,false,true,,,LL,LL
+
+2026-01-16T18:50:57.809Z,false,false,false,false,,,LL,LL
+
+2026-01-16T18:52:36.941Z,false,false,false,false,,,LL,MM
+
+2026-01-16T18:52:37.944Z,true,false,false,false,,,MM,MM
+
+2026-01-16T18:52:57.122Z,true,false,false,false,13T,Rectitud EC,MM,MM
+
+2026-01-16T18:53:21.410Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,MM,MM
+
+2026-01-16T18:53:31.507Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,MM,MM
+
+2026-01-16T18:53:53.734Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,MM,MM
+
+2026-01-16T18:54:03.816Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:54:13.937Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:54:23.008Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:54:33.126Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:54:42.213Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:54:51.327Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:55:00.433Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:55:10.517Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:55:19.626Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:55:28.734Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,MM,MM
+
+2026-01-16T18:55:37.810Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:55:50.971Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:55:59.063Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:56:09.186Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:56:19.271Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:56:29.369Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:56:41.527Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,MM,MM
+
+2026-01-16T18:56:47.620Z,true,false,true,false,,,MM,MM
+
+2026-01-16T18:56:54.722Z,false,false,false,true,,,MM,MM
+
+2026-01-16T18:56:57.733Z,false,false,false,false,,,MM,MM
+
+2026-01-16T18:57:19.918Z,true,false,false,false,,,NN,NN
+
+2026-01-16T18:57:40.167Z,true,false,false,false,13T,Rectitud EC,NN,NN
+
+2026-01-16T18:58:05.436Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,NN,NN
+
+2026-01-16T18:58:16.532Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,NN,NN
+
+2026-01-16T18:58:39.788Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,NN,NN
+
+2026-01-16T18:58:50.852Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T18:59:01.969Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T18:59:12.045Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T18:59:23.170Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T18:59:33.273Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T18:59:43.412Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T18:59:53.511Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T19:00:03.617Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T19:00:14.758Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T19:00:24.870Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,NN,NN
+
+2026-01-16T19:00:34.995Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,NN,NN
+
+2026-01-16T19:00:49.128Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,NN,NN
+
+2026-01-16T19:00:51.140Z,true,false,true,false,,,NN,NN
+
+2026-01-16T19:01:12.330Z,false,false,false,true,,,NN,NN
+
+2026-01-16T19:01:15.337Z,false,false,false,false,,,NN,NN
+
+2026-01-16T19:01:28.478Z,true,false,false,false,,,NN,NN
+
+2026-01-16T19:01:34.563Z,true,false,true,false,,,NN,NN
+
+2026-01-16T19:02:42.239Z,false,false,false,true,,,NN,NN
+
+2026-01-16T19:02:44.263Z,false,false,false,false,,,NN,NN
+
+2026-01-16T19:02:52.324Z,true,false,false,false,,,OO,OO
+
+2026-01-16T19:03:13.567Z,true,false,false,false,13T,Rectitud EC,OO,OO
+
+2026-01-16T19:03:38.849Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,OO,OO
+
+2026-01-16T19:03:49.987Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,OO,OO
+
+2026-01-16T19:04:13.227Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,OO,OO
+
+2026-01-16T19:04:25.362Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:04:36.488Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:04:47.611Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:04:58.723Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:05:09.813Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:05:19.919Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:05:31.048Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:05:42.178Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:05:52.268Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:06:03.416Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,OO,OO
+
+2026-01-16T19:06:13.522Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:06:27.663Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:06:37.786Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:06:49.920Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:07:01.034Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:07:13.150Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:07:26.277Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:07:37.427Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,OO,OO
+
+2026-01-16T19:07:40.442Z,true,false,true,false,,,OO,OO
+
+2026-01-16T19:07:45.479Z,false,false,false,true,,,OO,OO
+
+2026-01-16T19:08:21.859Z,false,false,false,false,,,OO,OO
+
+2026-01-16T19:08:43.131Z,true,false,false,false,,,PP,PP
+
+2026-01-16T19:09:04.356Z,true,false,false,false,13T,Rectitud EC,PP,PP
+
+2026-01-16T19:09:30.643Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:09:41.780Z,true,false,false,false,1F,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:10:06.032Z,true,false,false,false,2F,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:10:18.177Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:10:30.279Z,true,false,false,false,4F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:10:41.373Z,true,false,false,false,5F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:10:53.521Z,true,false,false,false,6F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:11:04.645Z,true,false,false,false,7F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:11:15.782Z,true,false,false,false,8F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:11:26.871Z,true,false,false,false,9F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:11:37.986Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:11:50.165Z,true,false,false,false,11F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:12:01.273Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,PP,PP
+
+2026-01-16T19:12:12.439Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:12:26.533Z,true,false,false,false,13L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:12:36.663Z,true,false,false,false,14L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:12:49.778Z,true,false,false,false,15L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:13:01.933Z,true,false,false,false,16L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:13:14.034Z,true,false,false,false,17L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:13:28.168Z,true,false,false,false,18L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:13:40.330Z,true,false,false,false,19L,PURGA DE FOTO LATERAL,PP,PP
+
+2026-01-16T19:13:51.455Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:14:06.624Z,true,false,false,false,21F,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:14:16.729Z,true,false,false,false,22F,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:14:32.862Z,true,false,false,false,23F,PURGA DE FOTO FRONTAL,PP,PP
+
+2026-01-16T19:14:48.975Z,true,false,false,false,12T,Rectitud EC,PP,PP
+
+2026-01-16T19:14:53.030Z,true,false,true,false,,,PP,PP
+
+2026-01-16T19:15:10.216Z,false,false,false,true,,,PP,PP
+
+2026-01-16T19:15:13.241Z,false,false,false,false,,,PP,PP
+
