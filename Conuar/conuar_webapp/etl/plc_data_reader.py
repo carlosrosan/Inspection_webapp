@@ -36,15 +36,20 @@ except Exception:
     django.setup()
 
 # Configurar logging
-logging.basicConfig(
-    level=logging.INFO,
-    format='%(asctime)s - %(levelname)s - %(message)s',
-    handlers=[
-        logging.FileHandler(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_reader.log"),
-        #logging.StreamHandler()
-    ]
-)
-logger = logging.getLogger(__name__)
+# Use 'etl.plc_data_reader' logger name to work with Django's LOGGING config
+# This ensures logs appear in console when running via manage.py
+logger = logging.getLogger('etl.plc_data_reader')
+
+# Only configure basicConfig if not already configured (standalone mode)
+if not logger.handlers:
+    logging.basicConfig(
+        level=logging.INFO,
+        format='%(asctime)s - %(levelname)s - %(message)s',
+        handlers=[
+            logging.FileHandler(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_reader.log"),
+            logging.StreamHandler()
+        ]
+    )
 
 
 class PlcDataReader:
@@ -300,7 +305,14 @@ class PlcDataReader:
         except KeyboardInterrupt:
             logger.info("Monitor interrumpido por el usuario")
         except Exception as e:
-            logger.error(f"Error en monitor: {e}")
+            logger.error("=" * 80)
+            logger.error("ERROR FATAL en monitor de CSV - El monitor se detuvo por un error")
+            logger.error(f"Error: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            logger.error("=" * 80)
+            logger.error("⚠️  MONITOR DE CSV DETENIDO - Reinicie el servidor Django para reactivarlo")
+            logger.error("=" * 80)
         finally:
             self.is_running = False
             logger.info("Monitor detenido")
@@ -357,7 +369,14 @@ def start_background_monitor(interval_seconds: int = 30):
             reader = PlcDataReader(csv_input_file=csv_file)
             reader.monitor_file(interval_seconds=interval_seconds)
         except Exception as e:
-            logger.error(f"Error en thread de monitor: {e}")
+            logger.error("=" * 80)
+            logger.error("ERROR FATAL en thread de monitor de CSV")
+            logger.error(f"Error: {e}")
+            import traceback
+            logger.error(traceback.format_exc())
+            logger.error("=" * 80)
+            logger.error("⚠️  MONITOR DE CSV DETENIDO - Reinicie el servidor Django para reactivarlo")
+            logger.error("=" * 80)
     
     thread = threading.Thread(target=monitor_thread, daemon=True, name="PLCDataReaderMonitor")
     thread.start()

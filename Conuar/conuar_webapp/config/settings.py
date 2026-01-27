@@ -210,6 +210,12 @@ LOGGING = {
             'filename': str(BASE_DIR / 'logs' / 'user_login.log'),
             'formatter': 'simple',
         },
+        'etl_file': {
+            'level': 'INFO',
+            'class': 'logging.FileHandler',
+            'filename': str(BASE_DIR / 'logs' / 'etl.log'),
+            'formatter': 'verbose',
+        },
         'console': {
             'level': 'INFO',
             'class': 'logging.StreamHandler',
@@ -224,6 +230,21 @@ LOGGING = {
         },
         'main.views': {
             'handlers': ['login_file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'etl': {
+            'handlers': ['etl_file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'etl.plc_data_reader': {
+            'handlers': ['etl_file', 'console'],
+            'level': 'INFO',
+            'propagate': False,
+        },
+        'etl.plc_data_processor': {
+            'handlers': ['etl_file', 'console'],
             'level': 'INFO',
             'propagate': False,
         },

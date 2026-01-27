@@ -583,3 +583,200 @@ INFO 2026-01-14 13:35:53,278 PDF also saved to disk: C:\Users\USER\Documents\Git
 INFO 2026-01-14 13:35:53,279 PDF file size: 58307447 bytes
 INFO 2026-01-14 13:45:04,312 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-01-14 13:45:04,312 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 09:24:25,442 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 09:24:25,665 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 09:34:29,308 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 09:39:02,373 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+WARNING 2026-01-21 09:39:02,584 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
+INFO 2026-01-21 09:39:12,034 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+WARNING 2026-01-21 09:39:12,253 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
+INFO 2026-01-21 09:39:23,059 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+WARNING 2026-01-21 09:39:23,259 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 3
+INFO 2026-01-21 09:39:43,615 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 4, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 09:39:43,858 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 09:39:55,948 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-01-21 09:39:56,146 Generating PDF for inspection 292
+INFO 2026-01-21 09:39:56,146   Logo data URI: Present
+INFO 2026-01-21 09:39:56,147   Photo count: 18
+INFO 2026-01-21 09:39:56,147   Photos with data URIs: 18
+INFO 2026-01-21 09:40:14,672 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\TT-TT-8F-060119_210418-NOK575.pdf
+INFO 2026-01-21 09:40:14,672 PDF file size: 86921974 bytes
+INFO 2026-01-21 09:49:49,307 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 09:49:49,310 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 09:49:49,312 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 09:49:49,314 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 10:10:22,408 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 10:10:22,634 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 10:10:40,355 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-01-21 10:10:40,446 Generating PDF for inspection 296
+INFO 2026-01-21 10:10:40,447   Logo data URI: Present
+INFO 2026-01-21 10:10:40,447   Photo count: 6
+INFO 2026-01-21 10:10:40,448   Photos with data URIs: 6
+INFO 2026-01-21 10:10:48,432 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\VV-VV-1F-060119_212147-NOK610.pdf
+INFO 2026-01-21 10:10:48,432 PDF file size: 37760606 bytes
+INFO 2026-01-21 10:36:07,479 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 10:36:07,766 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 10:53:08,308 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 10:55:23,696 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 10:57:22,648 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 11:07:46,070 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:46,258 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:46,953 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,061 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,107 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,107 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,189 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,189 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,190 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,290 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,430 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,448 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,448 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,464 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,495 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,495 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,525 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,527 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,605 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,605 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:47,998 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,011 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,055 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,073 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,082 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,103 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,151 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,195 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,229 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,416 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,804 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:48,868 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,330 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,346 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,396 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,584 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,585 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,615 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,616 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,691 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,710 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,742 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,789 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,811 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,813 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,849 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,864 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:49,973 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,302 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,678 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,689 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,705 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,768 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,816 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:50,866 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:51,938 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:51,939 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,000 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,014 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,171 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,187 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,237 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,268 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,409 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,410 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,456 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,469 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,486 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,518 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,519 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,532 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,547 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,564 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,628 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,629 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,642 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,668 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,668 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,684 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,723 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:52,750 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,096 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,123 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,139 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,147 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,170 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,171 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,251 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,327 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,410 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,450 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,630 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:53,876 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:54,767 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:54,857 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:54,857 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,059 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,074 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,088 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,089 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,114 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,134 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,230 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,230 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,243 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,244 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,312 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,325 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,466 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,467 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,480 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,480 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,495 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,560 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,571 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,573 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,595 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:55,623 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,030 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,045 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,045 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,233 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,247 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,262 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:07:56,279 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:10:26,627 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 11:12:04,627 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 11:12:25,548 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:12:47,511 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 11:12:47,700 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 11:31:05,549 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:31:10,676 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 11:31:10,892 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 11:45:09,643 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-21 11:45:14,357 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
+INFO 2026-01-21 11:45:14,577 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-21 11:45:24,519 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-01-21 11:45:24,816 Generating PDF for inspection 297
+INFO 2026-01-21 11:45:24,817   Logo data URI: Present
+INFO 2026-01-21 11:45:24,818   Photo count: 25
+INFO 2026-01-21 11:45:24,818   Photos with data URIs: 25
+INFO 2026-01-21 11:45:43,788 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\PRUEBA-1-1F-060119_212713-NOK620.pdf
+INFO 2026-01-21 11:45:43,790 PDF file size: 103000622 bytes
+INFO 2026-01-21 11:55:21,114 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-26 15:08:05,554 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-01-26 15:08:05,776 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-26 15:08:38,347 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-01-26 15:08:38,473 Generating PDF for inspection 311
+INFO 2026-01-26 15:08:38,473   Logo data URI: Present
+INFO 2026-01-26 15:08:38,474   Photo count: 37
+INFO 2026-01-26 15:08:38,474   Photos with data URIs: 37
+INFO 2026-01-26 15:08:50,449 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\EEE-EEE-1F-120119_021751-OK915.pdf
+INFO 2026-01-26 15:08:50,449 PDF file size: 54116584 bytes
+INFO 2026-01-26 15:18:14,243 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-26 15:18:14,249 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-26 15:18:14,257 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-26 15:18:14,270 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-26 15:18:14,288 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-27 07:02:03,604 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-01-27 07:02:03,843 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-27 07:12:09,408 LOGOUT - User: admin, IP: 127.0.0.1
