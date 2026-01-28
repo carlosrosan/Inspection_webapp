@@ -360,7 +360,12 @@ class PlcDataProcessor:
             if collecting:
                 raw._parsed_json = data  # cache for later
                 current.append(raw)
-                
+
+                #print('debug collecting')
+                #print(is_active)
+                #print(data)
+                #print(raw.timestamp)
+
                 # End cycle when CicloActivo changes from TRUE to FALSE
                 if not is_active and prev_ciclo_activo:
                     # This is the moment when the cycle ended (CicloActivo became False)
@@ -409,7 +414,8 @@ class PlcDataProcessor:
         if collecting and current:
             logger.debug("Ciclo aún activo (CicloActivo=True), no se procesará hasta que CicloActivo cambie a False")
             # Don't add it to cycles - it will be processed in the next iteration after it ends
-        
+
+
         return cycles
 
     def _find_valid_field_in_cycle(self, cycle_rows: List[PlcDataRaw], field_name: str, fallback_names: List[str] = None) -> str:
@@ -489,36 +495,9 @@ class PlcDataProcessor:
             else:
                 inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
         
-        # Build base natural key for inspection - group by nombre_ciclo and id_ec
-        base_natural_key = f"{nombre_ciclo}-{id_ec}"
-        
-        # Generate unique product_code: check if exists and add incremental suffix if needed
-        natural_key = base_natural_key
-        existing_inspection = Inspection.objects.filter(product_code=base_natural_key).first()
-        
-        if existing_inspection:
-            # Find the highest existing suffix number for this base key
-            # Pattern: "Ciclo2-E123", "Ciclo2-E123-2", "Ciclo2-E123-3", etc.
-            existing_codes = Inspection.objects.filter(
-                product_code__startswith=base_natural_key
-            ).values_list('product_code', flat=True)
-            
-            max_suffix = 1  # The original (without suffix) counts as 1
-            for code in existing_codes:
-                if code == base_natural_key:
-                    continue  # This is the original, already counted as 1
-                # Extract suffix number from codes like "Ciclo2-E123-2"
-                suffix_part = code[len(base_natural_key):]
-                if suffix_part.startswith('-') and suffix_part[1:].isdigit():
-                    suffix_num = int(suffix_part[1:])
-                    max_suffix = max(max_suffix, suffix_num)
-            
-            # Use next available number
-            natural_key = f"{base_natural_key}-{max_suffix + 1}"
-            logger.info(
-                f"Product code '{base_natural_key}' ya existe. "
-                f"Usando fallback: '{natural_key}'"
-            )
+        # Build natural key for inspection - group by nombre_ciclo and id_ec only
+        # This ensures all cycles for the same cycle name and fuel element are grouped together
+        natural_key = f"{nombre_ciclo}-{id_ec}"
         
         # Check for defects: Falla="1" or "true" means NOK, otherwise OK
         defecto_encontrado = any(
@@ -527,35 +506,31 @@ class PlcDataProcessor:
             for r in cycle_rows
         )
         
-        # Determine title: include suffix number if using fallback
-        if natural_key == base_natural_key:
-            inspection_title = f"Inspección {nombre_ciclo}"
-        else:
-            suffix_number = natural_key.split('-')[-1]
-            inspection_title = f"Inspección {nombre_ciclo} ({suffix_number})"
-        
-        # Always create new inspection (natural_key is guaranteed unique now)
-        inspection = Inspection.objects.create(
+        inspection, created = Inspection.objects.get_or_create(
             product_code=natural_key,
-            title=inspection_title,
-            description=f"Inspección {nombre_ciclo} del elemento combustible {id_ec}",
-            tipo_combustible="uranio",
-            status="in_progress",
-            defecto_encontrado=defecto_encontrado,
-            product_name=first.get('nombre_ubicacion') or "Línea Conuar",
-            serial_number=id_ec,
-            batch_number=nombre_ciclo,
-            location=first.get("pos_camara", ""),
-            inspection_date=inspection_date,
-            inspector=inspector,
-            notes=f"Cycle starting at PLC row {cycle_rows[0].id}",
+            defaults={
+                "title": f"Inspección {nombre_ciclo}",
+                "description": f"Inspección {nombre_ciclo} del elemento combustible {id_ec}",
+                "tipo_combustible": "uranio",
+                "status": "in_progress",
+                "defecto_encontrado": defecto_encontrado,
+                "product_name": first.get('nombre_ubicacion') or "Línea Conuar",
+                "serial_number": id_ec,
+                "batch_number": nombre_ciclo,
+                "location": first.get("pos_camara", ""),
+                "inspection_date": inspection_date,
+                "inspector": inspector,
+                "notes": f"Cycle starting at PLC row {cycle_rows[0].id}",
+            },
         )
-        created = True  # Siempre es nueva con esta lógica
-        
-        logger.info(
-            f"Inspección creada: ID={inspection.id}, product_code='{natural_key}', "
-            f"title='{inspection_title}'"
-        )
+
+        # Ensure existing inspections also have an inspector assigned
+        if not inspection.inspector and inspector:
+            inspection.inspector = inspector
+            inspection.save(update_fields=['inspector'])
+            logger.info(
+                f"Inspector asignado a inspección existente {inspection.id}: {inspector.username}"
+            )
 
         return inspection, created
 
@@ -1094,7 +1069,7 @@ class PlcDataProcessor:
         except Exception as e:
             logger.warning(f"No se pudieron cargar fotos procesadas: {e}")
     
-    def get_unprocessed_raw_data(self, limit: int = 100) -> List[PlcDataRaw]:
+    def get_unprocessed_raw_data(self, limit: int = 1000) -> List[PlcDataRaw]:
         """Obtener datos raw no procesados de plc_data_raw"""
         try:
             raw_data = PlcDataRaw.objects.filter(
@@ -1159,17 +1134,22 @@ class PlcDataProcessor:
         except Exception as e:
             logger.error(f"Error actualizando estadísticas de máquina: {e}")
     
-    def process_pending_cycles(self, batch_size: int = 500) -> Dict[str, int]:
+    def process_pending_cycles(self, batch_size: int = 5000) -> Dict[str, int]:
         """Agrupa raws PLC en ciclos y crea una inspección por ciclo."""
         summary = {"cycles": 0, "inspections": 0, "errors": 0}
 
         raw_rows = self.get_unprocessed_raw_data(limit=batch_size)
+        #print('debug')
+        #print(len(raw_rows))
         if not raw_rows:
             logger.debug("No hay datos PLC pendientes por ciclo.")
             return summary
 
         cycles = self._group_raw_rows_by_cycle(raw_rows)
         summary["cycles"] = len(cycles)
+
+        #print('debug')
+        #print(len(cycles))
 
         logger.info("=" * 80)
         logger.info("Procesamiento de ciclos PLC")

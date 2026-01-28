@@ -780,3 +780,6 @@ INFO 2026-01-26 15:18:14,288 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-01-27 07:02:03,604 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
 INFO 2026-01-27 07:02:03,843 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
 INFO 2026-01-27 07:12:09,408 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-27 13:51:21,943 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-01-27 13:51:22,176 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-27 14:08:09,025 LOGOUT - User: admin, IP: 127.0.0.1
