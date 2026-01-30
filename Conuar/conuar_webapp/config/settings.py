@@ -97,6 +97,8 @@ DATABASES = {
             'init_command': "SET sql_mode='STRICT_TRANS_TABLES'",
             'sql_mode': 'STRICT_TRANS_TABLES',
         },
+        'CONN_MAX_AGE': 0,  # IMPORTANT
+
     }
 }
 

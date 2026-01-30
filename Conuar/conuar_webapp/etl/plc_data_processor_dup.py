@@ -1159,7 +1159,7 @@ class PlcDataProcessor:
         except Exception as e:
             logger.error(f"Error actualizando estadísticas de máquina: {e}")
     
-    def process_pending_cycles(self, batch_size: int = 500) -> Dict[str, int]:
+    def process_pending_cycles(self, batch_size: int = 5000) -> Dict[str, int]:
         """Agrupa raws PLC en ciclos y crea una inspección por ciclo."""
         summary = {"cycles": 0, "inspections": 0, "errors": 0}
 

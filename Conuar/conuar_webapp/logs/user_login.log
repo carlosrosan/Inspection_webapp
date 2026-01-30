@@ -783,3 +783,24 @@ INFO 2026-01-27 07:12:09,408 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-01-27 13:51:21,943 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
 INFO 2026-01-27 13:51:22,176 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
 INFO 2026-01-27 14:08:09,025 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-28 08:29:14,069 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-01-28 08:29:14,264 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-28 08:32:43,173 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-01-28 08:32:43,936 Generating PDF for inspection 315
+INFO 2026-01-28 08:32:43,936   Logo data URI: Present
+INFO 2026-01-28 08:32:43,938   Photo count: 261
+INFO 2026-01-28 08:32:43,938   Photos with data URIs: 261
+INFO 2026-01-28 08:33:54,718 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNA2-E3742-1F-120119_211443-OK48.pdf
+INFO 2026-01-28 08:33:54,719 PDF file size: 303111857 bytes
+INFO 2026-01-28 08:39:21,382 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-29 12:59:38,868 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0
+WARNING 2026-01-29 12:59:39,076 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
+INFO 2026-01-29 13:00:02,863 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36 Edg/144.0.0.0
+INFO 2026-01-29 13:00:03,104 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-29 13:25:50,677 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-29 13:25:50,680 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-29 13:25:50,680 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-29 13:25:50,683 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-29 13:25:50,689 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-01-30 08:52:13,546 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-01-30 08:52:13,781 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
