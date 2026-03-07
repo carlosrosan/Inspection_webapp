@@ -1,349 +1,3 @@
-INFO 2025-12-02 21:43:55,945 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-02 21:43:56,216 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-02 21:44:06,092 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-02 21:44:06,336 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
-INFO 2025-12-02 21:44:36,208 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-02 21:44:36,497 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-02 21:44:49,629 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-05 08:53:30,469 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-05 08:53:30,893 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-05 16:42:40,806 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-05 16:42:41,110 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-05 16:52:45,699 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-05 16:52:45,699 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-07 11:04:49,344 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-07 11:04:49,754 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 14:58:19,647 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-10 14:58:19,960 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-10 14:58:25,497 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-10 14:58:25,797 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
-INFO 2025-12-10 14:58:31,697 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-10 14:58:32,016 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 15:08:35,138 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,138 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,141 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,141 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,142 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,149 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,149 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,152 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,161 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:08:35,163 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 15:09:34,542 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-10 15:09:34,854 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 15:59:57,889 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-10 15:59:58,200 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 17:09:51,970 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-10 17:09:52,308 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-10 17:09:58,017 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-10 17:09:58,383 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 17:19:11,913 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-10 17:19:18,414 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-10 17:19:18,732 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-10 17:19:25,848 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-WARNING 2025-12-10 17:19:26,159 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
-INFO 2025-12-10 17:19:31,382 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-10 17:19:31,706 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 17:45:19,849 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/142.0.0.0 Safari/537.36
-INFO 2025-12-10 17:45:20,327 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-10 18:22:43,114 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 17:02:44,624 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-11 17:02:44,895 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-11 17:18:58,776 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-11 17:18:58,999 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-11 17:29:06,722 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 17:56:09,256 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-11 17:56:09,486 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-11 18:06:14,360 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,361 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,362 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,363 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,364 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,365 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,365 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:06:14,366 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:11:56,784 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-11 18:11:56,997 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-11 18:12:33,119 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-11 18:12:40,167 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-11 18:12:40,368 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 08:01:19,210 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 08:01:19,419 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 08:28:55,113 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-12 08:29:31,686 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-12 08:29:31,871 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-12 08:29:41,318 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 08:29:41,534 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 08:29:47,246 Logo path found for PDF: C:/Users/USER/Documents/GitHub/Inspection_webapp/Conuar/conuar_webapp/static/assets/logo_conuar1.jpeg
-INFO 2025-12-12 08:36:44,896 Logo path found for PDF: C:/Users/USER/Documents/GitHub/Inspection_webapp/Conuar/conuar_webapp/static/assets/logo_conuar1.jpeg
-INFO 2025-12-12 08:53:24,322 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 08:53:24,522 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 08:53:31,215 Logo path found for PDF: C:/Users/USER/Documents/GitHub/Inspection_webapp/Conuar/conuar_webapp/static/assets/logo_conuar1.jpeg
-INFO 2025-12-12 08:53:31,218 Generating PDF for inspection 2
-INFO 2025-12-12 08:53:31,218   Logo path: C:/Users/USER/Documents/GitHub/Inspection_webapp/Conuar/conuar_webapp/static/assets/logo_conuar1.jpeg
-INFO 2025-12-12 08:53:31,218   Photo count: 3
-INFO 2025-12-12 08:53:31,218   Photos with valid paths: 3
-INFO 2025-12-12 09:12:06,062 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 09:12:06,257 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 09:12:10,181 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-12 09:12:10,240 Generating PDF for inspection 2
-INFO 2025-12-12 09:12:10,240   Logo data URI: Present
-INFO 2025-12-12 09:12:10,241   Photo count: 3
-INFO 2025-12-12 09:12:10,241   Photos with data URIs: 3
-INFO 2025-12-12 09:17:14,922 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-12 09:17:14,991 Generating PDF for inspection 2
-INFO 2025-12-12 09:17:14,991   Logo data URI: Present
-INFO 2025-12-12 09:17:14,991   Photo count: 3
-INFO 2025-12-12 09:17:14,992   Photos with data URIs: 3
-INFO 2025-12-12 09:17:47,139 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-12 09:17:47,189 Generating PDF for inspection 2
-INFO 2025-12-12 09:17:47,189   Logo data URI: Present
-INFO 2025-12-12 09:17:47,190   Photo count: 3
-INFO 2025-12-12 09:17:47,190   Photos with data URIs: 3
-INFO 2025-12-12 09:27:16,296 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-12 09:27:16,298 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-12 09:27:16,299 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-12 10:04:04,453 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 10:04:04,655 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 10:15:15,112 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 10:15:15,336 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 10:15:27,379 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-12 10:15:27,439 Generating PDF for inspection 2
-INFO 2025-12-12 10:15:27,440   Logo data URI: Present
-INFO 2025-12-12 10:15:27,440   Photo count: 3
-INFO 2025-12-12 10:15:27,441   Photos with data URIs: 3
-INFO 2025-12-12 17:50:44,212 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-12 17:50:44,391 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-12 18:09:55,822 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-12 18:09:56,438 Generating PDF for inspection 75
-INFO 2025-12-12 18:09:56,438   Logo data URI: Present
-INFO 2025-12-12 18:09:56,440   Photo count: 33
-INFO 2025-12-12 18:09:56,440   Photos with data URIs: 33
-INFO 2025-12-13 12:02:27,048 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-13 12:02:27,254 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-13 13:06:08,852 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-13 13:06:09,065 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-13 13:06:28,266 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-13 13:06:28,566 Generating PDF for inspection 2
-INFO 2025-12-13 13:06:28,566   Logo data URI: Present
-INFO 2025-12-13 13:06:28,567   Photo count: 38
-INFO 2025-12-13 13:06:28,567   Photos with data URIs: 38
-INFO 2025-12-13 13:16:14,847 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,852 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,854 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,857 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,865 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,865 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,866 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,867 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,867 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-13 13:16:14,869 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-18 15:12:42,786 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-18 15:12:43,040 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-18 15:15:15,776 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-18 15:15:56,144 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-18 15:15:56,382 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-18 15:18:17,201 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-18 16:23:30,108 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-18 16:23:30,306 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-19 08:13:15,808 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-19 08:13:16,002 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-19 10:11:24,295 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-19 10:11:24,498 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 10:09:12,612 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-22 10:09:12,858 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-22 10:11:25,930 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-22 10:11:26,143 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
-INFO 2025-12-22 10:11:42,171 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-22 10:11:42,384 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 3
-INFO 2025-12-22 10:11:50,700 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 4, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 10:11:50,954 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 10:49:08,560 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 10:49:08,795 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 11:53:46,690 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 11:53:46,932 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 13:11:17,323 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 13:11:17,533 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 13:28:38,532 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 13:28:38,776 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 13:33:26,873 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-22 13:33:26,972 Generating PDF for inspection 72
-INFO 2025-12-22 13:33:26,972   Logo data URI: Present
-INFO 2025-12-22 13:33:26,973   Photo count: 6
-INFO 2025-12-22 13:33:26,973   Photos with data URIs: 6
-INFO 2025-12-22 13:43:33,815 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-22 13:43:33,816 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-22 13:43:33,817 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-22 14:26:36,888 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 14:26:37,109 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 14:32:42,862 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-22 14:32:42,953 Generating PDF for inspection 120
-INFO 2025-12-22 14:32:42,953   Logo data URI: Present
-INFO 2025-12-22 14:32:42,954   Photo count: 5
-INFO 2025-12-22 14:32:42,954   Photos with data URIs: 5
-INFO 2025-12-22 14:33:17,962 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-22 14:33:18,034 Generating PDF for inspection 120
-INFO 2025-12-22 14:33:18,034   Logo data URI: Present
-INFO 2025-12-22 14:33:18,034   Photo count: 5
-INFO 2025-12-22 14:33:18,035   Photos with data URIs: 5
-INFO 2025-12-22 15:27:54,832 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 15:27:55,054 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 15:46:36,572 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-22 15:46:36,572 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-22 15:49:53,213 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 15:49:53,420 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 16:12:46,439 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 16:12:46,642 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 16:37:22,229 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-22 16:37:22,435 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-22 16:37:33,679 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 16:37:33,884 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 17:33:21,327 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 17:33:21,545 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-22 17:43:17,614 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-22 17:43:25,493 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-22 17:43:25,711 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 10:30:18,881 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-23 10:30:19,086 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-23 10:30:44,227 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-23 10:30:44,447 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
-INFO 2025-12-23 10:31:20,030 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 10:31:20,291 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 10:32:21,401 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:32:22,492 Generating PDF for inspection 223
-INFO 2025-12-23 10:32:22,492   Logo data URI: Present
-INFO 2025-12-23 10:32:22,493   Photo count: 71
-INFO 2025-12-23 10:32:22,493   Photos with data URIs: 71
-INFO 2025-12-23 10:33:57,716 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:33:59,060 Generating PDF for inspection 223
-INFO 2025-12-23 10:33:59,061   Logo data URI: Present
-INFO 2025-12-23 10:33:59,064   Photo count: 94
-INFO 2025-12-23 10:33:59,065   Photos with data URIs: 94
-INFO 2025-12-23 10:34:25,910 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:34:27,134 Generating PDF for inspection 223
-INFO 2025-12-23 10:34:27,139   Logo data URI: Present
-INFO 2025-12-23 10:34:27,140   Photo count: 94
-INFO 2025-12-23 10:34:27,141   Photos with data URIs: 94
-INFO 2025-12-23 10:35:12,003 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:35:13,320 Generating PDF for inspection 223
-INFO 2025-12-23 10:35:13,321   Logo data URI: Present
-INFO 2025-12-23 10:35:13,322   Photo count: 94
-INFO 2025-12-23 10:35:13,323   Photos with data URIs: 94
-INFO 2025-12-23 10:35:35,054 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:35:36,268 Generating PDF for inspection 223
-INFO 2025-12-23 10:35:36,269   Logo data URI: Present
-INFO 2025-12-23 10:35:36,270   Photo count: 94
-INFO 2025-12-23 10:35:36,270   Photos with data URIs: 94
-INFO 2025-12-23 10:36:20,172 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:36:21,375 Generating PDF for inspection 223
-INFO 2025-12-23 10:36:21,382   Logo data URI: Present
-INFO 2025-12-23 10:36:21,384   Photo count: 94
-INFO 2025-12-23 10:36:21,385   Photos with data URIs: 94
-INFO 2025-12-23 10:37:08,845 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 10:37:10,073 Generating PDF for inspection 223
-INFO 2025-12-23 10:37:10,073   Logo data URI: Present
-INFO 2025-12-23 10:37:10,075   Photo count: 94
-INFO 2025-12-23 10:37:10,076   Photos with data URIs: 94
-INFO 2025-12-23 10:47:07,687 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 11:05:16,379 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 11:05:16,629 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 13:00:42,866 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 13:05:19,417 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-23 13:05:19,633 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
-INFO 2025-12-23 13:05:19,676 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 13:06:06,615 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 13:06:06,836 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 13:07:49,434 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 13:07:49,533 Generating PDF for inspection 224
-INFO 2025-12-23 13:07:49,534   Logo data URI: Present
-INFO 2025-12-23 13:07:49,536   Photo count: 68
-INFO 2025-12-23 13:07:49,536   Photos with data URIs: 68
-INFO 2025-12-23 13:07:56,426 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\PRUEBA-P-1F-231225_123108-OK654.pdf
-INFO 2025-12-23 13:16:20,216 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:16:20,216 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:21:08,800 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 13:21:09,011 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 13:22:14,560 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 13:22:14,657 Generating PDF for inspection 224
-INFO 2025-12-23 13:22:14,657   Logo data URI: Present
-INFO 2025-12-23 13:22:14,658   Photo count: 68
-INFO 2025-12-23 13:22:14,659   Photos with data URIs: 68
-INFO 2025-12-23 13:22:21,751 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\PRUEBA-P-1F-231225_123108-OK654.pdf
-INFO 2025-12-23 13:22:21,751 PDF file size: 40659924 bytes
-INFO 2025-12-23 13:31:15,188 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,191 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,191 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,192 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,194 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,197 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,200 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 13:31:15,203 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 14:55:44,431 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 14:55:44,630 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 14:58:40,642 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 14:58:40,818 Generating PDF for inspection 225
-INFO 2025-12-23 14:58:40,818   Logo data URI: Present
-INFO 2025-12-23 14:58:40,818   Photo count: 159
-INFO 2025-12-23 14:58:40,819   Photos with data URIs: 159
-INFO 2025-12-23 14:58:59,860 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\COMPLETO-UNO-1F-231225_134953-NOK753.pdf
-INFO 2025-12-23 14:58:59,860 PDF file size: 89458415 bytes
-INFO 2025-12-23 15:05:52,185 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 15:05:52,186 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 15:05:52,187 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-23 15:58:18,571 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 15:58:18,777 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 16:49:50,671 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-23 16:49:50,886 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-23 16:51:55,522 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-23 16:51:58,080 Generating PDF for inspection 226
-INFO 2025-12-23 16:51:58,080   Logo data URI: Present
-INFO 2025-12-23 16:51:58,080   Photo count: 165
-INFO 2025-12-23 16:51:58,081   Photos with data URIs: 165
-INFO 2025-12-23 16:54:39,738 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\A-A-1F-231225_153244-NOK753.pdf
-INFO 2025-12-23 16:54:39,739 PDF file size: 962179121 bytes
-INFO 2025-12-23 17:01:43,719 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-25 17:18:41,179 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-25 17:18:41,389 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-25 18:30:05,513 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-25 18:30:05,725 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-25 19:06:41,352 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-25 19:06:41,544 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-29 11:25:30,117 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-29 11:25:30,356 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-29 14:26:55,832 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-29 14:26:56,086 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-29 14:39:02,740 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-29 14:39:02,989 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-29 16:48:06,008 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-29 16:48:06,238 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-29 17:20:14,172 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-29 17:20:14,367 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-29 17:23:48,962 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-29 17:23:49,087 Generating PDF for inspection 231
-INFO 2025-12-29 17:23:49,087   Logo data URI: Present
-INFO 2025-12-29 17:23:49,089   Photo count: 8
-INFO 2025-12-29 17:23:49,089   Photos with data URIs: 8
-INFO 2025-12-29 17:24:00,299 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\F-F-1F-291225_141106-NOK841.pdf
-INFO 2025-12-29 17:24:00,300 PDF file size: 49670685 bytes
-INFO 2025-12-29 17:31:17,115 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-30 15:48:24,393 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-30 15:48:24,611 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-30 20:55:37,034 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-30 20:55:37,218 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-30 20:55:42,934 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-30 20:55:43,131 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
-INFO 2025-12-30 20:56:35,407 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
-INFO 2025-12-30 20:56:37,719 Generating PDF for inspection 232
-INFO 2025-12-30 20:56:37,719   Logo data URI: Present
-INFO 2025-12-30 20:56:37,722   Photo count: 194
-INFO 2025-12-30 20:56:37,722   Photos with data URIs: 194
-INFO 2025-12-30 21:00:08,185 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\H-H-100L-291225_154258-NOK57.pdf
-INFO 2025-12-30 21:00:08,185 PDF file size: 947015123 bytes
-INFO 2025-12-30 21:05:56,794 LOGOUT - User: admin, IP: 127.0.0.1
-INFO 2025-12-31 08:48:17,310 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-WARNING 2025-12-31 08:48:17,559 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
-INFO 2025-12-31 08:51:44,237 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
-INFO 2025-12-31 08:51:44,498 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
 INFO 2026-01-02 07:47:14,599 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
 INFO 2026-01-02 07:47:14,845 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
 INFO 2026-01-05 10:07:01,931 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/143.0.0.0 Safari/537.36
@@ -804,3 +458,111 @@ INFO 2026-01-29 13:25:50,683 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-01-29 13:25:50,689 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-01-30 08:52:13,546 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
 INFO 2026-01-30 08:52:13,781 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-01-30 09:10:47,944 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-01-30 09:10:48,500 Generating PDF for inspection 330
+INFO 2026-01-30 09:10:48,501   Logo data URI: Present
+INFO 2026-01-30 09:10:48,502   Photo count: 109
+INFO 2026-01-30 09:10:48,503   Photos with data URIs: 109
+INFO 2026-01-30 09:11:24,734 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\OOO-E1111-191L-150119_020855-OK730.pdf
+INFO 2026-01-30 09:11:24,735 PDF file size: 211371717 bytes
+INFO 2026-01-30 09:16:16,993 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-02 23:22:14,830 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-02 23:22:15,093 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-02 23:32:18,696 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-06 15:37:39,338 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-06 15:37:39,606 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-06 15:47:43,401 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-09 11:38:25,083 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-09 11:38:25,307 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-09 11:55:22,642 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-09 16:49:21,211 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-09 16:49:21,444 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-09 16:53:33,247 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-02-09 16:53:34,077 Generating PDF for inspection 817
+INFO 2026-02-09 16:53:34,077   Logo data URI: Present
+INFO 2026-02-09 16:53:34,079   Photo count: 56
+INFO 2026-02-09 16:53:34,079   Photos with data URIs: 56
+INFO 2026-02-09 16:54:46,581 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\A5-A5-193L-090226_101501-NOK642.pdf
+INFO 2026-02-09 16:54:46,581 PDF file size: 312326806 bytes
+INFO 2026-02-09 16:56:10,328 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-02-09 16:56:11,083 Generating PDF for inspection 817
+INFO 2026-02-09 16:56:11,083   Logo data URI: Present
+INFO 2026-02-09 16:56:11,084   Photo count: 56
+INFO 2026-02-09 16:56:11,085   Photos with data URIs: 56
+INFO 2026-02-09 16:57:25,861 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\A5-A5-193L-090226_101501-NOK642.pdf
+INFO 2026-02-09 16:57:25,862 PDF file size: 312326806 bytes
+INFO 2026-02-09 17:00:55,569 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-09 23:17:13,266 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-09 23:17:13,521 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-09 23:27:18,273 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-10 07:45:40,783 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-10 07:45:41,000 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-10 07:58:50,795 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-10 08:13:55,115 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-02-10 08:13:55,211 Generating PDF for inspection 1475
+INFO 2026-02-10 08:13:55,213   Logo data URI: Present
+INFO 2026-02-10 08:13:55,213   Photo count: 50
+INFO 2026-02-10 08:13:55,267   Photos with data URIs: 50
+INFO 2026-02-10 08:14:01,191 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\A8-E002-193L-090226_141949-NOK768.pdf
+INFO 2026-02-10 08:14:01,193 PDF file size: 34775362 bytes
+INFO 2026-02-10 08:23:04,998 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-10 21:27:48,890 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-10 21:27:49,144 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-10 21:41:58,753 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-13 16:48:54,342 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/144.0.0.0 Safari/537.36
+INFO 2026-02-13 16:48:54,589 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-13 17:00:52,432 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 13:55:28,950 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+WARNING 2026-02-26 13:55:29,221 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
+INFO 2026-02-26 13:55:38,676 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+WARNING 2026-02-26 13:55:38,907 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 2
+INFO 2026-02-26 13:55:46,722 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 3, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+WARNING 2026-02-26 13:55:46,948 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 3
+INFO 2026-02-26 13:57:55,098 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 4, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+WARNING 2026-02-26 13:57:55,311 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 4
+INFO 2026-02-26 14:02:52,066 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 5, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-02-26 14:02:52,342 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-26 16:15:18,309 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 16:15:18,314 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 16:15:18,317 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 16:15:18,323 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 16:15:18,325 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 16:15:18,337 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-26 16:15:18,340 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-27 16:29:15,984 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-02-27 16:29:16,232 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-27 16:46:50,587 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-27 17:06:05,190 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-02-27 17:06:05,432 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-27 17:16:12,817 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-27 17:39:01,180 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-02-27 17:39:01,436 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-27 17:49:13,812 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-27 17:49:38,811 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-02-27 17:49:39,083 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-27 18:08:44,156 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-02-28 13:16:32,614 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+WARNING 2026-02-28 13:16:32,828 LOGIN_FAILED - User: admin, IP: 127.0.0.1, Attempt: 1
+INFO 2026-02-28 13:16:37,965 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 2, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-02-28 13:16:38,221 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-02-28 13:18:10,289 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-02-28 13:18:13,115 Generating PDF for inspection 1527
+INFO 2026-02-28 13:18:13,116   Logo data URI: Present
+INFO 2026-02-28 13:18:13,118   Photo count: 226
+INFO 2026-02-28 13:18:13,119   Photos with data URIs: 226
+INFO 2026-02-28 13:21:20,045 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\PRUEBACOMP-E07831-001F-270226_160224-NOK366.pdf
+INFO 2026-02-28 13:21:20,045 PDF file size: 969311605 bytes
+INFO 2026-02-28 13:27:32,044 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-03-05 14:44:42,729 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-03-05 14:44:42,974 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-03-05 14:47:59,817 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-03-05 14:47:59,834 Generating PDF for inspection 1586
+INFO 2026-03-05 14:47:59,834   Logo data URI: Present
+INFO 2026-03-05 14:47:59,835   Photo count: 11
+INFO 2026-03-05 14:47:59,835   Photos with data URIs: 11
+INFO 2026-03-05 14:48:01,161 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\04MAR-A2026-213L-040326_160618-OK269.pdf
+INFO 2026-03-05 14:48:01,162 PDF file size: 5791742 bytes
+INFO 2026-03-05 15:02:42,222 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-03-06 09:49:29,820 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/145.0.0.0 Safari/537.36
+INFO 2026-03-06 09:49:30,048 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-03-06 10:08:30,314 LOGOUT - User: admin, IP: 127.0.0.1

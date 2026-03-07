@@ -196,13 +196,31 @@ class PlcDataProcessor:
                     # Skip if already processed
                     if photo_file.name not in exclude_photo_names:
                         matching_photos.append(photo_file)
+
+        ###########
+
+        from pathlib import Path
+
+        directorio = Path(self.staging_photo_path)
+        substring = "PRUEBACOMP-E07831-241F-270226_162553-NOK412"
+
+        # Solo en la carpeta actual
+        archivos = [f.name for f in directorio.glob(f"*{substring}*") if f.is_file()]
+
+        # En la carpeta actual y todas las subcarpetas (recursivo)
+        archivos_recursivos = [str(f) for f in directorio.rglob(f"*{substring}*") if f.is_file()]
+
+        #print(archivos_recursivos)
+
+        ###########
         
         # Also try exact match if no date/time/falla pattern found
         for ext in (".bmp", ".jpg", ".jpeg", ".png"):
             candidate = self.staging_photo_path / f"{match_prefix}{ext}"
             if candidate.exists() and candidate.name not in exclude_photo_names:
                 matching_photos.append(candidate)
-        
+        #print(exclude_photo_names)
+
         # Sort by filename for consistent ordering
         matching_photos.sort(key=lambda p: p.name)
         
@@ -636,10 +654,15 @@ class PlcDataProcessor:
                     f"ID_Control={id_value!r}"
                 )
                 continue
+
+            #print(linked_photo_names)
             
             # Find ALL matching photos for this prefix (not just the first one)
             matching_photos = self._find_staged_photos(payload, exclude_photo_names=linked_photo_names)
-            
+            #matching_photos = self._find_staged_photos(payload)
+
+            #print(matching_photos)
+
             if not matching_photos:
                 logger.warning(
                     f"No se encontraron fotos en STAGING para ciclo {nombre_ciclo} "
@@ -808,6 +831,22 @@ class PlcDataProcessor:
                 logger.warning(
                     "Continuando sin PDF - la inspección y las fotos fueron procesadas correctamente"
                 )
+            
+            # Run digit prediction for target photo IDs (198F, 33F, 48F)
+            try:
+                from etl.digit_prediction_service import predict_digits_for_inspection
+                predictions_made = predict_digits_for_inspection(inspection.id)
+                if predictions_made > 0:
+                    logger.info(
+                        f"Digit predictions made for inspection {inspection.id}: {predictions_made}"
+                    )
+            except ImportError as e:
+                logger.warning(f"Digit prediction service not available: {e}")
+            except Exception as e:
+                logger.error(f"Error running digit prediction for inspection {inspection.id}: {e}")
+                import traceback
+                logger.error(traceback.format_exc())
+                # Don't fail the inspection processing if prediction fails
 
         return linked
 

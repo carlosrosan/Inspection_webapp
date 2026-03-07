@@ -230,28 +230,6 @@ def get_sql_create_statements():
         );
         """,
         
-        # Digit Prediction table - stores MNIST digit predictions for inspection photos
-        """
-        CREATE TABLE IF NOT EXISTS main_digit_predictions (
-            id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
-            inspection_photo_id bigint NOT NULL UNIQUE,
-            detected_numbers varchar(50) NOT NULL DEFAULT '',
-            letter varchar(5) NOT NULL DEFAULT '',
-            digit_1 varchar(2) NOT NULL DEFAULT '',
-            digit_2 varchar(2) NOT NULL DEFAULT '',
-            digit_3 varchar(2) NOT NULL DEFAULT '',
-            digit_4 varchar(2) NOT NULL DEFAULT '',
-            digit_5 varchar(2) NOT NULL DEFAULT '',
-            average_confidence double DEFAULT NULL,
-            photo_id varchar(20) NOT NULL DEFAULT '',
-            prediction_details longtext NOT NULL,
-            processing_error longtext NOT NULL,
-            created_at datetime(6) NOT NULL,
-            KEY main_digit_predictions_photo_id_idx (photo_id),
-            KEY main_digit_predictions_inspection_photo_id_idx (inspection_photo_id)
-        );
-        """,
-        
         # Inspection Machine table
         """
         CREATE TABLE IF NOT EXISTS main_inspectionmachine (
@@ -439,12 +417,6 @@ def get_sql_create_statements():
         ALTER TABLE main_inspectionphoto 
         ADD CONSTRAINT main_inspectionphoto_inspection_id_8b2c8f1f_fk_main_inspection_id 
         FOREIGN KEY (inspection_id) REFERENCES main_inspection (id);
-        """,
-        
-        """
-        ALTER TABLE main_digit_predictions 
-        ADD CONSTRAINT main_digit_predictions_inspection_photo_id_fk 
-        FOREIGN KEY (inspection_photo_id) REFERENCES main_inspectionphoto (id) ON DELETE CASCADE;
         """,
         
         """
@@ -909,7 +881,6 @@ def main():
         print("- main_user (custom user authentication)")
         print("- main_inspection (inspection records)")
         print("- main_inspectionphoto (inspection photos)")
-        print("- main_digit_predictions (MNIST digit predictions for photos)")
         print("- main_inspectionmachine (machine status)")
         print("- main_machinelog (machine logs)")
         print("- main_systemconfiguration (system settings)")
