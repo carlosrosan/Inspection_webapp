@@ -16,7 +16,7 @@ import sys
 
 EXCEL_FILENAME = "Numero de SE y barra.xlsx"
 ID_COL = "ID"
-MEDICION_COL = "Medicion"
+MEDICION_COL = "Medición"
 
 
 def read_excel(excel_path):

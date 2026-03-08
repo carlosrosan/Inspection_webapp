@@ -197,7 +197,7 @@ class PlcDataProcessor:
                     if photo_file.name not in exclude_photo_names:
                         matching_photos.append(photo_file)
 
-        ###########
+        """
 
         from pathlib import Path
 
@@ -212,7 +212,7 @@ class PlcDataProcessor:
 
         #print(archivos_recursivos)
 
-        ###########
+        """
         
         # Also try exact match if no date/time/falla pattern found
         for ext in (".bmp", ".jpg", ".jpeg", ".png"):

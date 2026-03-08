@@ -385,6 +385,13 @@ def get_sql_create_statements():
             KEY plc_data_raw_processed_idx (processed)
         );
         """,
+
+        """ 
+        CREATE TABLE IF NOT EXISTS control_names (
+            id_control VARCHAR(50) NOT NULL PRIMARY KEY,
+            control_name VARCHAR(255) NOT NULL
+        );
+        """,
         
         # Foreign Key Constraints
         """
