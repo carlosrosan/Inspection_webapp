@@ -244,6 +244,7 @@
             <thead>
                 <tr>
                     <th style="text-align: left !important;">Código de Foto</th>
+                    <th style="text-align: left !important;">Nombre de Control</th>
                     <th style="text-align: left !important;">Predicción</th>
                     <th style="text-align: left !important;">Estado</th>
                 </tr>
@@ -252,6 +253,7 @@
                 {% for photo_info in photo_data %}
                 <tr>
                     <td style="text-align: left !important;">{{ photo_info.code|default:"N/A" }}</td>
+                    <td style="text-align: left !important;">{{ photo_info.control_name|default:photo_info.id_control|default:"—" }}</td>
                     <td style="text-align: left !important;">
                         {% if photo_info.photo.digit_prediction %}
                             <span class="prediction-text">{{ photo_info.photo.digit_prediction.detected_numbers }}</span>
@@ -345,7 +347,7 @@
         <div class="section-title">FOTOS DE LA INSPECCIÓN ({{ photo_count }} foto{{ photo_count|pluralize }})</div>
         {% for photo_info in photo_data %}
         <div class="photo-section">
-            <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}</div>
+            <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}{% if photo_info.control_name %} — {{ photo_info.control_name }}{% elif photo_info.id_control %} (ID: {{ photo_info.id_control }}){% endif %}</div>
             {% if photo_info.photo.digit_prediction %}
             <div style="margin-bottom: 8px;">
                 <span class="prediction-text">Predicción: {{ photo_info.photo.digit_prediction.detected_numbers }}</span>
@@ -356,7 +358,8 @@
             <img src="{{ photo_info.data_uri }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
             {% endif %}
             <div class="photo-info">
-                <strong>Código:</strong> {{ photo_info.code|default:"N/A" }} | 
+                <strong>Código:</strong> {{ photo_info.code|default:"N/A" }} |
+                {% if photo_info.control_name %}<strong>Nombre de Control:</strong> {{ photo_info.control_name }} | {% endif %}
                 <strong>Tipo:</strong> {{ photo_info.photo.photo_type|default:"General" }} | 
                 <strong>Subida:</strong> {{ photo_info.photo.uploaded_at|date:"d/m/Y H:i" }} | 
                 <strong>Estado:</strong> {% if photo_info.photo.defecto_encontrado %}<span class="badge badge-danger">Error</span>{% else %}<span class="badge badge-success">OK</span>{% endif %}

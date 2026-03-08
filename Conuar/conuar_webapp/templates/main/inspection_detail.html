@@ -341,7 +341,7 @@
                         {% endif %}
                     </div>
                     <div class="card-footer bg-transparent">
-                        <h6 class="card-title mb-2">{{ photo.caption|default:'Sin descripción' }}</h6>
+                        <h6 class="card-title mb-2">{{ photo.caption|default:'Sin descripción' }}{% if photo_data.control_name %} <span class="text-primary">— {{ photo_data.control_name }}</span>{% elif photo_data.id_control %} <span class="text-muted">(ID: {{ photo_data.id_control }})</span>{% endif %}</h6>
                         {% if photo.digit_prediction %}
                         <div class="mb-2 digit-prediction-display">
                             <i class="fas fa-hashtag me-1" style="color: #d4b84d;"></i>
@@ -350,6 +350,11 @@
                             {% empty %}
                             <span class="digit-char">—</span>
                             {% endfor %}
+                        </div>
+                        {% endif %}
+                        {% if photo_data.control_name %}
+                        <div class="mb-2">
+                            <small class="text-primary"><i class="fas fa-ruler me-1"></i>Nombre de Control: {{ photo_data.control_name }}</small>
                         </div>
                         {% endif %}
                         <div class="d-flex justify-content-between align-items-center mb-2">

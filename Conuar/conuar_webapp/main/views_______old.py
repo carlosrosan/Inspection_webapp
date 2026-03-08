@@ -528,7 +528,8 @@ def inspection_detail(request, inspection_id):
     
     # Get the inspection by id
     inspection = get_object_or_404(Inspection, id=inspection_id)
-    photos = inspection.photos.all()
+    # Prefetch digit_prediction for photos that have predictions
+    photos = inspection.photos.prefetch_related('digit_prediction').all()
     
     # Prepare photos with PNG URLs - ONLY include photos that have PNG versions
     from django.conf import settings
@@ -599,7 +600,8 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
         logger.error(f"Inspection {inspection_id} not found for PDF generation")
         return None, None
     
-    photos = inspection.photos.all()
+    # Prefetch digit_prediction for photos that have predictions
+    photos = inspection.photos.prefetch_related('digit_prediction').all()
     
     # Prepare photo data with file paths and codes (same logic as inspection_pdf)
     photo_data = []
@@ -807,7 +809,8 @@ def inspection_pdf(request, inspection_id):
     
     # Get the inspection by id
     inspection = get_object_or_404(Inspection, id=inspection_id)
-    photos = inspection.photos.all()
+    # Prefetch digit_prediction for photos that have predictions
+    photos = inspection.photos.prefetch_related('digit_prediction').all()
     
     # Prepare photo data with file paths and codes
     photo_data = []

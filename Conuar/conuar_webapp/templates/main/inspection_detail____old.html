@@ -3,6 +3,16 @@
 {% block title %}{{ title }}{% endblock %}
 
 {% block content %}
+<style>
+.digit-prediction-display .digit-char {
+    color: #d4b84d;
+    font-weight: bold;
+}
+.digit-prediction-display .digit-space {
+    display: inline-block;
+    width: 0.35em;
+}
+</style>
 <div class="inspection-detail-page">
 <!-- Back Button and PDF Download -->
 <div class="container mt-4 mb-3">
@@ -333,13 +343,13 @@
                     <div class="card-footer bg-transparent">
                         <h6 class="card-title mb-2">{{ photo.caption|default:'Sin descripción' }}</h6>
                         {% if photo.digit_prediction %}
-                        <div class="mb-2">
-                            <span class="text-dark fw-bold">
-                                <i class="fas fa-hashtag me-1"></i>{{ photo.digit_prediction.detected_numbers }}
-                            </span>
-                            <span class="badge ms-2" style="background-color: #fff3cd; color: #856404; font-size: 0.7em;">
-                                predict (beta)
-                            </span>
+                        <div class="mb-2 digit-prediction-display">
+                            <i class="fas fa-hashtag me-1" style="color: #d4b84d;"></i>
+                            {% for digit in photo.digit_prediction.detected_numbers %}
+                            <span class="digit-char">{{ digit }}</span>{% if not forloop.last %}<span class="digit-space"></span>{% endif %}
+                            {% empty %}
+                            <span class="digit-char">—</span>
+                            {% endfor %}
                         </div>
                         {% endif %}
                         <div class="d-flex justify-content-between align-items-center mb-2">

@@ -18,6 +18,39 @@ from .permissions import require_viewer, require_regular_user, require_superviso
 logger = logging.getLogger('main.views')
 
 
+def _id_control_from_photo_name(photo_name):
+    """
+    Extract ID_Control from inspection photo filename.
+    Format: .../NombreCiclo-ID_EC-ID_Control-Fecha_Hora-Falla.ext  -> ID_Control is 3rd segment.
+    """
+    if not photo_name:
+        return None
+    stem = os.path.splitext(os.path.basename(photo_name))[0]
+    parts = stem.split('-')
+    return parts[2] if len(parts) >= 3 else None
+
+
+def get_control_name_for_id(id_control):
+    """
+    Look up Control Name (Medicion) from control_names table by id_control.
+    Returns None if table does not exist or no row found.
+    """
+    if not id_control:
+        return None
+    try:
+        from django.db import connection
+        with connection.cursor() as c:
+            if connection.vendor == 'sqlite3':
+                c.execute("SELECT control_name FROM control_names WHERE id_control = ?", [id_control])
+            else:
+                c.execute("SELECT control_name FROM control_names WHERE id_control = %s", [id_control])
+            row = c.fetchone()
+            return row[0] if row else None
+    except Exception as e:
+        logger.debug("control_names lookup failed for id_control=%s: %s", id_control, e)
+        return None
+
+
 def get_photo_path_prefer_png(photo_field, media_root=None):
     """
     Get the path to a photo file, preferring PNG version if it exists.
@@ -543,11 +576,14 @@ def inspection_detail(request, inspection_id):
             # Construct URL using MEDIA_URL + relative path
             try:
                 png_url = settings.MEDIA_URL + relative_path
-                
+                id_control = _id_control_from_photo_name(photo.photo.name if photo.photo else None)
+                control_name = get_control_name_for_id(id_control) if id_control else None
                 # Only add to photos_data if we successfully got the PNG URL
                 photos_data.append({
                     'photo_obj': photo,
                     'png_url': png_url,
+                    'control_name': control_name,
+                    'id_control': id_control,
                 })
             except Exception as e:
                 logger.warning(f"Failed to construct PNG URL for photo {photo.id}: {e}")
@@ -661,12 +697,16 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
                     logger.warning(f"Failed to load photo {photo.id} from {photo_path}: {e}")
                     photo_data_uri = None
         
+        id_control = _id_control_from_photo_name(photo.photo.name if photo.photo else None)
+        control_name = get_control_name_for_id(id_control) if id_control else None
         photo_info = {
             'photo': photo,
             'path': photo_path,
             'data_uri': photo_data_uri,
             'code': photo_code,
             'is_png': is_png,
+            'control_name': control_name,
+            'id_control': id_control,
         }
         photo_data.append(photo_info)
     
@@ -887,12 +927,16 @@ def inspection_pdf(request, inspection_id):
             else:
                 logger.warning(f"Photo {photo.id} path not found. Photo name: {photo.photo.name if photo.photo else 'None'}")
         
+        id_control = _id_control_from_photo_name(photo.photo.name if photo.photo else None)
+        control_name = get_control_name_for_id(id_control) if id_control else None
         photo_info = {
             'photo': photo,
             'path': photo_path,  # Actual file path (PNG if available, otherwise original)
             'data_uri': photo_data_uri,  # Base64 data URI for PDF
             'code': photo_code,
             'is_png': is_png,  # Flag indicating if PNG version was used
+            'control_name': control_name,
+            'id_control': id_control,
         }
         photo_data.append(photo_info)
     

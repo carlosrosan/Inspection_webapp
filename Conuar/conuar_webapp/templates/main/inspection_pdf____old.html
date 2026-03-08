@@ -129,6 +129,16 @@
             background-color: #6c757d;
             color: white;
         }
+        .badge-prediction {
+            background-color: #fff3cd;
+            color: #856404;
+            font-size: 7pt;
+            margin-left: 5px;
+        }
+        .prediction-text {
+            font-weight: bold;
+            color: #333;
+        }
         .photo-section {
             margin-bottom: 30px;
             page-break-inside: avoid;
@@ -234,6 +244,7 @@
             <thead>
                 <tr>
                     <th style="text-align: left !important;">Código de Foto</th>
+                    <th style="text-align: left !important;">Predicción</th>
                     <th style="text-align: left !important;">Estado</th>
                 </tr>
             </thead>
@@ -241,6 +252,14 @@
                 {% for photo_info in photo_data %}
                 <tr>
                     <td style="text-align: left !important;">{{ photo_info.code|default:"N/A" }}</td>
+                    <td style="text-align: left !important;">
+                        {% if photo_info.photo.digit_prediction %}
+                            <span class="prediction-text">{{ photo_info.photo.digit_prediction.detected_numbers }}</span>
+                            <span class="badge badge-prediction">predict (beta)</span>
+                        {% else %}
+                            -
+                        {% endif %}
+                    </td>
                     <td style="text-align: left !important;">
                         {% if photo_info.photo.defecto_encontrado %}
                             <span class="badge badge-danger">Error</span>
@@ -327,6 +346,12 @@
         {% for photo_info in photo_data %}
         <div class="photo-section">
             <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}</div>
+            {% if photo_info.photo.digit_prediction %}
+            <div style="margin-bottom: 8px;">
+                <span class="prediction-text">Predicción: {{ photo_info.photo.digit_prediction.detected_numbers }}</span>
+                <span class="badge badge-prediction">predict (beta)</span>
+            </div>
+            {% endif %}
             {% if photo_info.data_uri %}
             <img src="{{ photo_info.data_uri }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
             {% endif %}

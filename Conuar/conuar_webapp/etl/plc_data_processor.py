@@ -451,6 +451,26 @@ class PlcDataProcessor:
                 return value
         return ''
     
+    def _next_inspection_suffix(self, nombre_ciclo: str, id_ec: str) -> int:
+        """
+        Devuelve 0 si no existe ninguna inspección para (nombre_ciclo, id_ec).
+        Si ya existe product_code "nombre_ciclo-id_ec", devuelve 1; si existe "nombre_ciclo1-id_ec", devuelve 2; etc.
+        Así la nueva inspección se crea como "nombre_ciclo", "nombre_ciclo1", "nombre_ciclo2"...
+        """
+        suffix_str = "-" + id_ec
+        existing = Inspection.objects.filter(
+            product_code__startswith=nombre_ciclo,
+            product_code__endswith=suffix_str,
+        ).values_list('product_code', flat=True)
+        max_suffix = -1
+        for code in existing:
+            middle = code[len(nombre_ciclo):-len(suffix_str)] if len(suffix_str) <= len(code) else ""
+            if middle == "":
+                max_suffix = max(max_suffix, 0)
+            elif middle.isdigit():
+                max_suffix = max(max_suffix, int(middle))
+        return max_suffix + 1
+    
     def _create_or_fetch_cycle_inspection(self, cycle_rows: List[PlcDataRaw]) -> Tuple[Inspection, bool]:
         first = cycle_rows[0]._parsed_json
         inspector = self.get_default_inspector()
@@ -513,9 +533,18 @@ class PlcDataProcessor:
             else:
                 inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
         
-        # Build natural key for inspection - group by nombre_ciclo and id_ec only
-        # This ensures all cycles for the same cycle name and fuel element are grouped together
-        natural_key = f"{nombre_ciclo}-{id_ec}"
+        # Build natural key for inspection - group by nombre_ciclo and id_ec
+        # Si ya existe una inspección con ese product_code, se agrega un entero al nombre_ciclo
+        # Ej: "inspeccion_hoy" existe -> nueva "inspeccion_hoy1", luego "inspeccion_hoy2", etc.
+        base_key = f"{nombre_ciclo}-{id_ec}"
+        suffix = self._next_inspection_suffix(nombre_ciclo, id_ec)
+        if suffix == 0:
+            natural_key = base_key
+        else:
+            natural_key = f"{nombre_ciclo}{suffix}-{id_ec}"
+            logger.info(
+                f"Product code '{base_key}' ya existe. Creando inspección con product_code='{natural_key}'"
+            )
         
         # Check for defects: Falla="1" or "true" means NOK, otherwise OK
         defecto_encontrado = any(
@@ -524,22 +553,24 @@ class PlcDataProcessor:
             for r in cycle_rows
         )
         
+        defaults = {
+            "title": f"Inspección {nombre_ciclo}" + (f" ({suffix})" if suffix > 0 else ""),
+            "description": f"Inspección {nombre_ciclo} del elemento combustible {id_ec}",
+            "tipo_combustible": "uranio",
+            "status": "in_progress",
+            "defecto_encontrado": defecto_encontrado,
+            "product_name": first.get('nombre_ubicacion') or "Línea Conuar",
+            "serial_number": id_ec,
+            "batch_number": nombre_ciclo,
+            "location": first.get("pos_camara", ""),
+            "inspection_date": inspection_date,
+            "inspector": inspector,
+            "notes": f"Cycle starting at PLC row {cycle_rows[0].id}",
+        }
+        
         inspection, created = Inspection.objects.get_or_create(
             product_code=natural_key,
-            defaults={
-                "title": f"Inspección {nombre_ciclo}",
-                "description": f"Inspección {nombre_ciclo} del elemento combustible {id_ec}",
-                "tipo_combustible": "uranio",
-                "status": "in_progress",
-                "defecto_encontrado": defecto_encontrado,
-                "product_name": first.get('nombre_ubicacion') or "Línea Conuar",
-                "serial_number": id_ec,
-                "batch_number": nombre_ciclo,
-                "location": first.get("pos_camara", ""),
-                "inspection_date": inspection_date,
-                "inspector": inspector,
-                "notes": f"Cycle starting at PLC row {cycle_rows[0].id}",
-            },
+            defaults=defaults,
         )
 
         # Ensure existing inspections also have an inspector assigned
