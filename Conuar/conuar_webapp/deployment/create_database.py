@@ -389,8 +389,11 @@ def get_sql_create_statements():
         """ 
         CREATE TABLE IF NOT EXISTS control_names (
             id_control VARCHAR(50) NOT NULL PRIMARY KEY,
-            control_name VARCHAR(255) NOT NULL
+            control_name VARCHAR(255) NOT NULL,
+            valor_esperado VARCHAR(255) NULL,
+            tolerancia VARCHAR(255) NULL
         );
+
         """,
         
         # Foreign Key Constraints

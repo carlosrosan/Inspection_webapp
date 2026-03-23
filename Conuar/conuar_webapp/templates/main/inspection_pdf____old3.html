@@ -98,12 +98,6 @@
         table.photo-summary-table tr:nth-child(even) {
             background-color: #f8f9fa;
         }
-        table.photo-summary-table th.photo-summary-prediction,
-        table.photo-summary-table td.photo-summary-prediction {
-            width: 1%;
-            max-width: 100px;
-            white-space: nowrap;
-        }
         .badge {
             display: inline-block;
             padding: 4px 8px;
@@ -154,8 +148,6 @@
             font-size: 12pt;
             font-weight: bold;
             margin-bottom: 10px;
-            page-break-after: avoid;
-            break-after: avoid;
         }
         .photo-info {
             margin-top: 10px;
@@ -166,10 +158,6 @@
         .photo-image-block {
             page-break-inside: avoid;
             break-inside: avoid;
-        }
-        .photo-image-block img {
-            page-break-before: avoid;
-            break-before: avoid;
         }
         img {
             max-width: 100%;
@@ -263,7 +251,7 @@
             <thead>
                 <tr>
                     <th style="text-align: left !important;">Código de Foto / Nombre de Control</th>
-                    <th class="photo-summary-prediction" style="text-align: left !important;">Predicción</th>
+                    <th style="text-align: left !important;">Predicción</th>
                     <th style="text-align: left !important;">Estado</th>
                 </tr>
             </thead>
@@ -271,10 +259,10 @@
                 {% for photo_info in photo_data %}
                 <tr>
                     <td style="text-align: left !important; vertical-align: top;">
-                        <div>{{ photo_info.id_control|default:"N/A" }}</div>
+                        <div>{{ photo_info.code|default:"N/A" }}</div>
                         <div style="font-size: 9pt; color: #555; margin-top: 4px;">{{ photo_info.control_name|default:photo_info.id_control|default:"—" }}</div>
                     </td>
-                    <td class="photo-summary-prediction" style="text-align: left !important;">
+                    <td style="text-align: left !important;">
                         {% if photo_info.photo.digit_prediction %}
                             <span class="prediction-text">{{ photo_info.photo.digit_prediction.detected_numbers }}</span>
                             <span class="badge badge-prediction">predict (beta)</span>
@@ -298,7 +286,6 @@
 
     <!-- Second Page: Chronology -->
     <div class="page-break"></div>
-    
     
     <div class="header">
         <h1>CRONOLOGÍA DE LA INSPECCIÓN</h1>
@@ -367,7 +354,6 @@
     <div class="section">
         <div class="section-title">FOTOS DE LA INSPECCIÓN ({{ photo_count }} foto{{ photo_count|pluralize }})</div>
         {% for photo_info in photo_data %}
-        <div class="page-break"></div>
         <div class="photo-section">
             <div class="photo-image-block">
                 <div class="photo-title">Foto {{ forloop.counter }}: {{ photo_info.photo.caption|default:"Sin descripción" }}{% if photo_info.control_name %} — {{ photo_info.control_name }}{% elif photo_info.id_control %} (ID: {{ photo_info.id_control }}){% endif %}</div>
@@ -380,24 +366,8 @@
                 {% if photo_info.data_uri %}
                 <img src="{{ photo_info.data_uri }}" alt="{{ photo_info.photo.caption|default:'Foto de inspección' }}" style="max-width: 100%; height: auto; margin: 10px 0;" />
                 {% endif %}
-                {% if photo_info.control_rows %}
-                <div class="photo-control-data" style="margin-top: 12px; margin-bottom: 8px;">
-                    <div style="font-size: 10pt; font-weight: bold; margin-bottom: 6px;">Datos de control</div>
-                    {% for row in photo_info.control_rows %}
-                    <div style="font-size: 9pt; margin-bottom: 6px; padding: 6px; background: #f8f9fa; border-left: 3px solid #0d6efd;">
-                        {% if row.control_name %}<strong>Medición:</strong> {{ row.control_name }}{% endif %}
-                        {% if row.valor_esperado %} | <strong>Valor esperado:</strong> {{ row.valor_esperado }}{% endif %}
-                        {% if row.tolerancia %} | <strong>Tolerancia:</strong> {{ row.tolerancia }}{% endif %}
-                        {% if row.separador %} | <strong>Separador:</strong> {{ row.separador }}{% endif %}
-                        {% if row.barra %} | <strong>Barra:</strong> {{ row.barra }}{% endif %}
-                        {% if row.pos_z_carro %} | <strong>Pos Z carro:</strong> {{ row.pos_z_carro }}{% endif %}
-                        {% if row.pos_x_plato %} | <strong>Pos X plato:</strong> {{ row.pos_x_plato }}{% endif %}
-                    </div>
-                    {% endfor %}
-                </div>
-                {% endif %}
                 <div class="photo-info">
-                <strong>Código:</strong> {{ photo_info.code|default:"N/A" }} | 
+                <strong>Código:</strong> {{ photo_info.code|default:"N/A" }} |
                 {% if photo_info.control_name %}<strong>Nombre de Control:</strong> {{ photo_info.control_name }} | {% endif %}
                 <strong>Tipo:</strong> {{ photo_info.photo.photo_type|default:"General" }} | 
                 <strong>Subida:</strong> {{ photo_info.photo.uploaded_at|date:"d/m/Y H:i" }} | 

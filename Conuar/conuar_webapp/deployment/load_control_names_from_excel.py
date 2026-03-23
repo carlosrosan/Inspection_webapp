@@ -1,47 +1,133 @@
 #!/usr/bin/env python3
 """
-Reads "Numero de SE y barra.xlsx" (columns "ID" = ID_Control, "Medicion" = Control Name)
-and outputs SQL INSERT statements for the control_names table.
-Run from the same folder as the Excel file, or set EXCEL_PATH.
+Reads "Info de fotos.xlsx" and outputs SQL INSERT statements for the control_names table.
+Columns: control_id (ID), control_name (Medición), valor_esperado, tolerancia,
+separador, barra, pos_z_carro, pos_x_plato. Multiple rows per control_id are allowed.
 
 Usage:
   python load_control_names_from_excel.py                    # print INSERTs to stdout
   python load_control_names_from_excel.py --output out.sql   # write to file
   python load_control_names_from_excel.py --django            # insert via Django DB
+  python load_control_names_from_excel.py --list-columns      # print Excel column names
 """
 
 import argparse
 import os
+import re
 import sys
 
-EXCEL_FILENAME = "Numero de SE y barra.xlsx"
+EXCEL_FILENAME = "Info de fotos.xlsx"
 ID_COL = "ID"
-MEDICION_COL = "Medición"
+MEDICION_COL = "Medicion"  # Excel may show "Medición"
+
+# All columns in control_names (must match control_names.sql, without id)
+DB_COLUMNS = [
+    "control_id",
+    "control_name",
+    "valor_esperado",
+    "tolerancia",
+    "separador",
+    "barra",
+    "pos_z_carro",
+    "pos_x_plato",
+]
+
+# Possible Excel header names for each column (case-insensitive match)
+EXCEL_HEADER_MAP = {
+    "control_id": ["id"],
+    "control_name": ["medicion", "medición"],
+    "valor_esperado": ["valor esperado", "valor_esperado"],
+    "tolerancia": ["tolerancia"],
+    "separador": ["separador"],
+    "barra": ["barra"],
+    "pos_z_carro": ["pos z carro", "pos_z_carro", "pos z"],
+    "pos_x_plato": ["pos x plato", "pos_x_plato", "pos x"],
+}
+
+
+def _normalize_header(h):
+    if h is None:
+        return ""
+    s = str(h).strip()
+    return re.sub(r"\s+", " ", s).lower().replace("í", "i").replace("ó", "o")
+
+
+def _find_column_index(header_list, possible_names):
+    """Return index of first header that matches any of possible_names (normalized)."""
+    normalized = [_normalize_header(h) for h in header_list]
+    for name in possible_names:
+        n = _normalize_header(name)
+        for i, h in enumerate(normalized):
+            if n in h or h == n:
+                return i
+    return None
+
+
+def _excel_headers_to_columns(header_list):
+    """Build mapping: db_column -> excel column index (0-based)."""
+    header = [str(h).strip() if h is not None else "" for h in header_list]
+    try:
+        idx_id = header.index(ID_COL)
+    except ValueError:
+        idx_id = _find_column_index(header_list, ["id"])
+        if idx_id is None:
+            idx_id = 0
+    try:
+        idx_med = header.index(MEDICION_COL)
+    except ValueError:
+        try:
+            idx_med = header.index("Medición")
+        except ValueError:
+            idx_med = _find_column_index(header_list, ["medicion", "medición"])
+            idx_med = idx_med if idx_med is not None else 1
+
+    col_map = {"control_id": idx_id, "control_name": idx_med}
+    for db_col in DB_COLUMNS:
+        if db_col in col_map:
+            continue
+        idx = _find_column_index(header_list, EXCEL_HEADER_MAP.get(db_col, [db_col.replace("_", " ")]))
+        if idx is not None:
+            col_map[db_col] = idx
+    return col_map
+
+
+def _cell_str(val):
+    if val is None:
+        return ""
+    return str(val).strip()
 
 
 def read_excel(excel_path):
-    """Return list of (id_control, control_name) from Excel."""
+    """
+    Return (list of row dicts, ordered column names for DB).
+    Each row dict has keys from DB_COLUMNS (only keys present in col_map).
+    """
     try:
         import openpyxl
     except ImportError:
         try:
             import pandas as pd
             df = pd.read_excel(excel_path)
-            # Normalize column names (strip spaces)
             df.columns = [str(c).strip() for c in df.columns]
-            if ID_COL not in df.columns or MEDICION_COL not in df.columns:
-                print("Expected columns 'ID' and 'Medicion'. Found:", list(df.columns), file=sys.stderr)
-                return []
+            col_map = _excel_headers_to_columns(list(df.columns))
+            if "control_id" not in col_map or "control_name" not in col_map:
+                print("Could not find ID and Medicion columns. Found:", list(df.columns), file=sys.stderr)
+                return [], []
+            db_columns = [c for c in DB_COLUMNS if c in col_map]
             rows = []
             for _, r in df.iterrows():
-                id_val = r.get(ID_COL)
-                med_val = r.get(MEDICION_COL)
-                if id_val is not None and str(id_val).strip():
-                    rows.append((str(id_val).strip(), str(med_val).strip() if med_val is not None else ""))
-            return rows
+                id_val = r.iloc[col_map["control_id"]] if col_map["control_id"] < len(r) else None
+                if id_val is None or _cell_str(id_val) == "":
+                    continue
+                rec = {}
+                for col in db_columns:
+                    idx = col_map[col]
+                    rec[col] = _cell_str(r.iloc[idx]) if idx < len(r) else ""
+                rows.append(rec)
+            return rows, db_columns
         except ImportError:
             print("Install openpyxl or pandas: pip install openpyxl pandas", file=sys.stderr)
-            return []
+            return [], []
 
     wb = openpyxl.load_workbook(excel_path, read_only=True)
     ws = wb.active
@@ -49,27 +135,27 @@ def read_excel(excel_path):
     header = next(rows_iter, None)
     if not header:
         wb.close()
-        return []
-    header = [str(h).strip() if h is not None else "" for h in header]
-    try:
-        idx_id = header.index(ID_COL)
-    except ValueError:
-        idx_id = next((i for i, h in enumerate(header) if h and "id" in h.lower() and "control" in h.lower()), 0)
-    try:
-        idx_med = header.index(MEDICION_COL)
-    except ValueError:
-        idx_med = next((i for i, h in enumerate(header) if h and "medicion" in h.lower()), 1)
+        return [], []
+    col_map = _excel_headers_to_columns(header)
+    db_columns = [c for c in DB_COLUMNS if c in col_map]
+    if "control_id" not in col_map or "control_name" not in col_map:
+        wb.close()
+        print("Could not find ID and Medicion columns. Found:", list(header), file=sys.stderr)
+        return [], []
     rows = []
     for row in rows_iter:
         if not row:
             continue
-        id_val = row[idx_id] if idx_id < len(row) else None
-        if id_val is None or str(id_val).strip() == "":
+        id_val = row[col_map["control_id"]] if col_map["control_id"] < len(row) else None
+        if id_val is None or _cell_str(id_val) == "":
             continue
-        med_val = row[idx_med] if idx_med < len(row) else None
-        rows.append((str(id_val).strip(), str(med_val).strip() if med_val is not None else ""))
+        rec = {}
+        for col in db_columns:
+            idx = col_map[col]
+            rec[col] = _cell_str(row[idx]) if idx < len(row) else ""
+        rows.append(rec)
     wb.close()
-    return rows
+    return rows, db_columns
 
 
 def escape_sql(s):
@@ -83,13 +169,25 @@ def main():
     parser.add_argument("--excel", default=default_path, help=f"Path to Excel file (default: {EXCEL_FILENAME})")
     parser.add_argument("--output", "-o", help="Write INSERTs to this file instead of stdout")
     parser.add_argument("--django", action="store_true", help="Insert into DB using Django (run from project root)")
+    parser.add_argument("--list-columns", action="store_true", help="Print Excel column names and exit")
     args = parser.parse_args()
 
     if not os.path.isfile(args.excel):
         print(f"File not found: {args.excel}", file=sys.stderr)
         return 1
 
-    data = read_excel(args.excel)
+    data, db_columns = read_excel(args.excel)
+    if args.list_columns:
+        try:
+            import openpyxl
+            wb = openpyxl.load_workbook(args.excel, read_only=True)
+            header = next(wb.active.iter_rows(values_only=True), None)
+            wb.close()
+            print("Excel columns:", list(header) if header else [])
+        except Exception as e:
+            print(e, file=sys.stderr)
+        return 0
+
     if not data:
         print("No rows found in Excel.", file=sys.stderr)
         return 1
@@ -103,19 +201,23 @@ def main():
             import django
             django.setup()
             from django.db import connection
-            vendor = connection.vendor  # 'sqlite3' or 'postgresql'
+            vendor = connection.vendor
+            placeholders_sqlite = ", ".join("?" * len(db_columns))
+            placeholders_pg = ", ".join(["%s"] * len(db_columns))
+            cols = ", ".join(db_columns)
             with connection.cursor() as c:
-                for id_control, control_name in data:
+                c.execute("DELETE FROM control_names")
+                for row in data:
+                    values = [row.get(col, "") for col in db_columns]
                     if vendor == "sqlite3":
                         c.execute(
-                            "INSERT OR REPLACE INTO control_names (id_control, control_name) VALUES (?, ?)",
-                            [id_control, control_name],
+                            f"INSERT INTO control_names ({cols}) VALUES ({placeholders_sqlite})",
+                            values,
                         )
                     else:
                         c.execute(
-                            "INSERT INTO control_names (id_control, control_name) VALUES (%s, %s) "
-                            "ON CONFLICT (id_control) DO UPDATE SET control_name = EXCLUDED.control_name",
-                            [id_control, control_name],
+                            f"INSERT INTO control_names ({cols}) VALUES ({placeholders_pg})",
+                            values,
                         )
             print(f"Inserted {len(data)} rows into control_names.", file=sys.stderr)
         except Exception as e:
@@ -123,17 +225,16 @@ def main():
             return 1
         return 0
 
-    lines = []
-    for id_control, control_name in data:
-        lines.append(
-            f"INSERT INTO control_names (id_control, control_name) VALUES "
-            f"('{escape_sql(id_control)}', '{escape_sql(control_name)}');"
-        )
+    lines = ["DELETE FROM control_names;", ""]
+    for row in data:
+        vals = ", ".join(f"'{escape_sql(row.get(col, ''))}'" for col in db_columns)
+        cols = ", ".join(db_columns)
+        lines.append(f"INSERT INTO control_names ({cols}) VALUES ({vals});")
     out = "\n".join(lines)
     if args.output:
         with open(args.output, "w", encoding="utf-8") as f:
             f.write(out)
-        print(f"Wrote {len(lines)} INSERTs to {args.output}", file=sys.stderr)
+        print(f"Wrote {len(data)} INSERTs to {args.output}", file=sys.stderr)
     else:
         print(out)
     return 0

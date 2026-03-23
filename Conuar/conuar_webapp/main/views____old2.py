@@ -30,43 +30,25 @@ def _id_control_from_photo_name(photo_name):
     return parts[2] if len(parts) >= 3 else None
 
 
-# Columns in control_names (from "Info de fotos.xlsx"); multiple rows per control_id allowed
-CONTROL_NAMES_COLUMNS = [
-    "control_id", "control_name", "valor_esperado", "tolerancia",
-    "separador", "barra", "pos_z_carro", "pos_x_plato",
-]
-
-
 def get_control_name_for_id(id_control):
     """
-    Look up first Control Name from control_names table by control_id.
+    Look up Control Name (Medicion) from control_names table by id_control.
     Returns None if table does not exist or no row found.
     """
-    rows = get_control_rows_for_id(id_control)
-    return rows[0].get("control_name") if rows else None
-
-
-def get_control_rows_for_id(control_id):
-    """
-    Look up all rows from control_names table by control_id.
-    Returns list of dicts with keys control_id, control_name, valor_esperado, tolerancia,
-    separador, barra, pos_z_carro, pos_x_plato. Empty list if none found.
-    """
-    if not control_id:
-        return []
+    if not id_control:
+        return None
     try:
         from django.db import connection
-        cols = ", ".join(CONTROL_NAMES_COLUMNS)
         with connection.cursor() as c:
-            if connection.vendor == "sqlite3":
-                c.execute(f"SELECT {cols} FROM control_names WHERE control_id = ?", [control_id])
+            if connection.vendor == 'sqlite3':
+                c.execute("SELECT control_name FROM control_names WHERE id_control = ?", [id_control])
             else:
-                c.execute(f"SELECT {cols} FROM control_names WHERE control_id = %s", [control_id])
-            rows = c.fetchall()
-            return [dict(zip(CONTROL_NAMES_COLUMNS, row)) for row in rows]
+                c.execute("SELECT control_name FROM control_names WHERE id_control = %s", [id_control])
+            row = c.fetchone()
+            return row[0] if row else None
     except Exception as e:
-        logger.debug("control_names lookup failed for control_id=%s: %s", control_id, e)
-        return []
+        logger.debug("control_names lookup failed for id_control=%s: %s", id_control, e)
+        return None
 
 
 def get_photo_path_prefer_png(photo_field, media_root=None):
@@ -716,8 +698,7 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
                     photo_data_uri = None
         
         id_control = _id_control_from_photo_name(photo.photo.name if photo.photo else None)
-        control_rows = get_control_rows_for_id(id_control) if id_control else []
-        control_name = control_rows[0].get("control_name") if control_rows else None
+        control_name = get_control_name_for_id(id_control) if id_control else None
         photo_info = {
             'photo': photo,
             'path': photo_path,
@@ -726,7 +707,6 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
             'is_png': is_png,
             'control_name': control_name,
             'id_control': id_control,
-            'control_rows': control_rows,
         }
         photo_data.append(photo_info)
     
@@ -948,8 +928,7 @@ def inspection_pdf(request, inspection_id):
                 logger.warning(f"Photo {photo.id} path not found. Photo name: {photo.photo.name if photo.photo else 'None'}")
         
         id_control = _id_control_from_photo_name(photo.photo.name if photo.photo else None)
-        control_rows = get_control_rows_for_id(id_control) if id_control else []
-        control_name = control_rows[0].get("control_name") if control_rows else None
+        control_name = get_control_name_for_id(id_control) if id_control else None
         photo_info = {
             'photo': photo,
             'path': photo_path,  # Actual file path (PNG if available, otherwise original)
@@ -958,7 +937,6 @@ def inspection_pdf(request, inspection_id):
             'is_png': is_png,  # Flag indicating if PNG version was used
             'control_name': control_name,
             'id_control': id_control,
-            'control_rows': control_rows,
         }
         photo_data.append(photo_info)
     
