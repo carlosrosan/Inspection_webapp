@@ -14,7 +14,6 @@ class MainConfig(AppConfig):
         1. Loads initial PLC data from CSV
         2. Starts background CSV monitor (reads new data every 30s)
         3. Starts background photo processor (creates inspections for new photos every 30s)
-        4. Starts screen capture monitor (records screen while CicloActivo is TRUE in CSV)
         """
         # Import here to avoid AppRegistryNotReady error
         import os
@@ -127,41 +126,10 @@ class MainConfig(AppConfig):
                 import traceback
                 logger.error(traceback.format_exc())
             
-            # ============================================================
-            # STEP 4: Start screen capture monitor (daemon thread)
-            # ============================================================
-            screen_capture_thread = None
-            try:
-                import threading
-            
-                from etl.screen_capture import monitor_and_record_inspections
-
-                def _run_screen_capture():
-                    try:
-                        monitor_and_record_inspections()
-                    except Exception as exc:
-                        logger.error(f"✗ Error en monitor de captura de pantalla: {exc}")
-                        import traceback
-                        logger.error(traceback.format_exc())
-                
-                screen_capture_thread = threading.Thread(
-                    target=_run_screen_capture,
-                    name="screen-capture-monitor",
-                    daemon=True,
-                )
-                screen_capture_thread.start()
-                logger.info("✓ Monitor de captura de pantalla iniciado (CicloActivo / CSV, 2 FPS, máx. 30 min por ciclo)")
-            except Exception as e:
-                logger.error(f"✗ Error iniciando el screen capture: {e}")
-                import traceback
-                logger.error(traceback.format_exc())
-
-            
             logger.info("=" * 60)
             logger.info("Sistema Conuar iniciado completamente")
             logger.info(f"  - Monitor CSV: {'✓ Activo' if csv_thread and csv_thread.is_alive() else '✗ Inactivo'} (cada 30s)")
             logger.info(f"  - Monitor Fotos: {'✓ Activo' if photo_thread and photo_thread.is_alive() else '✗ Inactivo'} (cada 30s)")
-            logger.info(f"  - Captura pantalla: {'✓ Activo' if screen_capture_thread and screen_capture_thread.is_alive() else '✗ Inactivo'}")
             logger.info("=" * 60)
             
         except Exception as e:

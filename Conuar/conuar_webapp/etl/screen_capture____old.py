@@ -9,10 +9,6 @@ import numpy as np
 
 import mss
 
-# Defaults for inspection recording (overridable via function args / CLI)
-DEFAULT_FPS = 2
-DEFAULT_MAX_RECORDING_SECONDS = 30 * 60  # 30 minutes cap per active cycle
-
 
 def is_boolean_true(value) -> bool:
     """Check if a value represents boolean TRUE"""
@@ -60,23 +56,21 @@ def read_csv_last_line(csv_file: Path) -> Optional[Dict]:
     return None
 
 
-def capture_screen_with_recording(fps=None, max_duration=None, output_dir=None):
+def capture_screen_with_recording(fps=15, max_duration=5, output_dir=None):
     """
     Capture screen and record as video file.
     
     Args:
-        fps: Frames per second for video recording (default: DEFAULT_FPS)
-        max_duration: Maximum recording duration in seconds (default: DEFAULT_MAX_RECORDING_SECONDS)
+        fps: Frames per second for video recording (default: 15)
+        max_duration: Maximum recording duration in seconds (default: 5)
         output_dir: Directory to save video files (default: media/inspection_video)
     """
-    if fps is None:
-        fps = DEFAULT_FPS
-    if max_duration is None:
-        max_duration = DEFAULT_MAX_RECORDING_SECONDS
     # Set up output directory
     if output_dir is None:
+        # Get the project root (parent of etl directory)
         current_dir = Path(__file__).resolve().parent
-        output_dir = current_dir / "media" / "inspection_video"
+        project_root = current_dir.parent
+        output_dir = project_root / "media" / "inspection_video"
     
     # Create output directory if it doesn't exist
     output_dir = Path(output_dir)
@@ -165,32 +159,20 @@ def capture_screen_with_recording(fps=None, max_duration=None, output_dir=None):
         print(f"File size: {file_size:.2f} MB")
 
 
-def monitor_and_record_inspections(
-    fps=None,
-    csv_file_path=None,
-    output_dir=None,
-    check_interval=1.0,
-    max_recording_seconds=None,
-):
+def monitor_and_record_inspections(fps=15, csv_file_path=None, output_dir=None, check_interval=1.0):
     """
     Monitor CSV file for CicloActivo changes and record screen during inspections.
     
     Args:
-        fps: Frames per second for video recording (default: DEFAULT_FPS)
+        fps: Frames per second for video recording (default: 15)
         csv_file_path: Path to plc_reads_nodered.csv file
         output_dir: Directory to save video files (default: media/inspection_video)
         check_interval: How often to check CSV file in seconds (default: 1.0)
-        max_recording_seconds: Max duration per recording session in seconds, in addition
-            to stopping when CicloActivo becomes FALSE (default: 30 minutes)
     """
-    if fps is None:
-        fps = DEFAULT_FPS
-    if max_recording_seconds is None:
-        max_recording_seconds = DEFAULT_MAX_RECORDING_SECONDS
     # Set up CSV file path
     if csv_file_path is None:
         current_dir = Path(__file__).resolve().parent
-        csv_file_path = current_dir / "etl/NodeRed/plc_reads/plc_reads_nodered.csv"
+        csv_file_path = current_dir / "NodeRed" / "plc_reads" / "plc_reads_nodered.csv"
     else:
         csv_file_path = Path(csv_file_path)
     
@@ -201,7 +183,8 @@ def monitor_and_record_inspections(
     # Set up output directory
     if output_dir is None:
         current_dir = Path(__file__).resolve().parent
-        output_dir = current_dir / "media" / "inspection_video"
+        project_root = current_dir.parent
+        output_dir = project_root / "media" / "inspection_video"
     
     output_dir = Path(output_dir)
     output_dir.mkdir(parents=True, exist_ok=True)
@@ -212,7 +195,6 @@ def monitor_and_record_inspections(
     print(f"Monitoring CSV: {csv_file_path}")
     print(f"Output directory: {output_dir}")
     print(f"Recording FPS: {fps}")
-    print(f"Max recording per cycle: {max_recording_seconds // 60} min ({max_recording_seconds}s)")
     print(f"Check interval: {check_interval}s")
     print("=" * 80)
     print()
@@ -335,25 +317,6 @@ def monitor_and_record_inspections(
                 if video_writer is not None:
                     video_writer.write(img_bgr)
                 
-                # Max duration per cycle (in addition to CicloActivo -> FALSE)
-                if recording_start_time is not None:
-                    elapsed = time.time() - recording_start_time
-                    if elapsed >= max_recording_seconds:
-                        print(f"\n>>> Maximum recording duration ({max_recording_seconds // 60} min) reached. Stopping...")
-                        if video_writer is not None:
-                            video_writer.release()
-                            video_writer = None
-                        if current_inspection_info:
-                            output_file = current_inspection_info['output_file']
-                            if output_file.exists():
-                                file_size = output_file.stat().st_size / (1024 * 1024)
-                                duration = time.time() - current_inspection_info['start_time']
-                                print(f"    Video saved: {output_file.name}")
-                                print(f"    Duration: {duration:.1f}s, Size: {file_size:.2f} MB")
-                        current_inspection_info = None
-                        is_recording = False
-                        print("    Waiting for next inspection cycle...")
-                
                 # Sleep to maintain FPS
                 sleep_time = frame_time - (time.time() - last_time)
                 if sleep_time > 0:
@@ -384,4 +347,4 @@ def monitor_and_record_inspections(
 
 if __name__ == "__main__":
     # Monitor CSV and record during inspections
-    monitor_and_record_inspections(check_interval=1.0)
+    monitor_and_record_inspections(fps=15, check_interval=1.0)

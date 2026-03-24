@@ -25373,3 +25373,6 @@ datetime,CicloActivo,ReiniciarCiclo,AbortarCiclo,FinCiclo,ID_Control,Nombre_Cont
 
 2026-03-20T19:31:42.370Z,false,false,false,false,,,E7574,20MAR7
 
+2026-03-24T08:26:24.642Z,true,false,false,true,,,prueba_screen_capture_1,prueba_screen_capture_1
+
+2026-03-24T08:27:24.642Z,false,false,false,true,,,prueba_screen_capture_1,prueba_screen_capture_1
