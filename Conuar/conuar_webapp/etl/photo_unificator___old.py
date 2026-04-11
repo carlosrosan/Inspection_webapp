@@ -187,7 +187,7 @@ def _convert_bmp_to_png(bmp_path: Path, output_path: Optional[Path] = None) -> O
 
 def unify_photo(bmp_path: Path) -> Optional[Path]:
     """
-    Función principal para unificar una foto BMP (legacy).
+    Función principal para unificar una foto.
     Busca automáticamente el SVG correspondiente y crea el PNG.
     
     Args:
@@ -197,26 +197,6 @@ def unify_photo(bmp_path: Path) -> Optional[Path]:
         Path al archivo PNG creado, o None si falla
     """
     return overlay_svg_on_bmp(bmp_path)
-
-
-def unify_photo_png(png_path: Path) -> Optional[Path]:
-    """
-    Overlay SVG vectors on a PNG source image, saving as {stem}_comb.png.
-    If no matching SVG exists, returns None (the original PNG is already usable).
-
-    Args:
-        png_path: Path to the source PNG file
-
-    Returns:
-        Path to the combined PNG file (_comb.png), or None if no SVG or failure
-    """
-    svg_path = png_path.with_suffix('.svg')
-    if not svg_path.exists():
-        logger.info(f"No SVG found for {png_path.name}, skipping combination")
-        return None
-
-    output_path = png_path.with_name(png_path.stem + '_comb.png')
-    return overlay_svg_on_bmp(png_path, svg_path=svg_path, output_path=output_path)
 
 
 if __name__ == "__main__":

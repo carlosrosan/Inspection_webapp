@@ -250,38 +250,5 @@ LOGGING = {
             'level': 'INFO',
             'propagate': False,
         },
-        'main.services.inspection_photo_report_email': {
-            'handlers': ['etl_file', 'console'],
-            'level': 'INFO',
-            'propagate': False,
-        },
     },
 }
-
-# -----------------------------------------------------------------------------
-# Email: informe HTML tras procesar inspección (PLC)
-# Use .env for secrets (Gmail: "app password" as EMAIL_HOST_PASSWORD).
-# -----------------------------------------------------------------------------
-EMAIL_BACKEND = os.getenv('EMAIL_BACKEND', 'django.core.mail.backends.smtp.EmailBackend')
-EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
-EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
-EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'true').lower() in ('1', 'true', 'yes')
-EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'false').lower() in ('1', 'true', 'yes')
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'arbyteconuargmail.com')
-EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'qpce wxby sunj skvz')
-DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'webmaster@localhost')
-
-# Comma-separated list, e.g. "ops@example.com,supervisor@example.com"
-INSPECTION_PROCESSED_EMAIL_RECIPIENTS = [
-    addr.strip()
-    for addr in os.getenv('INSPECTION_PROCESSED_EMAIL_RECIPIENTS', '').split(',')
-    if addr.strip()
-]
-
-INSPECTION_PROCESSED_EMAIL_ENABLED = os.getenv(
-    'INSPECTION_PROCESSED_EMAIL_ENABLED', 'false'
-).lower() in ('1', 'true', 'yes')
-
-INSPECTION_PROCESSED_EMAIL_SUBJECT_PREFIX = os.getenv(
-    'INSPECTION_PROCESSED_EMAIL_SUBJECT_PREFIX', '[Conuar]'
-)

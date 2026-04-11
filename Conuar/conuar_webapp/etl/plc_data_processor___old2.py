@@ -613,14 +613,6 @@ class PlcDataProcessor:
         # === PHASE 2: File operations (after DB commit) ===
         self._execute_pending_moves(pending_moves, inspection)
 
-        # === Email: HTML report (BD vs STAGING vs PROCESSED) — non-blocking ===
-        try:
-            from main.services.inspection_photo_report_email import send_inspection_processed_report_email
-
-            send_inspection_processed_report_email(inspection.id)
-        except Exception as e:
-            logger.error("Error enviando informe por email de inspección %s: %s", inspection.id, e, exc_info=True)
-
         # === PHASE 3: Non-critical post-processing ===
         self.update_machine_stats(inspection)
 
