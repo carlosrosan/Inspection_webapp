@@ -481,3 +481,6 @@ INFO 2026-04-10 16:56:16,920 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-04-10 16:56:16,921 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-04-10 16:56:16,923 LOGOUT - User: admin, IP: 127.0.0.1
 INFO 2026-04-10 16:56:16,926 LOGOUT - User: admin, IP: 127.0.0.1
+INFO 2026-04-11 13:46:34,834 LOGIN_ATTEMPT - User: admin, IP: 127.0.0.1, Attempt: 1, User-Agent: Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/147.0.0.0 Safari/537.36
+INFO 2026-04-11 13:46:35,131 LOGIN_SUCCESS - User: admin, IP: 127.0.0.1, Role: Supervisor
+INFO 2026-04-11 14:01:34,705 LOGOUT - User: admin, IP: 127.0.0.1

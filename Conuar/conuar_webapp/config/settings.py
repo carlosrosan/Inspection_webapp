@@ -267,19 +267,19 @@ EMAIL_HOST = os.getenv('EMAIL_HOST', 'smtp.gmail.com')
 EMAIL_PORT = int(os.getenv('EMAIL_PORT', '587'))
 EMAIL_USE_TLS = os.getenv('EMAIL_USE_TLS', 'true').lower() in ('1', 'true', 'yes')
 EMAIL_USE_SSL = os.getenv('EMAIL_USE_SSL', 'false').lower() in ('1', 'true', 'yes')
-EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'arbyteconuargmail.com')
+EMAIL_HOST_USER = os.getenv('EMAIL_HOST_USER', 'arbyteconuar@gmail.com')
 EMAIL_HOST_PASSWORD = os.getenv('EMAIL_HOST_PASSWORD', 'qpce wxby sunj skvz')
 DEFAULT_FROM_EMAIL = os.getenv('DEFAULT_FROM_EMAIL', EMAIL_HOST_USER or 'webmaster@localhost')
 
 # Comma-separated list, e.g. "ops@example.com,supervisor@example.com"
 INSPECTION_PROCESSED_EMAIL_RECIPIENTS = [
     addr.strip()
-    for addr in os.getenv('INSPECTION_PROCESSED_EMAIL_RECIPIENTS', '').split(',')
+    for addr in os.getenv('INSPECTION_PROCESSED_EMAIL_RECIPIENTS', 'carlosd2.rodriguez@gmail.com').split(',')
     if addr.strip()
 ]
 
 INSPECTION_PROCESSED_EMAIL_ENABLED = os.getenv(
-    'INSPECTION_PROCESSED_EMAIL_ENABLED', 'false'
+    'INSPECTION_PROCESSED_EMAIL_ENABLED', 'true'
 ).lower() in ('1', 'true', 'yes')
 
 INSPECTION_PROCESSED_EMAIL_SUBJECT_PREFIX = os.getenv(
