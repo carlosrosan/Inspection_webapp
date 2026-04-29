@@ -13,6 +13,9 @@ Two-phase processing (DB-first pattern):
   Phase 1 (atomic): Create Inspection + InspectionPhoto rows, combine PNG+SVG -> _comb.png
   Phase 2 (post-commit): Move all files (PNG, SVG, _comb.png) from STAGING to PROCESSED
 
+Concurrent Django instances share one MySQL DB: process_pending_cycles uses GET_LOCK so only
+one instance runs PLC cycle → inspection creation at a time (avoids duplicate get_or_create races).
+
 PDF generation is disabled; PDFs are created manually via the web UI button.
 
 Sistema de inspección de combustible Conuar
@@ -66,6 +69,53 @@ if not logger.handlers:
             logging.StreamHandler()
         ]
     )
+
+# MySQL session lock: must be <= 64 chars. Shared across all app instances using the same DB.
+MYSQL_PLC_CYCLE_LOCK_NAME = "conuar_plc_pending_cycles"
+
+
+def _mysql_acquire_plc_cycle_lock_nonblocking() -> bool:
+    """
+    Try to acquire MySQL advisory lock (GET_LOCK) for PLC batch processing.
+    Returns True if this connection holds the lock; False if another session holds it.
+    On non-MySQL backends, returns True (no cross-process lock; dev/test only).
+    """
+    from django.db import connection
+
+    if connection.vendor != "mysql":
+        logger.debug(
+            "PLC cycle lock skipped (database vendor=%s; GET_LOCK is MySQL-only).",
+            connection.vendor,
+        )
+        return True
+
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute(
+                "SELECT GET_LOCK(%s, %s)",
+                [MYSQL_PLC_CYCLE_LOCK_NAME, 0],
+            )
+            row = cursor.fetchone()
+    except Exception as exc:
+        logger.error("GET_LOCK(%r) failed: %s", MYSQL_PLC_CYCLE_LOCK_NAME, exc, exc_info=True)
+        return False
+
+    if not row:
+        return False
+    # GET_LOCK returns 1 = acquired, 0 = already held by another, NULL = error
+    return row[0] == 1
+
+
+def _mysql_release_plc_cycle_lock() -> None:
+    from django.db import connection
+
+    if connection.vendor != "mysql":
+        return
+    try:
+        with connection.cursor() as cursor:
+            cursor.execute("SELECT RELEASE_LOCK(%s)", [MYSQL_PLC_CYCLE_LOCK_NAME])
+    except Exception as exc:
+        logger.warning("RELEASE_LOCK(%r): %s", MYSQL_PLC_CYCLE_LOCK_NAME, exc)
 
 
 class PlcDataProcessor:
@@ -1135,44 +1185,51 @@ class PlcDataProcessor:
         """Agrupa raws PLC en ciclos y crea una inspección por ciclo."""
         summary = {"cycles": 0, "inspections": 0, "errors": 0}
 
-        raw_rows = self.get_unprocessed_raw_data(limit=batch_size)
-        #print('debug')
-        #print(len(raw_rows))
-        if not raw_rows:
-            logger.debug("No hay datos PLC pendientes por ciclo.")
+        lock_acquired = _mysql_acquire_plc_cycle_lock_nonblocking()
+        if not lock_acquired:
+            logger.info(
+                "Otra instancia tiene el bloqueo PLC MySQL GET_LOCK(%r); "
+                "omitiendo procesamiento de ciclos en esta pasada.",
+                MYSQL_PLC_CYCLE_LOCK_NAME,
+            )
             return summary
 
-        cycles = self._group_raw_rows_by_cycle(raw_rows)
-        summary["cycles"] = len(cycles)
+        try:
+            raw_rows = self.get_unprocessed_raw_data(limit=batch_size)
+            if not raw_rows:
+                logger.debug("No hay datos PLC pendientes por ciclo.")
+                return summary
 
-        #print('debug')
-        #print(len(cycles))
+            cycles = self._group_raw_rows_by_cycle(raw_rows)
+            summary["cycles"] = len(cycles)
 
-        logger.info("=" * 80)
-        logger.info("Procesamiento de ciclos PLC")
-        logger.info(f"Ciclos detectados: {summary['cycles']}")
-        logger.info("=" * 80)
+            logger.info("=" * 80)
+            logger.info("Procesamiento de ciclos PLC")
+            logger.info(f"Ciclos detectados: {summary['cycles']}")
+            logger.info("=" * 80)
 
-        for idx, cycle_rows in enumerate(cycles, start=1):
-            try:
-                logger.info(
-                    f"[Ciclo {idx}/{summary['cycles']}] Procesando filas PLC "
-                    f"({cycle_rows[0].id} to {cycle_rows[-1].id})"
-                )
-                if self.process_cycle(cycle_rows):
-                    summary["inspections"] += 1
-                else:
+            for idx, cycle_rows in enumerate(cycles, start=1):
+                try:
+                    logger.info(
+                        f"[Ciclo {idx}/{summary['cycles']}] Procesando filas PLC "
+                        f"({cycle_rows[0].id} to {cycle_rows[-1].id})"
+                    )
+                    if self.process_cycle(cycle_rows):
+                        summary["inspections"] += 1
+                    else:
+                        summary["errors"] += 1
+                except Exception:
                     summary["errors"] += 1
-            except Exception:
-                summary["errors"] += 1
-                logger.exception(f"Error procesando ciclo #{idx}")
+                    logger.exception(f"Error procesando ciclo #{idx}")
 
-        if summary["inspections"]:
-            logger.info(f"Inspecciones creadas: {summary['inspections']}")
-        if summary["errors"]:
-            logger.warning(f"Ciclos con error: {summary['errors']}")
+            if summary["inspections"]:
+                logger.info(f"Inspecciones creadas: {summary['inspections']}")
+            if summary["errors"]:
+                logger.warning(f"Ciclos con error: {summary['errors']}")
 
-        return summary
+            return summary
+        finally:
+            _mysql_release_plc_cycle_lock()
     
     def monitor_and_process(self, interval_seconds: int = 30):
         """

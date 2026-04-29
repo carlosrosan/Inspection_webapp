@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Informe inspección #{{ inspection.id }}</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #4A90E2;
+            --primary-dark: #357ABD;
+            --dark-bg: #1a1a2e;
+            --darker-bg: #16213e;
+            --text-primary: #ffffff;
+            --text-secondary: #b8c5d1;
+            --text-muted: #7a8b99;
+            --accent-color: #e74c3c;
+        }
+        body {
+            background-color: var(--dark-bg);
+            color: var(--text-primary);
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        .section-padding { padding: 2rem 0; }
+        .card-email {
+            background: linear-gradient(145deg, var(--darker-bg) 0%, #1e2a4a 100%);
+            border: 1px solid rgba(74, 144, 226, 0.2) !important;
+        }
+        .text-muted-email { color: var(--text-muted) !important; }
+        .page-title { color: var(--text-primary); }
+        .card-header-email {
+            background: linear-gradient(90deg, var(--primary-dark), var(--primary-color)) !important;
+            border: none;
+        }
+    </style>
+</head>
+<body>
+<div class="container mt-2 mb-4">
+    <div class="row">
+        <div class="col-12">
+            <h1 class="h3 fw-bold mb-1 page-title">
+                <i class="fas fa-clipboard-check me-2 text-primary"></i>Informe de inspección procesada
+            </h1>
+            <p class="text-muted-email small mb-2">Inspección #{{ inspection.id }} — {{ inspection.product_code|default:"—" }}</p>
+        </div>
+    </div>
+</div>
+
+<section class="section-padding pt-0">
+    <div class="container">
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="h4 fw-bold mb-3 page-title">
+                    <i class="fas fa-tachometer-alt me-2"></i>Resumen (PLC)
+                </h2>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-calendar-alt fa-3x text-primary mb-3"></i>
+                        <h3 class="h5 fw-bold text-primary mb-2">Fecha y hora</h3>
+                        <p class="mb-0 fs-5">{{ inspection_datetime_display }}</p>
+                        <small class="text-muted-email">Inspección completada / inspección</small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-images fa-3x text-info mb-3"></i>
+                        <h2 class="display-5 fw-bold text-info">{{ db_photo_count }}</h2>
+                        <p class="text-muted-email mb-0">Fotos en BD<br><small>(main_inspectionphoto)</small></p>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-4 col-md-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-exclamation-triangle fa-3x text-warning mb-3"></i>
+                        <h2 class="display-5 fw-bold text-warning">{{ defect_photo_count }}</h2>
+                        <p class="text-muted-email mb-1">Fotos con defecto</p>
+                        <small class="text-muted-email">
+                            Inspección marcada con defecto:
+                            {% if inspection_defect_flag %}<span class="text-warning">Sí</span>{% else %}<span class="text-success">No</span>{% endif %}
+                        </small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row mb-4">
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-folder-open fa-3x text-success mb-3"></i>
+                        <h2 class="display-5 fw-bold text-success">{{ processed_folder_count }}</h2>
+                        <p class="text-muted-email mb-2">Archivos imagen en PROCESSED</p>
+                        <small class="text-muted-email d-block">Carpeta: <code class="text-light">{{ processed_subdir }}</code></small>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-lg-6 mb-4">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-hourglass-half fa-3x text-danger mb-3"></i>
+                        <h2 class="display-5 fw-bold text-danger">{{ staging_remaining_count }}</h2>
+                        <p class="text-muted-email mb-0">Archivos imagen restantes en STAGING</p>
+                        <small class="text-muted-email">Prefijo ciclo-elemento: {{ inspection.batch_number|default:"—" }}-{{ inspection.serial_number|default:"—" }}-</small>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        {% if staging_files or processed_files %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-lg card-email">
+                    <div class="card-header card-header-email text-white py-3">
+                        <h5 class="mb-0"><i class="fas fa-list me-2"></i>Detalle de archivos (muestra)</h5>
+                    </div>
+                    <div class="card-body">
+                        {% if staging_files %}
+                        <h6 class="text-danger mb-2"><i class="fas fa-folder me-1"></i>STAGING</h6>
+                        <ul class="small text-secondary mb-3">
+                            {% for name in staging_files %}<li class="text-light">{{ name }}</li>{% endfor %}
+                        </ul>
+                        {% if staging_files_truncated %}<p class="small text-muted-email">… lista truncada</p>{% endif %}
+                        {% endif %}
+                        {% if processed_files %}
+                        <h6 class="text-success mb-2"><i class="fas fa-folder-open me-1"></i>PROCESSED</h6>
+                        <ul class="small text-secondary mb-0">
+                            {% for name in processed_files %}<li class="text-light">{{ name }}</li>{% endfor %}
+                        </ul>
+                        {% if processed_files_truncated %}<p class="small text-muted-email mt-2">… lista truncada</p>{% endif %}
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+    </div>
+</section>
+</body>
+</html>

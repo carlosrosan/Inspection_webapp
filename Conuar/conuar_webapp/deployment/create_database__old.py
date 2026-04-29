@@ -205,13 +205,10 @@ def get_sql_create_statements():
             location varchar(200) NOT NULL DEFAULT '',
             inspection_date datetime(6) NOT NULL,
             completed_date datetime(6),
-            photo_start_timestamp datetime(6),
-            photo_finish_timestamp datetime(6),
             result longtext NOT NULL,
             notes longtext NOT NULL,
             recommendations longtext NOT NULL,
             defecto_encontrado bool NOT NULL DEFAULT 0,
-            operator_name varchar(200) NOT NULL DEFAULT '',
             created_at datetime(6) NOT NULL,
             updated_at datetime(6) NOT NULL,
             inspector_id bigint NOT NULL,
@@ -303,8 +300,6 @@ def get_sql_create_statements():
             camera_3_ip char(39) NOT NULL DEFAULT '192.168.1.102',
             plc_ip char(39) NOT NULL DEFAULT '192.168.1.50',
             plc_port int unsigned NOT NULL DEFAULT 502,
-            autologin_enabled bool NOT NULL DEFAULT 0,
-            autologin_username varchar(150),
             created_at datetime(6) NOT NULL,
             updated_at datetime(6) NOT NULL,
             updated_by_id bigint,
@@ -391,29 +386,14 @@ def get_sql_create_statements():
         );
         """,
 
-        """
+        """ 
         CREATE TABLE IF NOT EXISTS control_names (
             id_control VARCHAR(50) NOT NULL PRIMARY KEY,
             control_name VARCHAR(255) NOT NULL,
             valor_esperado VARCHAR(255) NULL,
             tolerancia VARCHAR(255) NULL
         );
-        """,
 
-        # Arrow Details table — per-inspection laser sensor rows (torsion & deflection)
-        """
-        CREATE TABLE IF NOT EXISTS arrow_details (
-            id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
-            inspection_id bigint NOT NULL,
-            row_index int NOT NULL,
-            s1 double,
-            s2 double,
-            s3 double,
-            xc double,
-            yc double,
-            diametro double,
-            KEY arrow_details_inspection_id_idx (inspection_id)
-        );
         """,
         
         # Foreign Key Constraints
@@ -501,16 +481,10 @@ def get_sql_create_statements():
         FOREIGN KEY (id_inspection_id) REFERENCES main_inspection (id);
         """,
         
-        """
-        ALTER TABLE arrow_details
-        ADD CONSTRAINT arrow_details_inspection_id_fk
-        FOREIGN KEY (inspection_id) REFERENCES main_inspection (id) ON DELETE CASCADE;
-        """,
-
         # Django Admin Log foreign key constraints
         """
-        ALTER TABLE django_admin_log
-        ADD CONSTRAINT django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id
+        ALTER TABLE django_admin_log 
+        ADD CONSTRAINT django_admin_log_content_type_id_c4bce8eb_fk_django_content_type_id 
         FOREIGN KEY (content_type_id) REFERENCES django_content_type (id);
         """,
         
@@ -580,13 +554,10 @@ def create_missing_inspection_table(connection):
                     location varchar(200) NOT NULL DEFAULT '',
                     inspection_date datetime(6) NOT NULL,
                     completed_date datetime(6),
-                    photo_start_timestamp datetime(6),
-                    photo_finish_timestamp datetime(6),
                     result longtext NOT NULL,
                     notes longtext NOT NULL,
                     recommendations longtext NOT NULL,
                     defecto_encontrado bool NOT NULL DEFAULT 0,
-                    operator_name varchar(200) NOT NULL DEFAULT '',
                     created_at datetime(6) NOT NULL,
                     updated_at datetime(6) NOT NULL,
                     inspector_id bigint NOT NULL,
@@ -946,17 +917,15 @@ def main():
         print(f"Database: {DATABASE_NAME}")
         print("Tables created:")
         print("- main_user (custom user authentication)")
-        print("- main_inspection (inspection records + operator_name + photo timestamps)")
+        print("- main_inspection (inspection records)")
         print("- main_inspectionphoto (inspection photos)")
         print("- main_digit_predictions (MNIST digit predictions for photos)")
         print("- main_inspectionmachine (machine status)")
         print("- main_machinelog (machine logs)")
-        print("- main_systemconfiguration (system settings + autologin)")
+        print("- main_systemconfiguration (system settings)")
         print("- main_inspectionplcevent (PLC events)")
         print("- main_plcreading (PLC readings)")
         print("- plc_data_raw (raw PLC data from CSV files)")
-        print("- arrow_details (laser sensor torsion/deflection data per inspection)")
-        print("- control_names (control point name lookup)")
         print("- django_admin_log (Django admin logging)")
         print("- Django system tables (auth, sessions, etc.)")
         
