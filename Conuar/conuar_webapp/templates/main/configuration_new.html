@@ -127,6 +127,71 @@
         </div>
 
 
+        <!-- Autologin Configuration -->
+        <div class="row mb-5">
+            <div class="col-12">
+                <div class="card">
+                    <div class="card-header bg-warning text-dark">
+                        <h3 class="card-title mb-0">
+                            <i class="fas fa-bolt me-2"></i>Inicio de Sesión Automático
+                        </h3>
+                    </div>
+                    <div class="card-body">
+                        <form method="post">
+                            {% csrf_token %}
+                            <input type="hidden" name="form_type" value="system_config">
+                            <!-- Hidden fields to keep current values for other sections -->
+                            <input type="hidden" name="media_storage_path" value="{{ current_config.media_storage_path }}">
+                            <input type="hidden" name="plc_ip" value="{{ current_config.plc_ip }}">
+                            <input type="hidden" name="plc_port" value="{{ current_config.plc_port }}">
+                            <input type="hidden" name="camera_1_ip" value="{{ current_config.camera_1_ip }}">
+                            <input type="hidden" name="camera_2_ip" value="{{ current_config.camera_2_ip }}">
+                            <input type="hidden" name="camera_3_ip" value="{{ current_config.camera_3_ip }}">
+
+                            <div class="row align-items-center">
+                                <div class="col-md-4 mb-3">
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox"
+                                               id="autologin_enabled" name="autologin_enabled" role="switch"
+                                               {% if current_config.autologin_enabled %}checked{% endif %}>
+                                        <label class="form-check-label fw-bold" for="autologin_enabled">
+                                            Habilitar Inicio de Sesión Automático
+                                        </label>
+                                    </div>
+                                    <div class="form-text text-muted">
+                                        Si está activo, la aplicación iniciará sesión automáticamente sin pedir contraseña.
+                                    </div>
+                                </div>
+                                <div class="col-md-4 mb-3">
+                                    <label for="autologin_username" class="form-label">
+                                        <i class="fas fa-user me-1"></i>Usuario para Autologin
+                                    </label>
+                                    <select class="form-select" id="autologin_username" name="autologin_username">
+                                        <option value="">— Seleccionar usuario —</option>
+                                        {% for user in users %}
+                                        <option value="{{ user.username }}"
+                                            {% if current_config.autologin_username == user.username %}selected{% endif %}>
+                                            {{ user.username }}{% if user.first_name or user.last_name %} ({{ user.first_name }} {{ user.last_name }}){% endif %}
+                                        </option>
+                                        {% endfor %}
+                                    </select>
+                                    <div class="form-text text-muted">
+                                        Usuario que se autologueará automáticamente.
+                                    </div>
+                                </div>
+                            </div>
+
+                            <div class="text-end">
+                                <button type="submit" class="btn btn-warning btn-custom">
+                                    <i class="fas fa-save me-2"></i>Guardar Autologin
+                                </button>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <!-- Users List -->
         <div class="row">
             <div class="col-12">

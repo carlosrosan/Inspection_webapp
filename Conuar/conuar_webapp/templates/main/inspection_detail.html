@@ -109,14 +109,6 @@
                                             <i class="fas fa-user me-2"></i>{{ inspection.inspector.username }}
                                         </td>
                                     </tr>
-                                    {% if inspection.operator_name %}
-                                    <tr>
-                                        <td><strong>Operador:</strong></td>
-                                        <td>
-                                            <i class="fas fa-hard-hat me-2"></i>{{ inspection.operator_name }}
-                                        </td>
-                                    </tr>
-                                    {% endif %}
                                 </table>
                             </div>
                             <div class="col-md-6">
@@ -313,103 +305,6 @@
     </div>
 </section>
 
-<!-- Arrow Details Section -->
-{% if arrow_details %}
-<section class="section-padding">
-    <div class="container">
-        <div class="row text-center mb-4">
-            <div class="col-lg-8 mx-auto">
-                <h2 class="display-6 fw-bold mb-2">
-                    <i class="fas fa-ruler-combined me-3"></i>Control de Torsión y Flecha
-                </h2>
-                <p class="lead text-muted">Lecturas de sensores láser por posición</p>
-            </div>
-        </div>
-
-        <div class="row">
-            <!-- Data table -->
-            <div class="col-lg-7 mb-4">
-                <div class="card border-0 shadow-sm">
-                    <div class="card-header bg-primary text-white">
-                        <h5 class="mb-0"><i class="fas fa-table me-2"></i>Datos de Sensores</h5>
-                    </div>
-                    <div class="card-body p-0">
-                        <div class="table-responsive">
-                            <table class="table table-sm table-striped mb-0" id="arrowTable">
-                                <thead class="table-primary">
-                                    <tr>
-                                        <th>#</th>
-                                        <th>S1 (mm)</th>
-                                        <th>S2 (mm)</th>
-                                        <th>S3 (mm)</th>
-                                        <th>Xc (mm)</th>
-                                        <th>Yc (mm)</th>
-                                        <th>Diámetro (mm)</th>
-                                    </tr>
-                                </thead>
-                                <tbody>
-                                    {% for row in arrow_details %}
-                                    <tr>
-                                        <td>{{ row.row_index }}</td>
-                                        <td>{% if row.s1 != None %}{{ row.s1|floatformat:2 }}{% else %}—{% endif %}</td>
-                                        <td>{% if row.s2 != None %}{{ row.s2|floatformat:2 }}{% else %}—{% endif %}</td>
-                                        <td>{% if row.s3 != None %}{{ row.s3|floatformat:2 }}{% else %}—{% endif %}</td>
-                                        <td>{% if row.xc != None %}{{ row.xc|floatformat:2 }}{% else %}—{% endif %}</td>
-                                        <td>{% if row.yc != None %}{{ row.yc|floatformat:2 }}{% else %}—{% endif %}</td>
-                                        <td>
-                                            {% if row.diametro != None %}{{ row.diametro|floatformat:2 }}{% else %}—{% endif %}
-                                            {% if forloop.first and row.diametro != None %}
-                                            <span class="badge bg-success ms-1">✓</span>
-                                            {% endif %}
-                                        </td>
-                                    </tr>
-                                    {% endfor %}
-                                </tbody>
-                            </table>
-                        </div>
-                    </div>
-                </div>
-            </div>
-
-            <!-- Charts -->
-            <div class="col-lg-5 mb-4">
-                <div class="row g-3">
-                    <div class="col-12">
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-info text-white py-2">
-                                <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Vista frontal — Xc</small>
-                            </div>
-                            <div class="card-body p-2" style="position:relative; height:280px;">
-                                <canvas id="arrowChartXc"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-12">
-                        <div class="card border-0 shadow-sm">
-                            <div class="card-header bg-secondary text-white py-2">
-                                <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Vista lateral — Yc</small>
-                            </div>
-                            <div class="card-body p-2" style="position:relative; height:280px;">
-                                <canvas id="arrowChartYc"></canvas>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-
-<!-- Arrow chart data passed to JS -->
-<script id="arrowChartData" type="application/json">
-{
-    "labels": [{% for row in arrow_details %}{{ row.row_index }}{% if not forloop.last %},{% endif %}{% endfor %}],
-    "xc": [{% for row in arrow_details %}{% if row.xc != None %}{{ row.xc }}{% else %}null{% endif %}{% if not forloop.last %},{% endif %}{% endfor %}],
-    "yc": [{% for row in arrow_details %}{% if row.yc != None %}{{ row.yc }}{% else %}null{% endif %}{% if not forloop.last %},{% endif %}{% endfor %}]
-}
-</script>
-{% endif %}
-
 <!-- Photos Section -->
 {% if photos_data %}
 <section class="section-padding bg-light">
@@ -531,79 +426,7 @@
 {% endblock %}
 
 {% block extra_js %}
-{% if arrow_details %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-{% endif %}
 <script>
-    // Arrow deflection charts
-    (function() {
-        const dataEl = document.getElementById('arrowChartData');
-        if (!dataEl) return;
-        const d = JSON.parse(dataEl.textContent);
-
-        function buildArrowChart(canvasId, values, color, bgColor) {
-            const ctx = document.getElementById(canvasId);
-            if (!ctx || !window.Chart) return;
-
-            // Try to load background image
-            const bgImg = new Image();
-            bgImg.src = '/static/assets/arrow_bg.png';
-
-            const bgPlugin = {
-                id: 'customBg',
-                beforeDraw(chart) {
-                    const { ctx: c, chartArea } = chart;
-                    if (!bgImg.complete || !bgImg.naturalWidth) return;
-                    c.save();
-                    c.globalAlpha = 0.25;
-                    c.drawImage(bgImg, chartArea.left, chartArea.top, chartArea.width, chartArea.height);
-                    c.restore();
-                }
-            };
-
-            new Chart(ctx, {
-                type: 'line',
-                data: {
-                    labels: values,
-                    datasets: [{
-                        label: 'mm',
-                        data: values,
-                        borderColor: color,
-                        backgroundColor: bgColor,
-                        borderWidth: 2,
-                        pointRadius: 4,
-                        tension: 0.3,
-                        fill: false,
-                        spanGaps: true,
-                    }]
-                },
-                options: {
-                    indexAxis: 'y',
-                    responsive: true,
-                    maintainAspectRatio: false,
-                    scales: {
-                        x: { title: { display: true, text: 'mm', font: { size: 10 } } },
-                        y: {
-                            title: { display: true, text: 'Posición', font: { size: 10 } },
-                            labels: d.labels.map(String),
-                            reverse: false,
-                        }
-                    },
-                    plugins: {
-                        legend: { display: false },
-                        tooltip: { callbacks: {
-                            label: (ctx) => `${ctx.parsed.x.toFixed(2)} mm`
-                        }}
-                    }
-                },
-                plugins: [bgPlugin]
-            });
-        }
-
-        buildArrowChart('arrowChartXc', d.xc, '#0d6efd', 'rgba(13,110,253,0.1)');
-        buildArrowChart('arrowChartYc', d.yc, '#6c757d', 'rgba(108,117,125,0.1)');
-    })();
-
     function openPhotoModal(photoUrl, caption) {
         document.getElementById('modalPhoto').src = photoUrl;
         document.getElementById('modalCaption').textContent = caption;

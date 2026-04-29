@@ -181,18 +181,10 @@ class Inspection(models.Model):
     
     # Defect Detection
     defecto_encontrado = models.BooleanField(
-        default=False,
+        default=False, 
         help_text="Indica si se encontró un defecto durante la inspección (detectado por cámara)"
     )
-
-    # Operator
-    operator_name = models.CharField(
-        max_length=200,
-        blank=True,
-        default='',
-        help_text="Nombre del operador que ejecutó la inspección (del PLC CSV)"
-    )
-
+    
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -447,24 +439,12 @@ class MachineLog(models.Model):
 
 class SystemConfiguration(models.Model):
     """Model for system configuration settings"""
-
+    
     # Storage Configuration
     media_storage_path = models.CharField(
-        max_length=500,
+        max_length=500, 
         default='media/inspection_photos/Inspection_1/',
         help_text="Ruta de almacenamiento para archivos multimedia"
-    )
-
-    # Autologin Configuration
-    autologin_enabled = models.BooleanField(
-        default=False,
-        help_text="Permite el inicio de sesión automático sin contraseña"
-    )
-    autologin_username = models.CharField(
-        max_length=150,
-        blank=True,
-        null=True,
-        help_text="Usuario que se autologueará automáticamente"
     )
     
     # Camera Configuration
@@ -807,30 +787,3 @@ class DigitPrediction(models.Model):
     def digits_list(self):
         """Return digits as a list"""
         return [self.digit_1, self.digit_2, self.digit_3, self.digit_4, self.digit_5]
-
-
-class ArrowDetail(models.Model):
-    """Per-inspection laser sensor data for torsion and arrow (deflection) control."""
-
-    inspection = models.ForeignKey(
-        Inspection,
-        on_delete=models.CASCADE,
-        related_name='arrow_details',
-        help_text="Inspección relacionada"
-    )
-    row_index = models.IntegerField(help_text="Índice de fila (posición de medición, e.g. 0-13)")
-    s1 = models.FloatField(null=True, blank=True, help_text="Sensor S1 (mm)")
-    s2 = models.FloatField(null=True, blank=True, help_text="Sensor S2 (mm)")
-    s3 = models.FloatField(null=True, blank=True, help_text="Sensor S3 (mm)")
-    xc = models.FloatField(null=True, blank=True, help_text="Centro Xc (mm)")
-    yc = models.FloatField(null=True, blank=True, help_text="Centro Yc (mm)")
-    diametro = models.FloatField(null=True, blank=True, help_text="Diámetro calculado (mm)")
-
-    class Meta:
-        db_table = 'arrow_details'
-        ordering = ['inspection', 'row_index']
-        verbose_name = 'Arrow Detail'
-        verbose_name_plural = 'Arrow Details'
-
-    def __str__(self):
-        return f"ArrowDetail inspection={self.inspection_id} row={self.row_index}"

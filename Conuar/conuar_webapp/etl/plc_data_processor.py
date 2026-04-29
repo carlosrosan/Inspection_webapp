@@ -519,55 +519,45 @@ class PlcDataProcessor:
             else:
                 logger.warning(f"ID_EC no encontrado en ningún registro del ciclo")
         
-        # inspection_date = when the PLC cycle physically started.
-        # Primary source: the first row's CSV datetime (cycle_rows[0].timestamp) — this is the
-        # definitive PLC-recorded start time and avoids date-only fields producing midnight values.
-        # Fallback chain: CSV datetime string in JSON → FechaFoto+HoraFoto → now().
-        inspection_date = None
-        if hasattr(cycle_rows[0], 'timestamp') and cycle_rows[0].timestamp:
-            inspection_date = cycle_rows[0].timestamp
-            if hasattr(inspection_date, 'replace'):
-                # Strip timezone info for naive datetime storage
-                try:
-                    from django.utils import timezone as tz
-                    if hasattr(inspection_date, 'tzinfo') and inspection_date.tzinfo is not None:
-                        inspection_date = inspection_date.astimezone().replace(tzinfo=None)
-                except Exception:
-                    pass
-
-        if not inspection_date:
+        # Build datetime from FechaFoto and HoraFoto, or use timestamp from database
+        # Handle field names with/without leading spaces, search cycle if needed
+        fecha_foto = self._get_field_value(first, 'FechaFoto')
+        if not fecha_foto:
+            fecha_foto = self._find_valid_field_in_cycle(cycle_rows, 'FechaFoto')
+        
+        hora_foto = self._get_field_value(first, 'HoraFoto')
+        if not hora_foto:
+            hora_foto = self._find_valid_field_in_cycle(cycle_rows, 'HoraFoto')
+        if fecha_foto and hora_foto:
+            # Format: FechaFoto=041225 (DDMMYY), HoraFoto=154941 (HHMMSS) -> 2025-12-04 15:49:41
+            try:
+                # Assuming format: DDMMYY for date, HHMMSS for time
+                if len(fecha_foto) == 6 and len(hora_foto) == 6:
+                    # Parse DDMMYY format
+                    day = fecha_foto[0:2]
+                    month = fecha_foto[2:4]
+                    year = "20" + fecha_foto[4:6]
+                    # Parse HHMMSS format
+                    hour = hora_foto[0:2]
+                    minute = hora_foto[2:4]
+                    second = hora_foto[4:6]
+                    date_str = f"{year}-{month}-{day} {hour}:{minute}:{second}"
+                    inspection_date = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
+                else:
+                    inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+            except Exception as e:
+                logger.warning(f"Error parsing FechaFoto/HoraFoto: {e}, using database timestamp")
+                inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+        else:
+            # Fallback to datetime field or database timestamp
             datetime_str = first.get('datetime') or first.get('timestamp')
             if datetime_str:
                 try:
-                    inspection_date = datetime.fromisoformat(datetime_str.replace('Z', '').replace('T', ' '))
-                except Exception:
-                    pass
-
-        if not inspection_date:
-            # Final fallback: FechaFoto+HoraFoto (date from photo filenames)
-            fecha_foto = self._get_field_value(first, 'FechaFoto')
-            if not fecha_foto:
-                fecha_foto = self._find_valid_field_in_cycle(cycle_rows, 'FechaFoto')
-            hora_foto = self._get_field_value(first, 'HoraFoto')
-            if not hora_foto:
-                hora_foto = self._find_valid_field_in_cycle(cycle_rows, 'HoraFoto')
-            if fecha_foto and hora_foto and len(fecha_foto) == 6 and len(hora_foto) == 6:
-                try:
-                    date_str = (
-                        f"20{fecha_foto[4:6]}-{fecha_foto[2:4]}-{fecha_foto[0:2]} "
-                        f"{hora_foto[0:2]}:{hora_foto[2:4]}:{hora_foto[4:6]}"
-                    )
-                    inspection_date = datetime.strptime(date_str, "%Y-%m-%d %H:%M:%S")
-                except Exception as e:
-                    logger.warning(f"Error parsing FechaFoto/HoraFoto: {e}")
-
-        if not inspection_date:
-            inspection_date = datetime.now()
-
-        # Read operator name from CSV data (new field in plc_reads_noderead.csv)
-        operator_name = self._get_field_value(first, 'operator_name', ['Operador', 'OperadorNombre', 'NombreOperador'])
-        if not operator_name:
-            operator_name = self._find_valid_field_in_cycle(cycle_rows, 'operator_name', ['Operador', 'OperadorNombre', 'NombreOperador']) or ''
+                    inspection_date = datetime.fromisoformat(datetime_str.replace('Z','').replace('T',' '))
+                except:
+                    inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
+            else:
+                inspection_date = cycle_rows[0].timestamp if hasattr(cycle_rows[0], 'timestamp') else datetime.now()
         
         # Build natural key for inspection - group by nombre_ciclo and id_ec
         # Si ya existe una inspección con ese product_code, se agrega un entero al nombre_ciclo
@@ -601,7 +591,6 @@ class PlcDataProcessor:
             "location": first.get("pos_camara", ""),
             "inspection_date": inspection_date,
             "inspector": inspector,
-            "operator_name": operator_name,
             "notes": f"Cycle starting at PLC row {cycle_rows[0].id}",
         }
         
@@ -667,9 +656,6 @@ class PlcDataProcessor:
                 f"con {attached} fotos vinculadas"
             )
 
-            # Load arrow_details from CSV and create ArrowDetail rows
-            self._import_arrow_details(inspection, cycle_rows)
-
             for raw in cycle_rows:
                 raw.processed = True
                 raw.save(update_fields=["processed"])
@@ -688,22 +674,26 @@ class PlcDataProcessor:
         # === PHASE 3: Non-critical post-processing ===
         self.update_machine_stats(inspection)
 
-        # Auto-generate PDF and save to media/inspection_reports/
-        if attached > 0:
-            try:
-                from main.views import generate_inspection_pdf_to_file
-                logger.info(
-                    f"Generando PDF para inspección {inspection.id} ({inspection.product_code})..."
-                )
-                pdf_bytes, pdf_path = generate_inspection_pdf_to_file(
-                    inspection.id, save_to_disk=True
-                )
-                if pdf_path:
-                    logger.info(f"PDF generado automáticamente: {pdf_path}")
-                else:
-                    logger.warning(f"PDF no pudo guardarse en disco para inspección {inspection.id}")
-            except Exception as e:
-                logger.error(f"Error generando PDF para inspección {inspection.id}: {e}")
+        # PDF generation disabled - PDFs are created manually via the web UI button.
+        # To re-enable automatic PDF generation, uncomment the block below:
+        # if attached > 0:
+        #     try:
+        #         if not inspection.inspector:
+        #             default_inspector = self.get_default_inspector()
+        #             inspection.inspector = default_inspector
+        #             inspection.save(update_fields=['inspector'])
+        #         from main.views import generate_inspection_pdf_to_file
+        #         logger.info(
+        #             f"Generando PDF para inspección {inspection.id} "
+        #             f"({inspection.product_code})..."
+        #         )
+        #         pdf_bytes, pdf_path = generate_inspection_pdf_to_file(
+        #             inspection.id, save_to_disk=True
+        #         )
+        #         if pdf_path:
+        #             logger.info(f"PDF generado: {pdf_path}")
+        #     except Exception as e:
+        #         logger.error(f"Error generando PDF: {e}")
 
         if attached > 0:
             try:
@@ -724,62 +714,6 @@ class PlcDataProcessor:
                 logger.error(traceback.format_exc())
 
         return True
-
-    def _import_arrow_details(self, inspection, cycle_rows: List) -> int:
-        """
-        Read arrow_details.csv and create ArrowDetail rows for this inspection.
-        The CSV lives in the same directory as plc_reads_nodered.csv.
-        Expected columns: id_inspection, row_index, s1, s2, s3, xc, yc, diametro
-        Returns the number of rows imported.
-        """
-        try:
-            from main.models import ArrowDetail
-            import csv
-
-            # Locate arrow_details.csv next to plc_reads_nodered.csv
-            plc_dir = Path(__file__).parent / 'NodeRed' / 'plc_reads'
-            arrow_csv = plc_dir / 'arrow_details.csv'
-            if not arrow_csv.exists():
-                logger.debug(f"arrow_details.csv not found at {arrow_csv}, skipping arrow import")
-                return 0
-
-            # The CSV may use the product_code or inspection id as key
-            product_code = inspection.product_code
-            inspection_id = str(inspection.id)
-
-            rows_to_create = []
-            with open(arrow_csv, newline='', encoding='utf-8-sig') as f:
-                reader = csv.DictReader(f)
-                for row in reader:
-                    csv_key = str(row.get('id_inspection', '')).strip()
-                    if csv_key not in (product_code, inspection_id):
-                        continue
-                    def _f(col):
-                        v = row.get(col, '').strip().replace(',', '.')
-                        try:
-                            return float(v) if v else None
-                        except ValueError:
-                            return None
-                    rows_to_create.append(ArrowDetail(
-                        inspection=inspection,
-                        row_index=int(row.get('row_index', 0)),
-                        s1=_f('s1'),
-                        s2=_f('s2'),
-                        s3=_f('s3'),
-                        xc=_f('xc'),
-                        yc=_f('yc'),
-                        diametro=_f('diametro'),
-                    ))
-
-            if rows_to_create:
-                # Delete existing rows for this inspection before re-importing
-                ArrowDetail.objects.filter(inspection=inspection).delete()
-                ArrowDetail.objects.bulk_create(rows_to_create)
-                logger.info(f"Arrow details importados: {len(rows_to_create)} filas para inspección {inspection.id}")
-            return len(rows_to_create)
-        except Exception as e:
-            logger.error(f"Error importando arrow_details para inspección {inspection.id}: {e}")
-            return 0
 
     def _link_cycle_photos(self, inspection: Inspection, cycle_rows: List[PlcDataRaw]) -> Tuple[int, List[Tuple[Path, str]]]:
         """
