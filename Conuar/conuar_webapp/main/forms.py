@@ -37,16 +37,18 @@ class LoginForm(forms.Form):
 
 class SystemConfigurationForm(forms.ModelForm):
     """Form for system configuration settings"""
-    
+
     class Meta:
         model = SystemConfiguration
         fields = [
             'media_storage_path',
             'camera_1_ip',
-            'camera_2_ip', 
+            'camera_2_ip',
             'camera_3_ip',
             'plc_ip',
-            'plc_port'
+            'plc_port',
+            'autologin_enabled',
+            'autologin_username',
         ]
         widgets = {
             'media_storage_path': forms.TextInput(attrs={
@@ -74,7 +76,15 @@ class SystemConfigurationForm(forms.ModelForm):
                 'placeholder': '502',
                 'min': '1',
                 'max': '65535'
-            })
+            }),
+            'autologin_enabled': forms.CheckboxInput(attrs={
+                'class': 'form-check-input',
+                'role': 'switch',
+            }),
+            'autologin_username': forms.TextInput(attrs={
+                'class': 'form-control',
+                'placeholder': 'Nombre de usuario para autologin'
+            }),
         }
         labels = {
             'media_storage_path': 'Ruta de Almacenamiento de Medios',
@@ -82,7 +92,9 @@ class SystemConfigurationForm(forms.ModelForm):
             'camera_2_ip': 'IP Cámara 2',
             'camera_3_ip': 'IP Cámara 3',
             'plc_ip': 'IP del PLC',
-            'plc_port': 'Puerto del PLC'
+            'plc_port': 'Puerto del PLC',
+            'autologin_enabled': 'Habilitar Inicio de Sesión Automático',
+            'autologin_username': 'Usuario para Autologin',
         }
         help_texts = {
             'media_storage_path': 'Ruta donde se almacenan las fotos de inspección',
@@ -90,7 +102,9 @@ class SystemConfigurationForm(forms.ModelForm):
             'camera_2_ip': 'Dirección IP de la segunda cámara',
             'camera_3_ip': 'Dirección IP de la tercera cámara',
             'plc_ip': 'Dirección IP del PLC que controla la máquina',
-            'plc_port': 'Puerto de comunicación con el PLC (por defecto 502)'
+            'plc_port': 'Puerto de comunicación con el PLC (por defecto 502)',
+            'autologin_enabled': 'Si está activo, el sistema iniciará sesión automáticamente sin pedir contraseña',
+            'autologin_username': 'Usuario que se autologueará automáticamente al abrir la aplicación',
         }
 
 class CustomUserCreationForm(UserCreationForm):
