@@ -405,12 +405,8 @@ def get_sql_create_statements():
         CREATE TABLE IF NOT EXISTS main_arrow_details (
             id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
             inspection_id bigint NOT NULL,
-            s1 double,
-            s2 double,
-            s3 double,
             xc double,
             yc double,
-            diametro double,
             KEY main_arrow_details_inspection_id_idx (inspection_id)
         );
         """,

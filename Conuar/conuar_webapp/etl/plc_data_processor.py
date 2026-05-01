@@ -751,12 +751,8 @@ class PlcDataProcessor:
                 logger.debug("plc_arrow_nodered.csv not found at %s, skipping arrow import", arrow_csv)
                 return 0
 
-            # CSV columns that carry arrow position data, in order F0…F13.
-            # The CSV uses "F0-Xc"/"F0-Yc" for position 0, then "1-Xc"/"1-Yc" … "13-Xc"/"13-Yc".
-            ARROW_COLS = [
-                ('F0-Xc', 'F0-Yc'),
-                *[(f'{i}-Xc', f'{i}-Yc') for i in range(1, 14)],
-            ]
+            # CSV columns: F0-Xc/F0-Yc … F13-Xc/F13-Yc (all with F prefix).
+            ARROW_COLS = [(f'F{i}-Xc', f'F{i}-Yc') for i in range(14)]
             # Corresponding model field names on PlcArrowReadingRaw
             RAW_FIELDS = [
                 (f'f{i}_xc', f'f{i}_yc') for i in range(14)

@@ -639,11 +639,11 @@ def inspection_detail(request, inspection_id):
 
     return render(request, 'main/inspection_detail.html', context)
 
-def _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal - Xc'):
+def _generate_combined_arrow_chart_base64(arrow_details):
     """
-    Generate a deflection line chart for arrow_details as a base64 PNG.
-    Uses matplotlib. Returns None if matplotlib is unavailable or no data.
-    axis: 'xc' or 'yc'
+    Generate a single line chart with both Xc and Yc plotted against position index.
+    X-axis: position (0 … N-1).  Y-axis: mm.
+    Returns a base64 PNG data URI, or None when matplotlib is unavailable or there is no data.
     """
     if not arrow_details:
         return None
@@ -651,50 +651,32 @@ def _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal 
         import matplotlib
         matplotlib.use('Agg')
         import matplotlib.pyplot as plt
-        import matplotlib.image as mpimg
         from io import BytesIO
-        from django.conf import settings
 
-        rows = list(range(len(arrow_details)))
-        values = [getattr(r, axis) for r in arrow_details if getattr(r, axis) is not None]
-        valid_rows = [i for i, r in enumerate(arrow_details) if getattr(r, axis) is not None]
+        positions = list(range(len(arrow_details)))
+        xc_pts = [(i, r.xc) for i, r in enumerate(arrow_details) if r.xc is not None]
+        yc_pts = [(i, r.yc) for i, r in enumerate(arrow_details) if r.yc is not None]
 
-        if not values:
+        if not xc_pts and not yc_pts:
             return None
 
-        fig, ax = plt.subplots(figsize=(3, 7))
+        fig, ax = plt.subplots(figsize=(7, 3.5))
 
-        # Try to load background image from static/assets/
-        bg_loaded = False
-        try:
-            base_dir = str(settings.BASE_DIR)
-            bg_path = os.path.join(base_dir, 'static', 'assets', 'arrow_bg.png')
-            if not os.path.exists(bg_path) and settings.STATICFILES_DIRS:
-                bg_path = os.path.join(str(settings.STATICFILES_DIRS[0]), 'assets', 'arrow_bg.png')
-            if os.path.exists(bg_path):
-                bg_img = mpimg.imread(bg_path)
-                ax.imshow(bg_img, aspect='auto',
-                          extent=[min(values) - 5, max(values) + 5, max(rows) + 0.5, -0.5],
-                          zorder=0, alpha=0.35)
-                bg_loaded = True
-        except Exception:
-            pass
+        if xc_pts:
+            xi, xv = zip(*xc_pts)
+            ax.plot(xi, xv, 'o-', color='#0d6efd', linewidth=2, markersize=4, label='Xc')
+        if yc_pts:
+            yi, yv = zip(*yc_pts)
+            ax.plot(yi, yv, 's-', color='#fd7e14', linewidth=2, markersize=4, label='Yc')
 
-        ax.plot(values, valid_rows, 'o-', color='#0d6efd', linewidth=2, markersize=5, zorder=2)
-        ax.axvline(x=0, color='#adb5bd', linestyle='--', linewidth=1, zorder=1)
-
-        ax.set_title(title, fontsize=9, fontweight='bold')
-        ax.set_xlabel('mm', fontsize=8)
-        ax.set_ylabel('Posición', fontsize=8)
-        ax.invert_yaxis()
+        ax.axhline(y=0, color='#adb5bd', linestyle='--', linewidth=1)
+        ax.set_title('Control de Flecha — Xc / Yc', fontsize=9, fontweight='bold')
+        ax.set_xlabel('Posición', fontsize=8)
+        ax.set_ylabel('mm', fontsize=8)
+        ax.set_xticks(positions)
         ax.tick_params(labelsize=7)
-        ax.grid(True, alpha=0.3, zorder=1)
-
-        # X-axis symmetric around 0
-        max_abs = max(abs(min(values)), abs(max(values)), 5)
-        ax.set_xlim(-max_abs - 2, max_abs + 2)
-        ax.set_ylim(max(rows) + 0.5, -0.5)
-
+        ax.legend(fontsize=8)
+        ax.grid(True, alpha=0.3)
         plt.tight_layout(pad=0.5)
 
         buf = BytesIO()
@@ -705,7 +687,7 @@ def _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal 
         buf.close()
         return f"data:image/png;base64,{img_base64}"
     except Exception as e:
-        logger.warning(f"Arrow chart generation failed ({axis}): {e}")
+        logger.warning("Combined arrow chart generation failed: %s", e)
         return None
 
 
@@ -854,8 +836,7 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
     # Arrow details
     from .models import ArrowDetail
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
-    arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal - Xc')
-    arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, axis='yc', title='Vista lateral - Yc')
+    arrow_chart = _generate_combined_arrow_chart_base64(arrow_details)
 
     # Prepare context
     context = {
@@ -867,8 +848,7 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
         'photo_count': photos.count(),
         'logo_data_uri': logo_data_uri,
         'arrow_details': arrow_details,
-        'arrow_chart_xc': arrow_chart_xc,
-        'arrow_chart_yc': arrow_chart_yc,
+        'arrow_chart': arrow_chart,
     }
 
     # Render HTML template
@@ -1113,8 +1093,7 @@ def inspection_pdf(request, inspection_id):
     # Arrow details
     from .models import ArrowDetail
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
-    arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal - Xc')
-    arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, axis='yc', title='Vista lateral - Yc')
+    arrow_chart = _generate_combined_arrow_chart_base64(arrow_details)
 
     # Prepare context for the template
     context = {
@@ -1126,8 +1105,7 @@ def inspection_pdf(request, inspection_id):
         'photo_count': photos.count(),
         'logo_data_uri': logo_data_uri,
         'arrow_details': arrow_details,
-        'arrow_chart_xc': arrow_chart_xc,
-        'arrow_chart_yc': arrow_chart_yc,
+        'arrow_chart': arrow_chart,
     }
 
     # Render the HTML template

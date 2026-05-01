@@ -863,7 +863,7 @@ class PlcArrowReadingRaw(models.Model):
 
 
 class ArrowDetail(models.Model):
-    """Per-inspection laser sensor data for torsion and arrow (deflection) control."""
+    """Per-inspection arrow (deflection) data — Xc/Yc per position from plc_arrow_nodered.csv."""
 
     inspection = models.ForeignKey(
         Inspection,
@@ -871,12 +871,8 @@ class ArrowDetail(models.Model):
         related_name='arrow_details',
         help_text="Inspección relacionada"
     )
-    s1 = models.FloatField(null=True, blank=True, help_text="Sensor S1 (mm)")
-    s2 = models.FloatField(null=True, blank=True, help_text="Sensor S2 (mm)")
-    s3 = models.FloatField(null=True, blank=True, help_text="Sensor S3 (mm)")
     xc = models.FloatField(null=True, blank=True, help_text="Centro Xc (mm)")
     yc = models.FloatField(null=True, blank=True, help_text="Centro Yc (mm)")
-    diametro = models.FloatField(null=True, blank=True, help_text="Diámetro calculado (mm)")
 
     class Meta:
         db_table = 'main_arrow_details'
