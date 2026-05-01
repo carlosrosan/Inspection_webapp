@@ -1090,3 +1090,50 @@ INFO 2026-05-01 16:26:49,666 LOGOUT - User: system_inspector, IP: 127.0.0.1
 INFO 2026-05-01 16:26:49,705 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
 INFO 2026-05-01 17:02:41,251 LOGOUT - User: system_inspector, IP: 127.0.0.1
 INFO 2026-05-01 17:02:41,271 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:12:54,003 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:12:54,040 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,128 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,164 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,372 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,437 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,439 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,449 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,474 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,491 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,517 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,795 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,795 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,847 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,850 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,929 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:27,960 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:28,008 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:28,019 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:28,029 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:33:28,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:43:30,513 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:43:30,547 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 17:56:50,062 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-05-01 17:56:50,158 Generating PDF for inspection 705546
+INFO 2026-05-01 17:56:50,159   Logo data URI: Present
+INFO 2026-05-01 17:56:50,159   Photo count: 1
+INFO 2026-05-01 17:56:50,159   Photos with data URIs: 1
+INFO 2026-05-01 17:56:50,289 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIxyz-E3807-002F-110119_215748948.pdf
+INFO 2026-05-01 17:56:50,289 PDF file size: 556485 bytes
+INFO 2026-05-01 18:06:48,679 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 18:06:48,686 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 18:06:48,729 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-01 18:15:45,825 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-05-01 18:15:45,917 Generating PDF for inspection 705546
+INFO 2026-05-01 18:15:45,918   Logo data URI: Present
+INFO 2026-05-01 18:15:45,919   Photo count: 1
+INFO 2026-05-01 18:15:45,919   Photos with data URIs: 1
+INFO 2026-05-01 18:15:46,056 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIxyz-E3807-002F-110119_215748948.pdf
+INFO 2026-05-01 18:15:46,057 PDF file size: 556484 bytes
+INFO 2026-05-01 18:24:15,586 Logo loaded and encoded for PDF: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-05-01 18:24:16,021 Generating PDF for inspection 705546
+INFO 2026-05-01 18:24:16,021   Logo data URI: Present
+INFO 2026-05-01 18:24:16,022   Photo count: 1
+INFO 2026-05-01 18:24:16,022   Photos with data URIs: 1
+INFO 2026-05-01 18:24:16,168 PDF also saved to disk: C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIxyz-E3807-002F-110119_215748948.pdf
+INFO 2026-05-01 18:24:16,169 PDF file size: 566222 bytes

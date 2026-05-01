@@ -1,4 +1,5 @@
 {% extends 'main/base.html' %}
+{% load static %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -358,14 +359,26 @@
                 </div>
             </div>
 
-            <!-- Combined Xc / Yc chart -->
-            <div class="col-lg-8 mb-4">
+            <!-- Xc chart -->
+            <div class="col-lg-4 mb-4">
                 <div class="card border-0 shadow-sm h-100">
-                    <div class="card-header bg-info text-white py-2">
-                        <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Xc / Yc por posición</small>
+                    <div class="card-header bg-primary text-white py-2">
+                        <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Xc por posición (mm)</small>
                     </div>
                     <div class="card-body p-2" style="position:relative; height:340px;">
-                        <canvas id="arrowChartCombined"></canvas>
+                        <canvas id="arrowChartXc"></canvas>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Yc chart -->
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-sm h-100">
+                    <div class="card-header bg-warning text-dark py-2">
+                        <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Yc por posición (mm)</small>
+                    </div>
+                    <div class="card-body p-2" style="position:relative; height:340px;">
+                        <canvas id="arrowChartYc"></canvas>
                     </div>
                 </div>
             </div>
@@ -373,14 +386,8 @@
     </div>
 </section>
 
-<!-- Arrow chart data passed to JS -->
-<script id="arrowChartData" type="application/json">
-{
-    "labels": [{% for row in arrow_details %}"F{{ forloop.counter0 }}"{% if not forloop.last %},{% endif %}{% endfor %}],
-    "xc": [{% for row in arrow_details %}{% if row.xc != None %}{{ row.xc }}{% else %}null{% endif %}{% if not forloop.last %},{% endif %}{% endfor %}],
-    "yc": [{% for row in arrow_details %}{% if row.yc != None %}{{ row.yc }}{% else %}null{% endif %}{% if not forloop.last %},{% endif %}{% endfor %}]
-}
-</script>
+<!-- Arrow chart data — serialized in Python to guarantee valid JSON (locale-safe) -->
+<script id="arrowChartData" type="application/json">{{ arrow_chart_data_json|safe }}</script>
 {% endif %}
 
 <!-- Photos Section -->
@@ -505,62 +512,75 @@
 
 {% block extra_js %}
 {% if arrow_details %}
-<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="{% static 'js/chart.js' %}"></script>
 {% endif %}
 <script>
-    // Arrow deflection chart — Xc and Yc on one graph
-    (function() {
+    // Arrow deflection charts — Xc and Yc as separate horizontal charts (positions on Y axis)
+    document.addEventListener('DOMContentLoaded', function() {
         const dataEl = document.getElementById('arrowChartData');
-        if (!dataEl) return;
+        if (!dataEl || !window.Chart) return;
         const d = JSON.parse(dataEl.textContent);
-        const ctx = document.getElementById('arrowChartCombined');
-        if (!ctx || !window.Chart) return;
 
-        new Chart(ctx, {
-            type: 'line',
-            data: {
-                labels: d.labels,
-                datasets: [
-                    {
+        const sharedOptions = {
+            indexAxis: 'y',
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: { title: { display: true, text: 'Posición', font: { size: 10 } }, reverse: false },
+                x: { title: { display: true, text: 'mm', font: { size: 10 } } }
+            },
+            plugins: {
+                legend: { display: false },
+                tooltip: { callbacks: {
+                    label: (c) => ` ${c.parsed.x !== null ? c.parsed.x.toFixed(3) : '—'} mm`
+                }}
+            }
+        };
+
+        const ctxXc = document.getElementById('arrowChartXc');
+        if (ctxXc) {
+            new Chart(ctxXc, {
+                type: 'line',
+                data: {
+                    labels: d.labels,
+                    datasets: [{
                         label: 'Xc (mm)',
                         data: d.xc,
                         borderColor: '#0d6efd',
-                        backgroundColor: 'rgba(13,110,253,0.08)',
+                        backgroundColor: 'rgba(13,110,253,0.15)',
                         borderWidth: 2,
                         pointRadius: 4,
                         tension: 0.3,
                         fill: false,
                         spanGaps: true,
-                    },
-                    {
+                    }]
+                },
+                options: sharedOptions,
+            });
+        }
+
+        const ctxYc = document.getElementById('arrowChartYc');
+        if (ctxYc) {
+            new Chart(ctxYc, {
+                type: 'line',
+                data: {
+                    labels: d.labels,
+                    datasets: [{
                         label: 'Yc (mm)',
                         data: d.yc,
                         borderColor: '#fd7e14',
-                        backgroundColor: 'rgba(253,126,20,0.08)',
+                        backgroundColor: 'rgba(253,126,20,0.15)',
                         borderWidth: 2,
                         pointRadius: 4,
                         tension: 0.3,
                         fill: false,
                         spanGaps: true,
-                    }
-                ]
-            },
-            options: {
-                responsive: true,
-                maintainAspectRatio: false,
-                scales: {
-                    x: { title: { display: true, text: 'Posición', font: { size: 10 } } },
-                    y: { title: { display: true, text: 'mm', font: { size: 10 } } }
+                    }]
                 },
-                plugins: {
-                    legend: { display: true, position: 'top' },
-                    tooltip: { callbacks: {
-                        label: (ctx) => `${ctx.dataset.label}: ${ctx.parsed.y !== null ? ctx.parsed.y.toFixed(3) : '—'}`
-                    }}
-                }
-            }
-        });
-    })();
+                options: sharedOptions,
+            });
+        }
+    });
 
     function openPhotoModal(photoUrl, caption) {
         document.getElementById('modalPhoto').src = photoUrl;

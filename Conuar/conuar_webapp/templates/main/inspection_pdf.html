@@ -393,12 +393,24 @@
             </tbody>
         </table>
 
-        <!-- Combined Xc / Yc chart -->
-        {% if arrow_chart %}
-        <div style="text-align:center; margin-top:10px;">
-            <img src="{{ arrow_chart }}" alt="Control de Flecha Xc/Yc" style="max-width:100%; height:auto; border:1px solid #ddd;" />
-            <div style="font-size:8pt; color:#555; margin-top:4px;">Deflexión Xc / Yc por posición (mm)</div>
-        </div>
+        <!-- Xc / Yc charts side by side -->
+        {% if arrow_chart_xc or arrow_chart_yc %}
+        <table style="width:100%; border-collapse:collapse; margin-top:10px;">
+            <tr>
+                {% if arrow_chart_xc %}
+                <td style="width:50%; padding-right:6px; vertical-align:top; text-align:center;">
+                    <img src="{{ arrow_chart_xc }}" alt="Xc por posición" style="max-width:100%; height:auto; border:1px solid #ddd;" />
+                    <div style="font-size:8pt; color:#0d6efd; margin-top:3px; font-weight:bold;">Xc — Deflexión por posición (mm)</div>
+                </td>
+                {% endif %}
+                {% if arrow_chart_yc %}
+                <td style="width:50%; padding-left:6px; vertical-align:top; text-align:center;">
+                    <img src="{{ arrow_chart_yc }}" alt="Yc por posición" style="max-width:100%; height:auto; border:1px solid #ddd;" />
+                    <div style="font-size:8pt; color:#fd7e14; margin-top:3px; font-weight:bold;">Yc — Deflexión por posición (mm)</div>
+                </td>
+                {% endif %}
+            </tr>
+        </table>
         {% endif %}
     </div>
     {% endif %}

@@ -817,25 +817,36 @@ class PlcDataProcessor:
                 len(raw_records), inspection.id,
             )
 
-            # Step 2: pivot wide → long and save to main_arrow_details
+            # Step 2: average values per position across all matched CSV rows,
+            # then save exactly one ArrowDetail row per position (F0-F13).
             ArrowDetail.objects.filter(inspection=inspection).delete()
-            detail_rows = []
+            position_xc: dict = {i: [] for i in range(len(RAW_FIELDS))}
+            position_yc: dict = {i: [] for i in range(len(RAW_FIELDS))}
             for raw_kw in matched_raws:
-                for (xc_field, yc_field) in RAW_FIELDS:
+                for i, (xc_field, yc_field) in enumerate(RAW_FIELDS):
                     xc_val = raw_kw.get(xc_field)
                     yc_val = raw_kw.get(yc_field)
-                    if xc_val is not None or yc_val is not None:
-                        detail_rows.append(ArrowDetail(
-                            inspection=inspection,
-                            xc=xc_val,
-                            yc=yc_val,
-                        ))
+                    if xc_val is not None:
+                        position_xc[i].append(xc_val)
+                    if yc_val is not None:
+                        position_yc[i].append(yc_val)
+
+            detail_rows = []
+            for i in range(len(RAW_FIELDS)):
+                xc_avg = sum(position_xc[i]) / len(position_xc[i]) if position_xc[i] else None
+                yc_avg = sum(position_yc[i]) / len(position_yc[i]) if position_yc[i] else None
+                if xc_avg is not None or yc_avg is not None:
+                    detail_rows.append(ArrowDetail(
+                        inspection=inspection,
+                        xc=xc_avg,
+                        yc=yc_avg,
+                    ))
 
             if detail_rows:
                 ArrowDetail.objects.bulk_create(detail_rows)
                 logger.info(
-                    "ArrowDetail: %d filas creadas para inspección %s",
-                    len(detail_rows), inspection.id,
+                    "ArrowDetail: %d posiciones (promediadas de %d filas CSV) para inspección %s",
+                    len(detail_rows), len(matched_raws), inspection.id,
                 )
 
             return len(detail_rows)

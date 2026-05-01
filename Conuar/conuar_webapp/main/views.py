@@ -625,7 +625,13 @@ def inspection_detail(request, inspection_id):
     
     # Arrow details (laser sensor / torsion-and-deflection data)
     from .models import ArrowDetail
+    import json as _json
     arrow_details = list(inspection.arrow_details.order_by('id'))
+    arrow_chart_data_json = _json.dumps({
+        'labels': [f'F{i}' for i in range(len(arrow_details))],
+        'xc': [r.xc for r in arrow_details],
+        'yc': [r.yc for r in arrow_details],
+    })
 
     context = {
         'title': f'Inspección de Combustible: {inspection.title}',
@@ -635,15 +641,16 @@ def inspection_detail(request, inspection_id):
         'photos_data': photos_data,
         'photo_count': len(photos_data),
         'arrow_details': arrow_details,
+        'arrow_chart_data_json': arrow_chart_data_json,
     }
 
     return render(request, 'main/inspection_detail.html', context)
 
-def _generate_combined_arrow_chart_base64(arrow_details):
+def _generate_arrow_chart_base64(arrow_details, which):
     """
-    Generate a single line chart with both Xc and Yc plotted against position index.
-    X-axis: position (0 … N-1).  Y-axis: mm.
-    Returns a base64 PNG data URI, or None when matplotlib is unavailable or there is no data.
+    Generate a single horizontal chart for one series ('xc' or 'yc').
+    Positions (F0-FN) on Y axis (top = F0); mm values on X axis.
+    Returns a base64 PNG data URI or None.
     """
     if not arrow_details:
         return None
@@ -653,31 +660,98 @@ def _generate_combined_arrow_chart_base64(arrow_details):
         import matplotlib.pyplot as plt
         from io import BytesIO
 
-        positions = list(range(len(arrow_details)))
-        xc_pts = [(i, r.xc) for i, r in enumerate(arrow_details) if r.xc is not None]
-        yc_pts = [(i, r.yc) for i, r in enumerate(arrow_details) if r.yc is not None]
+        n = len(arrow_details)
+        positions = list(range(n))
+        labels = [f'F{i}' for i in positions]
 
-        if not xc_pts and not yc_pts:
+        if which == 'xc':
+            pts = [(r.xc, i) for i, r in enumerate(arrow_details) if r.xc is not None]
+            color, marker, title = '#0d6efd', 'o', 'Xc (mm)'
+        else:
+            pts = [(r.yc, i) for i, r in enumerate(arrow_details) if r.yc is not None]
+            color, marker, title = '#fd7e14', 's', 'Yc (mm)'
+
+        if not pts:
             return None
 
-        fig, ax = plt.subplots(figsize=(7, 3.5))
-
-        if xc_pts:
-            xi, xv = zip(*xc_pts)
-            ax.plot(xi, xv, 'o-', color='#0d6efd', linewidth=2, markersize=4, label='Xc')
-        if yc_pts:
-            yi, yv = zip(*yc_pts)
-            ax.plot(yi, yv, 's-', color='#fd7e14', linewidth=2, markersize=4, label='Yc')
-
-        ax.axhline(y=0, color='#adb5bd', linestyle='--', linewidth=1)
-        ax.set_title('Control de Flecha — Xc / Yc', fontsize=9, fontweight='bold')
-        ax.set_xlabel('Posición', fontsize=8)
-        ax.set_ylabel('mm', fontsize=8)
-        ax.set_xticks(positions)
+        fig, ax = plt.subplots(figsize=(4.5, max(3.0, n * 0.28)))
+        vals, idxs = zip(*pts)
+        ax.plot(vals, idxs, f'{marker}-', color=color, linewidth=2, markersize=4)
+        ax.set_yticks(positions)
+        ax.set_yticklabels(labels, fontsize=7)
+        ax.invert_yaxis()
+        ax.axvline(x=0, color='#adb5bd', linestyle='--', linewidth=1)
+        ax.set_title(title, fontsize=9, fontweight='bold', color=color)
+        ax.set_xlabel('mm', fontsize=8)
+        ax.set_ylabel('Posición', fontsize=8)
         ax.tick_params(labelsize=7)
-        ax.legend(fontsize=8)
         ax.grid(True, alpha=0.3)
         plt.tight_layout(pad=0.5)
+
+        buf = BytesIO()
+        fig.savefig(buf, format='png', dpi=100, bbox_inches='tight')
+        plt.close(fig)
+        buf.seek(0)
+        img_base64 = base64.b64encode(buf.read()).decode('utf-8')
+        buf.close()
+        return f"data:image/png;base64,{img_base64}"
+    except Exception as e:
+        logger.warning("Arrow chart (%s) generation failed: %s", which, e)
+        return None
+
+
+def _generate_combined_arrow_chart_base64(arrow_details):
+    """
+    Generate two side-by-side horizontal charts (positions on Y axis, mm on X axis):
+    left = Xc, right = Yc.  F0 is at the top of each chart.
+    Returns a base64 PNG data URI, or None when matplotlib is unavailable or no data.
+    """
+    if not arrow_details:
+        return None
+    try:
+        import matplotlib
+        matplotlib.use('Agg')
+        import matplotlib.pyplot as plt
+        from io import BytesIO
+
+        n = len(arrow_details)
+        positions = list(range(n))
+        labels = [f'F{i}' for i in positions]
+
+        fig, (ax1, ax2) = plt.subplots(1, 2, figsize=(9, max(3.5, n * 0.28)))
+
+        # ── Xc chart (left) ──────────────────────────────────────────────────
+        xc_pts = [(r.xc, i) for i, r in enumerate(arrow_details) if r.xc is not None]
+        if xc_pts:
+            xv, xi = zip(*xc_pts)
+            ax1.plot(xv, xi, 'o-', color='#0d6efd', linewidth=2, markersize=4)
+        ax1.set_yticks(positions)
+        ax1.set_yticklabels(labels, fontsize=7)
+        ax1.invert_yaxis()
+        ax1.axvline(x=0, color='#adb5bd', linestyle='--', linewidth=1)
+        ax1.set_title('Xc (mm)', fontsize=9, fontweight='bold', color='#0d6efd')
+        ax1.set_xlabel('mm', fontsize=8)
+        ax1.set_ylabel('Posición', fontsize=8)
+        ax1.tick_params(labelsize=7)
+        ax1.grid(True, alpha=0.3)
+
+        # ── Yc chart (right) ─────────────────────────────────────────────────
+        yc_pts = [(r.yc, i) for i, r in enumerate(arrow_details) if r.yc is not None]
+        if yc_pts:
+            yv, yi = zip(*yc_pts)
+            ax2.plot(yv, yi, 's-', color='#fd7e14', linewidth=2, markersize=4)
+        ax2.set_yticks(positions)
+        ax2.set_yticklabels(labels, fontsize=7)
+        ax2.invert_yaxis()
+        ax2.axvline(x=0, color='#adb5bd', linestyle='--', linewidth=1)
+        ax2.set_title('Yc (mm)', fontsize=9, fontweight='bold', color='#fd7e14')
+        ax2.set_xlabel('mm', fontsize=8)
+        ax2.set_ylabel('Posición', fontsize=8)
+        ax2.tick_params(labelsize=7)
+        ax2.grid(True, alpha=0.3)
+
+        fig.suptitle('Control de Flecha — Xc / Yc', fontsize=10, fontweight='bold')
+        plt.tight_layout(pad=0.8)
 
         buf = BytesIO()
         fig.savefig(buf, format='png', dpi=100, bbox_inches='tight')
@@ -836,7 +910,8 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
     # Arrow details
     from .models import ArrowDetail
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
-    arrow_chart = _generate_combined_arrow_chart_base64(arrow_details)
+    arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, 'xc')
+    arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, 'yc')
 
     # Prepare context
     context = {
@@ -848,7 +923,8 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
         'photo_count': photos.count(),
         'logo_data_uri': logo_data_uri,
         'arrow_details': arrow_details,
-        'arrow_chart': arrow_chart,
+        'arrow_chart_xc': arrow_chart_xc,
+        'arrow_chart_yc': arrow_chart_yc,
     }
 
     # Render HTML template
@@ -1093,7 +1169,8 @@ def inspection_pdf(request, inspection_id):
     # Arrow details
     from .models import ArrowDetail
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
-    arrow_chart = _generate_combined_arrow_chart_base64(arrow_details)
+    arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, 'xc')
+    arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, 'yc')
 
     # Prepare context for the template
     context = {
@@ -1105,7 +1182,8 @@ def inspection_pdf(request, inspection_id):
         'photo_count': photos.count(),
         'logo_data_uri': logo_data_uri,
         'arrow_details': arrow_details,
-        'arrow_chart': arrow_chart,
+        'arrow_chart_xc': arrow_chart_xc,
+        'arrow_chart_yc': arrow_chart_yc,
     }
 
     # Render the HTML template

@@ -1,5 +1,4 @@
 {% extends 'main/base.html' %}
-{% load static %}
 
 {% block title %}{{ title }}{% endblock %}
 
@@ -224,7 +223,7 @@
 {% endblock %}
 
 {% block extra_js %}
-<script src="{% static 'js/chart.js' %}"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script>
     // Chart.js configuration
     Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
