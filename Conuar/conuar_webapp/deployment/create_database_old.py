@@ -402,43 +402,17 @@ def get_sql_create_statements():
 
         # Arrow Details table — per-inspection laser sensor rows (torsion & deflection)
         """
-        CREATE TABLE IF NOT EXISTS main_arrow_details (
+        CREATE TABLE IF NOT EXISTS arrow_details (
             id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
             inspection_id bigint NOT NULL,
+            row_index int NOT NULL,
             s1 double,
             s2 double,
             s3 double,
             xc double,
             yc double,
             diametro double,
-            KEY main_arrow_details_inspection_id_idx (inspection_id)
-        );
-        """,
-
-        # PLC Arrow Readings Raw — verbatim rows from plc_arrow_nodered.csv
-        """
-        CREATE TABLE IF NOT EXISTS plc_arrow_readings_raw (
-            id bigint AUTO_INCREMENT NOT NULL PRIMARY KEY,
-            inspection_id bigint,
-            datetime datetime(6),
-            id_ec varchar(100) NOT NULL,
-            nombre_ciclo varchar(100) NOT NULL,
-            f0_xc double, f0_yc double,
-            f1_xc double, f1_yc double,
-            f2_xc double, f2_yc double,
-            f3_xc double, f3_yc double,
-            f4_xc double, f4_yc double,
-            f5_xc double, f5_yc double,
-            f6_xc double, f6_yc double,
-            f7_xc double, f7_yc double,
-            f8_xc double, f8_yc double,
-            f9_xc double, f9_yc double,
-            f10_xc double, f10_yc double,
-            f11_xc double, f11_yc double,
-            f12_xc double, f12_yc double,
-            f13_xc double, f13_yc double,
-            imported_at datetime(6) NOT NULL,
-            KEY plc_arrow_raw_inspection_id_idx (inspection_id)
+            KEY arrow_details_inspection_id_idx (inspection_id)
         );
         """,
         
@@ -528,8 +502,8 @@ def get_sql_create_statements():
         """,
         
         """
-        ALTER TABLE main_arrow_details
-        ADD CONSTRAINT main_arrow_details_inspection_id_fk
+        ALTER TABLE arrow_details
+        ADD CONSTRAINT arrow_details_inspection_id_fk
         FOREIGN KEY (inspection_id) REFERENCES main_inspection (id) ON DELETE CASCADE;
         """,
 
@@ -981,8 +955,7 @@ def main():
         print("- main_inspectionplcevent (PLC events)")
         print("- main_plcreading (PLC readings)")
         print("- plc_data_raw (raw PLC data from CSV files)")
-        print("- main_arrow_details (laser sensor torsion/deflection data per inspection)")
-        print("- plc_arrow_readings_raw (raw arrow CSV rows from plc_arrow_nodered.csv)")
+        print("- arrow_details (laser sensor torsion/deflection data per inspection)")
         print("- control_names (control point name lookup)")
         print("- django_admin_log (Django admin logging)")
         print("- Django system tables (auth, sessions, etc.)")

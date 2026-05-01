@@ -181,18 +181,10 @@ class Inspection(models.Model):
     
     # Defect Detection
     defecto_encontrado = models.BooleanField(
-        default=False,
+        default=False, 
         help_text="Indica si se encontró un defecto durante la inspección (detectado por cámara)"
     )
-
-    # Operator
-    operator_name = models.CharField(
-        max_length=200,
-        blank=True,
-        default='',
-        help_text="Nombre del operador que ejecutó la inspección (del PLC CSV)"
-    )
-
+    
     # Metadata
     created_at = models.DateTimeField(auto_now_add=True)
     updated_at = models.DateTimeField(auto_now=True)
@@ -447,24 +439,12 @@ class MachineLog(models.Model):
 
 class SystemConfiguration(models.Model):
     """Model for system configuration settings"""
-
+    
     # Storage Configuration
     media_storage_path = models.CharField(
-        max_length=500,
+        max_length=500, 
         default='media/inspection_photos/Inspection_1/',
         help_text="Ruta de almacenamiento para archivos multimedia"
-    )
-
-    # Autologin Configuration
-    autologin_enabled = models.BooleanField(
-        default=False,
-        help_text="Permite el inicio de sesión automático sin contraseña"
-    )
-    autologin_username = models.CharField(
-        max_length=150,
-        blank=True,
-        null=True,
-        help_text="Usuario que se autologueará automáticamente"
     )
     
     # Camera Configuration
@@ -807,82 +787,3 @@ class DigitPrediction(models.Model):
     def digits_list(self):
         """Return digits as a list"""
         return [self.digit_1, self.digit_2, self.digit_3, self.digit_4, self.digit_5]
-
-
-class PlcArrowReadingRaw(models.Model):
-    """Raw row from plc_arrow_nodered.csv — one record per CSV line."""
-
-    inspection = models.ForeignKey(
-        'Inspection',
-        on_delete=models.CASCADE,
-        related_name='plc_arrow_readings_raw',
-        help_text="Inspección relacionada",
-        null=True,
-        blank=True,
-    )
-    datetime = models.DateTimeField(null=True, blank=True, help_text="Timestamp del PLC")
-    id_ec = models.CharField(max_length=100, blank=True, help_text="ID Elemento Combustible")
-    nombre_ciclo = models.CharField(max_length=100, blank=True, help_text="Nombre del ciclo")
-    f0_xc = models.FloatField(null=True, blank=True)
-    f0_yc = models.FloatField(null=True, blank=True)
-    f1_xc = models.FloatField(null=True, blank=True)
-    f1_yc = models.FloatField(null=True, blank=True)
-    f2_xc = models.FloatField(null=True, blank=True)
-    f2_yc = models.FloatField(null=True, blank=True)
-    f3_xc = models.FloatField(null=True, blank=True)
-    f3_yc = models.FloatField(null=True, blank=True)
-    f4_xc = models.FloatField(null=True, blank=True)
-    f4_yc = models.FloatField(null=True, blank=True)
-    f5_xc = models.FloatField(null=True, blank=True)
-    f5_yc = models.FloatField(null=True, blank=True)
-    f6_xc = models.FloatField(null=True, blank=True)
-    f6_yc = models.FloatField(null=True, blank=True)
-    f7_xc = models.FloatField(null=True, blank=True)
-    f7_yc = models.FloatField(null=True, blank=True)
-    f8_xc = models.FloatField(null=True, blank=True)
-    f8_yc = models.FloatField(null=True, blank=True)
-    f9_xc = models.FloatField(null=True, blank=True)
-    f9_yc = models.FloatField(null=True, blank=True)
-    f10_xc = models.FloatField(null=True, blank=True)
-    f10_yc = models.FloatField(null=True, blank=True)
-    f11_xc = models.FloatField(null=True, blank=True)
-    f11_yc = models.FloatField(null=True, blank=True)
-    f12_xc = models.FloatField(null=True, blank=True)
-    f12_yc = models.FloatField(null=True, blank=True)
-    f13_xc = models.FloatField(null=True, blank=True)
-    f13_yc = models.FloatField(null=True, blank=True)
-    imported_at = models.DateTimeField(auto_now_add=True)
-
-    class Meta:
-        db_table = 'plc_arrow_readings_raw'
-        verbose_name = 'PLC Arrow Reading Raw'
-        verbose_name_plural = 'PLC Arrow Readings Raw'
-
-    def __str__(self):
-        return f"PlcArrowReadingRaw inspection={self.inspection_id} dt={self.datetime}"
-
-
-class ArrowDetail(models.Model):
-    """Per-inspection laser sensor data for torsion and arrow (deflection) control."""
-
-    inspection = models.ForeignKey(
-        Inspection,
-        on_delete=models.CASCADE,
-        related_name='arrow_details',
-        help_text="Inspección relacionada"
-    )
-    s1 = models.FloatField(null=True, blank=True, help_text="Sensor S1 (mm)")
-    s2 = models.FloatField(null=True, blank=True, help_text="Sensor S2 (mm)")
-    s3 = models.FloatField(null=True, blank=True, help_text="Sensor S3 (mm)")
-    xc = models.FloatField(null=True, blank=True, help_text="Centro Xc (mm)")
-    yc = models.FloatField(null=True, blank=True, help_text="Centro Yc (mm)")
-    diametro = models.FloatField(null=True, blank=True, help_text="Diámetro calculado (mm)")
-
-    class Meta:
-        db_table = 'main_arrow_details'
-        ordering = ['inspection', 'id']
-        verbose_name = 'Arrow Detail'
-        verbose_name_plural = 'Arrow Details'
-
-    def __str__(self):
-        return f"ArrowDetail inspection={self.inspection_id} id={self.id}"

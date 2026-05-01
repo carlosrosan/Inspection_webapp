@@ -225,12 +225,6 @@
                 <td>Inspector:</td>
                 <td>{{ inspection.inspector.get_full_name|default:inspection.inspector.username }}</td>
             </tr>
-            {% if inspection.operator_name %}
-            <tr>
-                <td>Operador:</td>
-                <td>{{ inspection.operator_name }}</td>
-            </tr>
-            {% endif %}
             <tr>
                 <td>Estado:</td>
                 <td>
@@ -366,63 +360,6 @@
     <div class="section">
         <div class="section-title">RECOMENDACIONES</div>
         <div class="text-content">{{ inspection.recommendations }}</div>
-    </div>
-    {% endif %}
-
-    {% if arrow_details %}
-    <div class="section">
-        <div class="section-title">CONTROL DE TORSIÓN Y FLECHA</div>
-
-        <!-- Arrow data table -->
-        <table class="timeline-table" style="font-size:8pt;">
-            <thead>
-                <tr>
-                    <th>#</th>
-                    <th>S1 (mm)</th>
-                    <th>S2 (mm)</th>
-                    <th>S3 (mm)</th>
-                    <th>Xc (mm)</th>
-                    <th>Yc (mm)</th>
-                    <th>Diámetro (mm)</th>
-                </tr>
-            </thead>
-            <tbody>
-                {% for row in arrow_details %}
-                <tr>
-                    <td>{{ forloop.counter0 }}</td>
-                    <td>{% if row.s1 != None %}{{ row.s1|floatformat:2 }}{% else %}—{% endif %}</td>
-                    <td>{% if row.s2 != None %}{{ row.s2|floatformat:2 }}{% else %}—{% endif %}</td>
-                    <td>{% if row.s3 != None %}{{ row.s3|floatformat:2 }}{% else %}—{% endif %}</td>
-                    <td>{% if row.xc != None %}{{ row.xc|floatformat:2 }}{% else %}—{% endif %}</td>
-                    <td>{% if row.yc != None %}{{ row.yc|floatformat:2 }}{% else %}—{% endif %}</td>
-                    <td>
-                        {% if row.diametro != None %}{{ row.diametro|floatformat:2 }}{% else %}—{% endif %}
-                        {% if forloop.first and row.diametro != None %}<span class="badge badge-success">✓</span>{% endif %}
-                    </td>
-                </tr>
-                {% endfor %}
-            </tbody>
-        </table>
-
-        <!-- Arrow charts (Vista frontal Xc / Vista lateral Yc) -->
-        {% if arrow_chart_xc or arrow_chart_yc %}
-        <table style="width:100%; border:none; margin-top:10px;">
-            <tr>
-                {% if arrow_chart_xc %}
-                <td style="width:50%; text-align:center; border:none; padding:4px;">
-                    <img src="{{ arrow_chart_xc }}" alt="Vista frontal Xc" style="max-width:100%; height:auto; border:1px solid #ddd;" />
-                    <div style="font-size:8pt; color:#555; margin-top:4px;">Vista frontal — Xc</div>
-                </td>
-                {% endif %}
-                {% if arrow_chart_yc %}
-                <td style="width:50%; text-align:center; border:none; padding:4px;">
-                    <img src="{{ arrow_chart_yc }}" alt="Vista lateral Yc" style="max-width:100%; height:auto; border:1px solid #ddd;" />
-                    <div style="font-size:8pt; color:#555; margin-top:4px;">Vista lateral — Yc</div>
-                </td>
-                {% endif %}
-            </tr>
-        </table>
-        {% endif %}
     </div>
     {% endif %}
 

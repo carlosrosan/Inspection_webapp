@@ -168,21 +168,7 @@ def login_view(request):
     """User login view with comprehensive logging"""
     if request.user.is_authenticated:
         return redirect('main:inspection_list')
-
-    # Autologin: if enabled in config, log in the configured user without password
-    try:
-        config = SystemConfiguration.get_config()
-        if config.autologin_enabled and config.autologin_username:
-            auto_user = User.objects.filter(username=config.autologin_username, is_active=True).first()
-            if auto_user:
-                from django.contrib.auth import login as auth_login
-                auto_user.backend = 'django.contrib.auth.backends.ModelBackend'
-                auth_login(request, auto_user)
-                logger.info(f"AUTOLOGIN - User: {auto_user.username}, IP: {request.META.get('REMOTE_ADDR', 'Unknown')}")
-                return redirect('main:inspection_list')
-    except Exception as e:
-        logger.warning(f"Autologin check failed: {e}")
-
+    
     if request.method == 'POST':
         username = request.POST.get('username')
         password = request.POST.get('password')
@@ -623,91 +609,16 @@ def inspection_detail(request, inspection_id):
                 continue
         # If PNG doesn't exist, skip this photo entirely (don't add to photos_data)
     
-    # Arrow details (laser sensor / torsion-and-deflection data)
-    from .models import ArrowDetail
-    arrow_details = list(inspection.arrow_details.order_by('id'))
-
     context = {
         'title': f'Inspección de Combustible: {inspection.title}',
         'description': f'Vista detallada de la inspección de calidad de {inspection.product_name}',
         'inspection': inspection,
-        'photos': photos,
-        'photos_data': photos_data,
-        'photo_count': len(photos_data),
-        'arrow_details': arrow_details,
+        'photos': photos,  # Keep original photos for compatibility (used in other parts of template)
+        'photos_data': photos_data,  # Only photos with PNG versions
+        'photo_count': len(photos_data),  # Count only PNG photos
     }
-
+    
     return render(request, 'main/inspection_detail.html', context)
-
-def _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal - Xc'):
-    """
-    Generate a deflection line chart for arrow_details as a base64 PNG.
-    Uses matplotlib. Returns None if matplotlib is unavailable or no data.
-    axis: 'xc' or 'yc'
-    """
-    if not arrow_details:
-        return None
-    try:
-        import matplotlib
-        matplotlib.use('Agg')
-        import matplotlib.pyplot as plt
-        import matplotlib.image as mpimg
-        from io import BytesIO
-        from django.conf import settings
-
-        rows = list(range(len(arrow_details)))
-        values = [getattr(r, axis) for r in arrow_details if getattr(r, axis) is not None]
-        valid_rows = [i for i, r in enumerate(arrow_details) if getattr(r, axis) is not None]
-
-        if not values:
-            return None
-
-        fig, ax = plt.subplots(figsize=(3, 7))
-
-        # Try to load background image from static/assets/
-        bg_loaded = False
-        try:
-            base_dir = str(settings.BASE_DIR)
-            bg_path = os.path.join(base_dir, 'static', 'assets', 'arrow_bg.png')
-            if not os.path.exists(bg_path) and settings.STATICFILES_DIRS:
-                bg_path = os.path.join(str(settings.STATICFILES_DIRS[0]), 'assets', 'arrow_bg.png')
-            if os.path.exists(bg_path):
-                bg_img = mpimg.imread(bg_path)
-                ax.imshow(bg_img, aspect='auto',
-                          extent=[min(values) - 5, max(values) + 5, max(rows) + 0.5, -0.5],
-                          zorder=0, alpha=0.35)
-                bg_loaded = True
-        except Exception:
-            pass
-
-        ax.plot(values, valid_rows, 'o-', color='#0d6efd', linewidth=2, markersize=5, zorder=2)
-        ax.axvline(x=0, color='#adb5bd', linestyle='--', linewidth=1, zorder=1)
-
-        ax.set_title(title, fontsize=9, fontweight='bold')
-        ax.set_xlabel('mm', fontsize=8)
-        ax.set_ylabel('Posición', fontsize=8)
-        ax.invert_yaxis()
-        ax.tick_params(labelsize=7)
-        ax.grid(True, alpha=0.3, zorder=1)
-
-        # X-axis symmetric around 0
-        max_abs = max(abs(min(values)), abs(max(values)), 5)
-        ax.set_xlim(-max_abs - 2, max_abs + 2)
-        ax.set_ylim(max(rows) + 0.5, -0.5)
-
-        plt.tight_layout(pad=0.5)
-
-        buf = BytesIO()
-        fig.savefig(buf, format='png', dpi=100, bbox_inches='tight')
-        plt.close(fig)
-        buf.seek(0)
-        img_base64 = base64.b64encode(buf.read()).decode('utf-8')
-        buf.close()
-        return f"data:image/png;base64,{img_base64}"
-    except Exception as e:
-        logger.warning(f"Arrow chart generation failed ({axis}): {e}")
-        return None
-
 
 def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
     """
@@ -851,26 +762,17 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
             except Exception:
                 continue
     
-    # Arrow details
-    from .models import ArrowDetail
-    arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
-    arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal - Xc')
-    arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, axis='yc', title='Vista lateral - Yc')
-
     # Prepare context
     context = {
         'inspection': inspection,
         'photos': photos,
         'photo_data': photo_data,
         'generation_date': datetime.now(),
-        'generation_user': None,
+        'generation_user': None,  # No user for automated generation
         'photo_count': photos.count(),
         'logo_data_uri': logo_data_uri,
-        'arrow_details': arrow_details,
-        'arrow_chart_xc': arrow_chart_xc,
-        'arrow_chart_yc': arrow_chart_yc,
     }
-
+    
     # Render HTML template
     template = get_template('main/inspection_pdf.html')
     html = template.render(context)
@@ -1110,12 +1012,6 @@ def inspection_pdf(request, inspection_id):
     if not logo_data_uri:
         logger.warning(f"Logo not found for PDF. Tried paths: {possible_paths}")
     
-    # Arrow details
-    from .models import ArrowDetail
-    arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
-    arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, axis='xc', title='Vista frontal - Xc')
-    arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, axis='yc', title='Vista lateral - Yc')
-
     # Prepare context for the template
     context = {
         'inspection': inspection,
@@ -1124,10 +1020,7 @@ def inspection_pdf(request, inspection_id):
         'generation_date': datetime.now(),
         'generation_user': request.user,
         'photo_count': photos.count(),
-        'logo_data_uri': logo_data_uri,
-        'arrow_details': arrow_details,
-        'arrow_chart_xc': arrow_chart_xc,
-        'arrow_chart_yc': arrow_chart_yc,
+        'logo_data_uri': logo_data_uri,  # Use base64 data URI instead of path
     }
 
     # Render the HTML template
