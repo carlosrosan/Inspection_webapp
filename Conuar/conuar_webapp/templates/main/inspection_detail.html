@@ -365,7 +365,7 @@
                     <div class="card-header bg-primary text-white py-2">
                         <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Xc por posición (mm)</small>
                     </div>
-                    <div class="card-body p-2" style="position:relative; height:340px;">
+                    <div class="card-body p-2">
                         <canvas id="arrowChartXc"></canvas>
                     </div>
                 </div>
@@ -377,7 +377,7 @@
                     <div class="card-header bg-warning text-dark py-2">
                         <small class="fw-bold"><i class="fas fa-chart-line me-1"></i>Yc por posición (mm)</small>
                     </div>
-                    <div class="card-body p-2" style="position:relative; height:340px;">
+                    <div class="card-body p-2">
                         <canvas id="arrowChartYc"></canvas>
                     </div>
                 </div>
@@ -524,10 +524,11 @@
         const sharedOptions = {
             indexAxis: 'y',
             responsive: true,
-            maintainAspectRatio: false,
+            maintainAspectRatio: true,
+            aspectRatio: 0.4,   // 2:5 — 2 wide per 5 tall
             scales: {
                 y: { title: { display: true, text: 'Posición', font: { size: 10 } }, reverse: false },
-                x: { title: { display: true, text: 'mm', font: { size: 10 } } }
+                x: { min: -20, max: 20, title: { display: true, text: 'mm', font: { size: 10 } } }
             },
             plugins: {
                 legend: { display: false },

@@ -674,9 +674,11 @@ def _generate_arrow_chart_base64(arrow_details, which):
         if not pts:
             return None
 
-        fig, ax = plt.subplots(figsize=(4.5, max(3.0, n * 0.28)))
+        h = max(5.0, n * 0.55)   # ~0.55 in per position, min 5 in
+        fig, ax = plt.subplots(figsize=(h / 6, h))  # 1:6 width-to-height ratio
         vals, idxs = zip(*pts)
         ax.plot(vals, idxs, f'{marker}-', color=color, linewidth=2, markersize=4)
+        ax.set_xlim(-20, 20)
         ax.set_yticks(positions)
         ax.set_yticklabels(labels, fontsize=7)
         ax.invert_yaxis()
