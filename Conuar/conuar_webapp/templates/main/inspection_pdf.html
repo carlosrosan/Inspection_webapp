@@ -319,23 +319,21 @@
                 </tr>
             </thead>
             <tbody>
+                {% if inspection.photo_start_timestamp %}
                 <tr>
-                    <td>Inspección Creada</td>
-                    <td>{{ inspection.created_at|date:"d/m/Y H:i" }}</td>
+                    <td>Primera foto tomada</td>
+                    <td>{{ inspection.photo_start_timestamp|date:"d/m/Y H:i:s" }}</td>
                 </tr>
+                {% endif %}
+                {% if inspection.photo_finish_timestamp %}
                 <tr>
-                    <td>Inspección Iniciada</td>
-                    <td>{{ inspection.inspection_date|date:"d/m/Y H:i" }}</td>
-                </tr>
-                {% if inspection.completed_date %}
-                <tr>
-                    <td>Inspección Completada</td>
-                    <td>{{ inspection.completed_date|date:"d/m/Y H:i" }}</td>
+                    <td>Última foto tomada</td>
+                    <td>{{ inspection.photo_finish_timestamp|date:"d/m/Y H:i:s" }}</td>
                 </tr>
                 {% endif %}
                 <tr>
-                    <td>Última Actualización</td>
-                    <td>{{ inspection.updated_at|date:"d/m/Y H:i" }}</td>
+                    <td>Reporte de inspección creado</td>
+                    <td>{{ inspection.created_at|date:"d/m/Y H:i" }}</td>
                 </tr>
             </tbody>
         </table>
@@ -371,7 +369,7 @@
 
     {% if arrow_details %}
     <div class="section">
-        <div class="section-title">CONTROL DE TORSIÓN Y FLECHA</div>
+        <div class="section-title">CONTROL DE FLECHA</div>
 
         <!-- Arrow data table -->
         <table class="timeline-table" style="font-size:8pt;">

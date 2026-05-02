@@ -172,22 +172,41 @@
         </div>
         {% endif %}
 
-        <!-- 4. Inspections Over Time - All Inspectors -->
-        <div class="row mb-5">
+        <!-- 4. Inspections Over Time - Bar Chart -->
+        <div class="row mb-3">
             <div class="col-12">
-                <h2 class="display-6 fw-bold mb-4">
-                    <i class="fas fa-chart-line me-3"></i>Inspecciones en el Tiempo - Todos los Inspectores
+                <h2 class="display-6 fw-bold mb-2">
+                    <i class="fas fa-chart-bar me-3"></i>Inspecciones por Mes
                 </h2>
             </div>
         </div>
-        
+
+        <!-- Year slider filter -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-sm">
+                    <div class="card-body py-3 d-flex align-items-center gap-4">
+                        <label class="fw-bold me-2 mb-0" style="white-space:nowrap;">Año:</label>
+                        <input type="range" id="yearSlider" class="form-range flex-grow-1"
+                               min="0" max="0" value="0" step="1"
+                               style="accent-color:#4A90E2;">
+                        <span id="yearSliderLabel" class="fw-bold fs-5" style="min-width:4ch; text-align:center;">—</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
         <div class="row mb-5">
             <div class="col-12">
                 <div class="card border-0 shadow-lg">
-                    <div class="card-header bg-primary text-white">
+                    <div class="card-header bg-primary text-white d-flex justify-content-between align-items-center">
                         <h5 class="mb-0">
-                            <i class="fas fa-chart-line me-2"></i>Inspecciones por Día (Últimos 30 días)
+                            <i class="fas fa-chart-bar me-2"></i>Inspecciones mensuales — <span id="chartYearTitle">—</span>
                         </h5>
+                        <div class="d-flex gap-3">
+                            <span><span style="display:inline-block;width:12px;height:12px;background:#4A90E2;border-radius:2px;margin-right:4px;"></span>Sin defecto</span>
+                            <span><span style="display:inline-block;width:12px;height:12px;background:#e74c3c;border-radius:2px;margin-right:4px;"></span>Con defecto</span>
+                        </div>
                     </div>
                     <div class="card-body">
                         <canvas id="allInspectorsChart" width="400" height="200"></canvas>
@@ -226,58 +245,80 @@
 {% block extra_js %}
 <script src="{% static 'js/chart.js' %}"></script>
 <script>
-    // Chart.js configuration
     Chart.defaults.font.family = "'Segoe UI', Tahoma, Geneva, Verdana, sans-serif";
     Chart.defaults.color = '#ffffff';
 
-    // All Inspectors Chart
-    const allInspectorsCtx = document.getElementById('allInspectorsChart').getContext('2d');
-    new Chart(allInspectorsCtx, {
-        type: 'line',
+    const allYearsData  = {{ all_years_chart|safe }};
+    const availableYears = {{ available_years|safe }};
+    const monthLabels   = {{ month_labels|safe }};
+    const currentYear   = {{ current_year }};
+
+    // ── Year slider setup ───────────────────────────────────────────────────
+    const slider = document.getElementById('yearSlider');
+    const sliderLabel = document.getElementById('yearSliderLabel');
+    const chartYearTitle = document.getElementById('chartYearTitle');
+
+    slider.min   = 0;
+    slider.max   = availableYears.length - 1;
+    const defaultIdx = availableYears.indexOf(currentYear);
+    slider.value = defaultIdx >= 0 ? defaultIdx : availableYears.length - 1;
+
+    function selectedYear() { return availableYears[parseInt(slider.value)]; }
+
+    function updateSliderLabel() {
+        const yr = selectedYear();
+        sliderLabel.textContent = yr;
+        chartYearTitle.textContent = yr;
+    }
+    updateSliderLabel();
+
+    // ── Monthly bar chart ───────────────────────────────────────────────────
+    const barCtx = document.getElementById('allInspectorsChart').getContext('2d');
+    const barChart = new Chart(barCtx, {
+        type: 'bar',
         data: {
-            labels: {{ chart_labels|safe }},
-            datasets: [{
-                label: 'Inspecciones Totales',
-                data: {{ all_inspectors_data|safe }},
-                borderColor: '#4A90E2',
-                backgroundColor: 'rgba(74, 144, 226, 0.1)',
-                borderWidth: 3,
-                fill: true,
-                tension: 0.4
-            }]
+            labels: monthLabels,
+            datasets: [
+                {
+                    label: 'Sin defecto',
+                    data: allYearsData[String(selectedYear())]?.no_defect ?? Array(12).fill(0),
+                    backgroundColor: 'rgba(74,144,226,0.8)',
+                    borderColor: '#4A90E2',
+                    borderWidth: 1,
+                },
+                {
+                    label: 'Con defecto',
+                    data: allYearsData[String(selectedYear())]?.defect ?? Array(12).fill(0),
+                    backgroundColor: 'rgba(231,76,60,0.8)',
+                    borderColor: '#e74c3c',
+                    borderWidth: 1,
+                }
+            ]
         },
         options: {
             responsive: true,
             plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffffff'
-                    }
-                }
+                legend: { labels: { color: '#ffffff' } },
+                tooltip: { mode: 'index', intersect: false }
             },
             scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#b0b0b0'
-                    },
-                    grid: {
-                        color: '#404040'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#b0b0b0'
-                    },
-                    grid: {
-                        color: '#404040'
-                    }
-                }
+                y: { beginAtZero: true, stacked: false,
+                     ticks: { color: '#b0b0b0' }, grid: { color: '#404040' } },
+                x: { ticks: { color: '#b0b0b0' }, grid: { color: '#404040' } }
             }
         }
     });
 
-    // Per Inspector Chart
+    slider.addEventListener('input', function() {
+        updateSliderLabel();
+        const yr = String(selectedYear());
+        const yd = allYearsData[yr] ?? { no_defect: Array(12).fill(0), defect: Array(12).fill(0) };
+        barChart.data.datasets[0].data = yd.no_defect;
+        barChart.data.datasets[1].data = yd.defect;
+        barChart.update();
+    });
+
+    // ── Per Inspector Chart ─────────────────────────────────────────────────
     const perInspectorCtx = document.getElementById('perInspectorChart').getContext('2d');
     new Chart(perInspectorCtx, {
         type: 'bar',
@@ -286,58 +327,25 @@
             datasets: [{
                 label: 'Inspecciones',
                 data: {{ inspector_data|safe }},
-                backgroundColor: [
-                    'rgba(40, 167, 69, 0.8)',
-                    'rgba(23, 162, 184, 0.8)',
-                    'rgba(255, 193, 7, 0.8)',
-                    'rgba(220, 53, 69, 0.8)',
-                    'rgba(108, 117, 125, 0.8)'
-                ],
-                borderColor: [
-                    '#28a745',
-                    '#17a2b8',
-                    '#ffc107',
-                    '#dc3545',
-                    '#6c757d'
-                ],
+                backgroundColor: ['rgba(40,167,69,0.8)','rgba(23,162,184,0.8)',
+                                   'rgba(255,193,7,0.8)','rgba(220,53,69,0.8)',
+                                   'rgba(108,117,125,0.8)'],
+                borderColor: ['#28a745','#17a2b8','#ffc107','#dc3545','#6c757d'],
                 borderWidth: 2
             }]
         },
         options: {
             responsive: true,
-            plugins: {
-                legend: {
-                    labels: {
-                        color: '#ffffff'
-                    }
-                }
-            },
+            plugins: { legend: { labels: { color: '#ffffff' } } },
             scales: {
-                y: {
-                    beginAtZero: true,
-                    ticks: {
-                        color: '#b0b0b0'
-                    },
-                    grid: {
-                        color: '#404040'
-                    }
-                },
-                x: {
-                    ticks: {
-                        color: '#b0b0b0'
-                    },
-                    grid: {
-                        color: '#404040'
-                    }
-                }
+                y: { beginAtZero: true, ticks: { color: '#b0b0b0' }, grid: { color: '#404040' } },
+                x: { ticks: { color: '#b0b0b0' }, grid: { color: '#404040' } }
             }
         }
     });
 
     // Auto-refresh every 30 seconds
-    setInterval(function() {
-        location.reload();
-    }, 30000);
+    setInterval(function() { location.reload(); }, 30000);
 </script>
 
 <style>

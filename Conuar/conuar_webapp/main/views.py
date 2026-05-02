@@ -456,42 +456,37 @@ def dashboard(request):
         ]
         control_points_timeline = sample_control_points
     
-    # Generate chart data for last 30 days
-    def generate_chart_data():
-        """Generate chart data for the last 30 days"""
-        from django.contrib.auth import get_user_model
-        UserModel = get_user_model()  # Get User model to avoid scope issues
-        
-        chart_labels = []
-        all_inspectors_data = []
-        inspector_data = []
-        inspector_names = []
-        
-        # Generate labels for last 30 days
-        for i in range(30):
-            date = today - timedelta(days=29-i)
-            chart_labels.append(date.strftime('%d/%m'))
-            
-            # Count inspections for this day
-            day_inspections = Inspection.objects.filter(
-                inspection_date__date=date
-            ).count()
-            all_inspectors_data.append(day_inspections)
-        
-        # Get inspector-specific data
-        inspectors = UserModel.objects.filter(
-            inspections_conducted__isnull=False
-        ).distinct().annotate(
-            inspection_count=Count('inspections_conducted')
-        ).order_by('-inspection_count')[:5]
-        
-        for inspector in inspectors:
-            inspector_names.append(inspector.username)
-            inspector_data.append(inspector.inspection_count)
-        
-        return chart_labels, all_inspectors_data, inspector_data, inspector_names
-    
-    chart_labels, all_inspectors_data, inspector_data, inspector_names = generate_chart_data()
+    # Build monthly bar-chart data split by defect, for all available years
+    from django.db.models.functions import ExtractYear
+    month_labels = ['Ene', 'Feb', 'Mar', 'Abr', 'May', 'Jun',
+                    'Jul', 'Ago', 'Sep', 'Oct', 'Nov', 'Dic']
+
+    available_years = sorted(list(
+        Inspection.objects.annotate(yr=ExtractYear('inspection_date'))
+        .values_list('yr', flat=True).distinct()
+    ))
+    if not available_years:
+        available_years = [today.year]
+
+    all_years_chart = {}
+    for yr in available_years:
+        no_defect, defect = [], []
+        for m in range(1, 13):
+            base = Inspection.objects.filter(inspection_date__year=yr, inspection_date__month=m)
+            no_defect.append(base.filter(defecto_encontrado=False).count())
+            defect.append(base.filter(defecto_encontrado=True).count())
+        all_years_chart[str(yr)] = {'no_defect': no_defect, 'defect': defect}
+
+    # Inspector totals (unchanged)
+    from django.contrib.auth import get_user_model
+    UserModel = get_user_model()
+    inspectors = UserModel.objects.filter(
+        inspections_conducted__isnull=False
+    ).distinct().annotate(
+        inspection_count=Count('inspections_conducted')
+    ).order_by('-inspection_count')[:5]
+    inspector_names = [i.username for i in inspectors]
+    inspector_data = [i.inspection_count for i in inspectors]
     
     # Final safety check: ensure inspection is never None
     if inspection is None:
@@ -529,8 +524,10 @@ def dashboard(request):
         'storage_gb': storage_gb,
         'photo_count': photo_count,
         'control_points_timeline': control_points_timeline,
-        'chart_labels': json.dumps(chart_labels),
-        'all_inspectors_data': json.dumps(all_inspectors_data),
+        'month_labels': json.dumps(month_labels),
+        'all_years_chart': json.dumps(all_years_chart),
+        'available_years': json.dumps(available_years),
+        'current_year': today.year,
         'inspector_data': json.dumps(inspector_data),
         'inspector_names': json.dumps(inspector_names),
     }

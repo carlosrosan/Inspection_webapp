@@ -13,6 +13,14 @@
     display: inline-block;
     width: 0.35em;
 }
+#arrowTable, #arrowTable th, #arrowTable td {
+    background: transparent !important;
+    color: #fff !important;
+    border-color: rgba(255,255,255,0.15) !important;
+}
+#arrowTable thead th {
+    border-bottom-color: rgba(255,255,255,0.3) !important;
+}
 </style>
 <div class="inspection-detail-page">
 <!-- Back Button and PDF Download -->
@@ -194,31 +202,13 @@
                     </div>
                     <div class="card-body">
                         <div class="timeline">
-                            <div class="timeline-item d-flex mb-3">
-                                <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-calendar-plus"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1">Inspección Creada</h6>
-                                    <p class="text-muted mb-0">{{ inspection.created_at|date:"M d, Y H:i" }}</p>
-                                </div>
-                            </div>
-                            <div class="timeline-item d-flex mb-3">
-                                <div class="timeline-icon bg-info text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-play"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1">Inspección Iniciada</h6>
-                                    <p class="text-muted mb-0">{{ inspection.inspection_date|date:"M d, Y H:i" }}</p>
-                                </div>
-                            </div>
                             {% if inspection.photo_start_timestamp %}
                             <div class="timeline-item d-flex mb-3">
                                 <div class="timeline-icon bg-primary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
                                     <i class="fas fa-camera"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Primera Foto Capturada</h6>
+                                    <h6 class="mb-1">Primera foto tomada</h6>
                                     <p class="text-muted mb-0">{{ inspection.photo_start_timestamp|date:"M d, Y H:i:s" }}</p>
                                 </div>
                             </div>
@@ -229,29 +219,18 @@
                                     <i class="fas fa-camera-retro"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Última Foto Capturada</h6>
+                                    <h6 class="mb-1">Última foto tomada</h6>
                                     <p class="text-muted mb-0">{{ inspection.photo_finish_timestamp|date:"M d, Y H:i:s" }}</p>
-                                </div>
-                            </div>
-                            {% endif %}
-                            {% if inspection.completed_date %}
-                            <div class="timeline-item d-flex mb-3">
-                                <div class="timeline-icon bg-success text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-check"></i>
-                                </div>
-                                <div class="timeline-content">
-                                    <h6 class="mb-1">Inspección Completada</h6>
-                                    <p class="text-muted mb-0">{{ inspection.completed_date|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
                             {% endif %}
                             <div class="timeline-item d-flex mb-3">
                                 <div class="timeline-icon bg-secondary text-white rounded-circle d-flex align-items-center justify-content-center me-3" style="width: 40px; height: 40px;">
-                                    <i class="fas fa-edit"></i>
+                                    <i class="fas fa-file-alt"></i>
                                 </div>
                                 <div class="timeline-content">
-                                    <h6 class="mb-1">Última Actualización</h6>
-                                    <p class="text-muted mb-0">{{ inspection.updated_at|date:"M d, Y H:i" }}</p>
+                                    <h6 class="mb-1">Reporte de inspección creado</h6>
+                                    <p class="text-muted mb-0">{{ inspection.created_at|date:"M d, Y H:i" }}</p>
                                 </div>
                             </div>
                         </div>
@@ -321,7 +300,7 @@
         <div class="row text-center mb-4">
             <div class="col-lg-8 mx-auto">
                 <h2 class="display-6 fw-bold mb-2">
-                    <i class="fas fa-ruler-combined me-3"></i>Control de Torsión y Flecha
+                    <i class="fas fa-ruler-combined me-3"></i>Control de Flecha
                 </h2>
                 <p class="lead text-muted">Deflexión Xc / Yc por posición (mm)</p>
             </div>
@@ -336,7 +315,8 @@
                     </div>
                     <div class="card-body p-0">
                         <div class="table-responsive">
-                            <table class="table table-sm table-striped mb-0" id="arrowTable">
+                            <table class="table table-sm mb-0" id="arrowTable"
+                                   style="background:transparent; color:#fff;">
                                 <thead class="table-primary">
                                     <tr>
                                         <th>Pos.</th>
