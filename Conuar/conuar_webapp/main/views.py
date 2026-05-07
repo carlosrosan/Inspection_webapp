@@ -629,6 +629,7 @@ def inspection_detail(request, inspection_id):
         'xc': [r.xc for r in arrow_details],
         'yc': [r.yc for r in arrow_details],
     })
+    arrow_diametro = next((r.diametro for r in arrow_details if r.diametro is not None), None)
 
     context = {
         'title': f'Inspección de Combustible: {inspection.title}',
@@ -639,6 +640,7 @@ def inspection_detail(request, inspection_id):
         'photo_count': len(photos_data),
         'arrow_details': arrow_details,
         'arrow_chart_data_json': arrow_chart_data_json,
+        'arrow_diametro': arrow_diametro,
     }
 
     return render(request, 'main/inspection_detail.html', context)
@@ -911,6 +913,7 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
     arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, 'xc')
     arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, 'yc')
+    arrow_diametro = next((r.diametro for r in arrow_details if r.diametro is not None), None)
 
     # Prepare context
     context = {
@@ -924,6 +927,7 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
         'arrow_details': arrow_details,
         'arrow_chart_xc': arrow_chart_xc,
         'arrow_chart_yc': arrow_chart_yc,
+        'arrow_diametro': arrow_diametro,
     }
 
     # Render HTML template
@@ -1170,6 +1174,7 @@ def inspection_pdf(request, inspection_id):
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
     arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, 'xc')
     arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, 'yc')
+    arrow_diametro = next((r.diametro for r in arrow_details if r.diametro is not None), None)
 
     # Prepare context for the template
     context = {
@@ -1183,6 +1188,7 @@ def inspection_pdf(request, inspection_id):
         'arrow_details': arrow_details,
         'arrow_chart_xc': arrow_chart_xc,
         'arrow_chart_yc': arrow_chart_yc,
+        'arrow_diametro': arrow_diametro,
     }
 
     # Render the HTML template

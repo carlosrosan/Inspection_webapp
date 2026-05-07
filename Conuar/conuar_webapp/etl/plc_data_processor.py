@@ -793,6 +793,7 @@ class PlcDataProcessor:
                         'datetime': raw_dt,
                         'id_ec': csv_id_ec,
                         'nombre_ciclo': csv_nombre,
+                        'diametro': _f(row.get('diametro', row.get(' diametro', ''))),
                     }
                     for (xc_col, yc_col), (xc_field, yc_field) in zip(ARROW_COLS, RAW_FIELDS):
                         raw_kwargs[xc_field] = _f(row.get(xc_col, ''))
@@ -819,9 +820,11 @@ class PlcDataProcessor:
 
             # Step 2: average values per position across all matched CSV rows,
             # then save exactly one ArrowDetail row per position (F0-F13).
+            # diametro is a single value per inspection — average it too.
             ArrowDetail.objects.filter(inspection=inspection).delete()
             position_xc: dict = {i: [] for i in range(len(RAW_FIELDS))}
             position_yc: dict = {i: [] for i in range(len(RAW_FIELDS))}
+            diametro_vals: list = []
             for raw_kw in matched_raws:
                 for i, (xc_field, yc_field) in enumerate(RAW_FIELDS):
                     xc_val = raw_kw.get(xc_field)
@@ -830,6 +833,11 @@ class PlcDataProcessor:
                         position_xc[i].append(xc_val)
                     if yc_val is not None:
                         position_yc[i].append(yc_val)
+                d = raw_kw.get('diametro')
+                if d is not None:
+                    diametro_vals.append(d)
+
+            diametro_avg = sum(diametro_vals) / len(diametro_vals) if diametro_vals else None
 
             detail_rows = []
             for i in range(len(RAW_FIELDS)):
@@ -840,6 +848,7 @@ class PlcDataProcessor:
                         inspection=inspection,
                         xc=xc_avg,
                         yc=yc_avg,
+                        diametro=diametro_avg,
                     ))
 
             if detail_rows:
@@ -976,6 +985,62 @@ class PlcDataProcessor:
                 self.processed_photos.add(photo_path.name)
                 linked += 1
 
+        # ── Final sweep ──────────────────────────────────────────────────────────
+        # Catch photos that arrived in STAGING after their PLC row was already
+        # scanned (late file transfers) or whose row had missing/filtered fields.
+        # Uses the inspection's batch_number + serial_number as the broad prefix.
+        nombre_ciclo_insp = (inspection.batch_number or '').strip()
+        id_ec_insp = (inspection.serial_number or '').strip()
+        if nombre_ciclo_insp and id_ec_insp and self.staging_photo_path.exists():
+            sweep_prefix = f"{nombre_ciclo_insp}-{id_ec_insp}-"
+            late_photos: List[Path] = []
+            for ext in (".png", ".bmp", ".jpg", ".jpeg"):
+                for photo_file in self.staging_photo_path.glob(f"{sweep_prefix}*{ext}"):
+                    if photo_file.stem.endswith('_comb'):
+                        continue
+                    if photo_file.name not in linked_photo_names:
+                        late_photos.append(photo_file)
+            late_photos.sort(key=lambda p: p.name)
+            if late_photos:
+                logger.warning(
+                    "Final sweep: encontradas %d fotos no vinculadas para inspección %s: %s",
+                    len(late_photos), inspection.product_code,
+                    [p.name for p in late_photos],
+                )
+            for photo_path in late_photos:
+                linked_photo_names.add(photo_path.name)
+                photo_timestamp = self._extract_timestamp_from_photo_filename(photo_path)
+                if photo_timestamp:
+                    photo_timestamps.append(photo_timestamp)
+                defect_from_photo = self._extract_failure_from_photo_filename(photo_path)
+                defects_found_in_photos.append(defect_from_photo)
+                comb_path = None
+                try:
+                    comb_path = unify_photo_png(photo_path)
+                except Exception as e:
+                    logger.error(f"Final sweep – error al combinar foto {photo_path}: {e}")
+                display_filename = (comb_path.name if comb_path and comb_path.exists()
+                                    else photo_path.name)
+                relative_path = (
+                    f"inspection_photos/PROCESSED/{inspection_folder_name}/{display_filename}"
+                )
+                InspectionPhoto.objects.create(
+                    inspection=inspection,
+                    photo=relative_path,
+                    caption=f"Ciclo {nombre_ciclo_insp} (late arrival)",
+                    photo_type="plc_cycle",
+                    defecto_encontrado=defect_from_photo,
+                )
+                pending_moves.append((photo_path, 'png'))
+                svg_path = photo_path.with_suffix('.svg')
+                if svg_path.exists():
+                    pending_moves.append((svg_path, 'svg'))
+                if comb_path and comb_path.exists():
+                    pending_moves.append((comb_path, 'comb_png'))
+                self.processed_photos.add(photo_path.name)
+                linked += 1
+                logger.info(f"Final sweep: foto vinculada → {photo_path.name}")
+
         if defects_found_in_photos:
             inspection.defecto_encontrado = any(defects_found_in_photos)
             inspection.save(update_fields=['defecto_encontrado'])
@@ -1009,6 +1074,7 @@ class PlcDataProcessor:
         inspection_folder.mkdir(parents=True, exist_ok=True)
 
         moved = 0
+        already_at_dest = 0
         for src_path, file_type in pending_moves:
             dest = inspection_folder / src_path.name
             try:
@@ -1016,14 +1082,32 @@ class PlcDataProcessor:
                 moved += 1
                 logger.debug(f"Movido {file_type}: {src_path.name} -> {dest}")
             except FileNotFoundError:
-                logger.warning(f"Archivo desapareció antes de mover: {src_path}")
+                if dest.exists():
+                    # A previous run already moved the file — not a real error
+                    already_at_dest += 1
+                    logger.debug(f"Archivo ya existe en destino (movido previamente): {dest}")
+                else:
+                    logger.error(
+                        f"GHOST FILE: {src_path.name} no existe en STAGING ni en PROCESSED. "
+                        f"InspectionPhoto DB record may point to a missing file."
+                    )
             except shutil.Error as exc:
-                logger.warning(f"No se pudo mover {src_path} -> {dest}: {exc}")
+                logger.error(f"No se pudo mover {src_path} -> {dest}: {exc}")
 
-        logger.info(
-            f"Movidos {moved}/{len(pending_moves)} archivos a "
-            f"PROCESSED/{inspection_folder_name}/"
-        )
+        total_accounted = moved + already_at_dest
+        if total_accounted < len(pending_moves):
+            logger.error(
+                f"Phase 2 INCOMPLETE for {inspection.product_code}: "
+                f"{total_accounted}/{len(pending_moves)} archivos en destino "
+                f"({moved} movidos, {already_at_dest} ya existían). "
+                f"{len(pending_moves) - total_accounted} archivos PERDIDOS."
+            )
+        else:
+            logger.info(
+                f"Movidos {moved}/{len(pending_moves)} archivos a "
+                f"PROCESSED/{inspection_folder_name}/ "
+                f"({already_at_dest} ya existían en destino)"
+            )
 
     def _extract_prefix_from_photo_filename(self, photo_path: Path) -> Optional[Tuple[str, str, str]]:
         """
@@ -1136,13 +1220,46 @@ class PlcDataProcessor:
 
                 recovery_stats["photos_matched"] += 1
 
+                from datetime import timedelta
+                GRACE = timedelta(minutes=15)  # late-arriving photos tolerance
+
                 matched_inspection = None
+                # Pass 1: strict range match
                 for insp in matching_inspections:
                     if (insp.photo_start_timestamp and
                             insp.photo_finish_timestamp and
                             insp.photo_start_timestamp <= photo_timestamp <= insp.photo_finish_timestamp):
                         matched_inspection = insp
                         break
+
+                # Pass 2: grace-period match (catches photos that arrived after
+                # photo_finish_timestamp was recorded — the root cause of the bug)
+                if not matched_inspection:
+                    for insp in matching_inspections:
+                        if (insp.photo_start_timestamp and
+                                insp.photo_finish_timestamp and
+                                insp.photo_start_timestamp - GRACE <= photo_timestamp
+                                <= insp.photo_finish_timestamp + GRACE):
+                            matched_inspection = insp
+                            logger.info(
+                                f"Foto {photo_path.name} recuperada vía gracia de tiempo "
+                                f"(±{GRACE}) → inspección {insp.id}"
+                            )
+                            break
+
+                # Pass 3: fallback — most-recently-completed inspection for this
+                # NombreCiclo+ID_EC when no timestamp is available or range still missed
+                if not matched_inspection:
+                    fallback = (matching_inspections
+                                .filter(status='completed')
+                                .order_by('-completed_date')
+                                .first())
+                    if fallback:
+                        matched_inspection = fallback
+                        logger.info(
+                            f"Foto {photo_path.name} recuperada por fallback a inspección "
+                            f"más reciente {fallback.id} ({fallback.product_code})"
+                        )
 
                 if not matched_inspection:
                     logger.debug(

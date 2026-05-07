@@ -2,12 +2,16 @@
 Email HTML report after an inspection is processed by the PLC pipeline.
 
 Compares DB photo counts with files remaining in STAGING and saved under PROCESSED.
+Also surfaces:
+  - Orphaned STAGING photos (matched this inspection's prefix but not linked in DB)
+  - PlcDataRaw rows whose photos are still sitting in STAGING
 """
 from __future__ import annotations
 
+import json as _json
 import logging
 from pathlib import Path
-from typing import List, Tuple
+from typing import Dict, List, Tuple
 
 from django.conf import settings
 from django.core.mail import EmailMultiAlternatives
@@ -74,6 +78,94 @@ def _count_processed_images_for_inspection(inspection: Inspection) -> Tuple[int,
     return len(names), names
 
 
+def _stem_key(name: str) -> str:
+    """Filename stem without the _comb suffix, lowercased — used for deduplication."""
+    stem = Path(name).stem
+    if stem.endswith("_comb"):
+        stem = stem[:-5]
+    return stem.lower()
+
+
+def _get_orphaned_staging_photos(inspection: Inspection) -> Tuple[int, List[str]]:
+    """
+    STAGING images matching this inspection's cycle prefix that are NOT linked
+    in main_inspectionphoto.  These were missed during processing or are
+    being recovered by the final-sweep / recovery scanner.
+    """
+    _, staging_files = _count_staging_images_for_inspection(inspection)
+    if not staging_files:
+        return 0, []
+
+    linked_keys = {
+        _stem_key(Path(p).name)
+        for p in inspection.photos.values_list("photo", flat=True)
+        if p
+    }
+    orphaned = [f for f in staging_files if _stem_key(f) not in linked_keys]
+    return len(orphaned), sorted(orphaned)
+
+
+def _get_plc_raw_staging_matches(inspection: Inspection) -> Tuple[int, List[dict]]:
+    """
+    PlcDataRaw rows whose NombreCiclo/ID_EC match this inspection AND that have
+    at least one photo still in STAGING.  One entry per unique ID_Control.
+    `processed` flag indicates whether the cycle row was already consumed.
+    """
+    from main.models import PlcDataRaw
+
+    batch = (inspection.batch_number or "").strip()
+    serial = (inspection.serial_number or "").strip()
+    if not batch or not serial:
+        return 0, []
+
+    staging = Path(getattr(settings, "INSPECTION_PHOTOS_STAGING_DIR", ""))
+    if not staging.exists():
+        return 0, []
+
+    # Index STAGING files by ID_Control (3rd dash-segment of filename)
+    staging_by_idc: dict = {}
+    prefix = f"{batch}-{serial}-"
+    for ext in _IMAGE_EXTENSIONS:
+        for p in staging.glob(f"{prefix}*{ext}"):
+            if not p.is_file() or p.stem.endswith("_comb"):
+                continue
+            parts = p.stem.split("-")
+            if len(parts) >= 3:
+                staging_by_idc.setdefault(parts[2], []).append(p.name)
+
+    if not staging_by_idc:
+        return 0, []
+
+    def _fv(data: dict, key: str) -> str:
+        v = data.get(key) or data.get(f" {key}") or ""
+        return str(v).strip() if not isinstance(v, bool) else ""
+
+    matched: list = []
+    seen_idc: set = set()
+
+    for raw in PlcDataRaw.objects.order_by("-timestamp")[:2000]:
+        try:
+            data = _json.loads(raw.json_data)
+        except Exception:
+            continue
+        if _fv(data, "NombreCiclo") != batch or _fv(data, "ID_EC") != serial:
+            continue
+        idc = _fv(data, "ID_Control")
+        if not idc or idc in seen_idc or idc not in staging_by_idc:
+            continue
+        seen_idc.add(idc)
+        matched.append({
+            "raw_id": raw.id,
+            "timestamp": raw.timestamp.strftime("%d/%m/%Y %H:%M:%S") if raw.timestamp else "—",
+            "id_control": idc,
+            "processed": raw.processed,
+            "staging_photos": sorted(staging_by_idc[idc]),
+        })
+
+    matched.sort(key=lambda r: r["id_control"])
+    return len(matched), matched
+
+
 def build_inspection_report_context(inspection: Inspection) -> dict:
     """Context for the HTML email template."""
     inspection.refresh_from_db()
@@ -89,6 +181,9 @@ def build_inspection_report_context(inspection: Inspection) -> dict:
     else:
         inspection_datetime_display = "—"
 
+    orphaned_count, orphaned_files = _get_orphaned_staging_photos(inspection)
+    plc_raw_count, plc_raw_rows = _get_plc_raw_staging_matches(inspection)
+
     return {
         "inspection": inspection,
         "inspection_datetime_display": inspection_datetime_display,
@@ -102,6 +197,14 @@ def build_inspection_report_context(inspection: Inspection) -> dict:
         "processed_files": processed_files[:50],
         "processed_files_truncated": len(processed_files) > 50,
         "processed_subdir": _processed_subdir_name(inspection),
+        # Orphaned / recovery
+        "orphaned_staging_count": orphaned_count,
+        "orphaned_staging_files": orphaned_files[:50],
+        "orphaned_staging_truncated": len(orphaned_files) > 50,
+        # PlcDataRaw rows with photos still in STAGING
+        "plc_raw_staging_count": plc_raw_count,
+        "plc_raw_staging_rows": plc_raw_rows[:30],
+        "plc_raw_staging_truncated": len(plc_raw_rows) > 30,
     }
 
 
@@ -144,6 +247,8 @@ def send_inspection_processed_report_email(inspection_id: int) -> bool:
         f"Defecto a nivel inspección: {'Sí' if ctx['inspection_defect_flag'] else 'No'}\n"
         f"Archivos imagen en PROCESSED: {ctx['processed_folder_count']}\n"
         f"Archivos imagen restantes en STAGING: {ctx['staging_remaining_count']}\n"
+        f"Fotos huérfanas (STAGING sin registro DB): {ctx['orphaned_staging_count']}\n"
+        f"Filas PlcDataRaw con fotos aún en STAGING: {ctx['plc_raw_staging_count']}\n"
         f"\nAdjunto: informe HTML detallado.\n"
     )
 

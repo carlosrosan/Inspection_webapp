@@ -145,6 +145,112 @@
             </div>
         </div>
         {% endif %}
+
+        <!-- ── Orphaned photos (STAGING but not in DB) ─────────────────── -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="h4 fw-bold mb-3 page-title">
+                    <i class="fas fa-ghost me-2 text-warning"></i>Fotos huérfanas — en recuperación
+                </h2>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-lg-4 mb-4">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-4">
+                        <i class="fas fa-unlink fa-3x {% if orphaned_staging_count > 0 %}text-warning{% else %}text-success{% endif %} mb-3"></i>
+                        <h2 class="display-5 fw-bold {% if orphaned_staging_count > 0 %}text-warning{% else %}text-success{% endif %}">{{ orphaned_staging_count }}</h2>
+                        <p class="text-muted-email mb-1">Fotos en STAGING sin registro en BD</p>
+                        <small class="text-muted-email">
+                            {% if orphaned_staging_count == 0 %}Todas las fotos del ciclo fueron vinculadas correctamente.
+                            {% else %}Estas fotos llegaron tarde o su fila PLC no tenía campos completos. El escáner de recuperación las procesará.{% endif %}
+                        </small>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-8 mb-4">
+                {% if orphaned_staging_files %}
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-header card-header-email text-white py-2">
+                        <h6 class="mb-0"><i class="fas fa-file-image me-1"></i>Archivos huérfanos</h6>
+                    </div>
+                    <div class="card-body">
+                        <ul class="small mb-0">
+                            {% for name in orphaned_staging_files %}<li class="text-warning">{{ name }}</li>{% endfor %}
+                        </ul>
+                        {% if orphaned_staging_truncated %}<p class="small text-muted-email mt-2">… lista truncada</p>{% endif %}
+                    </div>
+                </div>
+                {% else %}
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body d-flex align-items-center justify-content-center p-4">
+                        <p class="text-success mb-0"><i class="fas fa-check-circle me-2"></i>Sin fotos huérfanas para este ciclo.</p>
+                    </div>
+                </div>
+                {% endif %}
+            </div>
+        </div>
+
+        <!-- ── PlcDataRaw rows with photos still in STAGING ─────────────── -->
+        {% if plc_raw_staging_count > 0 %}
+        <div class="row mb-4">
+            <div class="col-12">
+                <h2 class="h4 fw-bold mb-3 page-title">
+                    <i class="fas fa-database me-2 text-danger"></i>Filas PlcDataRaw con fotos pendientes en STAGING
+                </h2>
+                <p class="text-muted-email small mb-3">
+                    Estas filas tienen el mismo NombreCiclo / ID_EC que esta inspección y aún hay fotos en STAGING para su ID_Control.
+                    Indica fotos que el sistema PLC registró pero que no fueron movidas a PROCESSED.
+                </p>
+            </div>
+        </div>
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="card border-0 shadow-lg card-email">
+                    <div class="card-header card-header-email text-white py-2 d-flex justify-content-between align-items-center">
+                        <h6 class="mb-0"><i class="fas fa-table me-1"></i>{{ plc_raw_staging_count }} fila{{ plc_raw_staging_count|pluralize }} encontrada{{ plc_raw_staging_count|pluralize }}</h6>
+                    </div>
+                    <div class="card-body p-0">
+                        <div class="table-responsive">
+                            <table class="table table-sm mb-0" style="color:#b8c5d1; background:transparent;">
+                                <thead style="background:rgba(74,144,226,0.15);">
+                                    <tr>
+                                        <th class="ps-3">raw_id</th>
+                                        <th>Timestamp PLC</th>
+                                        <th>ID_Control</th>
+                                        <th>Procesado</th>
+                                        <th>Fotos en STAGING</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    {% for row in plc_raw_staging_rows %}
+                                    <tr>
+                                        <td class="ps-3"><code class="text-info">{{ row.raw_id }}</code></td>
+                                        <td><small>{{ row.timestamp }}</small></td>
+                                        <td><code class="text-warning">{{ row.id_control }}</code></td>
+                                        <td>
+                                            {% if row.processed %}<span class="badge" style="background:#28a745;">Sí</span>
+                                            {% else %}<span class="badge" style="background:#dc3545;">No</span>{% endif %}
+                                        </td>
+                                        <td>
+                                            {% for fname in row.staging_photos %}
+                                            <div class="text-danger small">{{ fname }}</div>
+                                            {% endfor %}
+                                        </td>
+                                    </tr>
+                                    {% endfor %}
+                                </tbody>
+                            </table>
+                        </div>
+                        {% if plc_raw_staging_truncated %}
+                        <p class="small text-muted-email p-3 mb-0">… tabla truncada (mostrando primeras 30 filas)</p>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        {% endif %}
+
     </div>
 </section>
 </body>

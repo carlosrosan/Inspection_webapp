@@ -407,6 +407,7 @@ def get_sql_create_statements():
             inspection_id bigint NOT NULL,
             xc double,
             yc double,
+            diametro double,
             KEY main_arrow_details_inspection_id_idx (inspection_id)
         );
         """,
@@ -433,6 +434,7 @@ def get_sql_create_statements():
             f11_xc double, f11_yc double,
             f12_xc double, f12_yc double,
             f13_xc double, f13_yc double,
+            diametro double,
             imported_at datetime(6) NOT NULL,
             KEY plc_arrow_raw_inspection_id_idx (inspection_id)
         );

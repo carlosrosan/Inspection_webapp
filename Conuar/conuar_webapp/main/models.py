@@ -851,6 +851,7 @@ class PlcArrowReadingRaw(models.Model):
     f12_yc = models.FloatField(null=True, blank=True)
     f13_xc = models.FloatField(null=True, blank=True)
     f13_yc = models.FloatField(null=True, blank=True)
+    diametro = models.FloatField(null=True, blank=True, help_text="Diámetro de zapatas PP (mm)")
     imported_at = models.DateTimeField(auto_now_add=True)
 
     class Meta:
@@ -873,6 +874,7 @@ class ArrowDetail(models.Model):
     )
     xc = models.FloatField(null=True, blank=True, help_text="Centro Xc (mm)")
     yc = models.FloatField(null=True, blank=True, help_text="Centro Yc (mm)")
+    diametro = models.FloatField(null=True, blank=True, help_text="Diámetro de zapatas PP (mm)")
 
     class Meta:
         db_table = 'main_arrow_details'
