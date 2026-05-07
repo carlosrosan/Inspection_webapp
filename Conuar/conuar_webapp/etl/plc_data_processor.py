@@ -793,7 +793,7 @@ class PlcDataProcessor:
                         'datetime': raw_dt,
                         'id_ec': csv_id_ec,
                         'nombre_ciclo': csv_nombre,
-                        'diametro': _f(row.get('diametro', row.get(' diametro', ''))),
+                        'diametro': _f(row.get('DiametroPP', row.get(' DiametroPP', ''))),
                     }
                     for (xc_col, yc_col), (xc_field, yc_field) in zip(ARROW_COLS, RAW_FIELDS):
                         raw_kwargs[xc_field] = _f(row.get(xc_col, ''))
