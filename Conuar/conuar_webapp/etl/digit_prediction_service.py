@@ -28,8 +28,9 @@ except Exception:
 logger = logging.getLogger('etl.digit_prediction_service')
 
 # Path to the MNIST model
+# Using the transfer-learning model fine-tuned on real metal-plaque digit crops.
 MODEL_DIR = Path(__file__).parent / 'digit_prediction_models'
-MODEL_PATH = MODEL_DIR / 'mnist_model.keras'
+MODEL_PATH = MODEL_DIR / 'mnist_with_transfer_learning.keras'
 
 # Photo IDs that should have digit prediction
 TARGET_PHOTO_IDS = {'198F', '33F', '48F'}
@@ -181,18 +182,18 @@ PHOTO_ID_PARAMS = {
     '33F': {
         'brightness': 20,
         'contrast': 1.5,
-        'canny_low': 20,
-        'canny_high': 100,
-        'gaussian_blur': 5,
-        'negative': False,
+        'canny_low': 50,    # tighter edge threshold for deep knife carvings
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,   # invert: carved grooves become white on black (matches training data)
     },
     '48F': {
         'brightness': 20,
         'contrast': 1.5,
-        'canny_low': 20,
-        'canny_high': 100,
-        'gaussian_blur': 5,
-        'negative': False,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
     },
 }
 

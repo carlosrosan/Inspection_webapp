@@ -793,7 +793,7 @@ class PlcDataProcessor:
                         'datetime': raw_dt,
                         'id_ec': csv_id_ec,
                         'nombre_ciclo': csv_nombre,
-                        'diametro': _f(row.get('diametro', row.get(' diametro', ''))),
+                        'diametro': _f(row.get('DiametroPP', row.get(' DiametroPP', ''))),
                     }
                     for (xc_col, yc_col), (xc_field, yc_field) in zip(ARROW_COLS, RAW_FIELDS):
                         raw_kwargs[xc_field] = _f(row.get(xc_col, ''))
@@ -1008,20 +1008,6 @@ class PlcDataProcessor:
                     [p.name for p in late_photos],
                 )
             for photo_path in late_photos:
-                # Re-apply the "tes" guard: the main loop already skips PLC rows
-                # whose ID_Control contains "tes", but the final sweep scans by
-                # prefix only (NombreCiclo-ID_EC-*) and would otherwise pick up
-                # test photos like "Ciclo1-E123-TES1-241225_123456-OK.png".
-                prefix_parts = self._extract_prefix_from_photo_filename(photo_path)
-                if prefix_parts:
-                    _, _, id_control_from_file = prefix_parts
-                    if "tes" in id_control_from_file.lower():
-                        logger.debug(
-                            f"Final sweep: omitiendo foto con ID_Control de prueba "
-                            f"'{id_control_from_file}': {photo_path.name}"
-                        )
-                        continue
-
                 linked_photo_names.add(photo_path.name)
                 photo_timestamp = self._extract_timestamp_from_photo_filename(photo_path)
                 if photo_timestamp:
