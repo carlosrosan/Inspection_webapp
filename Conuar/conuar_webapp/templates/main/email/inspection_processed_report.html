@@ -253,5 +253,119 @@
 
     </div>
 </section>
+
+<!-- ══════════════════════════════════════════════════════════════════
+     MORNING SYSTEM STATUS
+     ══════════════════════════════════════════════════════════════════ -->
+<section class="section-padding pt-0">
+    <div class="container">
+
+        <div class="row mb-3">
+            <div class="col-12">
+                <h2 class="h4 fw-bold mb-1 page-title">
+                    <i class="fas fa-sun me-2 text-warning"></i>Estado del sistema al arrancar — {{ morning.today }}
+                </h2>
+                <p class="text-muted-email small mb-0">
+                    Compara cuándo empezaron NodeRed, FileZilla y Django respecto a las 09:00 hs.
+                </p>
+            </div>
+        </div>
+
+        <!-- Django @ 09:00 banner -->
+        <div class="row mb-4">
+            <div class="col-12">
+                <div class="alert mb-0 p-3"
+                     style="background:rgba({% if morning.django_at_9am == True %}40,167,69{% elif morning.django_at_9am == False %}220,53,69{% else %}255,193,7{% endif %},0.15);
+                            border:1px solid rgba({% if morning.django_at_9am == True %}40,167,69{% elif morning.django_at_9am == False %}220,53,69{% else %}255,193,7{% endif %},0.5);
+                            border-radius:8px;">
+                    <span class="fw-bold"
+                          style="color:{% if morning.django_at_9am == True %}#28a745{% elif morning.django_at_9am == False %}#dc3545{% else %}#ffc107{% endif %}">
+                        {% if morning.django_at_9am == True %}
+                            <i class="fas fa-check-circle me-2"></i>
+                        {% elif morning.django_at_9am == False %}
+                            <i class="fas fa-times-circle me-2"></i>
+                        {% else %}
+                            <i class="fas fa-question-circle me-2"></i>
+                        {% endif %}
+                        {{ morning.django_at_9am_label }}
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <!-- Timeline cards -->
+        <div class="row g-3 mb-4">
+
+            <!-- NodeRed -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-network-wired fa-2x text-info mb-2"></i>
+                        <h6 class="fw-bold text-info mb-1">NodeRed</h6>
+                        <p class="small text-muted-email mb-1">Primer registro CSV del día</p>
+                        {% if morning.nodered_first_ts %}
+                            <span class="fs-5 fw-bold text-light">{{ morning.nodered_first_ts }}</span>
+                        {% else %}
+                            <span class="text-muted-email">Sin datos hoy</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Django received -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-server fa-2x text-primary mb-2"></i>
+                        <h6 class="fw-bold text-primary mb-1">Django — primer dato</h6>
+                        <p class="small text-muted-email mb-1">Primera fila PlcDataRaw recibida</p>
+                        {% if morning.plc_first_received_ts %}
+                            <span class="fs-5 fw-bold text-light">{{ morning.plc_first_received_ts }}</span>
+                        {% else %}
+                            <span class="text-muted-email">Sin datos hoy</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- Django processed -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-cogs fa-2x text-success mb-2"></i>
+                        <h6 class="fw-bold text-success mb-1">Django — primer ciclo</h6>
+                        <p class="small text-muted-email mb-1">Primera fila PlcDataRaw procesada</p>
+                        {% if morning.plc_first_processed_ts %}
+                            <span class="fs-5 fw-bold text-light">{{ morning.plc_first_processed_ts }}</span>
+                        {% else %}
+                            <span class="text-muted-email">Sin ciclos procesados hoy</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+            <!-- FileZilla / STAGING -->
+            <div class="col-lg-3 col-md-6">
+                <div class="card border-0 shadow-lg h-100 card-email">
+                    <div class="card-body text-center p-3">
+                        <i class="fas fa-file-upload fa-2x text-warning mb-2"></i>
+                        <h6 class="fw-bold text-warning mb-1">FileZilla — primera foto</h6>
+                        <p class="small text-muted-email mb-1">Primera imagen en STAGING</p>
+                        {% if morning.staging_first_image_ts %}
+                            <span class="fs-5 fw-bold text-light">{{ morning.staging_first_image_ts }}</span>
+                            {% if morning.staging_first_image_name %}
+                                <br><small class="text-muted-email" style="word-break:break-all;">{{ morning.staging_first_image_name }}</small>
+                            {% endif %}
+                        {% else %}
+                            <span class="text-muted-email">Sin fotos en STAGING hoy</span>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+
+        </div><!-- /row -->
+    </div>
+</section>
+
 </body>
 </html>

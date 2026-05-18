@@ -166,167 +166,6 @@ def _get_plc_raw_staging_matches(inspection: Inspection) -> Tuple[int, List[dict
     return len(matched), matched
 
 
-def _get_morning_system_status() -> dict:
-    """
-    Analyse how the three systems (NodeRed, FileZilla, Django) started today
-    and whether Django was already running at 09:00 local time.
-
-    Keys returned
-    ─────────────
-    today                    str      "DD/MM/YYYY"
-    nodered_first_ts         str|None first CSV row of today  "HH:MM:SS"
-    plc_first_received_ts    str|None first PlcDataRaw of today
-    plc_first_processed_ts   str|None first PlcDataRaw(processed=True) today
-    staging_first_image_ts   str|None earliest STAGING image mtime today
-    staging_first_image_name str|None filename of that image
-    django_at_9am            bool|None True=running, False=down, None=unknown
-    django_at_9am_label      str      human-readable status sentence
-    django_at_9am_color      str      "green" / "red" / "orange"
-    """
-    import csv as _csv
-    from datetime import datetime, time as _time
-
-    result: dict = {
-        "today":                    "—",
-        "nodered_first_ts":         None,
-        "plc_first_received_ts":    None,
-        "plc_first_processed_ts":   None,
-        "staging_first_image_ts":   None,
-        "staging_first_image_name": None,
-        "django_at_9am":            None,
-        "django_at_9am_label":      "Sin datos suficientes para determinar el estado a las 09:00",
-        "django_at_9am_color":      "orange",
-    }
-
-    now_local     = timezone.localtime(timezone.now())
-    today         = now_local.date()
-    result["today"] = today.strftime("%d/%m/%Y")
-
-    nine_am_naive = datetime.combine(today, _time(9, 0))
-    nine_am_aware = timezone.make_aware(nine_am_naive)
-
-    # ── 1. NodeRed CSV — first row of today ───────────────────────────────────
-    csv_path = (
-        Path(__file__).resolve().parents[3]   # → conuar_webapp/
-        / "etl" / "NodeRed" / "plc_reads" / "plc_reads_nodered.csv"
-    )
-    nodered_before_9 = False
-
-    if csv_path.exists():
-        try:
-            with open(csv_path, newline="", encoding="utf-8-sig") as fh:
-                for row in _csv.DictReader(fh):
-                    raw_ts = (row.get("datetime") or row.get(" datetime") or "").strip()
-                    if not raw_ts:
-                        continue
-                    try:
-                        ts = datetime.fromisoformat(
-                            raw_ts.replace("Z", "").replace("T", " ").split(".")[0]
-                        )
-                        if ts.date() == today:
-                            if result["nodered_first_ts"] is None:
-                                result["nodered_first_ts"] = ts.strftime("%H:%M:%S")
-                            if ts.time() < _time(9, 0):
-                                nodered_before_9 = True
-                            break      # CSV is ordered; first today-row is enough
-                    except ValueError:
-                        continue
-        except Exception as exc:
-            logger.debug("Morning status: could not read NodeRed CSV: %s", exc)
-
-    # ── 2. PlcDataRaw — first received and first processed today ─────────────
-    try:
-        from main.models import PlcDataRaw
-
-        first_rx = (
-            PlcDataRaw.objects
-            .filter(timestamp__date=today)
-            .order_by("timestamp")
-            .first()
-        )
-        if first_rx and first_rx.timestamp:
-            result["plc_first_received_ts"] = (
-                timezone.localtime(first_rx.timestamp).strftime("%H:%M:%S")
-            )
-
-        first_proc = (
-            PlcDataRaw.objects
-            .filter(timestamp__date=today, processed=True)
-            .order_by("timestamp")
-            .first()
-        )
-        if first_proc and first_proc.timestamp:
-            result["plc_first_processed_ts"] = (
-                timezone.localtime(first_proc.timestamp).strftime("%H:%M:%S")
-            )
-
-    except Exception as exc:
-        logger.debug("Morning status: could not query PlcDataRaw: %s", exc)
-
-    # ── 3. STAGING — earliest image file today (by mtime) ────────────────────
-    staging = Path(getattr(settings, "INSPECTION_PHOTOS_STAGING_DIR", ""))
-    if staging.exists():
-        earliest_ts   = None
-        earliest_name = None
-        try:
-            for ext in _IMAGE_EXTENSIONS:
-                for p in staging.glob(f"*{ext}"):
-                    if not p.is_file():
-                        continue
-                    try:
-                        mtime = datetime.fromtimestamp(p.stat().st_mtime)
-                        if mtime.date() == today:
-                            if earliest_ts is None or mtime < earliest_ts:
-                                earliest_ts   = mtime
-                                earliest_name = p.name
-                    except OSError:
-                        continue
-        except Exception as exc:
-            logger.debug("Morning status: error scanning STAGING: %s", exc)
-
-        if earliest_ts:
-            result["staging_first_image_ts"]   = earliest_ts.strftime("%H:%M:%S")
-            result["staging_first_image_name"] = earliest_name
-
-    # ── 4. Was Django running at 09:00? ───────────────────────────────────────
-    # Signal: a PlcDataRaw row timestamped before 09:00 means Django's HTTP API
-    # was already accepting requests at that time (NodeRed calls the API to
-    # insert rows). If NodeRed's CSV has rows before 09:00 but Django has none,
-    # Django was down.
-    try:
-        django_before_9 = (
-            PlcDataRaw.objects
-            .filter(timestamp__date=today, timestamp__lt=nine_am_aware)
-            .exists()
-        )
-    except Exception:
-        django_before_9 = False
-
-    if django_before_9:
-        result["django_at_9am"]       = True
-        result["django_at_9am_label"] = "Django estaba activo antes de las 09:00 hs"
-        result["django_at_9am_color"] = "green"
-    elif nodered_before_9 and not django_before_9:
-        result["django_at_9am"]       = False
-        result["django_at_9am_label"] = (
-            "Django NO estaba activo a las 09:00 hs — "
-            "NodeRed enviaba datos (CSV) pero Django no los recibió"
-        )
-        result["django_at_9am_color"] = "red"
-    else:
-        first_rx_ts = result.get("plc_first_received_ts")
-        result["django_at_9am"] = None
-        result["django_at_9am_label"] = (
-            f"Sin actividad antes de las 09:00 hs — "
-            f"primera actividad Django a las {first_rx_ts}"
-            if first_rx_ts
-            else "Sin actividad registrada antes de las 09:00 hs"
-        )
-        result["django_at_9am_color"] = "orange"
-
-    return result
-
-
 def build_inspection_report_context(inspection: Inspection) -> dict:
     """Context for the HTML email template."""
     inspection.refresh_from_db()
@@ -344,8 +183,6 @@ def build_inspection_report_context(inspection: Inspection) -> dict:
 
     orphaned_count, orphaned_files = _get_orphaned_staging_photos(inspection)
     plc_raw_count, plc_raw_rows = _get_plc_raw_staging_matches(inspection)
-
-    morning = _get_morning_system_status()
 
     return {
         "inspection": inspection,
@@ -368,8 +205,6 @@ def build_inspection_report_context(inspection: Inspection) -> dict:
         "plc_raw_staging_count": plc_raw_count,
         "plc_raw_staging_rows": plc_raw_rows[:30],
         "plc_raw_staging_truncated": len(plc_raw_rows) > 30,
-        # Morning system status (NodeRed / FileZilla / Django @ 09:00)
-        "morning": morning,
     }
 
 
@@ -403,7 +238,6 @@ def send_inspection_processed_report_email(inspection_id: int) -> bool:
     subject = getattr(settings, "INSPECTION_PROCESSED_EMAIL_SUBJECT_PREFIX", "[Conuar] ")
     subject = f'{subject.rstrip()} Inspección #{inspection.id} — {inspection.product_code or "sin código"}'
 
-    m = ctx["morning"]
     plain = (
         f"Inspección #{inspection.id}\n"
         f"Código producto: {inspection.product_code}\n"
@@ -415,13 +249,6 @@ def send_inspection_processed_report_email(inspection_id: int) -> bool:
         f"Archivos imagen restantes en STAGING: {ctx['staging_remaining_count']}\n"
         f"Fotos huérfanas (STAGING sin registro DB): {ctx['orphaned_staging_count']}\n"
         f"Filas PlcDataRaw con fotos aún en STAGING: {ctx['plc_raw_staging_count']}\n"
-        f"\n--- Estado del sistema a las 09:00 ({m['today']}) ---\n"
-        f"NodeRed   — primer registro del día:            {m['nodered_first_ts'] or '—'}\n"
-        f"PLC       — primer dato recibido por Django:    {m['plc_first_received_ts'] or '—'}\n"
-        f"PLC       — primer ciclo procesado por Django:  {m['plc_first_processed_ts'] or '—'}\n"
-        f"FileZilla — primera foto en STAGING:            {m['staging_first_image_ts'] or '—'}"
-        + (f"  ({m['staging_first_image_name']})" if m['staging_first_image_name'] else "") + "\n"
-        f"Django a las 09:00:  {m['django_at_9am_label']}\n"
         f"\nAdjunto: informe HTML detallado.\n"
     )
 

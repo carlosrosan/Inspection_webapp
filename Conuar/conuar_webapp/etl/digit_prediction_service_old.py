@@ -217,205 +217,69 @@ def get_params_for_photo_id(photo_id: str) -> Dict:
 # DIGIT SEGMENTATION (from region_detection.py)
 # =============================================================================
 
-def segment_digits(image, is_preprocessed=False):
+def segment_digits(image, is_preprocessed=False, min_area=100, max_area=50000):
     """
-    Segment individual digits from an edge-detected image using contour detection.
-    Uses absolute pixel thresholds calibrated from 90 hand-labeled digit crops:
-        Width:  60–109 px  (avg 83 px)
-        Height: 70–186 px  (avg 138 px)
-
+    Segment individual digits from an image using contour detection.
+    
+    Args:
+        image: Input image (BGR or grayscale)
+        is_preprocessed: If True, image is already edge-detected (white on black)
+        min_area: Minimum contour area to consider
+        max_area: Maximum contour area to consider
+    
     Returns:
-        List of (digit_image, bounding_box) tuples sorted left to right.
+        List of (digit_image, bounding_box) tuples, sorted left to right
     """
     if image is None:
         return []
-
+    
+    # Convert to grayscale if needed
     if len(image.shape) == 3:
         gray = cv2.cvtColor(image, cv2.COLOR_BGR2GRAY)
     else:
         gray = image.copy()
-
+    
+    # If not preprocessed, apply edge detection
     if not is_preprocessed:
         gray = preprocess_for_edge_detection(gray)
-
-    # Morphological operations to connect nearby edge pixels
-    kernel_dilate = np.ones((3, 3), np.uint8)
-    dilated = cv2.dilate(gray, kernel_dilate, iterations=2)
-    kernel_close = np.ones((5, 5), np.uint8)
-    closed = cv2.morphologyEx(dilated, cv2.MORPH_CLOSE, kernel_close)
-
-    contours, _ = cv2.findContours(closed, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-    # ── Absolute pixel thresholds (calibrated from labeled crops) ─────────────
-    MIN_DIGIT_W    = 50    # px  (measured min 60, −10 margin)
-    MAX_DIGIT_W    = 130   # px  (measured max 109, +21 margin)
-    MIN_DIGIT_H    = 60    # px  (measured min 70, −10 margin)
-    MAX_DIGIT_H    = 210   # px  (measured max 186, +24 margin)
-    MIN_DIGIT_AREA = 3000  # px² (measured min 60×70 = 4200, −1200 margin)
-    MAX_DIGIT_AREA = 30000 # px² (measured max 109×186 = 20274, +9726 margin)
-
-    image_h, image_w = gray.shape
-    max_area = min(MAX_DIGIT_AREA, image_h * image_w * 0.35)
-
+    
+    # Find contours
+    contours, _ = cv2.findContours(gray, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
+    
+    # Filter and sort contours
     digit_regions = []
-
+    
     for contour in contours:
         area = cv2.contourArea(contour)
-        if not (MIN_DIGIT_AREA < area < max_area):
+        
+        # Filter by area
+        if area < min_area or area > max_area:
             continue
-
-        # Complexity filters — reject noise and merged blobs
-        perimeter = cv2.arcLength(contour, True)
-        if perimeter > 0:
-            circularity = 4 * np.pi * area / (perimeter * perimeter)
-            if circularity < 0.05:
-                continue
-            if perimeter / np.sqrt(area) > 20:
-                continue
-
+        
+        # Get bounding box
         x, y, w, h = cv2.boundingRect(contour)
-
-        if not (MIN_DIGIT_W <= w <= MAX_DIGIT_W):
-            continue
-        if not (MIN_DIGIT_H <= h <= MAX_DIGIT_H):
-            continue
-
+        
+        # Filter by aspect ratio (digits should be taller than wide)
         aspect_ratio = h / w if w > 0 else 0
-        if not (0.5 < aspect_ratio < 4.0):
+        if aspect_ratio < 0.5 or aspect_ratio > 5.0:
             continue
-
-        # Pad the extracted region
-        padding_x = int(w * 0.15)
-        padding_y = int(h * 0.15)
-        x1 = max(0, x - padding_x)
-        y1 = max(0, y - padding_y)
-        x2 = min(image_w, x + w + padding_x)
-        y2 = min(image_h, y + h + padding_y)
-
+        
+        # Extract digit region with padding
+        padding = 5
+        x1 = max(0, x - padding)
+        y1 = max(0, y - padding)
+        x2 = min(gray.shape[1], x + w + padding)
+        y2 = min(gray.shape[0], y + h + padding)
+        
         digit_img = gray[y1:y2, x1:x2]
+        
         if digit_img.size > 0:
             digit_regions.append((digit_img, (x1, y1, x2, y2)))
-
-    # Remove overlapping regions (keep larger)
-    digit_regions.sort(key=lambda r: (r[1][2]-r[1][0]) * (r[1][3]-r[1][1]), reverse=True)
-    kept = []
-    for region, bbox in digit_regions:
-        x1, y1, x2, y2 = bbox
-        overlapping = False
-        for _, (kx1, ky1, kx2, ky2) in kept:
-            ix1, iy1 = max(x1, kx1), max(y1, ky1)
-            ix2, iy2 = min(x2, kx2), min(y2, ky2)
-            if ix1 < ix2 and iy1 < iy2:
-                inter = (ix2-ix1) * (iy2-iy1)
-                smaller = min((x2-x1)*(y2-y1), (kx2-kx1)*(ky2-ky1))
-                if inter / smaller > 0.3:
-                    overlapping = True
-                    break
-        if not overlapping:
-            kept.append((region, bbox))
-
-    # Sort left to right
-    kept.sort(key=lambda r: r[1][0])
-    return kept
-
-
-# =============================================================================
-# ADAPTIVE PIPELINE HELPERS
-# =============================================================================
-
-def _find_digit_band(edge_image, padding_frac=0.20,
-                     peak_threshold=0.10, drop_threshold=0.30):
-    """
-    Find the vertical band with the highest edge density (the digit zone) and
-    return (y1, y2) row indices that strip the noisy metallic-grain region.
-
-    Applied to the edge-detected image AFTER preprocess_for_edge_detection()
-    and BEFORE segment_digits(), so the segmenter only sees the digit zone.
-    Falls back to (0, H) when no clear signal is found.
-    """
-    if edge_image is None:
-        return 0, 0
-    H, W = edge_image.shape[:2]
-    if H == 0 or W == 0:
-        return 0, H
-
-    row_density = np.sum(edge_image > 0, axis=1).astype(np.float32)
-    win = max(3, H // 20)
-    kernel = np.ones(win, dtype=np.float32) / win
-    smoothed = np.convolve(row_density, kernel, mode='same')
-
-    peak_val = float(smoothed.max())
-    if peak_val == 0:
-        return 0, H
-
-    peak_row = int(np.argmax(smoothed))
-    y1 = 0
-    for r in range(peak_row, -1, -1):
-        if smoothed[r] < peak_val * peak_threshold:
-            y1 = max(0, r - 2)
-            break
-    y2 = H
-    for r in range(peak_row, H):
-        if smoothed[r] < peak_val * drop_threshold:
-            y2 = r
-            break
-
-    digit_height = max(1, y2 - y1)
-    y2_padded = min(H, y2 + int(digit_height * padding_frac))
-    return y1, y2_padded
-
-
-def _auto_crop_between_rails(img, dark_thresh=80, bright_thresh=220,
-                              dark_frac=0.08, bright_frac=0.10,
-                              min_height=30):
-    """
-    Trim structural horizontal lines from the cropped inspection image:
-      - Rows with many dark pixels  (metal rail)   removed at TOP
-      - Rows with many bright pixels (computer text) removed at BOTTOM
-
-    Applied to the RAW cropped image BEFORE edge detection, so the edge
-    detector only sees the digit-engraving surface.
-
-    Returns (trimmed_image, y1, y2) or (original, 0, H) if no lines found.
-    """
-    if img is None or img.size == 0:
-        H = img.shape[0] if img is not None else 0
-        return img, 0, H
-
-    gray = cv2.cvtColor(img, cv2.COLOR_BGR2GRAY) if img.ndim == 3 else img
-    H, W = gray.shape
-
-    row_dark   = np.mean(gray < dark_thresh,   axis=1).astype(float)
-    row_bright = np.mean(gray > bright_thresh, axis=1).astype(float)
-
-    # 1a. skip dark rows at the TOP (top rail) — scan top 30 % without break
-    y1 = 0
-    top_limit = max(1, H * 3 // 10)
-    for r in range(top_limit):
-        if row_dark[r] >= dark_frac:
-            y1 = r + 1
-
-    # 1b. skip bright rows right after the dark zone (transition strip)
-    window = max(1, H // 10)
-    for r in range(y1, min(y1 + window, H)):
-        if row_bright[r] >= bright_frac:
-            y1 = r + 1
-        else:
-            break
-
-    # 2. find first dark row below y1 (bottom rail)
-    y2 = H
-    for r in range(y1, H):
-        if row_dark[r] >= dark_frac:
-            y2 = r
-            break
-
-    height = y2 - y1
-    if height < min_height or height < H * 0.15:
-        return img, 0, H   # no usable lines found
-
-    result = img[y1:y2, :] if img.ndim == 2 else img[y1:y2, :, :]
-    return result, y1, y2
+    
+    # Sort by x-coordinate (left to right)
+    digit_regions.sort(key=lambda x: x[1][0])
+    
+    return digit_regions
 
 
 # =============================================================================
@@ -664,13 +528,13 @@ class DigitPredictionService:
             photo_id = self.extract_photo_id_from_filename(image_path.name)
             params = get_params_for_photo_id(photo_id)
         
-        # ── Step 1: rotate 90° CW ────────────────────────────────────────────
+        # Rotate image 90 degrees clockwise
         rotated = rotate_image_clockwise_90(image)
-
-        # ── Step 2: standard crop to digit region ────────────────────────────
-        crop    = DEFAULT_CROP
+        
+        # Crop to digit region
+        crop = DEFAULT_CROP
         cropped = crop_image(rotated, crop['x1'], crop['y1'], crop['x2'], crop['y2'])
-
+        
         if cropped is None or cropped.size == 0:
             return {
                 'detected_numbers': 'ERROR',
@@ -679,18 +543,8 @@ class DigitPredictionService:
                 'details': 'Crop failed',
                 'error': 'Crop failed'
             }
-
-        # ── Step 3: auto-crop rails (raw image) ──────────────────────────────
-        # Removes dark metal-rail rows (top) and bright computer-text rows
-        # (bottom) before edge detection so the edge detector sees only the
-        # digit-engraving surface.
-        rail_cropped, rc_y1, rc_y2 = _auto_crop_between_rails(cropped)
-        if rc_y2 - rc_y1 > 30:
-            logger.debug(f"Rail-crop: rows {rc_y1}–{rc_y2} kept "
-                         f"({rc_y2-rc_y1}/{cropped.shape[0]} px)")
-            cropped = rail_cropped
-
-        # ── Step 4: edge detection ────────────────────────────────────────────
+        
+        # Apply edge detection preprocessing
         edges = preprocess_for_edge_detection(
             cropped,
             brightness=params['brightness'],
@@ -700,22 +554,10 @@ class DigitPredictionService:
             gaussian_blur=params.get('gaussian_blur', 5),
             negative=params.get('negative', False)
         )
-
-        # ── Step 5: adaptive digit-zone crop (edge image) ─────────────────────
-        # Finds the row-band with the highest edge density and strips the noisy
-        # metallic-grain region below the digits.
-        orig_h = edges.shape[0]
-        dy1, dy2 = _find_digit_band(edges)
-        if dy2 - dy1 < orig_h:
-            logger.debug(f"Digit-band crop: rows {dy1}–{dy2} "
-                         f"(kept {dy2-dy1}/{orig_h} px)")
-            edges   = edges[dy1:dy2, :]
-            cropped = (cropped[dy1:dy2, :] if cropped.ndim == 2
-                       else cropped[dy1:dy2, :, :])
-
-        # ── Step 6: segment contours ──────────────────────────────────────────
+        
+        # Segment digits
         digit_regions = segment_digits(edges, is_preprocessed=True)
-
+        
         if not digit_regions:
             if save_digit_preview:
                 self._save_digit_preview(image_path, edges, [], [], [], 'none')
@@ -726,38 +568,38 @@ class DigitPredictionService:
                 'details': 'No digit regions found',
                 'error': None
             }
-
-        # ── Step 7: predict all regions, keep top-5 by confidence ────────────
-        all_preds = []
-        for digit_img, bbox in digit_regions:
+        
+        # Predict each digit
+        predictions = []
+        confidences = []
+        details = []
+        
+        for i, (digit_img, bbox) in enumerate(digit_regions):
             predicted_class, confidence = self.model.predict_digit_raw(digit_img)
-            all_preds.append((bbox, str(predicted_class) if predicted_class >= 0 else '',
-                              float(confidence)))
-
-        # Select top-5 most confident, then re-sort left → right for reading order
-        top5 = sorted(all_preds, key=lambda r: r[2], reverse=True)[:5]
-        top5 = sorted(top5, key=lambda r: r[0][0])   # sort by x1
-
-        predictions = [r[1] for r in top5]
-        confidences = [r[2] for r in top5]
-        details     = [f"Digit {i}: {r[1]} (conf: {r[2]:.2f})"
-                       for i, r in enumerate(top5)]
-
+            predictions.append(str(predicted_class) if predicted_class >= 0 else '')
+            confidences.append(confidence)
+            details.append(f"Digit {i}: {predicted_class} (conf: {confidence:.2f})")
+        
         detected_numbers = ''.join(predictions)
-
+        # Save digit segmentation preview (STAGING_FOLDER/digit_preview/<stem>_<detected_numbers>.png and folder)
         if save_digit_preview:
-            # Pass the top-5 regions for preview (aligned with predictions)
-            top5_regions = [(None, r[0]) for r in top5]
-            self._save_digit_preview(image_path, edges, top5_regions,
-                                     predictions, confidences, detected_numbers)
-
-        # ── Step 8: build output ──────────────────────────────────────────────
-        digits_for_output = (predictions + ['', '', '', '', ''])[:5]
+            self._save_digit_preview(image_path, edges, digit_regions, predictions, confidences, detected_numbers)
+        
+        # Parse into letter and digits (first is letter, rest are digits)
+        letter = ''
+        all_digits = predictions[:]  # All predictions as digits for digits_only mode
+        
+        # Limit to 5 digits for output
+        digits_for_output = all_digits[:5]
+        while len(digits_for_output) < 5:
+            digits_for_output.append('')
+        
+        # Calculate average confidence
         avg_confidence = sum(confidences) / len(confidences) if confidences else 0.0
-
+        
         return {
             'detected_numbers': detected_numbers,
-            'letter': '',
+            'letter': letter,
             'digits': digits_for_output,
             'details': ' | '.join(details),
             'average_confidence': avg_confidence,
