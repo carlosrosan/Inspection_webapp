@@ -415,28 +415,19 @@
                  data-photo-index="{{ forloop.counter0 }}" 
                  {% if forloop.counter0 >= 15 %}style="display: none;"{% endif %}>
                 <div class="card border-0 shadow-sm h-100">
-                    <div class="card-body p-0" style="position: relative;">
+                    <div class="card-body p-0">
                         {% if png_url %}
-                        <img src="{{ png_url }}"
-                             class="card-img-top"
+                        <img src="{{ png_url }}" 
+                             class="card-img-top" 
                              alt="{{ photo.caption|default:'Foto de inspección' }}"
                              style="height: 250px; object-fit: cover; cursor: pointer;"
                              onclick="openPhotoModal('{{ png_url|escapejs }}', '{{ photo.caption|default:"Foto de inspección"|escapejs }}')">
                         {% else %}
-                        <img src="{{ photo.photo.url }}"
-                             class="card-img-top"
+                        <img src="{{ photo.photo.url }}" 
+                             class="card-img-top" 
                              alt="{{ photo.caption|default:'Foto de inspección' }}"
                              style="height: 250px; object-fit: cover; cursor: pointer;"
                              onclick="openPhotoModal('{{ photo.photo.url|escapejs }}', '{{ photo.caption|default:"Foto de inspección"|escapejs }}')">
-                        {% endif %}
-                        {% if photo.digit_prediction and photo.digit_prediction.processing_error %}
-                        <div style="position: absolute; top: 8px; right: 8px;
-                                    background: rgba(220,53,69,0.88); color: #fff;
-                                    padding: 3px 9px; border-radius: 4px;
-                                    font-size: 11px; font-weight: bold; cursor: help;"
-                             title="Error de predicción: {{ photo.digit_prediction.processing_error|escapejs }}">
-                            ⚠ Predicción: ERROR
-                        </div>
                         {% endif %}
                     </div>
                     <div class="card-footer bg-transparent">
@@ -444,16 +435,11 @@
                         {% if photo.digit_prediction %}
                         <div class="mb-2 digit-prediction-display">
                             <i class="fas fa-hashtag me-1" style="color: #d4b84d;"></i>
-                            {% if photo.digit_prediction.processing_error %}
-                            <span class="digit-char" style="color: #dc3545; font-weight: bold;"
-                                  title="{{ photo.digit_prediction.processing_error }}">ERROR</span>
-                            {% else %}
-                                {% for digit in photo.digit_prediction.detected_numbers %}
-                                <span class="digit-char">{{ digit }}</span>{% if not forloop.last %}<span class="digit-space"></span>{% endif %}
-                                {% empty %}
-                                <span class="digit-char">—</span>
-                                {% endfor %}
-                            {% endif %}
+                            {% for digit in photo.digit_prediction.detected_numbers %}
+                            <span class="digit-char">{{ digit }}</span>{% if not forloop.last %}<span class="digit-space"></span>{% endif %}
+                            {% empty %}
+                            <span class="digit-char">—</span>
+                            {% endfor %}
                         </div>
                         {% endif %}
                         {% if photo_data.control_name %}

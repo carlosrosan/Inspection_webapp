@@ -489,20 +489,47 @@ class MNISTModel:
 # DIGIT PREDICTION SERVICE
 # =============================================================================
 
+def _log_dependency_status() -> None:
+    """Log which optional dependencies are missing so errors are visible at startup."""
+    missing = []
+    if cv2 is None:
+        missing.append("opencv-python  →  pip install opencv-python")
+    if np is None:
+        missing.append("numpy          →  pip install numpy")
+    if keras is None:
+        missing.append("tensorflow     →  pip install tensorflow")
+    if not MODEL_PATH.exists():
+        missing.append(f"model file not found: {MODEL_PATH}")
+    if missing:
+        logger.warning(
+            "[digit_prediction_service] Predicciones deshabilitadas — dependencias faltantes:\n  "
+            + "\n  ".join(missing)
+        )
+    else:
+        logger.info("[digit_prediction_service] Todas las dependencias disponibles.")
+
+
 class DigitPredictionService:
     """Service for running MNIST digit prediction on inspection photos"""
-    
+
     def __init__(self):
         self.model: Optional[MNISTModel] = None
         self._model_loaded = False
-    
+        _log_dependency_status()
+
     def _ensure_model_loaded(self) -> bool:
         """Load the MNIST model if not already loaded"""
         if self._model_loaded and self.model is not None:
             return True
-        
+
         if cv2 is None or np is None or keras is None:
-            logger.error("Required libraries (OpenCV, NumPy, TensorFlow) not available")
+            missing = [
+                lib for lib, mod in [("opencv-python", cv2), ("numpy", np), ("tensorflow", keras)]
+                if mod is None
+            ]
+            logger.error(
+                f"Predicción deshabilitada — librerías no instaladas: {', '.join(missing)}"
+            )
             return False
         
         try:
@@ -783,15 +810,24 @@ class DigitPredictionService:
         """
         from main.models import DigitPrediction
 
-        # Return existing prediction only when it is already valid (≤ 5 digits).
-        # Stale records (> 5 digits from an older pipeline version) fall through
-        # so they are re-predicted and updated below.
+        # Return existing prediction only when it is valid:
+        #   - detected_numbers is ≤ 5 chars (current pipeline limit), AND
+        #   - processing_error is empty (not a stale error record).
+        # Stale error records are retried so that fixing a missing dependency
+        # (e.g. installing TensorFlow) automatically re-runs prediction.
         existing = None
         try:
             existing = photo.digit_prediction
-            if existing and len(existing.detected_numbers) <= 5:
-                logger.debug(f"Valid prediction already exists for photo {photo.id}")
-                return existing
+            if existing:
+                if existing.processing_error:
+                    logger.info(
+                        f"Re-intentando predicción para foto {photo.id} "
+                        f"(error previo: {existing.processing_error!r})"
+                    )
+                    # fall through to re-run
+                elif len(existing.detected_numbers) <= 5:
+                    logger.debug(f"Predicción válida ya existe para foto {photo.id}")
+                    return existing
         except DigitPrediction.DoesNotExist:
             pass
 
@@ -804,31 +840,35 @@ class DigitPredictionService:
             return None
 
         if not photo_full_path.exists():
+            error_msg = f"Archivo de foto no encontrado: {photo_full_path}"
+            logger.warning(
+                f"[PREDICTION ERROR] foto {photo.id} (ID={photo_id}, "
+                f"inspección={photo.inspection_id}): {error_msg}"
+            )
             if existing:
                 return existing  # cannot re-process; keep whatever we have
             prediction, _ = DigitPrediction.objects.update_or_create(
                 inspection_photo=photo,
-                defaults={
-                    'photo_id': photo_id,
-                    'processing_error': f"Photo file not found: {photo_full_path}",
-                },
+                defaults={'photo_id': photo_id, 'processing_error': error_msg},
             )
             return prediction
 
         # Run detection (digit preview saved by default; set env DIGIT_PREVIEW_SAVE=0 to disable)
         save_preview = os.environ.get('DIGIT_PREVIEW_SAVE', '1').strip().lower() not in ('0', 'false', 'no')
-        logger.info(f"Running digit prediction for photo: {photo_full_path.name} (ID: {photo_id})")
+        logger.info(f"Ejecutando predicción para foto: {photo_full_path.name} (ID: {photo_id})")
         result = self.detect_numbers_in_image(photo_full_path, save_digit_preview=save_preview)
 
         if result.get('error'):
-            if existing:
-                return existing  # keep stale record rather than overwrite with an error
+            error_msg = result['error']
+            logger.warning(
+                f"[PREDICTION ERROR] foto {photo.id} (ID={photo_id}, "
+                f"inspección={photo.inspection_id}): {error_msg}"
+            )
+            if existing and not existing.processing_error:
+                return existing  # keep valid stale record rather than overwrite with an error
             prediction, _ = DigitPrediction.objects.update_or_create(
                 inspection_photo=photo,
-                defaults={
-                    'photo_id': photo_id,
-                    'processing_error': result['error'],
-                },
+                defaults={'photo_id': photo_id, 'processing_error': error_msg},
             )
             return prediction
 
@@ -881,23 +921,38 @@ class DigitPredictionService:
         
         predictions_made = 0
         
+        target_found = False
         for photo in inspection.photos.all():
             filename = Path(photo.photo.name).name
             should_process, photo_id = self.should_process_photo(filename)
-            
+
             if should_process:
+                target_found = True
                 try:
                     prediction = self.predict_for_photo(photo, photo_id)
                     if prediction:
                         predictions_made += 1
                 except Exception as e:
-                    logger.error(f"Error processing photo {photo.id}: {e}")
+                    logger.error(
+                        f"Error procesando predicción foto {photo.id} "
+                        f"(inspección={inspection_id}): {e}"
+                    )
                     import traceback
                     logger.error(traceback.format_exc())
-        
-        if predictions_made > 0:
+            else:
+                logger.debug(
+                    f"Foto {photo.id} omitida para predicción "
+                    f"(ID='{photo_id}' no está en {TARGET_PHOTO_IDS}): {filename}"
+                )
+
+        if not target_found:
             logger.info(
-                f"Made {predictions_made} digit predictions for inspection {inspection_id}"
+                f"Inspección {inspection_id}: ninguna foto coincide con los IDs objetivo "
+                f"{TARGET_PHOTO_IDS}. Sin predicciones generadas."
+            )
+        elif predictions_made > 0:
+            logger.info(
+                f"Inspección {inspection_id}: {predictions_made} predicción(es) generadas."
             )
         
         return predictions_made
