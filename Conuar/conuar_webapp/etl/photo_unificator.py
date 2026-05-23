@@ -11,6 +11,7 @@ Sistema de inspección de combustible Conuar
 
 import os
 import logging
+import tempfile
 from pathlib import Path
 from typing import Optional
 from PIL import Image
@@ -30,6 +31,46 @@ logging.basicConfig(
     format='%(asctime)s - %(levelname)s - %(message)s'
 )
 logger = logging.getLogger(__name__)
+
+
+def _strip_svg_images(svg_path: Path) -> Optional[str]:
+    """
+    Parse the SVG and return the path to a temp file with all <image> elements removed.
+
+    The camera software embeds the source photo as an <image xlink:href="..."> that fills
+    the entire SVG canvas.  rlPyCairo renders this reference, so if we pass the raw SVG to
+    svg2rlg we get the photo rendered inside the SVG *and* the original photo as the base
+    layer — two copies at slightly different scales (SVG px vs point unit mismatch).
+
+    Removing <image> nodes before parsing leaves only the vector annotations
+    (lines, crosshairs, text labels) on a transparent canvas.
+
+    Returns the temp-file path on success, None if lxml is unavailable or parsing fails
+    (caller falls back to using the original SVG).  Caller must delete the temp file.
+    """
+    try:
+        import lxml.etree as ET
+
+        tree = ET.parse(str(svg_path))
+        root = tree.getroot()
+
+        SVG_NS = 'http://www.w3.org/2000/svg'
+        for image_el in (
+            root.findall(f'.//{{{SVG_NS}}}image') +
+            root.findall('.//image')
+        ):
+            parent = image_el.getparent()
+            if parent is not None:
+                parent.remove(image_el)
+
+        with tempfile.NamedTemporaryFile(suffix='.svg', delete=False, mode='wb') as f:
+            tmp_path = f.name
+            tree.write(f, xml_declaration=True, encoding='utf-8')
+
+        return tmp_path
+    except Exception as e:
+        logger.warning(f"No se pudo limpiar <image> del SVG ({e}), usando SVG original")
+        return None
 
 
 def overlay_svg_on_bmp(bmp_path: Path, svg_path: Optional[Path] = None, output_path: Optional[Path] = None) -> Optional[Path]:
@@ -76,16 +117,27 @@ def overlay_svg_on_bmp(bmp_path: Path, svg_path: Optional[Path] = None, output_p
         if bmp_image.mode != 'RGBA':
             bmp_image = bmp_image.convert('RGBA')
         
-        # Convertir SVG a ReportLab Drawing
+        # Strip <image> elements before parsing: the SVG embeds the source photo via
+        # xlink:href. rlPyCairo renders that reference, which — when composited onto the
+        # original photo — produces a double image at a slightly different scale (SVG "px"
+        # units ≠ SVG user-unit/points, causing a 72/96 = 75 % scale mismatch).
+        # Removing <image> nodes leaves only the vector annotations on a transparent canvas.
         logger.info(f"Convirtiendo SVG a imagen: {svg_path}")
+        clean_svg = _strip_svg_images(svg_path)
         try:
-            drawing = svg2rlg(str(svg_path))
+            drawing = svg2rlg(clean_svg or str(svg_path))
             if drawing is None:
                 logger.error(f"No se pudo convertir SVG: {svg_path}")
                 return None
         except Exception as e:
             logger.error(f"Error al convertir SVG: {e}")
             return None
+        finally:
+            if clean_svg:
+                try:
+                    os.unlink(clean_svg)
+                except Exception:
+                    pass
         
         # Render the SVG at its natural dimensions (do NOT force drawing.width/height to
         # BMP pixel values — ReportLab uses points, not pixels, so forcing pixel values
