@@ -2765,3 +2765,1124 @@ INFO 2026-05-06 22:35:41,878 LOGOUT - User: system_inspector, IP: 127.0.0.1
 INFO 2026-05-06 22:35:41,919 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
 INFO 2026-05-06 22:45:45,875 LOGOUT - User: system_inspector, IP: 127.0.0.1
 INFO 2026-05-06 22:45:45,893 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 07:43:03,961 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 07:53:07,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 07:53:08,081 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:03:11,983 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:03:12,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:13:15,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:13:16,016 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:23:18,364 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:23:18,412 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,121 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,122 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,124 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,125 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,128 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,128 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,129 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,128 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,129 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:35:50,563 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:45:53,980 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 08:45:54,061 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,496 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,563 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,567 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,611 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,649 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,654 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,683 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,723 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,795 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,826 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,857 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,900 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,989 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:31,999 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,011 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,064 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,097 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,113 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,175 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,203 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,238 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,267 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,286 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,347 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,377 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,414 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,435 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,491 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,520 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,543 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,594 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,629 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,664 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,681 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,736 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,754 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,818 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,838 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,906 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,922 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,973 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:32,991 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,069 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,145 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,167 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,187 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,231 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,266 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,312 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,326 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,370 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,525 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,547 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,561 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,593 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,634 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,695 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:10:33,708 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:20:37,986 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:20:38,056 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:40:24,416 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:40:24,434 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:40:24,470 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,082 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,085 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,086 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,088 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,088 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,091 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 09:58:54,122 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:08:57,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:08:58,059 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+ERROR 2026-05-22 10:09:04,520 xhtml2pdf module not installed. Cannot generate PDF.
+INFO 2026-05-22 10:16:38,442 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 10:16:38,444 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 10:16:38,444 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 10:16:38,980 Generating PDF for inspection 705571
+INFO 2026-05-22 10:16:38,980   Logo data URI: Present
+INFO 2026-05-22 10:16:38,981   Photo count: 214
+INFO 2026-05-22 10:16:38,981   Photos with data URIs: 214
+ERROR 2026-05-22 10:16:44,492 Exception during PDF generation for inspection 705571: <PmlTable@0x2588B924910 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x2588b8ed5e0> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 196, in pisaDocument
+    doc.build(context.story)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 1083, in build
+    self.handle_flowable(flowables)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 932, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\frames.py", line 158, in _add
+    w, h = flowable.wrap(aW, h)
+           ~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 858, in wrap
+    return Table.wrap(self, availWidth, availHeight)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 1364, in wrap
+    self._calc(availWidth, availHeight)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 750, in _calc
+    self._calc_height(availHeight,availWidth,W=W)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 671, in _calc_height
+    dW,t = self._listCellGeom(v,w or self._listValueWidth(v),s)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 810, in _listCellGeom
+    return Table._listCellGeom(self, V, w, s, W=W, H=H, aH=aH)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 495, in _listCellGeom
+    raise ValueError(f'{self.identity()}: flowable given negative availWidth={aW} width={w} - leftPadding={s.leftPadding} - rightPadding={s.rightPadding}')
+ValueError: <PmlTable@0x2588B924910 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x2588b8ed5e0> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+INFO 2026-05-22 10:26:34,003 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:26:34,043 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:35:03,796 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:35:03,868 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:36:37,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:36:38,053 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:37:06,284 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 10:37:06,286 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 10:37:06,286 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 10:37:06,751 Generating PDF for inspection 705571
+INFO 2026-05-22 10:37:06,751   Logo data URI: Present
+INFO 2026-05-22 10:37:06,751   Photo count: 214
+INFO 2026-05-22 10:37:06,752   Photos with data URIs: 214
+ERROR 2026-05-22 10:37:12,134 Exception during PDF generation for inspection 705571: <PmlTable@0x2588E198550 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x2588e1d65d0> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 196, in pisaDocument
+    doc.build(context.story)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 1083, in build
+    self.handle_flowable(flowables)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 932, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\frames.py", line 158, in _add
+    w, h = flowable.wrap(aW, h)
+           ~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 858, in wrap
+    return Table.wrap(self, availWidth, availHeight)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 1364, in wrap
+    self._calc(availWidth, availHeight)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 750, in _calc
+    self._calc_height(availHeight,availWidth,W=W)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 671, in _calc_height
+    dW,t = self._listCellGeom(v,w or self._listValueWidth(v),s)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 810, in _listCellGeom
+    return Table._listCellGeom(self, V, w, s, W=W, H=H, aH=aH)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 495, in _listCellGeom
+    raise ValueError(f'{self.identity()}: flowable given negative availWidth={aW} width={w} - leftPadding={s.leftPadding} - rightPadding={s.rightPadding}')
+ValueError: <PmlTable@0x2588E198550 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x2588e1d65d0> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+INFO 2026-05-22 10:37:40,689 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 10:37:40,690 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 10:37:40,690 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 10:37:41,110 Generating PDF for inspection 705571
+INFO 2026-05-22 10:37:41,111   Logo data URI: Present
+INFO 2026-05-22 10:37:41,111   Photo count: 214
+INFO 2026-05-22 10:37:41,112   Photos with data URIs: 214
+ERROR 2026-05-22 10:37:46,410 Exception during PDF generation for inspection 705571: <PmlTable@0x2588B248B90 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x2588b264b90> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 196, in pisaDocument
+    doc.build(context.story)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 1083, in build
+    self.handle_flowable(flowables)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 932, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\frames.py", line 158, in _add
+    w, h = flowable.wrap(aW, h)
+           ~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 858, in wrap
+    return Table.wrap(self, availWidth, availHeight)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 1364, in wrap
+    self._calc(availWidth, availHeight)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 750, in _calc
+    self._calc_height(availHeight,availWidth,W=W)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 671, in _calc_height
+    dW,t = self._listCellGeom(v,w or self._listValueWidth(v),s)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 810, in _listCellGeom
+    return Table._listCellGeom(self, V, w, s, W=W, H=H, aH=aH)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 495, in _listCellGeom
+    raise ValueError(f'{self.identity()}: flowable given negative availWidth={aW} width={w} - leftPadding={s.leftPadding} - rightPadding={s.rightPadding}')
+ValueError: <PmlTable@0x2588B248B90 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x2588b264b90> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+INFO 2026-05-22 10:38:32,997 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 10:38:32,999 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 10:38:32,999 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 10:38:33,410 Generating PDF for inspection 705571
+INFO 2026-05-22 10:38:33,410   Logo data URI: Present
+INFO 2026-05-22 10:38:33,410   Photo count: 214
+INFO 2026-05-22 10:38:33,410   Photos with data URIs: 214
+ERROR 2026-05-22 10:38:38,843 Exception during PDF generation for inspection 705571: <PmlTable@0x25887C54550 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x25887c3c5f0> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 196, in pisaDocument
+    doc.build(context.story)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 1083, in build
+    self.handle_flowable(flowables)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 932, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\frames.py", line 158, in _add
+    w, h = flowable.wrap(aW, h)
+           ~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 858, in wrap
+    return Table.wrap(self, availWidth, availHeight)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 1364, in wrap
+    self._calc(availWidth, availHeight)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 750, in _calc
+    self._calc_height(availHeight,availWidth,W=W)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 671, in _calc_height
+    dW,t = self._listCellGeom(v,w or self._listValueWidth(v),s)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 810, in _listCellGeom
+    return Table._listCellGeom(self, V, w, s, W=W, H=H, aH=aH)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 495, in _listCellGeom
+    raise ValueError(f'{self.identity()}: flowable given negative availWidth={aW} width={w} - leftPadding={s.leftPadding} - rightPadding={s.rightPadding}')
+ValueError: <PmlTable@0x25887C54550 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x25887c3c5f0> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+INFO 2026-05-22 10:48:32,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:48:33,054 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:58:36,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 10:58:37,025 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:08:40,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:08:41,049 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:18:44,983 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:18:45,010 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:28:48,981 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:28:49,039 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:30:41,621 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 11:30:41,622 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 11:30:41,623 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 11:30:42,046 Generating PDF for inspection 705571
+INFO 2026-05-22 11:30:42,046   Logo data URI: Present
+INFO 2026-05-22 11:30:42,047   Photo count: 214
+INFO 2026-05-22 11:30:42,047   Photos with data URIs: 214
+ERROR 2026-05-22 11:30:47,775 Exception during PDF generation for inspection 705571: <PmlTable@0x25887C1B110 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x25887c4cd70> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 196, in pisaDocument
+    doc.build(context.story)
+    ~~~~~~~~~^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 1083, in build
+    self.handle_flowable(flowables)
+    ~~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\doctemplate.py", line 932, in handle_flowable
+    if frame.add(f, canv, trySplit=self.allowSplitting):
+       ~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\frames.py", line 158, in _add
+    w, h = flowable.wrap(aW, h)
+           ~~~~~~~~~~~~~^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 858, in wrap
+    return Table.wrap(self, availWidth, availHeight)
+           ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 1364, in wrap
+    self._calc(availWidth, availHeight)
+    ~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 750, in _calc
+    self._calc_height(availHeight,availWidth,W=W)
+    ~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 671, in _calc_height
+    dW,t = self._listCellGeom(v,w or self._listValueWidth(v),s)
+           ~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\xhtml2pdf\xhtml2pdf_reportlab.py", line 810, in _listCellGeom
+    return Table._listCellGeom(self, V, w, s, W=W, H=H, aH=aH)
+           ~~~~~~~~~~~~~~~~~~~^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\conuar_env\Lib\site-packages\reportlab\platypus\tables.py", line 495, in _listCellGeom
+    raise ValueError(f'{self.identity()}: flowable given negative availWidth={aW} width={w} - leftPadding={s.leftPadding} - rightPadding={s.rightPadding}')
+ValueError: <PmlTable@0x25887C1B110 215 rows x 3 cols> with cell(0,0) containing
+'<PmlKeepInFrame at 0x25887c4cd70> size= maxWidth=223.5354x maxHeight=728.5039': flowable given negative availWidth=-10.181102362204726 width=4.818897637795275 - leftPadding=7.5 - rightPadding=7.5
+INFO 2026-05-22 11:38:35,942 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 11:38:35,944 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 11:38:35,944 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 11:38:36,447 Generating PDF for inspection 705571
+INFO 2026-05-22 11:38:36,447   Logo data URI: Present
+INFO 2026-05-22 11:38:36,447   Photo count: 214
+INFO 2026-05-22 11:38:36,447   Photos with data URIs: 214
+INFO 2026-05-22 11:38:57,425 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3832-2F-020219_161523996.pdf
+INFO 2026-05-22 11:38:57,426 PDF file size: 86570829 bytes
+INFO 2026-05-22 11:50:07,021 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:50:07,025 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:50:07,025 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:50:07,026 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 11:50:07,053 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:00:10,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:00:11,048 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:10:14,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:10:15,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:20:18,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:20:19,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:30:22,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:30:23,049 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:40:27,036 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:40:27,151 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:50:30,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 12:50:31,045 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:00:34,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:00:35,048 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:10:38,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:10:39,045 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:20:42,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:20:43,040 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:30:47,011 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:30:47,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:40:50,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 13:40:51,014 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+WARNING 2026-05-22 13:46:28,170 Photo 23442 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-1F-260119_223828293_comb.png
+WARNING 2026-05-22 13:46:28,170 Photo 23443 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-2F-260119_223831294_comb.png
+WARNING 2026-05-22 13:46:28,171 Photo 23444 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-3F-260119_223834295_comb.png
+WARNING 2026-05-22 13:46:28,171 Photo 23445 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-4F-260119_223837296_comb.png
+WARNING 2026-05-22 13:46:28,172 Photo 23446 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-5F-260119_223840297_comb.png
+WARNING 2026-05-22 13:46:28,172 Photo 23447 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-6F-260119_223842298_comb.png
+WARNING 2026-05-22 13:46:28,173 Photo 23448 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-7F-260119_223844299_comb.png
+WARNING 2026-05-22 13:46:28,174 Photo 23449 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-9F-260119_223848300_comb.png
+WARNING 2026-05-22 13:46:28,175 Photo 23450 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-10F-260119_223851301_comb.png
+WARNING 2026-05-22 13:46:28,176 Photo 23451 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-11F-260119_223853302_comb.png
+WARNING 2026-05-22 13:46:28,176 Photo 23452 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-12F-260119_223855303_comb.png
+WARNING 2026-05-22 13:46:28,177 Photo 23453 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-13L-260119_223902305_comb.png
+WARNING 2026-05-22 13:46:28,177 Photo 23454 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-14L-260119_223906306_comb.png
+WARNING 2026-05-22 13:46:28,178 Photo 23455 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-15L-260119_223909307_comb.png
+WARNING 2026-05-22 13:46:28,179 Photo 23456 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-16L-260119_223912308_comb.png
+WARNING 2026-05-22 13:46:28,179 Photo 23457 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-17L-260119_223918309_comb.png
+WARNING 2026-05-22 13:46:28,180 Photo 23458 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-18L-260119_223921310_comb.png
+WARNING 2026-05-22 13:46:28,180 Photo 23459 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-19L-260119_223924311_comb.png
+WARNING 2026-05-22 13:46:28,181 Photo 23460 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-24L-260119_223949313_comb.png
+WARNING 2026-05-22 13:46:28,182 Photo 23461 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-25L-260119_223953314_comb.png
+WARNING 2026-05-22 13:46:28,182 Photo 23462 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-26L-260119_223958315_comb.png
+WARNING 2026-05-22 13:46:28,183 Photo 23463 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-27L-260119_224003316_comb.png
+WARNING 2026-05-22 13:46:28,184 Photo 23464 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-28L-260119_224009317_comb.png
+WARNING 2026-05-22 13:46:28,184 Photo 23465 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-29F-260119_224017319_comb.png
+WARNING 2026-05-22 13:46:28,185 Photo 23466 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-30F-260119_224021320_comb.png
+WARNING 2026-05-22 13:46:28,185 Photo 23467 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-31F-260119_224024321_comb.png
+WARNING 2026-05-22 13:46:28,186 Photo 23468 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-32F-260119_224027322_comb.png
+WARNING 2026-05-22 13:46:28,187 Photo 23469 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-33F-260119_224030323_comb.png
+WARNING 2026-05-22 13:46:28,187 Photo 23470 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-34F-260119_224033324_comb.png
+WARNING 2026-05-22 13:46:28,188 Photo 23471 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-36F-260119_224037325_comb.png
+WARNING 2026-05-22 13:46:28,188 Photo 23472 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-37F-260119_224039326_comb.png
+WARNING 2026-05-22 13:46:28,189 Photo 23473 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-38F-260119_224042327_comb.png
+WARNING 2026-05-22 13:46:28,190 Photo 23474 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-39L-260119_224058329_comb.png
+WARNING 2026-05-22 13:46:28,190 Photo 23475 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-40L-260119_224102330_comb.png
+WARNING 2026-05-22 13:46:28,191 Photo 23476 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-41L-260119_224107331_comb.png
+WARNING 2026-05-22 13:46:28,191 Photo 23477 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-42L-260119_224113332_comb.png
+WARNING 2026-05-22 13:46:28,192 Photo 23478 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-43L-260119_224118333_comb.png
+WARNING 2026-05-22 13:46:28,192 Photo 23479 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-44F-260119_224127335_comb.png
+WARNING 2026-05-22 13:46:28,193 Photo 23480 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-45F-260119_224130336_comb.png
+WARNING 2026-05-22 13:46:28,194 Photo 23481 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-46F-260119_224133337_comb.png
+WARNING 2026-05-22 13:46:28,194 Photo 23482 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-47F-260119_224136338_comb.png
+WARNING 2026-05-22 13:46:28,195 Photo 23483 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-48F-260119_224140339_comb.png
+WARNING 2026-05-22 13:46:28,196 Photo 23484 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-49F-260119_224142340_comb.png
+WARNING 2026-05-22 13:46:28,196 Photo 23485 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-51F-260119_224147341_comb.png
+WARNING 2026-05-22 13:46:28,197 Photo 23486 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-52F-260119_224149342_comb.png
+WARNING 2026-05-22 13:46:28,198 Photo 23487 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-53F-260119_224152343_comb.png
+WARNING 2026-05-22 13:46:28,199 Photo 23488 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-54L-260119_224208345_comb.png
+WARNING 2026-05-22 13:46:28,199 Photo 23489 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-55L-260119_224212346_comb.png
+WARNING 2026-05-22 13:46:28,200 Photo 23490 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-56L-260119_224218347_comb.png
+WARNING 2026-05-22 13:46:28,200 Photo 23491 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-57L-260119_224223348_comb.png
+WARNING 2026-05-22 13:46:28,201 Photo 23492 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-58L-260119_224228349_comb.png
+WARNING 2026-05-22 13:46:28,201 Photo 23493 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-59F-260119_224237351_comb.png
+WARNING 2026-05-22 13:46:28,202 Photo 23494 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-60F-260119_224240352_comb.png
+WARNING 2026-05-22 13:46:28,202 Photo 23495 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-61F-260119_224243353_comb.png
+WARNING 2026-05-22 13:46:28,203 Photo 23496 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-62F-260119_224246354_comb.png
+WARNING 2026-05-22 13:46:28,204 Photo 23497 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-63F-260119_224250355_comb.png
+WARNING 2026-05-22 13:46:28,204 Photo 23498 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-64F-260119_224252356_comb.png
+WARNING 2026-05-22 13:46:28,205 Photo 23499 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-66F-260119_224257357_comb.png
+WARNING 2026-05-22 13:46:28,205 Photo 23500 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-67F-260119_224259358_comb.png
+WARNING 2026-05-22 13:46:28,206 Photo 23501 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-68F-260119_224302359_comb.png
+WARNING 2026-05-22 13:46:28,207 Photo 23502 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-69L-260119_224319361_comb.png
+WARNING 2026-05-22 13:46:28,207 Photo 23503 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-70L-260119_224323362_comb.png
+WARNING 2026-05-22 13:46:28,208 Photo 23504 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-71L-260119_224328363_comb.png
+WARNING 2026-05-22 13:46:28,208 Photo 23505 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-72L-260119_224333364_comb.png
+WARNING 2026-05-22 13:46:28,209 Photo 23506 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-73L-260119_224339365_comb.png
+WARNING 2026-05-22 13:46:28,209 Photo 23507 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-74F-260119_224347367_comb.png
+WARNING 2026-05-22 13:46:28,210 Photo 23508 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-75F-260119_224351368_comb.png
+WARNING 2026-05-22 13:46:28,210 Photo 23509 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-76F-260119_224354369_comb.png
+WARNING 2026-05-22 13:46:28,211 Photo 23510 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-77F-260119_224357370_comb.png
+WARNING 2026-05-22 13:46:28,212 Photo 23511 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-78F-260119_224400371_comb.png
+WARNING 2026-05-22 13:46:28,212 Photo 23512 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-79F-260119_224403372_comb.png
+WARNING 2026-05-22 13:46:28,213 Photo 23513 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-81F-260119_224407373_comb.png
+WARNING 2026-05-22 13:46:28,213 Photo 23514 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-82F-260119_224410374_comb.png
+WARNING 2026-05-22 13:46:28,214 Photo 23515 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-83F-260119_224412375_comb.png
+WARNING 2026-05-22 13:46:28,215 Photo 23516 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-84L-260119_224429377_comb.png
+WARNING 2026-05-22 13:46:28,216 Photo 23517 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-85L-260119_224433378_comb.png
+WARNING 2026-05-22 13:46:28,216 Photo 23518 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-86L-260119_224439379_comb.png
+WARNING 2026-05-22 13:46:28,217 Photo 23519 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-87L-260119_224444380_comb.png
+WARNING 2026-05-22 13:46:28,218 Photo 23520 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-88L-260119_224449381_comb.png
+WARNING 2026-05-22 13:46:28,218 Photo 23521 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-89F-260119_224458383_comb.png
+WARNING 2026-05-22 13:46:28,219 Photo 23522 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-90F-260119_224501384_comb.png
+WARNING 2026-05-22 13:46:28,220 Photo 23523 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-91F-260119_224504385_comb.png
+WARNING 2026-05-22 13:46:28,220 Photo 23524 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-92F-260119_224507386_comb.png
+WARNING 2026-05-22 13:46:28,221 Photo 23525 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-93F-260119_224511387_comb.png
+WARNING 2026-05-22 13:46:28,222 Photo 23526 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-94F-260119_224514388_comb.png
+WARNING 2026-05-22 13:46:28,222 Photo 23527 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-96F-260119_224518389_comb.png
+WARNING 2026-05-22 13:46:28,223 Photo 23528 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-97F-260119_224520390_comb.png
+WARNING 2026-05-22 13:46:28,224 Photo 23529 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-98F-260119_224523391_comb.png
+WARNING 2026-05-22 13:46:28,224 Photo 23530 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-99L-260119_224540393_comb.png
+WARNING 2026-05-22 13:46:28,225 Photo 23531 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-100L-260119_224544394_comb.png
+WARNING 2026-05-22 13:46:28,225 Photo 23532 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-101L-260119_224549395_comb.png
+WARNING 2026-05-22 13:46:28,226 Photo 23533 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-102L-260119_224555396_comb.png
+WARNING 2026-05-22 13:46:28,226 Photo 23534 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-103L-260119_224600397_comb.png
+WARNING 2026-05-22 13:46:28,226 Photo 23535 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-104F-260119_224608399_comb.png
+WARNING 2026-05-22 13:46:28,227 Photo 23536 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-105F-260119_224612400_comb.png
+WARNING 2026-05-22 13:46:28,227 Photo 23537 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-106F-260119_224615401_comb.png
+WARNING 2026-05-22 13:46:28,228 Photo 23538 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-107F-260119_224618402_comb.png
+WARNING 2026-05-22 13:46:28,228 Photo 23539 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-108F-260119_224622403_comb.png
+WARNING 2026-05-22 13:46:28,229 Photo 23540 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-109F-260119_224624404_comb.png
+WARNING 2026-05-22 13:46:28,229 Photo 23541 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-111F-260119_224628405_comb.png
+WARNING 2026-05-22 13:46:28,230 Photo 23542 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-112F-260119_224631406_comb.png
+WARNING 2026-05-22 13:46:28,230 Photo 23543 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-113F-260119_224633407_comb.png
+WARNING 2026-05-22 13:46:28,231 Photo 23544 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-114L-260119_224650409_comb.png
+WARNING 2026-05-22 13:46:28,231 Photo 23545 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-115L-260119_224655410_comb.png
+WARNING 2026-05-22 13:46:28,232 Photo 23546 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-116L-260119_224700411_comb.png
+WARNING 2026-05-22 13:46:28,233 Photo 23547 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-117L-260119_224705412_comb.png
+WARNING 2026-05-22 13:46:28,234 Photo 23548 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-118L-260119_224710413_comb.png
+WARNING 2026-05-22 13:46:28,234 Photo 23549 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-119F-260119_224719415_comb.png
+WARNING 2026-05-22 13:46:28,235 Photo 23550 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-120F-260119_224722416_comb.png
+WARNING 2026-05-22 13:46:28,235 Photo 23551 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-121F-260119_224725417_comb.png
+WARNING 2026-05-22 13:46:28,236 Photo 23552 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-122F-260119_224729418_comb.png
+WARNING 2026-05-22 13:46:28,236 Photo 23553 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-123F-260119_224732419_comb.png
+WARNING 2026-05-22 13:46:28,237 Photo 23554 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-124F-260119_224735420_comb.png
+WARNING 2026-05-22 13:46:28,237 Photo 23555 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-126F-260119_224739421_comb.png
+WARNING 2026-05-22 13:46:28,237 Photo 23556 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-127F-260119_224741422_comb.png
+WARNING 2026-05-22 13:46:28,238 Photo 23557 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-128F-260119_224744423_comb.png
+WARNING 2026-05-22 13:46:28,238 Photo 23558 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-129L-260119_224801425_comb.png
+WARNING 2026-05-22 13:46:28,239 Photo 23559 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-130L-260119_224805426_comb.png
+WARNING 2026-05-22 13:46:28,239 Photo 23560 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-131L-260119_224810427_comb.png
+WARNING 2026-05-22 13:46:28,240 Photo 23561 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-132L-260119_224816428_comb.png
+WARNING 2026-05-22 13:46:28,240 Photo 23562 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-133L-260119_224821429_comb.png
+WARNING 2026-05-22 13:46:28,241 Photo 23563 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-134F-260119_224829431_comb.png
+WARNING 2026-05-22 13:46:28,241 Photo 23564 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-135F-260119_224833432_comb.png
+WARNING 2026-05-22 13:46:28,242 Photo 23565 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-136F-260119_224836433_comb.png
+WARNING 2026-05-22 13:46:28,242 Photo 23566 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-137F-260119_224839434_comb.png
+WARNING 2026-05-22 13:46:28,242 Photo 23567 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-138F-260119_224843435_comb.png
+WARNING 2026-05-22 13:46:28,243 Photo 23568 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-139F-260119_224845436_comb.png
+WARNING 2026-05-22 13:46:28,243 Photo 23569 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-141F-260119_224849437_comb.png
+WARNING 2026-05-22 13:46:28,244 Photo 23570 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-142F-260119_224852438_comb.png
+WARNING 2026-05-22 13:46:28,244 Photo 23571 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-143F-260119_224854439_comb.png
+WARNING 2026-05-22 13:46:28,245 Photo 23572 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-144L-260119_224912441_comb.png
+WARNING 2026-05-22 13:46:28,245 Photo 23573 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-145L-260119_224916442_comb.png
+WARNING 2026-05-22 13:46:28,246 Photo 23574 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-146L-260119_224921443_comb.png
+WARNING 2026-05-22 13:46:28,246 Photo 23575 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-147L-260119_224926444_comb.png
+WARNING 2026-05-22 13:46:28,246 Photo 23576 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-148L-260119_224932445_comb.png
+WARNING 2026-05-22 13:46:28,247 Photo 23577 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-149F-260119_224940447_comb.png
+WARNING 2026-05-22 13:46:28,248 Photo 23578 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-150F-260119_224944448_comb.png
+WARNING 2026-05-22 13:46:28,249 Photo 23579 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-151F-260119_224947449_comb.png
+WARNING 2026-05-22 13:46:28,249 Photo 23580 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-152F-260119_224950450_comb.png
+WARNING 2026-05-22 13:46:28,250 Photo 23581 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-153F-260119_224953451_comb.png
+WARNING 2026-05-22 13:46:28,251 Photo 23582 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-154F-260119_224956452_comb.png
+WARNING 2026-05-22 13:46:28,251 Photo 23583 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-156F-260119_225000453_comb.png
+WARNING 2026-05-22 13:46:28,252 Photo 23584 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-157F-260119_225003454_comb.png
+WARNING 2026-05-22 13:46:28,252 Photo 23585 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-158F-260119_225005455_comb.png
+WARNING 2026-05-22 13:46:28,253 Photo 23586 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-159L-260119_225022457_comb.png
+WARNING 2026-05-22 13:46:28,254 Photo 23587 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-160L-260119_225026458_comb.png
+WARNING 2026-05-22 13:46:28,254 Photo 23588 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-161L-260119_225032459_comb.png
+WARNING 2026-05-22 13:46:28,255 Photo 23589 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-162L-260119_225037460_comb.png
+WARNING 2026-05-22 13:46:28,255 Photo 23590 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-163L-260119_225042461_comb.png
+WARNING 2026-05-22 13:46:28,256 Photo 23591 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-164F-260119_225051463_comb.png
+WARNING 2026-05-22 13:46:28,256 Photo 23592 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-165F-260119_225054464_comb.png
+WARNING 2026-05-22 13:46:28,257 Photo 23593 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-166F-260119_225057465_comb.png
+WARNING 2026-05-22 13:46:28,257 Photo 23594 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-167F-260119_225100466_comb.png
+WARNING 2026-05-22 13:46:28,257 Photo 23595 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-168F-260119_225104467_comb.png
+WARNING 2026-05-22 13:46:28,258 Photo 23596 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-169F-260119_225107468_comb.png
+WARNING 2026-05-22 13:46:28,258 Photo 23597 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-171F-260119_225111469_comb.png
+WARNING 2026-05-22 13:46:28,259 Photo 23598 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-172F-260119_225113470_comb.png
+WARNING 2026-05-22 13:46:28,259 Photo 23599 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-173F-260119_225116471_comb.png
+WARNING 2026-05-22 13:46:28,260 Photo 23600 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-174L-260119_225133473_comb.png
+WARNING 2026-05-22 13:46:28,260 Photo 23601 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-175L-260119_225137474_comb.png
+WARNING 2026-05-22 13:46:28,261 Photo 23602 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-176L-260119_225142475_comb.png
+WARNING 2026-05-22 13:46:28,261 Photo 23603 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-177L-260119_225148476_comb.png
+WARNING 2026-05-22 13:46:28,261 Photo 23604 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-178L-260119_225153477_comb.png
+WARNING 2026-05-22 13:46:28,262 Photo 23605 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-179F-260119_225201479_comb.png
+WARNING 2026-05-22 13:46:28,262 Photo 23606 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-180F-260119_225205480_comb.png
+WARNING 2026-05-22 13:46:28,263 Photo 23607 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-181F-260119_225208481_comb.png
+WARNING 2026-05-22 13:46:28,263 Photo 23608 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-182F-260119_225211482_comb.png
+WARNING 2026-05-22 13:46:28,264 Photo 23609 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-183F-260119_225215483_comb.png
+WARNING 2026-05-22 13:46:28,264 Photo 23610 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-184F-260119_225217484_comb.png
+WARNING 2026-05-22 13:46:28,265 Photo 23611 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-186F-260119_225221485_comb.png
+WARNING 2026-05-22 13:46:28,266 Photo 23612 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-187F-260119_225224486_comb.png
+WARNING 2026-05-22 13:46:28,266 Photo 23613 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-188F-260119_225226487_comb.png
+WARNING 2026-05-22 13:46:28,267 Photo 23614 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-189L-260119_225243489_comb.png
+WARNING 2026-05-22 13:46:28,268 Photo 23615 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-190L-260119_225248490_comb.png
+WARNING 2026-05-22 13:46:28,268 Photo 23616 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-191L-260119_225253491_comb.png
+WARNING 2026-05-22 13:46:28,269 Photo 23617 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-192L-260119_225258492_comb.png
+WARNING 2026-05-22 13:46:28,269 Photo 23618 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-193L-260119_225304493_comb.png
+WARNING 2026-05-22 13:46:28,270 Photo 23619 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-194F-260119_225312495_comb.png
+WARNING 2026-05-22 13:46:28,270 Photo 23620 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-195F-260119_225316496_comb.png
+WARNING 2026-05-22 13:46:28,271 Photo 23621 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-196F-260119_225319497_comb.png
+WARNING 2026-05-22 13:46:28,272 Photo 23622 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-197F-260119_225322498_comb.png
+WARNING 2026-05-22 13:46:28,272 Photo 23623 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-198F-260119_225325499_comb.png
+WARNING 2026-05-22 13:46:28,273 Photo 23624 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-199F-260119_225328500_comb.png
+WARNING 2026-05-22 13:46:28,273 Photo 23625 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-201F-260119_225332501_comb.png
+WARNING 2026-05-22 13:46:28,273 Photo 23626 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-202F-260119_225334502_comb.png
+WARNING 2026-05-22 13:46:28,274 Photo 23627 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-203F-260119_225337503_comb.png
+WARNING 2026-05-22 13:46:28,275 Photo 23628 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-001F-260119_225343504_comb.png
+WARNING 2026-05-22 13:46:28,275 Photo 23629 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-210F-260119_225345505_comb.png
+WARNING 2026-05-22 13:46:28,275 Photo 23630 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-002F-260119_225351506_comb.png
+WARNING 2026-05-22 13:46:28,276 Photo 23631 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-211F-260119_225357507_comb.png
+WARNING 2026-05-22 13:46:28,276 Photo 23632 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-003F-260119_225403508_comb.png
+WARNING 2026-05-22 13:46:28,277 Photo 23633 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-212L-260119_225409510_comb.png
+WARNING 2026-05-22 13:46:28,277 Photo 23634 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-213L-260119_225417511_comb.png
+WARNING 2026-05-22 13:46:28,278 Photo 23635 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-214L-260119_225424512_comb.png
+WARNING 2026-05-22 13:46:28,278 Photo 23636 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-216L-260119_225436514_comb.png
+WARNING 2026-05-22 13:46:28,279 Photo 23637 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-217L-260119_225444515_comb.png
+WARNING 2026-05-22 13:46:28,279 Photo 23638 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-218L-260119_225452516_comb.png
+WARNING 2026-05-22 13:46:28,279 Photo 23639 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-222L-260119_225515518_comb.png
+WARNING 2026-05-22 13:46:28,280 Photo 23640 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-223L-260119_225519519_comb.png
+WARNING 2026-05-22 13:46:28,280 Photo 23641 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-224L-260119_225523520_comb.png
+WARNING 2026-05-22 13:46:28,281 Photo 23642 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-225L-260119_225528521_comb.png
+WARNING 2026-05-22 13:46:28,282 Photo 23643 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-226L-260119_225532522_comb.png
+WARNING 2026-05-22 13:46:28,282 Photo 23644 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-227L-260119_225536523_comb.png
+WARNING 2026-05-22 13:46:28,283 Photo 23645 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-228L-260119_225552525_comb.png
+WARNING 2026-05-22 13:46:28,284 Photo 23646 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-229L-260119_225557526_comb.png
+WARNING 2026-05-22 13:46:28,284 Photo 23647 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-230L-260119_225601527_comb.png
+WARNING 2026-05-22 13:46:28,285 Photo 23648 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-231L-260119_225605528_comb.png
+WARNING 2026-05-22 13:46:28,285 Photo 23649 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-232L-260119_225609529_comb.png
+WARNING 2026-05-22 13:46:28,286 Photo 23650 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-233L-260119_225613530_comb.png
+WARNING 2026-05-22 13:46:28,286 Photo 23651 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-240F-260119_225620532_comb.png
+WARNING 2026-05-22 13:46:28,287 Photo 23652 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-241F-260119_225623533_comb.png
+WARNING 2026-05-22 13:46:28,287 Photo 23653 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-242F-260119_225624534_comb.png
+WARNING 2026-05-22 13:46:28,288 Photo 23654 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-Perf-270119_015832327_comb.png
+WARNING 2026-05-22 13:46:28,288 Photo 23655 path not found. Photo name: inspection_photos/PROCESSED/CNAII-E3828/CNAII-E3828-Col-150526_152558544_comb.png
+INFO 2026-05-22 13:46:28,314 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 13:46:28,316 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 13:46:28,316 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 13:46:28,344 Generating PDF for inspection 705568
+INFO 2026-05-22 13:46:28,344   Logo data URI: Present
+INFO 2026-05-22 13:46:28,344   Photo count: 214
+INFO 2026-05-22 13:46:28,344   Photos with data URIs: 0
+INFO 2026-05-22 13:46:31,421 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3828-1F-260119_223828293_comb.pdf
+INFO 2026-05-22 13:46:31,421 PDF file size: 335318 bytes
+INFO 2026-05-22 14:06:26,360 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,416 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,494 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,566 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,598 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,620 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,655 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,673 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,714 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,723 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,739 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,747 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,753 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,756 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,786 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,791 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,869 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,872 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,903 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,906 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,915 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,921 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,951 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,970 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:26,989 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,039 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,067 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,069 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,091 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,122 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,137 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,189 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,210 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,223 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,259 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,259 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,277 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,290 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,304 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,336 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,340 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,342 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,359 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,374 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,375 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,391 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,423 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,472 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,490 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,528 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,540 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,547 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,550 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,559 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,560 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,565 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:06:27,567 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:16:30,230 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:16:30,253 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:26:32,663 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:26:32,728 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:36:35,092 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:36:35,160 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:46:37,573 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:46:37,621 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:56:40,044 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 14:56:40,091 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:06:42,467 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:06:42,529 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:16:44,980 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:16:45,011 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:26:47,357 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:26:47,405 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:36:49,814 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:36:49,845 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:46:52,214 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:46:52,272 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 15:56:56,382 LOGOUT - User: system_inspector, IP: 127.0.0.1
+WARNING 2026-05-22 15:57:46,805 Autologin check failed: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+WARNING 2026-05-22 16:05:45,401 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 16:05:45,401 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 16:06:30,932 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+WARNING 2026-05-22 16:06:30,934 Arrow chart (xc) generation failed: No module named 'matplotlib'
+WARNING 2026-05-22 16:06:30,934 Arrow chart (yc) generation failed: No module named 'matplotlib'
+INFO 2026-05-22 16:06:31,234 Generating PDF for inspection 705574
+INFO 2026-05-22 16:06:31,234   Logo data URI: Present
+INFO 2026-05-22 16:06:31,234   Photo count: 214
+INFO 2026-05-22 16:06:31,235   Photos with data URIs: 214
+INFO 2026-05-22 16:06:51,686 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3832-2F-020219_161523996_comb.pdf
+INFO 2026-05-22 16:06:51,686 PDF file size: 75476122 bytes
+INFO 2026-05-22 16:17:03,208 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,269 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,273 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,331 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,377 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,379 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,410 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,435 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,461 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,505 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,512 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,839 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,886 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,903 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,921 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,971 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:03,979 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,033 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,060 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,092 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,107 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,162 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,216 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,235 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,250 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,301 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,310 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,340 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,385 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,420 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,449 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,487 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,547 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,572 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,585 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,615 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,656 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,704 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,717 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,759 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,859 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,867 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,884 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,921 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,955 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:04,990 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,022 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,089 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,148 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,226 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,238 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,569 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,695 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,734 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,766 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,790 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,844 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,873 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,929 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,964 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:05,983 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,046 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,162 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,186 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,232 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,232 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,279 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,292 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,364 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,389 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,389 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,452 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,489 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,518 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,575 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,597 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,647 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,671 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,691 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,732 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,771 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,802 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,824 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,880 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,920 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:06,974 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,008 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,062 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,095 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,135 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,159 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,201 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,240 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,272 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,296 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,325 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,344 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,575 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,649 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,676 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,695 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,720 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,762 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,846 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,863 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,925 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,961 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:07,977 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,077 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,109 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,136 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,193 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,223 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,245 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,319 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,335 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,368 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,402 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,578 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,657 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,672 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,720 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,753 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,790 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,819 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,844 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,877 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,973 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:08,983 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,017 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,053 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,086 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,121 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,160 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,239 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,273 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,316 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,342 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,389 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,405 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,440 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,473 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,506 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,549 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,639 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,651 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,682 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,699 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,755 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,787 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,807 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,874 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,883 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,955 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,960 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:09,999 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,025 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,053 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,112 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,140 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,195 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,256 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,277 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,298 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,353 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,390 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,423 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,456 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,478 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,524 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,556 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,609 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,613 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,668 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,707 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,722 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,771 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,793 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,837 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,885 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:17:10,947 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:27:14,982 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:27:15,035 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:37:18,984 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:37:19,034 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:47:20,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:47:21,044 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:57:24,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 16:57:25,048 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:07:28,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:07:29,051 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:17:33,029 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:17:33,054 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:27:36,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:27:37,051 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:37:40,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:37:41,043 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:47:44,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:47:45,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:57:48,987 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 17:57:49,040 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:07:52,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:07:53,046 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:17:56,984 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:17:57,063 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:28:00,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:28:01,052 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:38:04,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:38:05,022 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:48:08,992 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:48:09,018 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:58:12,992 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 18:58:13,043 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:08:16,986 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:08:17,038 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:18:21,035 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:18:21,065 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:28:24,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:28:25,083 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:38:28,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:38:29,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:48:32,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:48:33,022 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:58:37,023 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 19:58:37,045 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:08:40,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:08:41,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:18:44,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:18:45,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:28:48,992 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:28:49,023 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:38:52,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:38:53,061 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:48:57,054 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:48:57,152 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:59:00,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 20:59:01,078 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:09:04,984 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:09:05,007 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:19:08,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:19:09,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:29:12,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:29:13,065 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:39:17,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:39:17,052 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:49:21,039 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:49:21,083 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:59:25,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 21:59:25,074 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:09:28,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:09:29,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:19:32,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:19:33,011 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:29:37,001 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:29:37,062 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:39:40,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:39:41,047 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:49:44,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:49:45,065 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:59:48,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 22:59:49,054 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:09:52,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:09:53,038 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:19:57,002 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:19:57,061 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:30:01,033 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:30:01,059 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:40:04,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:40:05,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:50:08,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-22 23:50:09,021 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:00:12,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:00:13,039 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:10:16,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:10:17,034 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:20:20,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:20:21,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:30:24,986 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:30:25,033 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:40:28,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:40:29,030 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:50:32,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 00:50:33,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:00:37,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:00:37,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:10:40,992 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:10:41,044 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:20:45,009 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:20:45,054 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:30:48,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:30:49,013 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:40:52,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:40:53,017 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:50:56,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 01:50:57,021 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:01:00,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:01:01,026 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:11:04,987 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:11:05,037 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:21:08,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:21:09,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:31:12,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:31:13,044 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:41:16,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:41:17,043 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:51:20,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 02:51:21,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:01:24,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:01:25,048 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:11:28,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:11:29,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:21:33,001 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:21:33,054 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:31:36,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:31:37,046 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:41:40,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:41:41,039 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:51:44,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 03:51:45,021 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:01:48,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:01:49,040 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:11:52,985 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:11:53,033 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:21:57,003 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:21:57,070 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:32:00,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:32:01,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:42:04,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:42:05,059 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:52:08,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 04:52:09,052 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:02:13,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:02:13,056 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:12:16,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:12:17,045 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:22:20,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:22:21,036 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:32:25,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:32:25,025 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:42:28,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:42:29,055 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:52:32,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 05:52:33,068 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:02:36,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:02:37,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:12:40,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:12:41,045 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:22:45,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:22:45,047 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:32:48,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:32:49,047 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:42:52,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:42:53,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:52:56,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 06:52:57,040 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:03:00,985 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:03:01,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:13:04,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:13:05,043 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:23:08,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:23:09,019 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:33:12,987 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:33:13,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:43:16,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:43:17,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:53:21,038 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 07:53:21,068 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:03:25,002 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:03:25,052 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:13:28,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:13:29,040 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:23:32,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:23:33,046 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:33:36,986 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:33:37,038 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:43:40,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:43:41,038 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:53:45,003 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 08:53:45,052 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:03:48,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:03:49,046 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:13:52,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:13:53,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:23:56,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:23:57,019 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:34:00,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:34:01,021 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:44:04,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:44:05,045 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:54:08,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 09:54:09,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:04:13,027 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:04:13,057 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:14:16,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:14:17,043 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:24:20,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:24:21,046 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:34:25,001 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:34:25,060 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:44:28,993 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:44:29,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:54:32,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 10:54:33,050 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:04:36,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:04:37,059 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:14:40,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:14:41,012 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:24:44,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:24:45,052 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:34:48,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:34:49,056 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:44:52,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:44:53,068 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:54:57,002 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 11:54:57,061 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:05:00,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:05:01,062 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:15:04,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:15:05,033 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:25:08,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:25:09,053 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:35:12,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:35:13,033 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:45:16,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:45:17,027 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:55:20,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 12:55:21,056 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:05:25,002 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:05:25,060 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:15:28,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:15:29,049 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:25:32,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:25:33,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:35:37,018 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:35:37,048 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:45:40,998 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 13:45:41,051 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 14:05:02,011 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 14:05:02,011 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 14:05:02,051 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 14:15:06,035 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-05-23 14:15:06,066 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
