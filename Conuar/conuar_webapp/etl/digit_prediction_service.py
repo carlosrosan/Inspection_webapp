@@ -767,26 +767,34 @@ class DigitPredictionService:
     def predict_for_photo(self, photo, photo_id: str):
         """
         Run digit prediction for a single InspectionPhoto and save to database.
-        
+
+        Existing predictions are returned as-is only when detected_numbers is
+        already ≤ 5 characters (i.e. produced by the current top-5 pipeline).
+        Stale records with > 5 digits (created by an older version of the
+        service that joined all detected regions without the top-5 filter) are
+        re-predicted and updated via update_or_create.
+
         Args:
             photo: InspectionPhoto instance
             photo_id: Extracted photo ID from filename
-        
+
         Returns:
             DigitPrediction instance or None
         """
         from main.models import DigitPrediction
-        
-        # Check if prediction already exists
-        if hasattr(photo, 'digit_prediction'):
-            try:
-                existing = photo.digit_prediction
-                if existing:
-                    logger.debug(f"Prediction already exists for photo {photo.id}")
-                    return existing
-            except DigitPrediction.DoesNotExist:
-                pass
-        
+
+        # Return existing prediction only when it is already valid (≤ 5 digits).
+        # Stale records (> 5 digits from an older pipeline version) fall through
+        # so they are re-predicted and updated below.
+        existing = None
+        try:
+            existing = photo.digit_prediction
+            if existing and len(existing.detected_numbers) <= 5:
+                logger.debug(f"Valid prediction already exists for photo {photo.id}")
+                return existing
+        except DigitPrediction.DoesNotExist:
+            pass
+
         # Get the full path to the photo
         try:
             from django.conf import settings
@@ -794,50 +802,62 @@ class DigitPredictionService:
         except Exception as e:
             logger.error(f"Error getting photo path: {e}")
             return None
-        
+
         if not photo_full_path.exists():
-            # Create error record
-            prediction = DigitPrediction.objects.create(
+            if existing:
+                return existing  # cannot re-process; keep whatever we have
+            prediction, _ = DigitPrediction.objects.update_or_create(
                 inspection_photo=photo,
-                photo_id=photo_id,
-                processing_error=f"Photo file not found: {photo_full_path}"
+                defaults={
+                    'photo_id': photo_id,
+                    'processing_error': f"Photo file not found: {photo_full_path}",
+                },
             )
             return prediction
-        
+
         # Run detection (digit preview saved by default; set env DIGIT_PREVIEW_SAVE=0 to disable)
         save_preview = os.environ.get('DIGIT_PREVIEW_SAVE', '1').strip().lower() not in ('0', 'false', 'no')
         logger.info(f"Running digit prediction for photo: {photo_full_path.name} (ID: {photo_id})")
         result = self.detect_numbers_in_image(photo_full_path, save_digit_preview=save_preview)
-        
+
         if result.get('error'):
-            prediction = DigitPrediction.objects.create(
+            if existing:
+                return existing  # keep stale record rather than overwrite with an error
+            prediction, _ = DigitPrediction.objects.update_or_create(
                 inspection_photo=photo,
-                photo_id=photo_id,
-                processing_error=result['error']
+                defaults={
+                    'photo_id': photo_id,
+                    'processing_error': result['error'],
+                },
             )
             return prediction
-        
-        # Extract digits from result
+
+        # Extract digits from result — top-5 by confidence, left-to-right order
         digits = result.get('digits', ['', '', '', '', ''])
-        
-        # Create prediction record
-        prediction = DigitPrediction.objects.create(
+        detected_numbers = result.get('detected_numbers', '')
+
+        # update_or_create writes fresh top-5 results and overwrites stale records
+        prediction, created = DigitPrediction.objects.update_or_create(
             inspection_photo=photo,
-            photo_id=photo_id,
-            detected_numbers=result.get('detected_numbers', ''),
-            letter=result.get('letter', ''),
-            digit_1=digits[0] if len(digits) > 0 else '',
-            digit_2=digits[1] if len(digits) > 1 else '',
-            digit_3=digits[2] if len(digits) > 2 else '',
-            digit_4=digits[3] if len(digits) > 3 else '',
-            digit_5=digits[4] if len(digits) > 4 else '',
-            average_confidence=result.get('average_confidence'),
-            prediction_details=result.get('details', '')
+            defaults={
+                'photo_id': photo_id,
+                'detected_numbers': detected_numbers,
+                'letter': result.get('letter', ''),
+                'digit_1': digits[0] if len(digits) > 0 else '',
+                'digit_2': digits[1] if len(digits) > 1 else '',
+                'digit_3': digits[2] if len(digits) > 2 else '',
+                'digit_4': digits[3] if len(digits) > 3 else '',
+                'digit_5': digits[4] if len(digits) > 4 else '',
+                'average_confidence': result.get('average_confidence'),
+                'prediction_details': result.get('details', ''),
+                'processing_error': '',
+            },
         )
-        
+
+        action = "created" if created else "updated"
         logger.info(
-            f"Digit prediction saved for photo {photo.id} (ID={photo_id}): "
-            f"{result.get('detected_numbers', 'none')}"
+            f"Digit prediction {action} for photo {photo.id} (ID={photo_id}): "
+            f"{detected_numbers}"
         )
         return prediction
     

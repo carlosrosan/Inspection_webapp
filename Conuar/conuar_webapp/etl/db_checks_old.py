@@ -3,18 +3,14 @@ import pandas as pd
 import os
 import argparse
 import pymysql
-from pathlib import Path
 from sqlalchemy import create_engine, text
 import warnings
 warnings.filterwarnings('ignore')
 
-# Root of the Django project (conuar_webapp/), independent of deployment path
-_BASE_DIR = Path(__file__).resolve().parent.parent
-
 def load_db_config():
     """Load database configuration from JSON file"""
     try:
-        with open(_BASE_DIR / 'etl' / 'db_config.json', "r") as f:
+        with open("C:/Inspection_webapp/Conuar/conuar_webapp/etl/db_config.json", "r") as f:
             config = json.load(f)
         return config
     except FileNotFoundError:
@@ -115,7 +111,7 @@ def main():
     parser = argparse.ArgumentParser(description='MySQL Database inspection and query tool')
     parser.add_argument('--table', type=str, help='Specific table to query')
     parser.add_argument('--limit', type=int, default=1000, help='Limit number of rows to query (default: 1000)')
-    parser.add_argument('--output-dir', type=str, default=str(_BASE_DIR / 'etl'),
+    parser.add_argument('--output-dir', type=str, default='C:/Inspection_webapp/Conuar/conuar_webapp/etl', 
                        help='Output directory for CSV files')
     
     args = parser.parse_args()

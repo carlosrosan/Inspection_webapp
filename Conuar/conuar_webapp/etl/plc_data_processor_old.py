@@ -54,9 +54,6 @@ try:
 except ImportError:
     from photo_unificator import unify_photo, unify_photo_png
 
-# Root of the Django project (conuar_webapp/), independent of deployment path
-_BASE_DIR = Path(__file__).resolve().parent.parent
-
 # Configurar logging
 # Use 'etl.plc_data_processor' logger name to work with Django's LOGGING config
 # This ensures logs appear in console when running via manage.py
@@ -68,7 +65,7 @@ if not logger.handlers:
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler(_BASE_DIR / 'logs' / 'plc_data_processor.log'),
+            logging.FileHandler(r'C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_processor.log'),
             logging.StreamHandler()
         ]
     )
@@ -142,7 +139,7 @@ class PlcDataProcessor:
         except ImportError:
             # Fallback a rutas hardcodeadas si no se puede importar la configuración
             logger.warning("No se pudo importar config.paths_config, usando rutas por defecto")
-            self.base_photo_path = _BASE_DIR / 'media' / 'inspection_photos'
+            self.base_photo_path = Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_photos")
             self.staging_photo_path = self.base_photo_path / "STAGING"
             self.processed_photo_path = self.base_photo_path / "PROCESSED"
             self.processed_photo_path.mkdir(parents=True, exist_ok=True)

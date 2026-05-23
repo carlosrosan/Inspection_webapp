@@ -87,64 +87,57 @@ def overlay_svg_on_bmp(bmp_path: Path, svg_path: Optional[Path] = None, output_p
             logger.error(f"Error al convertir SVG: {e}")
             return None
         
-        # Render the SVG at its natural dimensions (do NOT force drawing.width/height to
-        # BMP pixel values — ReportLab uses points, not pixels, so forcing pixel values
-        # expands the canvas without scaling the content, leaving empty black areas).
-        # We resize the rendered output to the BMP size afterwards, which correctly
-        # scales both canvas and content together.
-
-        # dpi=72 → 1 ReportLab point = 1 pixel, avoids a spurious 4/3 scale factor.
-
-        # Strategy: prefer transparent-background rendering (rlPyCairo supports it and
-        # returns a proper RGBA image). Fall back to white-background rendering
-        # (_renderPM / GDI on Windows without rlPyCairo) plus manual masking.
-        svg_image = None
-
-        # --- attempt 1: transparent background (rlPyCairo) ---
+        # Renderizar SVG a PIL Image al tamaño del BMP
+        # Guardar dimensiones originales del drawing
+        original_width = getattr(drawing, 'width', bmp_image.width)
+        original_height = getattr(drawing, 'height', bmp_image.height)
+        
+        # Establecer tamaño objetivo igual al BMP
+        drawing.width = bmp_image.width
+        drawing.height = bmp_image.height
+        
+        # Renderizar SVG a PIL Image
         try:
-            candidate = renderPM.drawToPIL(drawing, dpi=72, bg=0x00000000)
-            if candidate is not None and candidate.mode == 'RGBA':
-                svg_image = candidate
-                logger.debug("SVG renderizado con fondo transparente (rlPyCairo)")
+            # Renderizar con fondo transparente
+            svg_image = renderPM.drawToPIL(
+                drawing,
+                dpi=96,
+                bg=0x00000000,  # Fondo transparente
+            )
         except Exception as e:
-            logger.debug(f"Renderizado con fondo transparente falló: {e}")
-
-        # --- attempt 2: white background (_renderPM / GDI fallback) ---
-        if svg_image is None:
+            logger.warning(f"Error al renderizar SVG directamente: {e}, intentando método alternativo")
+            # Método alternativo: renderizar a archivo temporal
             try:
-                svg_image = renderPM.drawToPIL(drawing, dpi=72, bg=0xFFFFFF)
-            except Exception as e1:
-                logger.warning(f"Error al renderizar SVG directamente: {e1}, intentando método alternativo")
-                try:
-                    import tempfile
-                    with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp_file:
-                        tmp_path = tmp_file.name
-                    renderPM.drawToFile(drawing, tmp_path, fmt='PNG', bg=0xFFFFFF)
-                    svg_image = Image.open(tmp_path).copy()
-                    os.unlink(tmp_path)
-                except Exception as e2:
-                    logger.error(f"Error alternativo al renderizar SVG: {e2}")
-                    return None
-
-        # Scale the entire SVG image (content + canvas) to match BMP dimensions
+                import tempfile
+                with tempfile.NamedTemporaryFile(suffix='.png', delete=False) as tmp_file:
+                    tmp_path = tmp_file.name
+                
+                renderPM.drawToFile(drawing, tmp_path, fmt='PNG', bg=0x00000000)
+                svg_image = Image.open(tmp_path)
+                os.unlink(tmp_path)  # Eliminar temporal
+            except Exception as e2:
+                logger.error(f"Error alternativo al renderizar SVG: {e2}")
+                # Restaurar dimensiones originales antes de retornar
+                drawing.width = original_width
+                drawing.height = original_height
+                return None
+        
+        # Restaurar dimensiones originales del drawing (buena práctica)
+        drawing.width = original_width
+        drawing.height = original_height
+        
+        # Asegurar que SVG tiene exactamente el mismo tamaño que BMP (redimensionar si es necesario)
         if svg_image.size != bmp_image.size:
             logger.info(f"Redimensionando SVG de {svg_image.size} a {bmp_image.size}")
             svg_image = svg_image.resize(bmp_image.size, Image.Resampling.LANCZOS)
-
-        # Ensure RGBA.  If rlPyCairo already returned RGBA the alpha channel is correct;
-        # if _renderPM returned RGB (white background) we derive alpha by masking near-white.
-        if svg_image.mode == 'RGBA':
-            pass  # proper alpha already present — no masking needed
-        else:
+        
+        # Convertir SVG a RGBA si es necesario
+        if svg_image.mode != 'RGBA':
             svg_image = svg_image.convert('RGBA')
-            r, g, b, a = svg_image.split()
-            mask = Image.merge('RGB', (r, g, b)).point(
-                lambda v: 0 if v > 245 else 255
-            ).convert('L')
-            svg_image.putalpha(mask)
-
+        
         # Superponer SVG sobre BMP
         logger.info(f"Superponiendo SVG sobre BMP...")
+        # Crear una imagen compuesta: BMP como base, SVG encima
         result_image = Image.alpha_composite(bmp_image, svg_image)
         
         # Guardar resultado como PNG

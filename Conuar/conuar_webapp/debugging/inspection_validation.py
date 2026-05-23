@@ -57,13 +57,13 @@ try:
     PROCESSED_PATH = Path(INSPECTION_PHOTOS_PROCESSED_DIR)
     BASE_PHOTO_PATH = Path(INSPECTION_PHOTOS_DIR)
 except ImportError:
-    BASE_PHOTO_PATH = Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_photos")
+    _BASE_DIR = Path(__file__).resolve().parent.parent
+    BASE_PHOTO_PATH = _BASE_DIR / 'media' / 'inspection_photos'
     STAGING_PATH = BASE_PHOTO_PATH / "STAGING"
     PROCESSED_PATH = BASE_PHOTO_PATH / "PROCESSED"
 
-# CSV file path (same directory as this script)
-#CSV_PATH = Path(__file__).parent / "plc_reads_nodered.csv"
-CSV_PATH =  Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv")
+# CSV file path written by NodeRed
+CSV_PATH = Path(__file__).resolve().parent.parent / 'etl' / 'NodeRed' / 'plc_reads' / 'plc_reads_nodered.csv'
 
 
 class ValidationResult:

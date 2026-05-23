@@ -35,12 +35,6 @@ except Exception:
     os.environ.setdefault('DJANGO_SETTINGS_MODULE', 'config.settings')
     django.setup()
 
-# Root of the Django project (conuar_webapp/), independent of deployment path
-_BASE_DIR = Path(__file__).resolve().parent.parent
-
-# Default CSV input file (NodeRed drops data here)
-_DEFAULT_CSV_PATH = _BASE_DIR / 'etl' / 'NodeRed' / 'plc_reads' / 'plc_reads_nodered.csv'
-
 # Configurar logging
 # Use 'etl.plc_data_reader' logger name to work with Django's LOGGING config
 # This ensures logs appear in console when running via manage.py
@@ -52,7 +46,7 @@ if not logger.handlers:
         level=logging.INFO,
         format='%(asctime)s - %(levelname)s - %(message)s',
         handlers=[
-            logging.FileHandler(_BASE_DIR / 'logs' / 'plc_data_reader.log'),
+            logging.FileHandler(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\logs\plc_data_reader.log"),
             logging.StreamHandler()
         ]
     )
@@ -66,7 +60,7 @@ class PlcDataReader:
         
         # Default CSV file path if not provided
         if csv_input_file is None:
-            self.csv_input_file = _DEFAULT_CSV_PATH
+            self.csv_input_file = Path(r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv")
         else:
             self.csv_input_file = Path(csv_input_file)
         
@@ -337,7 +331,7 @@ def load_csv_data_to_db(csv_file_path: str = None) -> dict:
     try:
         # Use default path if not provided
         if csv_file_path is None:
-            csv_file_path = _DEFAULT_CSV_PATH
+            csv_file_path = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv"
         
         # Create reader instance
         reader = PlcDataReader(csv_input_file=str(csv_file_path))
@@ -371,7 +365,8 @@ def start_background_monitor(interval_seconds: int = 30):
     
     def monitor_thread():
         try:
-            reader = PlcDataReader(csv_input_file=_DEFAULT_CSV_PATH)
+            csv_file = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv"
+            reader = PlcDataReader(csv_input_file=csv_file)
             reader.monitor_file(interval_seconds=interval_seconds)
         except Exception as e:
             logger.error("=" * 80)
@@ -398,8 +393,8 @@ def main():
     print()
     
     # Get CSV file path
-    csv_file = _DEFAULT_CSV_PATH
-
+    csv_file = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\etl\NodeRed\plc_reads\plc_reads_nodered.csv"
+    
     print(f"Archivo CSV: {csv_file}")
     print()
     

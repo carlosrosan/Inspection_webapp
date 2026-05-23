@@ -1,6 +1,7 @@
 import os
+from pathlib import Path
 
-folder = r"C:\Users\USER\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_photos\STAGING"
+folder = Path(__file__).resolve().parent.parent / 'media' / 'inspection_photos' / 'STAGING'
 
 for file in os.listdir(folder):
     if file.endswith(".svg"):
