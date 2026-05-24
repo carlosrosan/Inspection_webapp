@@ -327,6 +327,20 @@ def get_params_for_photo_id(photo_id: str) -> Dict:
 
 
 # =============================================================================
+# DIGIT SEGMENTATION THRESHOLDS
+# Calibrated from 90 hand-labeled digit crops:  W 60–109 px  H 70–186 px
+# Defined at module level so _find_digit_band can use MIN_DIGIT_H.
+# =============================================================================
+
+MIN_DIGIT_W    = 50    # px  (measured min 60, −10 margin)
+MAX_DIGIT_W    = 130   # px  (measured max 109, +21 margin)
+MIN_DIGIT_H    = 60    # px  (measured min 70, −10 margin)
+MAX_DIGIT_H    = 210   # px  (measured max 186, +24 margin)
+MIN_DIGIT_AREA = 3000  # px² (measured min 60×70 = 4200, −1200 margin)
+MAX_DIGIT_AREA = 30000 # px² (measured max 109×186 = 20274, +9726 margin)
+
+
+# =============================================================================
 # DIGIT SEGMENTATION (from region_detection.py)
 # =============================================================================
 
@@ -358,14 +372,6 @@ def segment_digits(image, is_preprocessed=False):
     closed = cv2.morphologyEx(dilated, cv2.MORPH_CLOSE, kernel_close)
 
     contours, _ = cv2.findContours(closed, cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)
-
-    # ── Absolute pixel thresholds (calibrated from labeled crops) ─────────────
-    MIN_DIGIT_W    = 50    # px  (measured min 60, −10 margin)
-    MAX_DIGIT_W    = 130   # px  (measured max 109, +21 margin)
-    MIN_DIGIT_H    = 60    # px  (measured min 70, −10 margin)
-    MAX_DIGIT_H    = 210   # px  (measured max 186, +24 margin)
-    MIN_DIGIT_AREA = 3000  # px² (measured min 60×70 = 4200, −1200 margin)
-    MAX_DIGIT_AREA = 30000 # px² (measured max 109×186 = 20274, +9726 margin)
 
     image_h, image_w = gray.shape
     max_area = min(MAX_DIGIT_AREA, image_h * image_w * 0.35)
@@ -859,14 +865,27 @@ class DigitPredictionService:
         # ── Step 5: adaptive digit-zone crop (edge image) ─────────────────────
         # Finds the row-band with the highest edge density and strips the noisy
         # metallic-grain region below the digits.
+        # Safety: only apply when the resulting band is at least 2× MIN_DIGIT_H
+        # (120 px).  On sparse edge images (< ~5% coverage) the peak can sit on
+        # a narrow noise row, collapsing the crop to <20 px and making every
+        # contour fail the area/height filter.
         orig_h = edges.shape[0]
         dy1, dy2 = _find_digit_band(edges)
-        if dy2 - dy1 < orig_h:
+        band_h = dy2 - dy1
+        MIN_BAND_H = MIN_DIGIT_H * 2  # 120 px — must fit at least two digit heights
+        if band_h < orig_h and band_h >= MIN_BAND_H:
             logger.debug(f"Digit-band crop: rows {dy1}–{dy2} "
-                         f"(kept {dy2-dy1}/{orig_h} px)")
+                         f"(kept {band_h}/{orig_h} px)")
             edges   = edges[dy1:dy2, :]
             cropped = (cropped[dy1:dy2, :] if cropped.ndim == 2
                        else cropped[dy1:dy2, :, :])
+        elif band_h < MIN_BAND_H:
+            logger.warning(
+                f"[{image_path.name}] Digit-band too narrow ({band_h} px < "
+                f"{MIN_BAND_H} px min) — skipping band crop to avoid destroying "
+                f"the digit region. Edge coverage may be too sparse for reliable "
+                f"band detection."
+            )
 
         # ── Step 6: segment contours ──────────────────────────────────────────
         digit_regions = segment_digits(edges, is_preprocessed=True)
