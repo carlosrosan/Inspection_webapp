@@ -32,8 +32,16 @@ logger = logging.getLogger('etl.digit_prediction_service')
 MODEL_DIR = Path(__file__).parent / 'digit_prediction_models'
 MODEL_PATH = MODEL_DIR / 'mnist_with_transfer_learning.keras'
 
-# Photo IDs that should have digit prediction
-TARGET_PHOTO_IDS = {'198F', '33F', '48F'}
+# Photo IDs that should have digit prediction.
+# Must stay in sync with PHOTO_ID_PARAMS below (all non-default keys).
+TARGET_PHOTO_IDS = {
+    # IDs with calibrated per-photo-ID crop coordinates
+    '198F', '33F', '48F',
+    # Additional plaque IDs — use DEFAULT_CROP + their edge-detection params
+    '212L',
+    '49F',  '6F',   '63F',  '78F',  '93F',
+    '108F', '123F', '138F', '153F', '168F', '183F',
+}
 
 # STAGING_FOLDER for digit segmentation preview (troubleshooting)
 # Workspace root = parent of conuar_webapp
@@ -163,6 +171,7 @@ def preprocess_for_edge_detection(image, brightness=20, contrast=1.5,
 # =============================================================================
 
 PHOTO_ID_PARAMS = {
+    # ── fallback for unknown photo IDs ────────────────────────────────────────
     'default': {
         'brightness': 20,
         'contrast': 1.5,
@@ -170,7 +179,10 @@ PHOTO_ID_PARAMS = {
         'canny_high': 100,
         'gaussian_blur': 5,
         'negative': False,
+        # no 'crop' key → DEFAULT_CROP is used
     },
+    # ── IDs with calibrated crop windows ─────────────────────────────────────
+    # 'crop' coordinates apply to the image AFTER 90° CW rotation.
     '198F': {
         'brightness': 20,
         'contrast': 1.5,
@@ -178,16 +190,116 @@ PHOTO_ID_PARAMS = {
         'canny_high': 100,
         'gaussian_blur': 5,
         'negative': False,
+        'crop': {'x1': 800, 'y1': 600, 'x2': 1400, 'y2': 1100},
     },
     '33F': {
         'brightness': 20,
         'contrast': 1.5,
-        'canny_low': 50,    # tighter edge threshold for deep knife carvings
+        'canny_low': 50,    # tighter threshold for deep knife carvings
         'canny_high': 150,
         'gaussian_blur': 11,
-        'negative': True,   # invert: carved grooves become white on black (matches training data)
+        'negative': True,   # invert: carved grooves become white on black
+        'crop': {'x1': 800, 'y1': 700, 'x2': 1400, 'y2': 1200},
     },
     '48F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+        'crop': {'x1': 800, 'y1': 700, 'x2': 1400, 'y2': 1200},
+    },
+    # ── IDs using DEFAULT_CROP (no per-ID window calibrated yet) ─────────────
+    '212L': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 5,
+        'canny_high': 100,
+        'gaussian_blur': 5,
+        'negative': False,
+    },
+    '49F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '6F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '63F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '78F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '93F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '108F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '123F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '138F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '153F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '168F': {
+        'brightness': 20,
+        'contrast': 1.5,
+        'canny_low': 50,
+        'canny_high': 150,
+        'gaussian_blur': 11,
+        'negative': True,
+    },
+    '183F': {
         'brightness': 20,
         'contrast': 1.5,
         'canny_low': 50,
@@ -197,12 +309,13 @@ PHOTO_ID_PARAMS = {
     },
 }
 
-# Default crop region
+# Default crop region (fallback when a photo ID has no per-ID crop entry).
+# Coordinates apply to the image AFTER 90° CW rotation.
 DEFAULT_CROP = {
     'x1': 750,
     'y1': 900,
     'x2': 1400,
-    'y2': 1100 #1500
+    'y2': 1500,
 }
 
 
@@ -366,7 +479,7 @@ def _find_digit_band(edge_image, padding_frac=0.20,
 
 
 def _auto_crop_between_rails(img, dark_thresh=80, bright_thresh=220,
-                              dark_frac=0.08, bright_frac=0.10,
+                              dark_frac=0.10, bright_frac=0.10,
                               min_height=30):
     """
     Trim structural horizontal lines from the cropped inspection image:
@@ -493,16 +606,16 @@ def _log_dependency_status() -> None:
     """Log which optional dependencies are missing so errors are visible at startup."""
     missing = []
     if cv2 is None:
-        missing.append("opencv-python  →  pip install opencv-python")
+        missing.append("opencv-python  (pip install opencv-python)")
     if np is None:
-        missing.append("numpy          →  pip install numpy")
+        missing.append("numpy          (pip install numpy)")
     if keras is None:
-        missing.append("tensorflow     →  pip install tensorflow")
+        missing.append("tensorflow>=2.0 (pip install 'tensorflow>=2.13')")
     if not MODEL_PATH.exists():
         missing.append(f"model file not found: {MODEL_PATH}")
     if missing:
         logger.warning(
-            "[digit_prediction_service] Predicciones deshabilitadas — dependencias faltantes:\n  "
+            "[digit_prediction_service] Predicciones deshabilitadas - dependencias faltantes:\n  "
             + "\n  ".join(missing)
         )
     else:
@@ -693,12 +806,22 @@ class DigitPredictionService:
         
         # ── Step 1: rotate 90° CW ────────────────────────────────────────────
         rotated = rotate_image_clockwise_90(image)
+        logger.info(
+            f"[{image_path.name}] Original {image.shape[1]}×{image.shape[0]} px"
+            f" → rotated {rotated.shape[1]}×{rotated.shape[0]} px"
+        )
 
-        # ── Step 2: standard crop to digit region ────────────────────────────
-        crop    = DEFAULT_CROP
+        # ── Step 2: crop to digit region ─────────────────────────────────────
+        # Per-photo-ID crop overrides DEFAULT_CROP when present in PHOTO_ID_PARAMS.
+        crop    = params.get('crop', DEFAULT_CROP)
         cropped = crop_image(rotated, crop['x1'], crop['y1'], crop['x2'], crop['y2'])
 
         if cropped is None or cropped.size == 0:
+            logger.warning(
+                f"[{image_path.name}] Crop {crop} failed — rotated image is only "
+                f"{rotated.shape[1]}×{rotated.shape[0]} px. "
+                f"Adjust DEFAULT_CROP to fit this resolution."
+            )
             return {
                 'detected_numbers': 'ERROR',
                 'letter': '',
@@ -706,6 +829,11 @@ class DigitPredictionService:
                 'details': 'Crop failed',
                 'error': 'Crop failed'
             }
+
+        logger.info(
+            f"[{image_path.name}] Crop ({crop['x1']},{crop['y1']})-({crop['x2']},{crop['y2']})"
+            f" → {cropped.shape[1]}×{cropped.shape[0]} px"
+        )
 
         # ── Step 3: auto-crop rails (raw image) ──────────────────────────────
         # Removes dark metal-rail rows (top) and bright computer-text rows
@@ -742,12 +870,16 @@ class DigitPredictionService:
 
         # ── Step 6: segment contours ──────────────────────────────────────────
         digit_regions = segment_digits(edges, is_preprocessed=True)
+        logger.info(
+            f"[{image_path.name}] Segmentation: {len(digit_regions)} candidate region(s) found"
+            f" (edge image {edges.shape[1]}×{edges.shape[0]} px)"
+        )
 
         if not digit_regions:
             if save_digit_preview:
-                self._save_digit_preview(image_path, edges, [], [], [], 'none')
+                self._save_digit_preview(image_path, edges, [], [], [], 'no_regions')
             return {
-                'detected_numbers': 'none',
+                'detected_numbers': '',
                 'letter': '',
                 'digits': ['', '', '', '', ''],
                 'details': 'No digit regions found',
