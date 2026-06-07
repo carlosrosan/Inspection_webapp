@@ -3,3 +3,4 @@ Conuar/conuar_webapp/media/**
 Conuar/conuar_webapp/logs/**
 Conuar/conuar_env/**
 Conuar/main/__pycache__/**
+Conuar/logs/**
