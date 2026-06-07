@@ -629,7 +629,7 @@ def inspection_detail(request, inspection_id):
         'xc': [r.xc for r in arrow_details],
         'yc': [r.yc for r in arrow_details],
     })
-    arrow_diametro = max((r.diametro for r in arrow_details if r.diametro is not None), default=None)
+    arrow_diametro = next((r.diametro for r in arrow_details if r.diametro is not None), None)
 
     context = {
         'title': f'Inspección de Combustible: {inspection.title}',
@@ -913,7 +913,7 @@ def generate_inspection_pdf_to_file(inspection_id, save_to_disk=True):
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
     arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, 'xc')
     arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, 'yc')
-    arrow_diametro = max((r.diametro for r in arrow_details if r.diametro is not None), default=None)
+    arrow_diametro = next((r.diametro for r in arrow_details if r.diametro is not None), None)
 
     # Prepare context
     context = {
@@ -1174,7 +1174,7 @@ def inspection_pdf(request, inspection_id):
     arrow_details = list(ArrowDetail.objects.filter(inspection=inspection).order_by('id'))
     arrow_chart_xc = _generate_arrow_chart_base64(arrow_details, 'xc')
     arrow_chart_yc = _generate_arrow_chart_base64(arrow_details, 'yc')
-    arrow_diametro = max((r.diametro for r in arrow_details if r.diametro is not None), default=None)
+    arrow_diametro = next((r.diametro for r in arrow_details if r.diametro is not None), None)
 
     # Prepare context for the template
     context = {
