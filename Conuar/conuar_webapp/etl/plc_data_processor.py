@@ -840,7 +840,7 @@ class PlcDataProcessor:
                 if d is not None:
                     diametro_vals.append(d)
 
-            diametro_avg = sum(diametro_vals) / len(diametro_vals) if diametro_vals else None
+            diametro_avg = max(diametro_vals) if diametro_vals else None
 
             detail_rows = []
             for i in range(len(RAW_FIELDS)):

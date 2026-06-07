@@ -86,9 +86,7 @@ class Command(BaseCommand):
                 if d is not None:
                     diametro_vals.append(d)
 
-            diametro_avg = (
-                sum(diametro_vals) / len(diametro_vals) if diametro_vals else None
-            )
+            diametro_avg = max(diametro_vals) if diametro_vals else None
 
             # ── Fallback: read diametro from CSV when DB rows have NULL ──────
             # PlcArrowReadingRaw rows created before the diametro field was
