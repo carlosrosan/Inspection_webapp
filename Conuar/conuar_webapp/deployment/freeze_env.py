@@ -29,7 +29,7 @@ from datetime import datetime
 # Defaults — resolved relative to THIS file so the script works from anywhere
 # ---------------------------------------------------------------------------
 SCRIPT_DIR = Path(__file__).resolve().parent          # .../deployment/
-DEFAULT_VENV = SCRIPT_DIR / ".." / ".." / ".." / "conuar_env"   # Inspection_webapp/conuar_env
+DEFAULT_VENV = SCRIPT_DIR / ".." / ".." / ".." / "Conuar/conuar_env"   # Inspection_webapp/conuar_env
 DEFAULT_OUT  = SCRIPT_DIR / ".."                      # .../conuar_webapp/
 
 # Packages that pip installs automatically and are NOT managed by Poetry
