@@ -56692,3 +56692,2453 @@ datetime,CicloActivo,ReiniciarCiclo,AbortarCiclo,FinCiclo,ID_Control,Nombre_Cont
 
 2026-06-07T16:48:58.122Z,false,false,false,true,,,E3850,CNAII
 
+2026-06-07T16:59:23.572Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T16:59:24.594Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T17:12:17.491Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T17:12:18.494Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T18:12:45.832Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T18:12:46.879Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T18:52:40.714Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T18:52:41.713Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T18:56:31.736Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T18:56:32.746Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T20:13:20.327Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T20:13:21.335Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T21:56:16.901Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T21:56:17.917Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T21:58:03.902Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T21:58:04.919Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T21:59:21.575Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T21:59:22.582Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T22:40:57.701Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T22:40:58.702Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T22:42:06.331Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T22:42:07.329Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T22:50:26.814Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T22:50:27.826Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-07T23:20:54.555Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-07T23:20:55.568Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T01:49:35.852Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T01:49:36.854Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T02:38:44.955Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T02:38:45.958Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T03:14:28.390Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T03:14:29.406Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T03:20:45.959Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T03:20:46.941Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T03:36:45.687Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T03:36:46.696Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T04:04:03.617Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T04:04:04.628Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T05:30:55.691Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T05:30:56.709Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T06:15:39.485Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T06:15:40.517Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T07:37:08.592Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T07:37:09.582Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T08:16:17.684Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T08:16:18.689Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T08:53:56.637Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T08:53:57.645Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T11:09:10.770Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-08T11:09:11.781Z,false,false,false,true,,,E3850,CNAII
+
+2026-06-08T11:16:44.706Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-09T15:31:04.793Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-10T11:00:12.059Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-10T15:45:00.867Z,false,false,false,false,,,-,-
+
+2026-06-10T15:45:46.058Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-10T21:52:57.265Z,false,false,false,false,,,-,-
+
+2026-06-10T21:53:42.195Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-11T14:39:24.131Z,false,false,false,false,,,-,-
+
+2026-06-11T14:39:52.269Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-11T14:53:05.831Z,false,false,false,false,,,-,-
+
+2026-06-11T14:53:09.901Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-11T15:02:42.535Z,false,false,false,false,,,-,-
+
+2026-06-11T15:02:56.624Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-11T15:20:33.946Z,false,false,false,false,,,-,-
+
+2026-06-11T15:20:56.095Z,false,false,false,false,,,E3850,CNAII
+
+2026-06-11T00:00:00Z,true,false,false,false,,,E3864,CNAII
+
+2026-06-11T00:00:05Z,true,false,false,false,001F,,E3864,CNAII
+
+2026-06-11T00:00:10Z,true,false,false,false,002F,,E3864,CNAII
+
+2026-06-11T00:00:15Z,true,false,false,false,003F,,E3864,CNAII
+
+2026-06-11T00:00:20Z,true,false,false,false,100L,,E3864,CNAII
+
+2026-06-11T00:00:25Z,true,false,false,false,101L,,E3864,CNAII
+
+2026-06-11T00:00:30Z,true,false,false,false,102L,,E3864,CNAII
+
+2026-06-11T00:00:35Z,true,false,false,false,103L,,E3864,CNAII
+
+2026-06-11T00:00:40Z,true,false,false,false,104F,,E3864,CNAII
+
+2026-06-11T00:00:45Z,true,false,false,false,105F,,E3864,CNAII
+
+2026-06-11T00:00:50Z,true,false,false,false,106F,,E3864,CNAII
+
+2026-06-11T00:00:55Z,true,false,false,false,107F,,E3864,CNAII
+
+2026-06-11T00:01:00Z,true,false,false,false,108F,,E3864,CNAII
+
+2026-06-11T00:01:05Z,true,false,false,false,109F,,E3864,CNAII
+
+2026-06-11T00:01:10Z,true,false,false,false,10F,,E3864,CNAII
+
+2026-06-11T00:01:15Z,true,false,false,false,111F,,E3864,CNAII
+
+2026-06-11T00:01:20Z,true,false,false,false,112F,,E3864,CNAII
+
+2026-06-11T00:01:25Z,true,false,false,false,113F,,E3864,CNAII
+
+2026-06-11T00:01:30Z,true,false,false,false,114L,,E3864,CNAII
+
+2026-06-11T00:01:35Z,true,false,false,false,115L,,E3864,CNAII
+
+2026-06-11T00:01:40Z,true,false,false,false,116L,,E3864,CNAII
+
+2026-06-11T00:01:45Z,true,false,false,false,117L,,E3864,CNAII
+
+2026-06-11T00:01:50Z,true,false,false,false,118L,,E3864,CNAII
+
+2026-06-11T00:01:55Z,true,false,false,false,119F,,E3864,CNAII
+
+2026-06-11T00:02:00Z,true,false,false,false,11F,,E3864,CNAII
+
+2026-06-11T00:02:05Z,true,false,false,false,120F,,E3864,CNAII
+
+2026-06-11T00:02:10Z,true,false,false,false,121F,,E3864,CNAII
+
+2026-06-11T00:02:15Z,true,false,false,false,122F,,E3864,CNAII
+
+2026-06-11T00:02:20Z,true,false,false,false,123F,,E3864,CNAII
+
+2026-06-11T00:02:25Z,true,false,false,false,124F,,E3864,CNAII
+
+2026-06-11T00:02:30Z,true,false,false,false,126F,,E3864,CNAII
+
+2026-06-11T00:02:35Z,true,false,false,false,127F,,E3864,CNAII
+
+2026-06-11T00:02:40Z,true,false,false,false,128F,,E3864,CNAII
+
+2026-06-11T00:02:45Z,true,false,false,false,129L,,E3864,CNAII
+
+2026-06-11T00:02:50Z,true,false,false,false,12F,,E3864,CNAII
+
+2026-06-11T00:02:55Z,true,false,false,false,130L,,E3864,CNAII
+
+2026-06-11T00:03:00Z,true,false,false,false,131L,,E3864,CNAII
+
+2026-06-11T00:03:05Z,true,false,false,false,132L,,E3864,CNAII
+
+2026-06-11T00:03:10Z,true,false,false,false,133L,,E3864,CNAII
+
+2026-06-11T00:03:15Z,true,false,false,false,134F,,E3864,CNAII
+
+2026-06-11T00:03:20Z,true,false,false,false,135F,,E3864,CNAII
+
+2026-06-11T00:03:25Z,true,false,false,false,136F,,E3864,CNAII
+
+2026-06-11T00:03:30Z,true,false,false,false,137F,,E3864,CNAII
+
+2026-06-11T00:03:35Z,true,false,false,false,138F,,E3864,CNAII
+
+2026-06-11T00:03:40Z,true,false,false,false,139F,,E3864,CNAII
+
+2026-06-11T00:03:45Z,true,false,false,false,13L,,E3864,CNAII
+
+2026-06-11T00:03:50Z,true,false,false,false,141F,,E3864,CNAII
+
+2026-06-11T00:03:55Z,true,false,false,false,142F,,E3864,CNAII
+
+2026-06-11T00:04:00Z,true,false,false,false,143F,,E3864,CNAII
+
+2026-06-11T00:04:05Z,true,false,false,false,144L,,E3864,CNAII
+
+2026-06-11T00:04:10Z,true,false,false,false,145L,,E3864,CNAII
+
+2026-06-11T00:04:15Z,true,false,false,false,146L,,E3864,CNAII
+
+2026-06-11T00:04:20Z,true,false,false,false,147L,,E3864,CNAII
+
+2026-06-11T00:04:25Z,true,false,false,false,148L,,E3864,CNAII
+
+2026-06-11T00:04:30Z,true,false,false,false,149F,,E3864,CNAII
+
+2026-06-11T00:04:35Z,true,false,false,false,14L,,E3864,CNAII
+
+2026-06-11T00:04:40Z,true,false,false,false,150F,,E3864,CNAII
+
+2026-06-11T00:04:45Z,true,false,false,false,151F,,E3864,CNAII
+
+2026-06-11T00:04:50Z,true,false,false,false,152F,,E3864,CNAII
+
+2026-06-11T00:04:55Z,true,false,false,false,153F,,E3864,CNAII
+
+2026-06-11T00:05:00Z,true,false,false,false,154F,,E3864,CNAII
+
+2026-06-11T00:05:05Z,true,false,false,false,156F,,E3864,CNAII
+
+2026-06-11T00:05:10Z,true,false,false,false,157F,,E3864,CNAII
+
+2026-06-11T00:05:15Z,true,false,false,false,158F,,E3864,CNAII
+
+2026-06-11T00:05:20Z,true,false,false,false,159L,,E3864,CNAII
+
+2026-06-11T00:05:25Z,true,false,false,false,15L,,E3864,CNAII
+
+2026-06-11T00:05:30Z,true,false,false,false,160L,,E3864,CNAII
+
+2026-06-11T00:05:35Z,true,false,false,false,161L,,E3864,CNAII
+
+2026-06-11T00:05:40Z,true,false,false,false,162L,,E3864,CNAII
+
+2026-06-11T00:05:45Z,true,false,false,false,163L,,E3864,CNAII
+
+2026-06-11T00:05:50Z,true,false,false,false,164F,,E3864,CNAII
+
+2026-06-11T00:05:55Z,true,false,false,false,165F,,E3864,CNAII
+
+2026-06-11T00:06:00Z,true,false,false,false,166F,,E3864,CNAII
+
+2026-06-11T00:06:05Z,true,false,false,false,167F,,E3864,CNAII
+
+2026-06-11T00:06:10Z,true,false,false,false,168F,,E3864,CNAII
+
+2026-06-11T00:06:15Z,true,false,false,false,169F,,E3864,CNAII
+
+2026-06-11T00:06:20Z,true,false,false,false,16L,,E3864,CNAII
+
+2026-06-11T00:06:25Z,true,false,false,false,171F,,E3864,CNAII
+
+2026-06-11T00:06:30Z,true,false,false,false,172F,,E3864,CNAII
+
+2026-06-11T00:06:35Z,true,false,false,false,173F,,E3864,CNAII
+
+2026-06-11T00:06:40Z,true,false,false,false,174L,,E3864,CNAII
+
+2026-06-11T00:06:45Z,true,false,false,false,175L,,E3864,CNAII
+
+2026-06-11T00:06:50Z,true,false,false,false,176L,,E3864,CNAII
+
+2026-06-11T00:06:55Z,true,false,false,false,177L,,E3864,CNAII
+
+2026-06-11T00:07:00Z,true,false,false,false,178L,,E3864,CNAII
+
+2026-06-11T00:07:05Z,true,false,false,false,179F,,E3864,CNAII
+
+2026-06-11T00:07:10Z,true,false,false,false,17L,,E3864,CNAII
+
+2026-06-11T00:07:15Z,true,false,false,false,180F,,E3864,CNAII
+
+2026-06-11T00:07:20Z,true,false,false,false,181F,,E3864,CNAII
+
+2026-06-11T00:07:25Z,true,false,false,false,182F,,E3864,CNAII
+
+2026-06-11T00:07:30Z,true,false,false,false,183F,,E3864,CNAII
+
+2026-06-11T00:07:35Z,true,false,false,false,184F,,E3864,CNAII
+
+2026-06-11T00:07:40Z,true,false,false,false,186F,,E3864,CNAII
+
+2026-06-11T00:07:45Z,true,false,false,false,187F,,E3864,CNAII
+
+2026-06-11T00:07:50Z,true,false,false,false,188F,,E3864,CNAII
+
+2026-06-11T00:07:55Z,true,false,false,false,189L,,E3864,CNAII
+
+2026-06-11T00:08:00Z,true,false,false,false,18L,,E3864,CNAII
+
+2026-06-11T00:08:05Z,true,false,false,false,190L,,E3864,CNAII
+
+2026-06-11T00:08:10Z,true,false,false,false,191L,,E3864,CNAII
+
+2026-06-11T00:08:15Z,true,false,false,false,192L,,E3864,CNAII
+
+2026-06-11T00:08:20Z,true,false,false,false,193L,,E3864,CNAII
+
+2026-06-11T00:08:25Z,true,false,false,false,194F,,E3864,CNAII
+
+2026-06-11T00:08:30Z,true,false,false,false,195F,,E3864,CNAII
+
+2026-06-11T00:08:35Z,true,false,false,false,196F,,E3864,CNAII
+
+2026-06-11T00:08:40Z,true,false,false,false,197F,,E3864,CNAII
+
+2026-06-11T00:08:45Z,true,false,false,false,198F,,E3864,CNAII
+
+2026-06-11T00:08:50Z,true,false,false,false,199F,,E3864,CNAII
+
+2026-06-11T00:08:55Z,true,false,false,false,19L,,E3864,CNAII
+
+2026-06-11T00:09:00Z,true,false,false,false,1F,,E3864,CNAII
+
+2026-06-11T00:09:05Z,true,false,false,false,201F,,E3864,CNAII
+
+2026-06-11T00:09:10Z,true,false,false,false,202F,,E3864,CNAII
+
+2026-06-11T00:09:15Z,true,false,false,false,203F,,E3864,CNAII
+
+2026-06-11T00:09:20Z,true,false,false,false,210F,,E3864,CNAII
+
+2026-06-11T00:09:25Z,true,false,false,false,211F,,E3864,CNAII
+
+2026-06-11T00:09:30Z,true,false,false,false,212L,,E3864,CNAII
+
+2026-06-11T00:09:35Z,true,false,false,false,213L,,E3864,CNAII
+
+2026-06-11T00:09:40Z,true,false,false,false,214L,,E3864,CNAII
+
+2026-06-11T00:09:45Z,true,false,false,false,216L,,E3864,CNAII
+
+2026-06-11T00:09:50Z,true,false,false,false,217L,,E3864,CNAII
+
+2026-06-11T00:09:55Z,true,false,false,false,218L,,E3864,CNAII
+
+2026-06-11T00:10:00Z,true,false,false,false,21F,,E3864,CNAII
+
+2026-06-11T00:10:05Z,true,false,false,false,222L,,E3864,CNAII
+
+2026-06-11T00:10:10Z,true,false,false,false,223L,,E3864,CNAII
+
+2026-06-11T00:10:15Z,true,false,false,false,224L,,E3864,CNAII
+
+2026-06-11T00:10:20Z,true,false,false,false,225L,,E3864,CNAII
+
+2026-06-11T00:10:25Z,true,false,false,false,226L,,E3864,CNAII
+
+2026-06-11T00:10:30Z,true,false,false,false,227L,,E3864,CNAII
+
+2026-06-11T00:10:35Z,true,false,false,false,228L,,E3864,CNAII
+
+2026-06-11T00:10:40Z,true,false,false,false,229L,,E3864,CNAII
+
+2026-06-11T00:10:45Z,true,false,false,false,22F,,E3864,CNAII
+
+2026-06-11T00:10:50Z,true,false,false,false,230L,,E3864,CNAII
+
+2026-06-11T00:10:55Z,true,false,false,false,231L,,E3864,CNAII
+
+2026-06-11T00:11:00Z,true,false,false,false,232L,,E3864,CNAII
+
+2026-06-11T00:11:05Z,true,false,false,false,233L,,E3864,CNAII
+
+2026-06-11T00:11:10Z,true,false,false,false,23F,,E3864,CNAII
+
+2026-06-11T00:11:15Z,true,false,false,false,240F,,E3864,CNAII
+
+2026-06-11T00:11:20Z,true,false,false,false,241F,,E3864,CNAII
+
+2026-06-11T00:11:25Z,true,false,false,false,242F,,E3864,CNAII
+
+2026-06-11T00:11:30Z,true,false,false,false,24L,,E3864,CNAII
+
+2026-06-11T00:11:35Z,true,false,false,false,25L,,E3864,CNAII
+
+2026-06-11T00:11:40Z,true,false,false,false,26L,,E3864,CNAII
+
+2026-06-11T00:11:45Z,true,false,false,false,27L,,E3864,CNAII
+
+2026-06-11T00:11:50Z,true,false,false,false,28L,,E3864,CNAII
+
+2026-06-11T00:11:55Z,true,false,false,false,29F,,E3864,CNAII
+
+2026-06-11T00:12:00Z,true,false,false,false,2F,,E3864,CNAII
+
+2026-06-11T00:12:05Z,true,false,false,false,30F,,E3864,CNAII
+
+2026-06-11T00:12:10Z,true,false,false,false,31F,,E3864,CNAII
+
+2026-06-11T00:12:15Z,true,false,false,false,32F,,E3864,CNAII
+
+2026-06-11T00:12:20Z,true,false,false,false,33F,,E3864,CNAII
+
+2026-06-11T00:12:25Z,true,false,false,false,34F,,E3864,CNAII
+
+2026-06-11T00:12:30Z,true,false,false,false,36F,,E3864,CNAII
+
+2026-06-11T00:12:35Z,true,false,false,false,37F,,E3864,CNAII
+
+2026-06-11T00:12:40Z,true,false,false,false,38F,,E3864,CNAII
+
+2026-06-11T00:12:45Z,true,false,false,false,39L,,E3864,CNAII
+
+2026-06-11T00:12:50Z,true,false,false,false,3F,,E3864,CNAII
+
+2026-06-11T00:12:55Z,true,false,false,false,40L,,E3864,CNAII
+
+2026-06-11T00:13:00Z,true,false,false,false,41L,,E3864,CNAII
+
+2026-06-11T00:13:05Z,true,false,false,false,42L,,E3864,CNAII
+
+2026-06-11T00:13:10Z,true,false,false,false,43L,,E3864,CNAII
+
+2026-06-11T00:13:15Z,true,false,false,false,44F,,E3864,CNAII
+
+2026-06-11T00:13:20Z,true,false,false,false,45F,,E3864,CNAII
+
+2026-06-11T00:13:25Z,true,false,false,false,46F,,E3864,CNAII
+
+2026-06-11T00:13:30Z,true,false,false,false,47F,,E3864,CNAII
+
+2026-06-11T00:13:35Z,true,false,false,false,48F,,E3864,CNAII
+
+2026-06-11T00:13:40Z,true,false,false,false,49F,,E3864,CNAII
+
+2026-06-11T00:13:45Z,true,false,false,false,4F,,E3864,CNAII
+
+2026-06-11T00:13:50Z,true,false,false,false,51F,,E3864,CNAII
+
+2026-06-11T00:13:55Z,true,false,false,false,52F,,E3864,CNAII
+
+2026-06-11T00:14:00Z,true,false,false,false,53F,,E3864,CNAII
+
+2026-06-11T00:14:05Z,true,false,false,false,54L,,E3864,CNAII
+
+2026-06-11T00:14:10Z,true,false,false,false,55L,,E3864,CNAII
+
+2026-06-11T00:14:15Z,true,false,false,false,56L,,E3864,CNAII
+
+2026-06-11T00:14:20Z,true,false,false,false,57L,,E3864,CNAII
+
+2026-06-11T00:14:25Z,true,false,false,false,58L,,E3864,CNAII
+
+2026-06-11T00:14:30Z,true,false,false,false,59F,,E3864,CNAII
+
+2026-06-11T00:14:35Z,true,false,false,false,5F,,E3864,CNAII
+
+2026-06-11T00:14:40Z,true,false,false,false,60F,,E3864,CNAII
+
+2026-06-11T00:14:45Z,true,false,false,false,61F,,E3864,CNAII
+
+2026-06-11T00:14:50Z,true,false,false,false,62F,,E3864,CNAII
+
+2026-06-11T00:14:55Z,true,false,false,false,63F,,E3864,CNAII
+
+2026-06-11T00:15:00Z,true,false,false,false,64F,,E3864,CNAII
+
+2026-06-11T00:15:05Z,true,false,false,false,66F,,E3864,CNAII
+
+2026-06-11T00:15:10Z,true,false,false,false,67F,,E3864,CNAII
+
+2026-06-11T00:15:15Z,true,false,false,false,68F,,E3864,CNAII
+
+2026-06-11T00:15:20Z,true,false,false,false,69L,,E3864,CNAII
+
+2026-06-11T00:15:25Z,true,false,false,false,6F,,E3864,CNAII
+
+2026-06-11T00:15:30Z,true,false,false,false,70L,,E3864,CNAII
+
+2026-06-11T00:15:35Z,true,false,false,false,71L,,E3864,CNAII
+
+2026-06-11T00:15:40Z,true,false,false,false,72L,,E3864,CNAII
+
+2026-06-11T00:15:45Z,true,false,false,false,73L,,E3864,CNAII
+
+2026-06-11T00:15:50Z,true,false,false,false,74F,,E3864,CNAII
+
+2026-06-11T00:15:55Z,true,false,false,false,75F,,E3864,CNAII
+
+2026-06-11T00:16:00Z,true,false,false,false,76F,,E3864,CNAII
+
+2026-06-11T00:16:05Z,true,false,false,false,77F,,E3864,CNAII
+
+2026-06-11T00:16:10Z,true,false,false,false,78F,,E3864,CNAII
+
+2026-06-11T00:16:15Z,true,false,false,false,79F,,E3864,CNAII
+
+2026-06-11T00:16:20Z,true,false,false,false,7F,,E3864,CNAII
+
+2026-06-11T00:16:25Z,true,false,false,false,81F,,E3864,CNAII
+
+2026-06-11T00:16:30Z,true,false,false,false,82F,,E3864,CNAII
+
+2026-06-11T00:16:35Z,true,false,false,false,83F,,E3864,CNAII
+
+2026-06-11T00:16:40Z,true,false,false,false,84L,,E3864,CNAII
+
+2026-06-11T00:16:45Z,true,false,false,false,85L,,E3864,CNAII
+
+2026-06-11T00:16:50Z,true,false,false,false,86L,,E3864,CNAII
+
+2026-06-11T00:16:55Z,true,false,false,false,87L,,E3864,CNAII
+
+2026-06-11T00:17:00Z,true,false,false,false,88L,,E3864,CNAII
+
+2026-06-11T00:17:05Z,true,false,false,false,89F,,E3864,CNAII
+
+2026-06-11T00:17:10Z,true,false,false,false,90F,,E3864,CNAII
+
+2026-06-11T00:17:15Z,true,false,false,false,91F,,E3864,CNAII
+
+2026-06-11T00:17:20Z,true,false,false,false,92F,,E3864,CNAII
+
+2026-06-11T00:17:25Z,true,false,false,false,93F,,E3864,CNAII
+
+2026-06-11T00:17:30Z,true,false,false,false,94F,,E3864,CNAII
+
+2026-06-11T00:17:35Z,true,false,false,false,96F,,E3864,CNAII
+
+2026-06-11T00:17:40Z,true,false,false,false,97F,,E3864,CNAII
+
+2026-06-11T00:17:45Z,true,false,false,false,98F,,E3864,CNAII
+
+2026-06-11T00:17:50Z,true,false,false,false,99L,,E3864,CNAII
+
+2026-06-11T00:17:55Z,true,false,false,false,9F,,E3864,CNAII
+
+2026-06-11T00:18:00Z,true,false,false,false,Col,,E3864,CNAII
+
+2026-06-11T00:18:05Z,true,false,false,false,Perf,,E3864,CNAII
+
+2026-06-11T00:18:10Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:15Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:20Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:25Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:30Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:35Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:40Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:45Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:50Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:18:55Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:00Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:05Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:10Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:15Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:20Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:25Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:30Z,true,false,false,false,tesF,,E3864,CNAII
+
+2026-06-11T00:19:35Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:19:40Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:19:45Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:19:50Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:19:55Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:00Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:05Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:10Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:15Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:20Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:25Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:30Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:35Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:40Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:45Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:50Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:20:55Z,true,false,false,false,tesL,,E3864,CNAII
+
+2026-06-11T00:21:00Z,false,false,false,true,,,E3864,CNAII
+
+2026-06-12T11:00:09.683Z,false,false,false,false,,,SALTO,PRUEBA111
+
+2026-06-12T11:33:27.013Z,true,false,false,false,,,E3860,CNAII
+
+2026-06-12T11:33:55.213Z,true,false,false,false,13T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:34:13.283Z,true,false,false,false,13T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:34:14.281Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:34:34.401Z,true,false,false,false,1F,Ãngulo relativo zapatas 1,E3860,CNAII
+
+2026-06-12T11:34:35.419Z,true,false,false,false,2F,Ãngulo relativo zapatas 2,E3860,CNAII
+
+2026-06-12T11:34:38.435Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:34:41.447Z,true,false,false,false,4F,Ãngulo relativo zapatas 3,E3860,CNAII
+
+2026-06-12T11:34:44.467Z,true,false,false,false,5F,Ãngulo relativo zapatas 4,E3860,CNAII
+
+2026-06-12T11:34:47.483Z,true,false,false,false,6F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:34:48.496Z,true,false,false,false,7F,Ãngulo relativo zapatas 5,E3860,CNAII
+
+2026-06-12T11:34:51.491Z,true,false,false,false,9F,Ãngulo relativo zapatas 6 - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:34:55.529Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:34:58.553Z,true,false,false,false,11F,Ãngulo relativo zapatas 7,E3860,CNAII
+
+2026-06-12T11:35:00.584Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:35:02.601Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:35:08.636Z,true,false,false,false,13L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:09.647Z,true,false,false,false,14L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:13.685Z,true,false,false,false,15L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:16.714Z,true,false,false,false,16L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:19.734Z,true,false,false,false,17L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:24.781Z,true,false,false,false,18L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:27.797Z,true,false,false,false,19L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:35:30.816Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:35:36.853Z,true,false,false,false,21F,PosiciÃ³n topes BC Tipo 2,E3860,CNAII
+
+2026-06-12T11:35:37.868Z,true,false,false,false,22F,PosiciÃ³n topes BC Tipo 2,E3860,CNAII
+
+2026-06-12T11:35:45.938Z,true,false,false,false,23F,PosiciÃ³n topes BC Tipo 2,E3860,CNAII
+
+2026-06-12T11:35:52.981Z,true,false,false,false,12T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:35:57.019Z,true,false,false,false,12T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:35:58.017Z,true,false,false,false,12T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:35:59.033Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:36:05.060Z,true,false,false,false,24L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:36:08.095Z,true,false,false,false,25L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:36:12.144Z,true,false,false,false,26L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:36:17.239Z,true,false,false,false,27L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:36:22.244Z,true,false,false,false,28L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:36:28.265Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:36:33.296Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:36:36.336Z,true,false,false,false,30F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:36:39.354Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:36:42.373Z,true,false,false,false,32F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:36:45.422Z,true,false,false,false,33F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:36:49.452Z,true,false,false,false,34F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:36:52.494Z,true,false,false,false,36F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:36:56.526Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:36:58.538Z,true,false,false,false,38F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:37:01.575Z,true,false,false,false,11T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:37:06.593Z,true,false,false,false,11T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:37:07.601Z,true,false,false,false,11T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:37:08.641Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:37:14.655Z,true,false,false,false,39L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:37:17.672Z,true,false,false,false,40L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:37:21.684Z,true,false,false,false,41L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:37:26.729Z,true,false,false,false,42L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:37:31.739Z,true,false,false,false,43L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:37:37.779Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:37:42.790Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:37:45.829Z,true,false,false,false,45F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:37:49.846Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:37:52.879Z,true,false,false,false,47F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:37:55.914Z,true,false,false,false,48F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:37:58.930Z,true,false,false,false,49F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:38:01.968Z,true,false,false,false,51F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:38:06.032Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:38:08.030Z,true,false,false,false,53F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:38:11.051Z,true,false,false,false,10T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:38:17.093Z,true,false,false,false,10T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:38:18.103Z,true,false,false,false,10T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:38:19.103Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:38:25.153Z,true,false,false,false,54L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:38:27.143Z,true,false,false,false,55L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:38:32.234Z,true,false,false,false,56L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:38:37.248Z,true,false,false,false,57L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:38:42.258Z,true,false,false,false,58L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:38:47.291Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:38:53.331Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:38:56.359Z,true,false,false,false,60F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:38:59.386Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:39:02.439Z,true,false,false,false,62F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:39:05.465Z,true,false,false,false,63F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:39:09.495Z,true,false,false,false,64F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:39:11.505Z,true,false,false,false,66F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:39:15.536Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:39:18.578Z,true,false,false,false,68F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:39:20.605Z,true,false,false,false,9T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:39:27.660Z,true,false,false,false,9T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:39:28.649Z,true,false,false,false,9T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:39:29.656Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:39:35.676Z,true,false,false,false,69L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:39:38.711Z,true,false,false,false,70L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:39:42.732Z,true,false,false,false,71L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:39:47.775Z,true,false,false,false,72L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:39:52.842Z,true,false,false,false,73L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:39:57.862Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:40:03.907Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:40:06.948Z,true,false,false,false,75F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:40:09.949Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:40:12.985Z,true,false,false,false,77F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:40:16.022Z,true,false,false,false,78F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:40:20.054Z,true,false,false,false,79F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:40:22.071Z,true,false,false,false,81F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:40:27.108Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:40:29.151Z,true,false,false,false,83F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:40:32.230Z,true,false,false,false,8T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:40:38.242Z,true,false,false,false,8T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:40:39.239Z,true,false,false,false,8T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:40:40.246Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:40:46.258Z,true,false,false,false,84L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:40:49.265Z,true,false,false,false,85L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:40:53.286Z,true,false,false,false,86L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:40:58.319Z,true,false,false,false,87L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:41:03.366Z,true,false,false,false,88L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:41:09.412Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:41:15.467Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:41:17.482Z,true,false,false,false,90F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:41:21.507Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:41:24.551Z,true,false,false,false,92F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:41:27.606Z,true,false,false,false,93F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:41:30.609Z,true,false,false,false,94F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:41:33.669Z,true,false,false,false,96F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:41:37.675Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:41:39.706Z,true,false,false,false,98F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:41:42.734Z,true,false,false,false,7T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:41:49.769Z,true,false,false,false,7T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:41:50.783Z,true,false,false,false,7T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:41:51.783Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:41:56.813Z,true,false,false,false,99L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:41:59.850Z,true,false,false,false,100L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:42:03.880Z,true,false,false,false,101L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:42:08.908Z,true,false,false,false,102L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:42:14.966Z,true,false,false,false,103L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:42:20.012Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:42:26.054Z,true,false,false,false,104F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:42:28.060Z,true,false,false,false,105F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:42:32.104Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:42:35.158Z,true,false,false,false,107F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:42:38.244Z,true,false,false,false,108F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:42:41.242Z,true,false,false,false,109F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:42:44.261Z,true,false,false,false,111F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:42:48.276Z,true,false,false,false,112F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:42:51.271Z,true,false,false,false,113F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:42:53.296Z,true,false,false,false,6T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:43:00.358Z,true,false,false,false,6T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:43:01.366Z,true,false,false,false,6T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:43:02.374Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:43:07.397Z,true,false,false,false,114L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:43:10.437Z,true,false,false,false,115L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:43:14.460Z,true,false,false,false,116L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:43:19.490Z,true,false,false,false,117L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:43:25.522Z,true,false,false,false,118L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:43:30.566Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:43:36.621Z,true,false,false,false,119F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:43:38.658Z,true,false,false,false,120F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:43:42.683Z,true,false,false,false,121F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:43:45.698Z,true,false,false,false,122F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:43:48.745Z,true,false,false,false,123F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:43:51.751Z,true,false,false,false,124F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:43:54.783Z,true,false,false,false,126F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:43:58.816Z,true,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:44:01.857Z,true,false,false,false,128F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:44:03.875Z,true,false,false,false,5T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:44:10.912Z,true,false,false,false,5T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:44:11.928Z,true,false,false,false,5T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:44:12.952Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:44:17.984Z,true,false,false,false,129L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:44:21.005Z,true,false,false,false,130L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:44:25.051Z,true,false,false,false,131L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:44:30.074Z,true,false,false,false,132L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:44:35.104Z,true,false,false,false,133L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:44:41.171Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:44:47.254Z,true,false,false,false,134F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:44:49.249Z,true,false,false,false,135F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:44:53.268Z,true,false,false,false,136F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:44:56.273Z,true,false,false,false,137F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:44:59.287Z,true,false,false,false,138F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:45:02.330Z,true,false,false,false,139F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:45:05.360Z,true,false,false,false,141F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:45:09.380Z,true,false,false,false,142F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:45:12.415Z,true,false,false,false,143F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:45:14.444Z,true,false,false,false,4T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:45:21.481Z,true,false,false,false,4T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:45:22.499Z,true,false,false,false,4T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:45:23.503Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:45:28.506Z,true,false,false,false,144L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:45:31.537Z,true,false,false,false,145L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:45:35.569Z,true,false,false,false,146L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:45:40.615Z,true,false,false,false,147L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:45:45.659Z,true,false,false,false,148L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:45:51.685Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:45:57.720Z,true,false,false,false,149F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:45:59.731Z,true,false,false,false,150F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:46:03.769Z,true,false,false,false,151F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:46:06.780Z,true,false,false,false,152F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:46:09.791Z,true,false,false,false,153F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:46:12.808Z,true,false,false,false,154F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:46:15.854Z,true,false,false,false,156F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:46:19.870Z,true,false,false,false,157F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:46:21.884Z,true,false,false,false,158F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:46:24.911Z,true,false,false,false,3T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:46:31.961Z,true,false,false,false,3T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:46:32.961Z,true,false,false,false,3T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:46:33.967Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:46:39.000Z,true,false,false,false,159L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:46:42.027Z,true,false,false,false,160L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:46:46.058Z,true,false,false,false,161L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:46:51.077Z,true,false,false,false,162L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:46:56.123Z,true,false,false,false,163L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:47:02.198Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:47:07.257Z,true,false,false,false,164F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:47:10.263Z,true,false,false,false,165F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:47:14.284Z,true,false,false,false,166F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:47:17.304Z,true,false,false,false,167F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:47:20.330Z,true,false,false,false,168F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:47:23.362Z,true,false,false,false,169F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:47:26.384Z,true,false,false,false,171F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:47:30.420Z,true,false,false,false,172F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:47:32.455Z,true,false,false,false,173F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:47:35.480Z,true,false,false,false,2T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:47:41.518Z,true,false,false,false,2T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:47:42.524Z,true,false,false,false,2T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:47:43.547Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:47:49.577Z,true,false,false,false,174L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:47:51.594Z,true,false,false,false,175L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:47:55.623Z,true,false,false,false,176L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:48:01.683Z,true,false,false,false,177L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:48:06.698Z,true,false,false,false,178L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:48:11.736Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:48:17.769Z,true,false,false,false,179F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:48:19.782Z,true,false,false,false,180F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:48:23.816Z,true,false,false,false,181F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:48:26.841Z,true,false,false,false,182F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:48:29.878Z,true,false,false,false,183F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:48:33.914Z,true,false,false,false,184F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:48:35.961Z,true,false,false,false,186F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:48:39.970Z,true,false,false,false,187F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:48:43.006Z,true,false,false,false,188F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:48:45.007Z,true,false,false,false,1T.1,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:48:52.080Z,true,false,false,false,1T.2,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:48:53.083Z,true,false,false,false,1T.3,Rectitud EC,E3860,CNAII
+
+2026-06-12T11:48:54.083Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:48:59.113Z,true,false,false,false,189L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:49:02.124Z,true,false,false,false,190L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:49:06.179Z,true,false,false,false,191L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:49:11.254Z,true,false,false,false,192L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:49:16.261Z,true,false,false,false,193L,Ãngulo pollera SE,E3860,CNAII
+
+2026-06-12T11:49:22.273Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:49:28.300Z,true,false,false,false,194F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:49:30.311Z,true,false,false,false,195F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:49:34.370Z,true,false,false,false,196F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:49:37.387Z,true,false,false,false,197F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:49:40.401Z,true,false,false,false,198F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3860,CNAII
+
+2026-06-12T11:49:43.434Z,true,false,false,false,199F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:49:46.463Z,true,false,false,false,201F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3860,CNAII
+
+2026-06-12T11:49:50.481Z,true,false,false,false,202F,Distancia entre SE - Perpendicularidad SE,E3860,CNAII
+
+2026-06-12T11:49:52.497Z,true,false,false,false,203F,Ãngulo relativo zapatas,E3860,CNAII
+
+2026-06-12T11:49:55.522Z,true,false,false,false,001F,Distancia entre SE y PP,E3860,CNAII
+
+2026-06-12T11:50:00.565Z,true,false,false,false,210F,TorsiÃ³n EC,E3860,CNAII
+
+2026-06-12T11:50:03.597Z,true,false,false,false,002F,Distancia entre SE y PP,E3860,CNAII
+
+2026-06-12T11:50:09.666Z,true,false,false,false,211F,IdentificaciÃ³n PP - Distancia entre SE y PP,E3860,CNAII
+
+2026-06-12T11:50:14.704Z,true,false,false,false,003F,Distancia entre SE y PP,E3860,CNAII
+
+2026-06-12T11:50:20.761Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:50:26.795Z,true,false,false,false,212L,Ãngulo de zapatas (3x1),E3860,CNAII
+
+2026-06-12T11:50:27.803Z,true,false,false,false,213L,Ãngulo de zapatas (3x1),E3860,CNAII
+
+2026-06-12T11:50:34.845Z,true,false,false,false,214L,Ãngulo de zapatas (3x1),E3860,CNAII
+
+2026-06-12T11:50:42.916Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:50:49.979Z,true,false,false,false,216L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3860,CNAII
+
+2026-06-12T11:50:54.974Z,true,false,false,false,217L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3860,CNAII
+
+2026-06-12T11:51:02.022Z,true,false,false,false,218L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3860,CNAII
+
+2026-06-12T11:51:10.082Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:51:20.122Z,true,false,false,false,0T.1,Rectitud EC PP,E3860,CNAII
+
+2026-06-12T11:51:24.200Z,true,false,false,false,0T.3,Rectitud EC PP,E3860,CNAII
+
+2026-06-12T11:51:25.193Z,true,false,false,false,14T.1,DiÃ¡metro circunscrito 3 zapatas,E3860,CNAII
+
+2026-06-12T11:51:28.202Z,true,false,false,false,14T.2,DiÃ¡metro circunscrito 3 zapatas,E3860,CNAII
+
+2026-06-12T11:51:29.259Z,true,false,false,false,222L,DeformaciÃ³n TS,E3860,CNAII
+
+2026-06-12T11:51:33.283Z,true,false,false,false,223L,DeformaciÃ³n TS,E3860,CNAII
+
+2026-06-12T11:51:37.284Z,true,false,false,false,224L,DeformaciÃ³n TS,E3860,CNAII
+
+2026-06-12T11:51:41.309Z,true,false,false,false,225L,DeformaciÃ³n TS,E3860,CNAII
+
+2026-06-12T11:51:45.369Z,true,false,false,false,226L,DeformaciÃ³n TS,E3860,CNAII
+
+2026-06-12T11:51:49.388Z,true,false,false,false,227L,DeformaciÃ³n TS,E3860,CNAII
+
+2026-06-12T11:51:53.426Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3860,CNAII
+
+2026-06-12T11:51:59.447Z,true,false,false,false,228L,DeformaciÃ³n TVI,E3860,CNAII
+
+2026-06-12T11:52:11.522Z,true,false,false,false,229L,DeformaciÃ³n TVI,E3860,CNAII
+
+2026-06-12T11:52:15.528Z,true,false,false,false,230L,DeformaciÃ³n TVI,E3860,CNAII
+
+2026-06-12T11:52:20.578Z,true,false,false,false,231L,DeformaciÃ³n TVI,E3860,CNAII
+
+2026-06-12T11:52:24.610Z,true,false,false,false,232L,DeformaciÃ³n TVI,E3860,CNAII
+
+2026-06-12T11:52:28.639Z,true,false,false,false,233L,DeformaciÃ³n TVI,E3860,CNAII
+
+2026-06-12T11:52:32.662Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:52:34.684Z,true,false,false,false,240F,IdentificaciÃ³n Acople,E3860,CNAII
+
+2026-06-12T11:52:38.712Z,true,false,false,false,241F,IdentificaciÃ³n Acople,E3860,CNAII
+
+2026-06-12T11:52:41.730Z,true,false,false,false,242F,IdentificaciÃ³n Acople,E3860,CNAII
+
+2026-06-12T11:52:42.732Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3860,CNAII
+
+2026-06-12T11:52:45.777Z,true,false,false,false,Col,FOTO COLOR,E3860,CNAII
+
+2026-06-12T11:52:46.784Z,true,false,false,false,Perf,FOTO PERFILOMETRO,E3860,CNAII
+
+2026-06-12T11:52:47.794Z,true,false,false,false,,,E3860,CNAII
+
+2026-06-12T11:54:06.196Z,false,false,false,true,,,E3860,CNAII
+
+2026-06-12T11:59:32.874Z,false,false,false,false,,,E3860,CNAII
+
+2026-06-12T13:00:55.329Z,true,false,false,false,,,-,CNAII
+
+2026-06-12T13:01:03.299Z,true,false,true,false,,,-,CNAII
+
+2026-06-12T13:01:11.337Z,false,false,false,true,,,-,CNAII
+
+2026-06-12T13:01:14.365Z,false,false,false,false,,,-,CNAII
+
+2026-06-12T13:01:26.488Z,true,false,false,false,,,E3866,CNAII
+
+2026-06-12T13:02:00.628Z,true,false,false,false,13T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:02:17.725Z,true,false,false,false,13T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:02:18.726Z,true,false,false,false,13T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:02:19.732Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:02:39.867Z,true,false,false,false,1F,Ãngulo relativo zapatas 1,E3866,CNAII
+
+2026-06-12T13:02:40.874Z,true,false,false,false,2F,Ãngulo relativo zapatas 2,E3866,CNAII
+
+2026-06-12T13:02:43.898Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:02:46.920Z,true,false,false,false,4F,Ãngulo relativo zapatas 3,E3866,CNAII
+
+2026-06-12T13:02:49.957Z,true,false,false,false,5F,Ãngulo relativo zapatas 4,E3866,CNAII
+
+2026-06-12T13:02:53.007Z,true,false,false,false,6F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:02:54.003Z,true,false,false,false,7F,Ãngulo relativo zapatas 5,E3866,CNAII
+
+2026-06-12T13:02:57.027Z,true,false,false,false,9F,Ãngulo relativo zapatas 6 - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:03:01.054Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:03:03.091Z,true,false,false,false,11F,Ãngulo relativo zapatas 7,E3866,CNAII
+
+2026-06-12T13:03:06.121Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:03:08.129Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:03:13.153Z,true,false,false,false,13L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:15.183Z,true,false,false,false,14L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:19.217Z,true,false,false,false,15L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:22.246Z,true,false,false,false,16L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:25.281Z,true,false,false,false,17L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:30.306Z,true,false,false,false,18L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:33.336Z,true,false,false,false,19L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:03:36.357Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:03:42.407Z,true,false,false,false,21F,PosiciÃ³n topes BC Tipo 2,E3866,CNAII
+
+2026-06-12T13:03:43.428Z,true,false,false,false,22F,PosiciÃ³n topes BC Tipo 2,E3866,CNAII
+
+2026-06-12T13:03:51.495Z,true,false,false,false,23F,PosiciÃ³n topes BC Tipo 2,E3866,CNAII
+
+2026-06-12T13:03:58.537Z,true,false,false,false,12T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:04:02.554Z,true,false,false,false,12T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:04:03.546Z,true,false,false,false,12T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:04:04.560Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:04:10.603Z,true,false,false,false,24L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:04:13.632Z,true,false,false,false,25L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:04:17.671Z,true,false,false,false,26L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:04:22.723Z,true,false,false,false,27L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:04:27.742Z,true,false,false,false,28L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:04:32.773Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:04:38.806Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:04:41.832Z,true,false,false,false,30F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:04:44.873Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:04:47.876Z,true,false,false,false,32F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:04:50.928Z,true,false,false,false,33F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:04:54.929Z,true,false,false,false,34F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:04:56.953Z,true,false,false,false,36F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:05:00.974Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:05:04.013Z,true,false,false,false,38F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:05:06.016Z,true,false,false,false,11T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:05:12.090Z,true,false,false,false,11T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:05:13.088Z,true,false,false,false,11T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:05:14.087Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:05:20.124Z,true,false,false,false,39L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:05:23.160Z,true,false,false,false,40L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:05:27.176Z,true,false,false,false,41L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:05:32.206Z,true,false,false,false,42L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:05:37.210Z,true,false,false,false,43L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:05:43.259Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:05:48.278Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:05:51.298Z,true,false,false,false,45F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:05:55.311Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:05:58.342Z,true,false,false,false,47F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:06:01.365Z,true,false,false,false,48F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:06:04.383Z,true,false,false,false,49F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:06:07.435Z,true,false,false,false,51F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:06:11.505Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:06:13.539Z,true,false,false,false,53F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:06:16.540Z,true,false,false,false,10T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:06:22.543Z,true,false,false,false,10T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:06:23.548Z,true,false,false,false,10T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:06:24.560Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:06:30.594Z,true,false,false,false,54L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:06:32.639Z,true,false,false,false,55L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:06:36.639Z,true,false,false,false,56L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:06:42.679Z,true,false,false,false,57L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:06:47.735Z,true,false,false,false,58L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:06:52.767Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:06:58.814Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:07:00.825Z,true,false,false,false,60F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:07:04.853Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:07:07.882Z,true,false,false,false,62F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:07:10.891Z,true,false,false,false,63F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:07:14.941Z,true,false,false,false,64F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:07:16.939Z,true,false,false,false,66F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:07:20.964Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:07:24.006Z,true,false,false,false,68F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:07:26.030Z,true,false,false,false,9T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:07:33.064Z,true,false,false,false,9T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:07:34.067Z,true,false,false,false,9T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:07:35.074Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:07:41.113Z,true,false,false,false,69L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:07:43.151Z,true,false,false,false,70L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:07:48.162Z,true,false,false,false,71L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:07:53.202Z,true,false,false,false,72L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:07:58.229Z,true,false,false,false,73L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:08:03.258Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:08:09.280Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:08:12.326Z,true,false,false,false,75F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:08:15.335Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:08:18.372Z,true,false,false,false,77F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:08:21.419Z,true,false,false,false,78F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:08:25.450Z,true,false,false,false,79F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:08:27.451Z,true,false,false,false,81F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:08:32.511Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:08:34.550Z,true,false,false,false,83F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:08:37.562Z,true,false,false,false,8T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:08:43.589Z,true,false,false,false,8T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:08:44.596Z,true,false,false,false,8T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:08:45.600Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:08:51.637Z,true,false,false,false,84L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:08:54.666Z,true,false,false,false,85L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:08:58.709Z,true,false,false,false,86L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:09:03.744Z,true,false,false,false,87L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:09:08.761Z,true,false,false,false,88L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:09:14.825Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:09:19.827Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:09:22.894Z,true,false,false,false,90F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:09:25.893Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:09:28.948Z,true,false,false,false,92F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:09:31.962Z,true,false,false,false,93F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:09:35.990Z,true,false,false,false,94F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:09:39.024Z,true,false,false,false,96F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:09:43.067Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:09:45.083Z,true,false,false,false,98F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:09:48.121Z,true,false,false,false,7T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:09:54.167Z,true,false,false,false,7T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:09:55.171Z,true,false,false,false,7T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:09:56.170Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:10:02.208Z,true,false,false,false,99L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:10:05.232Z,true,false,false,false,100L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:10:09.260Z,true,false,false,false,101L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:10:14.283Z,true,false,false,false,102L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:10:19.321Z,true,false,false,false,103L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:10:25.373Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:10:30.400Z,true,false,false,false,104F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:10:33.453Z,true,false,false,false,105F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:10:36.453Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:10:39.534Z,true,false,false,false,107F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:10:42.549Z,true,false,false,false,108F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:10:46.570Z,true,false,false,false,109F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:10:49.589Z,true,false,false,false,111F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:10:53.628Z,true,false,false,false,112F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:10:55.646Z,true,false,false,false,113F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:10:58.649Z,true,false,false,false,6T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:11:04.692Z,true,false,false,false,6T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:11:05.696Z,true,false,false,false,6T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:11:06.696Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:11:12.731Z,true,false,false,false,114L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:11:15.753Z,true,false,false,false,115L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:11:19.779Z,true,false,false,false,116L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:11:24.836Z,true,false,false,false,117L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:11:29.872Z,true,false,false,false,118L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:11:35.911Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:11:40.944Z,true,false,false,false,119F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:11:43.958Z,true,false,false,false,120F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:11:47.995Z,true,false,false,false,121F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:11:51.036Z,true,false,false,false,122F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:11:54.041Z,true,false,false,false,123F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:11:57.072Z,true,false,false,false,124F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:12:00.091Z,true,false,false,false,126F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:12:04.141Z,true,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:12:06.145Z,true,false,false,false,128F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:12:09.172Z,true,false,false,false,5T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:12:16.199Z,true,false,false,false,5T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:12:17.203Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:12:23.234Z,true,false,false,false,129L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:12:26.244Z,true,false,false,false,130L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:12:30.264Z,true,false,false,false,131L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:12:35.294Z,true,false,false,false,132L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:12:40.335Z,true,false,false,false,133L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:12:46.393Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:12:51.454Z,true,false,false,false,134F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:12:54.457Z,true,false,false,false,135F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:12:58.566Z,true,false,false,false,136F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:13:01.561Z,true,false,false,false,137F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:13:04.572Z,true,false,false,false,138F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:13:07.568Z,true,false,false,false,139F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:13:10.592Z,true,false,false,false,141F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:13:14.673Z,true,false,false,false,142F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:13:16.637Z,true,false,false,false,143F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:13:19.670Z,true,false,false,false,4T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:13:26.703Z,true,false,false,false,4T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:13:27.705Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:13:33.743Z,true,false,false,false,144L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:13:36.762Z,true,false,false,false,145L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:13:40.784Z,true,false,false,false,146L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:13:45.814Z,true,false,false,false,147L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:13:50.843Z,true,false,false,false,148L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:13:56.908Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:14:02.965Z,true,false,false,false,149F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:14:04.962Z,true,false,false,false,150F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:14:08.989Z,true,false,false,false,151F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:14:12.016Z,true,false,false,false,152F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:14:15.037Z,true,false,false,false,153F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:14:18.052Z,true,false,false,false,154F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:14:21.076Z,true,false,false,false,156F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:14:25.123Z,true,false,false,false,157F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:14:27.142Z,true,false,false,false,158F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:14:30.167Z,true,false,false,false,3T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:14:37.226Z,true,false,false,false,3T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:14:38.244Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:14:44.259Z,true,false,false,false,159L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:14:47.298Z,true,false,false,false,160L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:14:51.342Z,true,false,false,false,161L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:14:56.355Z,true,false,false,false,162L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:15:01.378Z,true,false,false,false,163L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:15:07.421Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:15:13.552Z,true,false,false,false,164F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:15:15.530Z,true,false,false,false,165F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:15:19.554Z,true,false,false,false,166F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:15:22.573Z,true,false,false,false,167F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:15:25.577Z,true,false,false,false,168F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:15:28.603Z,true,false,false,false,169F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:15:31.617Z,true,false,false,false,171F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:15:35.646Z,true,false,false,false,172F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:15:37.668Z,true,false,false,false,173F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:15:40.696Z,true,false,false,false,2T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:15:47.741Z,true,false,false,false,2T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:15:48.749Z,true,false,false,false,2T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:15:49.750Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:15:54.776Z,true,false,false,false,174L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:15:57.784Z,true,false,false,false,175L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:16:01.838Z,true,false,false,false,176L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:16:06.860Z,true,false,false,false,177L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:16:12.915Z,true,false,false,false,178L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:16:17.960Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:16:23.993Z,true,false,false,false,179F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:16:26.020Z,true,false,false,false,180F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:16:30.052Z,true,false,false,false,181F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:16:33.078Z,true,false,false,false,182F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:16:36.102Z,true,false,false,false,183F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:16:40.133Z,true,false,false,false,184F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:16:42.147Z,true,false,false,false,186F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:16:46.190Z,true,false,false,false,187F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:16:49.221Z,true,false,false,false,188F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:16:51.228Z,true,false,false,false,1T.1,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:16:58.253Z,true,false,false,false,1T.2,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:16:59.260Z,true,false,false,false,1T.3,Rectitud EC,E3866,CNAII
+
+2026-06-12T13:17:00.276Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:17:05.298Z,true,false,false,false,189L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:17:08.324Z,true,false,false,false,190L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:17:12.352Z,true,false,false,false,191L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:17:17.379Z,true,false,false,false,192L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:17:22.404Z,true,false,false,false,193L,Ãngulo pollera SE,E3866,CNAII
+
+2026-06-12T13:17:28.454Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:17:34.572Z,true,false,false,false,194F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:17:36.543Z,true,false,false,false,195F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:17:40.577Z,true,false,false,false,196F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:17:43.581Z,true,false,false,false,197F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:17:46.587Z,true,false,false,false,198F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3866,CNAII
+
+2026-06-12T13:17:49.625Z,true,false,false,false,199F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:17:52.659Z,true,false,false,false,201F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3866,CNAII
+
+2026-06-12T13:17:56.706Z,true,false,false,false,202F,Distancia entre SE - Perpendicularidad SE,E3866,CNAII
+
+2026-06-12T13:17:58.759Z,true,false,false,false,203F,Ãngulo relativo zapatas,E3866,CNAII
+
+2026-06-12T13:18:01.765Z,true,false,false,false,001F,Distancia entre SE y PP,E3866,CNAII
+
+2026-06-12T13:18:06.828Z,true,false,false,false,210F,TorsiÃ³n EC,E3866,CNAII
+
+2026-06-12T13:18:09.871Z,true,false,false,false,002F,Distancia entre SE y PP,E3866,CNAII
+
+2026-06-12T13:18:15.912Z,true,false,false,false,211F,IdentificaciÃ³n PP - Distancia entre SE y PP,E3866,CNAII
+
+2026-06-12T13:18:21.968Z,true,false,false,false,003F,Distancia entre SE y PP,E3866,CNAII
+
+2026-06-12T13:18:27.001Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:18:33.019Z,true,false,false,false,212L,Ãngulo de zapatas (3x1),E3866,CNAII
+
+2026-06-12T13:18:34.031Z,true,false,false,false,213L,Ãngulo de zapatas (3x1),E3866,CNAII
+
+2026-06-12T13:18:42.113Z,true,false,false,false,214L,Ãngulo de zapatas (3x1),E3866,CNAII
+
+2026-06-12T13:18:49.152Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:18:56.189Z,true,false,false,false,216L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3866,CNAII
+
+2026-06-12T13:19:01.236Z,true,false,false,false,217L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3866,CNAII
+
+2026-06-12T13:19:08.291Z,true,false,false,false,218L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3866,CNAII
+
+2026-06-12T13:19:16.356Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:19:27.408Z,true,false,false,false,0T.1,Rectitud EC PP,E3866,CNAII
+
+2026-06-12T13:19:30.441Z,true,false,false,false,0T.3,Rectitud EC PP,E3866,CNAII
+
+2026-06-12T13:19:31.446Z,true,false,false,false,14T.1,DiÃ¡metro circunscrito 3 zapatas,E3866,CNAII
+
+2026-06-12T13:19:34.481Z,true,false,false,false,14T.2,DiÃ¡metro circunscrito 3 zapatas,E3866,CNAII
+
+2026-06-12T13:19:35.484Z,true,false,false,false,222L,DeformaciÃ³n TS,E3866,CNAII
+
+2026-06-12T13:19:39.548Z,true,false,false,false,223L,DeformaciÃ³n TS,E3866,CNAII
+
+2026-06-12T13:19:43.581Z,true,false,false,false,224L,DeformaciÃ³n TS,E3866,CNAII
+
+2026-06-12T13:19:47.553Z,true,false,false,false,225L,DeformaciÃ³n TS,E3866,CNAII
+
+2026-06-12T13:19:51.590Z,true,false,false,false,226L,DeformaciÃ³n TS,E3866,CNAII
+
+2026-06-12T13:19:56.589Z,true,false,false,false,227L,DeformaciÃ³n TS,E3866,CNAII
+
+2026-06-12T13:20:00.624Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3866,CNAII
+
+2026-06-12T13:20:05.668Z,true,false,false,false,228L,DeformaciÃ³n TVI,E3866,CNAII
+
+2026-06-12T13:20:18.744Z,true,false,false,false,229L,DeformaciÃ³n TVI,E3866,CNAII
+
+2026-06-12T13:20:22.784Z,true,false,false,false,230L,DeformaciÃ³n TVI,E3866,CNAII
+
+2026-06-12T13:20:26.821Z,true,false,false,false,231L,DeformaciÃ³n TVI,E3866,CNAII
+
+2026-06-12T13:20:30.862Z,true,false,false,false,232L,DeformaciÃ³n TVI,E3866,CNAII
+
+2026-06-12T13:20:34.882Z,true,false,false,false,233L,DeformaciÃ³n TVI,E3866,CNAII
+
+2026-06-12T13:20:38.898Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:20:41.928Z,true,false,false,false,240F,IdentificaciÃ³n Acople,E3866,CNAII
+
+2026-06-12T13:20:44.945Z,true,false,false,false,241F,IdentificaciÃ³n Acople,E3866,CNAII
+
+2026-06-12T13:20:47.984Z,true,false,false,false,242F,IdentificaciÃ³n Acople,E3866,CNAII
+
+2026-06-12T13:20:48.982Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3866,CNAII
+
+2026-06-12T13:20:51.991Z,true,false,false,false,Col,FOTO COLOR,E3866,CNAII
+
+2026-06-12T13:20:52.996Z,true,false,false,false,Perf,FOTO PERFILOMETRO,E3866,CNAII
+
+2026-06-12T13:20:54.010Z,true,false,false,false,,,E3866,CNAII
+
+2026-06-12T13:22:12.555Z,false,false,false,true,,,E3866,CNAII
+
+2026-06-12T13:23:18.882Z,false,false,false,false,,,E3866,CNAII
+
+2026-06-12T13:23:19.878Z,false,false,false,true,,,E3866,CNAII
+
+2026-06-12T13:49:10.873Z,false,false,false,false,,,E3866,CNAII
+
+2026-06-12T13:49:11.644Z,false,false,false,true,,,E3866,CNAII
+
+2026-06-12T14:20:58.835Z,false,false,false,false,,,E3866,CNAII
+
+2026-06-12T18:07:51.519Z,true,false,false,false,,,E3865,CNAII
+
+2026-06-12T18:08:23.531Z,true,false,false,false,13T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:08:40.626Z,true,false,false,false,13T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:08:41.624Z,true,false,false,false,13T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:08:42.668Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:09:02.733Z,true,false,false,false,1F,Ãngulo relativo zapatas 1,E3865,CNAII
+
+2026-06-12T18:09:03.743Z,true,false,false,false,2F,Ãngulo relativo zapatas 2,E3865,CNAII
+
+2026-06-12T18:09:06.776Z,true,false,false,false,3F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:09:09.815Z,true,false,false,false,4F,Ãngulo relativo zapatas 3,E3865,CNAII
+
+2026-06-12T18:09:12.867Z,true,false,false,false,5F,Ãngulo relativo zapatas 4,E3865,CNAII
+
+2026-06-12T18:09:15.868Z,true,false,false,false,6F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:09:16.914Z,true,false,false,false,7F,Ãngulo relativo zapatas 5,E3865,CNAII
+
+2026-06-12T18:09:19.918Z,true,false,false,false,9F,Ãngulo relativo zapatas 6 - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:09:23.933Z,true,false,false,false,10F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:09:26.975Z,true,false,false,false,11F,Ãngulo relativo zapatas 7,E3865,CNAII
+
+2026-06-12T18:09:29.002Z,true,false,false,false,12F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:09:31.000Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:09:37.043Z,true,false,false,false,13L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:38.051Z,true,false,false,false,14L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:42.098Z,true,false,false,false,15L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:45.140Z,true,false,false,false,16L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:48.157Z,true,false,false,false,17L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:53.202Z,true,false,false,false,18L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:56.227Z,true,false,false,false,19L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:09:59.248Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:10:05.299Z,true,false,false,false,21F,PosiciÃ³n topes BC Tipo 2,E3865,CNAII
+
+2026-06-12T18:10:06.315Z,true,false,false,false,22F,PosiciÃ³n topes BC Tipo 2,E3865,CNAII
+
+2026-06-12T18:10:14.386Z,true,false,false,false,23F,PosiciÃ³n topes BC Tipo 2,E3865,CNAII
+
+2026-06-12T18:10:21.504Z,true,false,false,false,12T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:10:25.503Z,true,false,false,false,12T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:10:26.524Z,true,false,false,false,12T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:10:27.504Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:10:33.510Z,true,false,false,false,24L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:10:35.530Z,true,false,false,false,25L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:10:39.543Z,true,false,false,false,26L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:10:45.558Z,true,false,false,false,27L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:10:50.575Z,true,false,false,false,28L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:10:55.628Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:11:01.662Z,true,false,false,false,29F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:11:04.699Z,true,false,false,false,30F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:11:07.739Z,true,false,false,false,31F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:11:10.777Z,true,false,false,false,32F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:11:13.815Z,true,false,false,false,33F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:11:17.834Z,true,false,false,false,34F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:11:19.876Z,true,false,false,false,36F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:11:23.890Z,true,false,false,false,37F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:11:26.922Z,true,false,false,false,38F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:11:28.923Z,true,false,false,false,11T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:11:34.960Z,true,false,false,false,11T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:11:35.964Z,true,false,false,false,11T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:11:36.979Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:11:43.009Z,true,false,false,false,39L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:11:45.038Z,true,false,false,false,40L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:11:49.047Z,true,false,false,false,41L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:11:55.104Z,true,false,false,false,42L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:12:00.115Z,true,false,false,false,43L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:12:05.153Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:12:11.206Z,true,false,false,false,44F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:12:14.236Z,true,false,false,false,45F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:12:17.263Z,true,false,false,false,46F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:12:20.290Z,true,false,false,false,47F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:12:23.317Z,true,false,false,false,48F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:12:27.361Z,true,false,false,false,49F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:12:29.391Z,true,false,false,false,51F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:12:33.427Z,true,false,false,false,52F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:12:36.508Z,true,false,false,false,53F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:12:38.534Z,true,false,false,false,10T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:12:45.537Z,true,false,false,false,10T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:12:46.551Z,true,false,false,false,10T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:12:47.551Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:12:52.577Z,true,false,false,false,54L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:12:55.607Z,true,false,false,false,55L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:12:59.637Z,true,false,false,false,56L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:13:04.665Z,true,false,false,false,57L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:13:10.709Z,true,false,false,false,58L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:13:15.747Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:13:21.765Z,true,false,false,false,59F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:13:23.793Z,true,false,false,false,60F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:13:27.838Z,true,false,false,false,61F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:13:30.846Z,true,false,false,false,62F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:13:33.872Z,true,false,false,false,63F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:13:36.875Z,true,false,false,false,64F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:13:39.920Z,true,false,false,false,66F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:13:43.923Z,true,false,false,false,67F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:13:46.954Z,true,false,false,false,68F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:13:48.971Z,true,false,false,false,9T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:13:56.019Z,true,false,false,false,9T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:13:57.032Z,true,false,false,false,9T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:13:58.043Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:14:04.068Z,true,false,false,false,69L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:14:06.072Z,true,false,false,false,70L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:14:10.103Z,true,false,false,false,71L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:14:16.147Z,true,false,false,false,72L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:14:21.174Z,true,false,false,false,73L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:14:26.214Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:14:32.256Z,true,false,false,false,74F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:14:34.275Z,true,false,false,false,75F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:14:38.310Z,true,false,false,false,76F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:14:41.338Z,true,false,false,false,77F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:14:44.370Z,true,false,false,false,78F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:14:47.392Z,true,false,false,false,79F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:14:50.454Z,true,false,false,false,81F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:14:54.514Z,true,false,false,false,82F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:14:57.517Z,true,false,false,false,83F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:14:59.546Z,true,false,false,false,8T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:15:06.532Z,true,false,false,false,8T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:15:07.554Z,true,false,false,false,8T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:15:08.558Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:15:14.597Z,true,false,false,false,84L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:15:16.615Z,true,false,false,false,85L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:15:20.614Z,true,false,false,false,86L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:15:26.656Z,true,false,false,false,87L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:15:31.693Z,true,false,false,false,88L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:15:36.688Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:15:42.727Z,true,false,false,false,89F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:15:45.757Z,true,false,false,false,90F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:15:48.766Z,true,false,false,false,91F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:15:51.785Z,true,false,false,false,92F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:15:54.820Z,true,false,false,false,93F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:15:58.851Z,true,false,false,false,94F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:16:00.893Z,true,false,false,false,96F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:16:04.938Z,true,false,false,false,97F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:16:07.938Z,true,false,false,false,98F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:16:09.965Z,true,false,false,false,7T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:16:16.999Z,true,false,false,false,7T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:16:18.026Z,true,false,false,false,7T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:16:19.034Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:16:25.014Z,true,false,false,false,99L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:16:27.023Z,true,false,false,false,100L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:16:32.084Z,true,false,false,false,101L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:16:37.121Z,true,false,false,false,102L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:16:42.125Z,true,false,false,false,103L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:16:47.170Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:16:53.193Z,true,false,false,false,104F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:16:56.233Z,true,false,false,false,105F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:16:59.242Z,true,false,false,false,106F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:17:02.258Z,true,false,false,false,107F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:17:05.285Z,true,false,false,false,108F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:17:09.337Z,true,false,false,false,109F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:17:11.348Z,true,false,false,false,111F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:17:16.401Z,true,false,false,false,112F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:17:18.438Z,true,false,false,false,113F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:17:21.516Z,true,false,false,false,6T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:17:27.519Z,true,false,false,false,6T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:17:28.530Z,true,false,false,false,6T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:17:29.552Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:17:35.555Z,true,false,false,false,114L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:17:37.555Z,true,false,false,false,115L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:17:42.584Z,true,false,false,false,116L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:17:47.586Z,true,false,false,false,117L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:17:52.626Z,true,false,false,false,118L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:17:57.647Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:18:03.688Z,true,false,false,false,119F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:18:06.715Z,true,false,false,false,120F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:18:09.736Z,true,false,false,false,121F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:18:12.766Z,true,false,false,false,122F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:18:15.777Z,true,false,false,false,123F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:18:19.836Z,true,false,false,false,124F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:18:21.844Z,true,false,false,false,126F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:18:26.902Z,true,false,false,false,127F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:18:28.904Z,true,false,false,false,128F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:18:31.946Z,true,false,false,false,5T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:18:37.959Z,true,false,false,false,5T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:18:38.975Z,true,false,false,false,5T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:18:39.981Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:18:46.028Z,true,false,false,false,129L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:18:49.050Z,true,false,false,false,130L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:18:53.156Z,true,false,false,false,131L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:18:58.127Z,true,false,false,false,132L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:19:03.183Z,true,false,false,false,133L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:19:09.219Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:19:14.242Z,true,false,false,false,134F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:19:17.280Z,true,false,false,false,135F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:19:20.328Z,true,false,false,false,136F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:19:23.334Z,true,false,false,false,137F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:19:27.387Z,true,false,false,false,138F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:19:30.403Z,true,false,false,false,139F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:19:33.450Z,true,false,false,false,141F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:19:37.531Z,true,false,false,false,142F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:19:39.524Z,true,false,false,false,143F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:19:42.547Z,true,false,false,false,4T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:19:48.547Z,true,false,false,false,4T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:19:49.560Z,true,false,false,false,4T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:19:50.606Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:19:56.605Z,true,false,false,false,144L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:19:59.633Z,true,false,false,false,145L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:20:03.652Z,true,false,false,false,146L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:20:08.685Z,true,false,false,false,147L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:20:13.733Z,true,false,false,false,148L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:20:19.777Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:20:24.834Z,true,false,false,false,149F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:20:27.857Z,true,false,false,false,150F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:20:30.902Z,true,false,false,false,151F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:20:33.927Z,true,false,false,false,152F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:20:36.967Z,true,false,false,false,153F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:20:40.976Z,true,false,false,false,154F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:20:42.990Z,true,false,false,false,156F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:20:48.047Z,true,false,false,false,157F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:20:50.065Z,true,false,false,false,158F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:20:53.091Z,true,false,false,false,3T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:20:59.150Z,true,false,false,false,3T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:21:00.136Z,true,false,false,false,3T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:21:01.136Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:21:07.173Z,true,false,false,false,159L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:21:09.197Z,true,false,false,false,160L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:21:14.233Z,true,false,false,false,161L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:21:19.258Z,true,false,false,false,162L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:21:24.315Z,true,false,false,false,163L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:21:29.354Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:21:35.390Z,true,false,false,false,164F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:21:38.462Z,true,false,false,false,165F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:21:41.476Z,true,false,false,false,166F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:21:44.483Z,true,false,false,false,167F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:21:47.556Z,true,false,false,false,168F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:21:51.552Z,true,false,false,false,169F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:21:53.568Z,true,false,false,false,171F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:21:58.588Z,true,false,false,false,172F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:22:00.614Z,true,false,false,false,173F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:22:03.652Z,true,false,false,false,2T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:22:09.694Z,true,false,false,false,2T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:22:10.697Z,true,false,false,false,2T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:22:11.698Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:22:17.751Z,true,false,false,false,174L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:22:20.795Z,true,false,false,false,175L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:22:24.838Z,true,false,false,false,176L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:22:29.887Z,true,false,false,false,177L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:22:34.923Z,true,false,false,false,178L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:22:40.962Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:22:45.996Z,true,false,false,false,179F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:22:49.003Z,true,false,false,false,180F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:22:52.040Z,true,false,false,false,181F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:22:55.040Z,true,false,false,false,182F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:22:59.090Z,true,false,false,false,183F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:23:02.120Z,true,false,false,false,184F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:23:05.156Z,true,false,false,false,186F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:23:09.184Z,true,false,false,false,187F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:23:11.197Z,true,false,false,false,188F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:23:14.208Z,true,false,false,false,1T.1,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:23:20.242Z,true,false,false,false,1T.2,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:23:21.252Z,true,false,false,false,1T.3,Rectitud EC,E3865,CNAII
+
+2026-06-12T18:23:22.268Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:23:28.296Z,true,false,false,false,189L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:23:31.344Z,true,false,false,false,190L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:23:35.358Z,true,false,false,false,191L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:23:40.399Z,true,false,false,false,192L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:23:45.431Z,true,false,false,false,193L,Ãngulo pollera SE,E3865,CNAII
+
+2026-06-12T18:23:51.543Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:23:56.566Z,true,false,false,false,194F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:23:59.578Z,true,false,false,false,195F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:24:03.583Z,true,false,false,false,196F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:24:06.618Z,true,false,false,false,197F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:24:09.658Z,true,false,false,false,198F,Distancia entre SE - IdentificaciÃ³n SE - Perpendicularidad ,E3865,CNAII
+
+2026-06-12T18:24:12.688Z,true,false,false,false,199F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:24:15.721Z,true,false,false,false,201F,Ãngulo relativo zapatas - Plegado lÃ¡mina seguro,E3865,CNAII
+
+2026-06-12T18:24:19.752Z,true,false,false,false,202F,Distancia entre SE - Perpendicularidad SE,E3865,CNAII
+
+2026-06-12T18:24:21.770Z,true,false,false,false,203F,Ãngulo relativo zapatas,E3865,CNAII
+
+2026-06-12T18:24:24.799Z,true,false,false,false,001F,Distancia entre SE y PP,E3865,CNAII
+
+2026-06-12T18:24:29.822Z,true,false,false,false,210F,TorsiÃ³n EC,E3865,CNAII
+
+2026-06-12T18:24:32.855Z,true,false,false,false,002F,Distancia entre SE y PP,E3865,CNAII
+
+2026-06-12T18:24:38.928Z,true,false,false,false,211F,IdentificaciÃ³n PP - Distancia entre SE y PP,E3865,CNAII
+
+2026-06-12T18:24:43.963Z,true,false,false,false,003F,Distancia entre SE y PP,E3865,CNAII
+
+2026-06-12T18:24:50.004Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:24:56.046Z,true,false,false,false,212L,Ãngulo de zapatas (3x1),E3865,CNAII
+
+2026-06-12T18:24:57.052Z,true,false,false,false,213L,Ãngulo de zapatas (3x1),E3865,CNAII
+
+2026-06-12T18:25:04.098Z,true,false,false,false,214L,Ãngulo de zapatas (3x1),E3865,CNAII
+
+2026-06-12T18:25:12.167Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:25:19.205Z,true,false,false,false,216L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3865,CNAII
+
+2026-06-12T18:25:24.244Z,true,false,false,false,217L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3865,CNAII
+
+2026-06-12T18:25:31.277Z,true,false,false,false,218L,Presencia de soldadura TVS - Fisuras soldadura TVS,E3865,CNAII
+
+2026-06-12T18:25:39.351Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:25:49.387Z,true,false,false,false,0T.1,Rectitud EC PP,E3865,CNAII
+
+2026-06-12T18:25:53.438Z,true,false,false,false,0T.3,Rectitud EC PP,E3865,CNAII
+
+2026-06-12T18:25:54.456Z,true,false,false,false,14T.1,DiÃ¡metro circunscrito 3 zapatas,E3865,CNAII
+
+2026-06-12T18:25:57.468Z,true,false,false,false,14T.2,DiÃ¡metro circunscrito 3 zapatas,E3865,CNAII
+
+2026-06-12T18:25:58.475Z,true,false,false,false,222L,DeformaciÃ³n TS,E3865,CNAII
+
+2026-06-12T18:26:02.491Z,true,false,false,false,223L,DeformaciÃ³n TS,E3865,CNAII
+
+2026-06-12T18:26:06.542Z,true,false,false,false,224L,DeformaciÃ³n TS,E3865,CNAII
+
+2026-06-12T18:26:10.561Z,true,false,false,false,225L,DeformaciÃ³n TS,E3865,CNAII
+
+2026-06-12T18:26:14.576Z,true,false,false,false,226L,DeformaciÃ³n TS,E3865,CNAII
+
+2026-06-12T18:26:18.607Z,true,false,false,false,227L,DeformaciÃ³n TS,E3865,CNAII
+
+2026-06-12T18:26:22.655Z,true,false,false,false,tesL,PURGA DE FOTO LATERAL,E3865,CNAII
+
+2026-06-12T18:26:28.696Z,true,false,false,false,228L,DeformaciÃ³n TVI,E3865,CNAII
+
+2026-06-12T18:26:40.767Z,true,false,false,false,229L,DeformaciÃ³n TVI,E3865,CNAII
+
+2026-06-12T18:26:44.808Z,true,false,false,false,230L,DeformaciÃ³n TVI,E3865,CNAII
+
+2026-06-12T18:26:49.869Z,true,false,false,false,231L,DeformaciÃ³n TVI,E3865,CNAII
+
+2026-06-12T18:26:53.920Z,true,false,false,false,232L,DeformaciÃ³n TVI,E3865,CNAII
+
+2026-06-12T18:26:57.942Z,true,false,false,false,233L,DeformaciÃ³n TVI,E3865,CNAII
+
+2026-06-12T18:27:01.975Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:27:03.991Z,true,false,false,false,240F,IdentificaciÃ³n Acople,E3865,CNAII
+
+2026-06-12T18:27:08.021Z,true,false,false,false,241F,IdentificaciÃ³n Acople,E3865,CNAII
+
+2026-06-12T18:27:11.057Z,true,false,false,false,242F,IdentificaciÃ³n Acople,E3865,CNAII
+
+2026-06-12T18:27:12.068Z,true,false,false,false,tesF,PURGA DE FOTO FRONTAL,E3865,CNAII
+
+2026-06-12T18:27:15.074Z,true,false,false,false,Col,FOTO COLOR,E3865,CNAII
+
+2026-06-12T18:27:16.074Z,true,false,false,false,Perf,FOTO PERFILOMETRO,E3865,CNAII
+
+2026-06-12T18:27:17.089Z,true,false,false,false,,,E3865,CNAII
+
+2026-06-12T18:28:35.599Z,false,false,false,true,,,E3865,CNAII
+
+2026-06-12T18:29:26.937Z,false,false,false,false,,,E3865,CNAII
+
+2026-06-12T18:29:27.931Z,false,false,false,true,,,E3865,CNAII
+
+2026-06-12T19:17:32.016Z,false,false,false,false,,,E3865,CNAII
+
+2026-06-12T19:17:32.889Z,false,false,false,true,,,E3865,CNAII
+
+2026-06-12T19:30:55.339Z,false,false,false,false,,,E3865,CNAII
+
+2026-06-12T19:30:56.198Z,false,false,false,true,,,E3865,CNAII
+
+2026-06-12T19:41:40.687Z,false,false,false,false,,,E3865,CNAII
+
+2026-06-12T19:41:41.703Z,false,false,false,true,,,E3865,CNAII
+
+2026-06-12T20:06:09.586Z,false,false,false,false,,,E3865,CNAII
+
+2026-06-12T20:06:10.578Z,false,false,false,true,,,E3865,CNAII
+
+2026-06-12T21:50:00.694Z,false,false,false,false,,,E3865,CNAII
+
+2026-06-12T21:50:01.694Z,false,false,false,true,,,E3865,CNAII
+
