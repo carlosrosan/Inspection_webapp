@@ -122,25 +122,27 @@ def kill_tree(pid: int) -> None:
 
 # ── Per-service check ──────────────────────────────────────────────────────────
 
-def check_service(keyword: str, display_name: str, alert: dict) -> str:
+def check_service(keyword: str, display_name: str, bat_path: Path, alert: dict) -> str:
     """
     Count running instances and act:
-      0  → popup alert (shown only once per outage) → 'down'
-      1  → healthy                                  → 'ok'
-      N  → kill newest duplicate, popup             → 'killed'
+      0  → restart immediately + popup alert (once per outage) → 'restarted'
+      1  → healthy                                              → 'ok'
+      N  → kill newest duplicate, popup                         → 'killed'
     """
     procs = find_bat_processes(keyword)
     count = len(procs)
 
     if count == 0:
+        # Restart immediately before the next check cycle
+        start_bat(bat_path)
         if not alert["active"]:
             alert["active"] = True
             popup_warning(
-                "Conuar Watchdog – Alerta",
-                f"ALERTA: {display_name} no está en ejecución.\n\n"
-                "El proceso se ha detenido inesperadamente.",
+                "Conuar Watchdog – Reinicio automático",
+                f"ALERTA: {display_name} se habia detenido.\n\n"
+                "El proceso fue reiniciado automaticamente por el Watchdog.",
             )
-        return "down"
+        return "restarted"
 
     alert["active"] = False   # service is running, reset alert
 
@@ -161,11 +163,12 @@ def check_service(keyword: str, display_name: str, alert: dict) -> str:
 
 # ── Display ────────────────────────────────────────────────────────────────────
 
-STATUS_TAG = {"ok": "[  OK  ]", "down": "[ DOWN ]", "killed": "[ WARN ]"}
+STATUS_TAG = {"ok": "[  OK  ]", "down": "[ DOWN ]", "killed": "[ WARN ]", "restarted": "[ AUTO ]"}
 STATUS_MSG = {
-    "ok":     "En ejecucion",
-    "down":   "NO en ejecucion",
-    "killed": "Duplicado detectado y eliminado",
+    "ok":        "En ejecucion",
+    "down":      "NO en ejecucion",
+    "killed":    "Duplicado detectado y eliminado",
+    "restarted": "Detenido — reiniciando automaticamente",
 }
 
 SERVICES = [
@@ -173,13 +176,22 @@ SERVICES = [
     {"key": NODERED_KEY, "bat": NODERED_BAT, "label": "Node-RED    "},
 ]
 
+DESCRIPTION = (
+    "Este es el programa orquestador de los componentes de\n"
+    "  reporteria de robot de inspeccion de elementos combustibles\n"
+    "  en Conuar. Sus componentes son un Webserver Django y un\n"
+    "  servicio NodeRed."
+)
+
 
 # ── Main ───────────────────────────────────────────────────────────────────────
 
 def main() -> None:
     os.system("cls")
     print("=" * 60)
-    print("  Conuar Watchdog — iniciando")
+    print("  Conuar Watchdog")
+    print("=" * 60)
+    print(f"  {DESCRIPTION}")
     print("=" * 60)
     print()
 
@@ -212,7 +224,9 @@ def main() -> None:
         print()
 
         for svc in SERVICES:
-            status = check_service(svc["key"], svc["label"].strip(), alert_state[svc["key"]])
+            status = check_service(
+                svc["key"], svc["label"].strip(), svc["bat"], alert_state[svc["key"]]
+            )
             tag = STATUS_TAG[status]
             msg = STATUS_MSG[status]
             print(f"  {tag}  {svc['label']}   {msg}")
