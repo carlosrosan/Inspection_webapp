@@ -3,7 +3,7 @@ setlocal EnableDelayedExpansion
 title Conuar Watchdog
 
 :: ============================================================
-::  CONFIGURATION — update BASE_DIR if the project moves
+::  CONFIGURATION
 :: ============================================================
 set "BASE_DIR=C:\Users\usuario\Documents\GitHub\Inspection_webapp"
 set "DJANGO_BAT=%BASE_DIR%\start_django.bat"
@@ -13,19 +13,19 @@ set "NODERED_PORT=1880"
 set "CHECK_INTERVAL=5"
 
 :: ============================================================
-::  SINGLE-INSTANCE GUARD
-::  Checks how many cmd.exe windows already carry the title
-::  "Conuar Watchdog". If more than one exists, this instance
-::  is a duplicate — show a popup and exit immediately.
-::  This avoids the stale-PID bug of the dir-lock approach.
+::  SINGLE-INSTANCE GUARD (window title detection)
+::  Counts cmd.exe processes whose title is "Conuar Watchdog".
+::  If more than one exists this is a duplicate — exit.
 :: ============================================================
-powershell -NoProfile -Command ^
-    "$w = Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Conuar Watchdog' }; if ($w.Count -gt 1) { exit 1 } else { exit 0 }"
+powershell -NoProfile -Command "$w = Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Conuar Watchdog' }; if ($w.Count -gt 1) { exit 1 } else { exit 0 }"
 if errorlevel 1 (
-    powershell -NoProfile -Command ^
-        "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Conuar Watchdog is already running.`n`nClose the existing watchdog window first.', 'Already Running', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)"
+    powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Conuar Watchdog is already running.`n`nClose the existing watchdog window first.', 'Already Running', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)"
     exit /b 0
 )
+
+:: Alert-shown flags: prevents alert spam while a service is starting up
+set "DJANGO_ALERT_SHOWN=0"
+set "NODERED_ALERT_SHOWN=0"
 
 :: ============================================================
 ::  MAIN WATCHDOG LOOP
@@ -37,14 +37,11 @@ echo   Conuar Watchdog  ^|  %date%   %time:~0,8%
 echo ============================================================
 echo.
 
-:: -- Check Django (port 8000) --
-powershell -NoProfile -Command ^
-    "if (Get-NetTCPConnection -LocalPort %DJANGO_PORT% -State Listen -EA SilentlyContinue) { exit 0 } else { exit 1 }"
+:: -- Port checks --
+powershell -NoProfile -Command "if (Get-NetTCPConnection -LocalPort %DJANGO_PORT% -State Listen -EA SilentlyContinue) { exit 0 } else { exit 1 }"
 if errorlevel 1 (set "DJANGO_OK=0") else (set "DJANGO_OK=1")
 
-:: -- Check Node-RED (port 1880) --
-powershell -NoProfile -Command ^
-    "if (Get-NetTCPConnection -LocalPort %NODERED_PORT% -State Listen -EA SilentlyContinue) { exit 0 } else { exit 1 }"
+powershell -NoProfile -Command "if (Get-NetTCPConnection -LocalPort %NODERED_PORT% -State Listen -EA SilentlyContinue) { exit 0 } else { exit 1 }"
 if errorlevel 1 (set "NODERED_OK=0") else (set "NODERED_OK=1")
 
 :: -- Status display --
@@ -60,27 +57,51 @@ if "!NODERED_OK!"=="1" (
 )
 echo.
 
-:: -- Alert + optional restart for Django --
+:: ============================================================
+::  DJANGO: auto-start if down, then kill any duplicates
+:: ============================================================
 if "!DJANGO_OK!"=="0" (
-    powershell -NoProfile -Command ^
-        "Add-Type -AssemblyName System.Windows.Forms; $r = [System.Windows.Forms.MessageBox]::Show('Django server (port %DJANGO_PORT%) is NOT running.`n`nWould you like to start start_django.bat now?', 'Conuar Watchdog — Django Down', [System.Windows.Forms.MessageBoxButtons]::YesNo, [System.Windows.Forms.MessageBoxIcon]::Warning); if ($r -eq [System.Windows.Forms.DialogResult]::Yes) { exit 0 } else { exit 1 }"
-    if not errorlevel 1 (
-        :: Re-check port immediately before launching to block accidental double-start
-        powershell -NoProfile -Command ^
-            "if (Get-NetTCPConnection -LocalPort %DJANGO_PORT% -State Listen -EA SilentlyContinue) { exit 1 } else { exit 0 }"
-        if not errorlevel 1 start "" "%DJANGO_BAT%"
+    if "!DJANGO_ALERT_SHOWN!"=="0" (
+        set "DJANGO_ALERT_SHOWN=1"
+        :: Non-blocking alert — watchdog does NOT wait for user to click OK
+        start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Django server (port %DJANGO_PORT%) is NOT running.`nStarting start_django.bat automatically...', 'Conuar Watchdog — Django Down', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+        start "" "%DJANGO_BAT%"
+        echo   [ AUTO ]  Starting start_django.bat...
+    ) else (
+        echo   [ WAIT ]  Django is starting, waiting for port %DJANGO_PORT%...
     )
+) else (
+    set "DJANGO_ALERT_SHOWN=0"
 )
 
-:: -- Alert + optional restart for Node-RED --
+:: Kill any duplicate start_django.bat processes (keep only the oldest PID)
+powershell -NoProfile -Command "$procs = Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like '*start_django*' } | Sort-Object ProcessId; if ($procs.Count -gt 1) { $procs | Select-Object -Skip 1 | ForEach-Object { [void](& taskkill /F /T /PID $_.ProcessId 2>&1) }; exit 1 }; exit 0"
+if errorlevel 1 (
+    start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('A duplicate Django instance was detected and stopped!`nOnly one start_django.bat is allowed while the watchdog is running.', 'Conuar Watchdog — Duplicate Blocked', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+    echo   [ STOP ]  Duplicate start_django.bat detected and terminated.
+)
+
+:: ============================================================
+::  NODE-RED: auto-start if down, then kill any duplicates
+:: ============================================================
 if "!NODERED_OK!"=="0" (
-    powershell -NoProfile -Command ^
-        "Add-Type -AssemblyName System.Windows.Forms; $r = [System.Windows.Forms.MessageBox]::Show('Node-RED (port %NODERED_PORT%) is NOT running.`n`nWould you like to start start_nodered.bat now?', 'Conuar Watchdog — Node-RED Down', [System.Windows.Forms.MessageBoxButtons]::YesNo, [System.Windows.Forms.MessageBoxIcon]::Warning); if ($r -eq [System.Windows.Forms.DialogResult]::Yes) { exit 0 } else { exit 1 }"
-    if not errorlevel 1 (
-        powershell -NoProfile -Command ^
-            "if (Get-NetTCPConnection -LocalPort %NODERED_PORT% -State Listen -EA SilentlyContinue) { exit 1 } else { exit 0 }"
-        if not errorlevel 1 start "" "%NODERED_BAT%"
+    if "!NODERED_ALERT_SHOWN!"=="0" (
+        set "NODERED_ALERT_SHOWN=1"
+        start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Node-RED (port %NODERED_PORT%) is NOT running.`nStarting start_nodered.bat automatically...', 'Conuar Watchdog — Node-RED Down', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+        start "" "%NODERED_BAT%"
+        echo   [ AUTO ]  Starting start_nodered.bat...
+    ) else (
+        echo   [ WAIT ]  Node-RED is starting, waiting for port %NODERED_PORT%...
     )
+) else (
+    set "NODERED_ALERT_SHOWN=0"
+)
+
+:: Kill any duplicate start_nodered.bat processes (keep only the oldest PID)
+powershell -NoProfile -Command "$procs = Get-CimInstance Win32_Process | Where-Object { $_.CommandLine -like '*start_nodered*' } | Sort-Object ProcessId; if ($procs.Count -gt 1) { $procs | Select-Object -Skip 1 | ForEach-Object { [void](& taskkill /F /T /PID $_.ProcessId 2>&1) }; exit 1 }; exit 0"
+if errorlevel 1 (
+    start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('A duplicate Node-RED instance was detected and stopped!`nOnly one start_nodered.bat is allowed while the watchdog is running.', 'Conuar Watchdog — Duplicate Blocked', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+    echo   [ STOP ]  Duplicate start_nodered.bat detected and terminated.
 )
 
 echo   Next check in %CHECK_INTERVAL% seconds.  Press Ctrl+C to stop.
