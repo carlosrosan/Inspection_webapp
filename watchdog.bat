@@ -1,68 +1,58 @@
 @echo off
 setlocal EnableDelayedExpansion
 title Conuar Watchdog
-
-:: ============================================================
-::  CONFIGURATION
-::  All paths are resolved relative to this file's directory.
-:: ============================================================
-set "DJANGO_BAT=%~dp0start_django.bat"
-set "NODERED_BAT=%~dp0start_nodered.bat"
 set "CHECK_INTERVAL=5"
 
 :: ============================================================
-::  SINGLE-INSTANCE GUARD
-::  Count cmd.exe windows already titled "Conuar Watchdog".
-::  If > 1, this run is a duplicate — popup and exit.
-:: ============================================================
-powershell -NoProfile -Command "$w = Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Conuar Watchdog' }; if ($w.Count -gt 1) { exit 1 } else { exit 0 }"
-if errorlevel 1 (
-    powershell -NoProfile -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Conuar Watchdog ya est' + [char]225 + ' en ejecuci' + [char]243 + 'n.`n`nCierre la ventana existente primero.', 'Instancia duplicada', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Information)"
-    exit /b 0
-)
-
-:: ============================================================
 ::  STARTUP
-::  Launch each service only if it is not already running.
-::  Detection: look for cmd.exe whose CommandLine contains
-::  the bat file name. Filter Name='cmd.exe' to exclude the
-::  PowerShell process running this very query.
+::  Change to this file's directory so relative paths work
+::  even when launched from a shortcut or Task Scheduler.
+::  Guard: start each service ONLY if its titled window is
+::  not already open (window title is set by the start command
+::  below and persists for the lifetime of the process).
 :: ============================================================
-echo Iniciando Conuar Watchdog...
+pushd "%~dp0"
+echo Conuar Watchdog iniciando...
 echo.
 
-powershell -NoProfile -Command "if ((Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'cmd.exe' -and $_.CommandLine -like '*start_django*' }).Count -gt 0) { exit 1 } else { exit 0 }"
+powershell -NoProfile -Command "if (Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Django Server' }) { exit 1 } else { exit 0 }"
 if errorlevel 1 (
-    echo   [SKIP ]  start_django.bat  ya en ejecucion.
+    echo   [SKIP ]  Django Server ya en ejecucion.
 ) else (
     echo   [START]  Iniciando start_django.bat...
-    start "" "%DJANGO_BAT%"
+    start "Django Server" cmd /c "start_django.bat"
 )
 
-powershell -NoProfile -Command "if ((Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'cmd.exe' -and $_.CommandLine -like '*start_nodered*' }).Count -gt 0) { exit 1 } else { exit 0 }"
+powershell -NoProfile -Command "if (Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Node-RED' }) { exit 1 } else { exit 0 }"
 if errorlevel 1 (
-    echo   [SKIP ]  start_nodered.bat ya en ejecucion.
+    echo   [SKIP ]  Node-RED ya en ejecucion.
 ) else (
     echo   [START]  Iniciando start_nodered.bat...
-    start "" "%NODERED_BAT%"
+    start "Node-RED" cmd /c "start_nodered.bat"
 )
 
+popd
 echo.
 
-:: Flags — avoid showing the same alert popup repeatedly while a service is down
+:: Flags: show each alert only once per downtime episode
 set "DJANGO_ALERT=0"
 set "NODERED_ALERT=0"
 
 :: ============================================================
 ::  MAIN WATCHDOG LOOP
 ::
-::  PowerShell exit codes used as process-count signals:
-::    0 = zero instances running   -> show popup alert
-::    1 = exactly one running      -> OK, do nothing
-::    2 = had duplicates, killed newest -> show popup + log
+::  Detection uses window title, NOT CommandLine text.
+::  This avoids false positives from the PowerShell process
+::  that runs the query (which itself contains "start_django"
+::  in its own command line and would inflate the count).
 ::
-::  "Kill newest" = sort by CreationDate descending, take [0].
-::  taskkill /F /T kills the whole process tree (cmd + children).
+::  PowerShell exit codes:
+::    0 = 0 windows found  -> service is down, show alert
+::    1 = 1 window found   -> OK
+::    2 = 2+ windows found -> killed the newest, show alert
+::
+::  taskkill /F /T kills the cmd.exe AND all its children
+::  (python / node-red processes).
 :: ============================================================
 :CHECK_LOOP
 cls
@@ -72,45 +62,45 @@ echo ============================================================
 echo.
 
 :: ---------- Django ----------
-powershell -NoProfile -Command "$p = Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'cmd.exe' -and $_.CommandLine -like '*start_django*' } | Sort-Object CreationDate -Descending; if ($p.Count -eq 0) { exit 0 }; if ($p.Count -eq 1) { exit 1 }; [void](& taskkill /F /T /PID $p[0].ProcessId 2>&1); exit 2"
+powershell -NoProfile -Command "$p = Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Django Server' }; if ($p.Count -eq 0) { exit 0 }; if ($p.Count -eq 1) { exit 1 }; $n = ($p | Sort-Object StartTime -Descending | Select-Object -First 1).Id; [void](& taskkill /F /T /PID $n 2>&1); exit 2"
 set "DS=!errorlevel!"
 
 if "!DS!"=="0" (
-    echo   [ DOWN ]  start_django.bat    NO en ejecucion
+    echo   [ DOWN ]  Django Server    NO en ejecucion
     if "!DJANGO_ALERT!"=="0" (
         set "DJANGO_ALERT=1"
-        start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('ALERTA: start_django.bat no est' + [char]225 + ' en ejecuci' + [char]243 + 'n.`n`nEl servidor Django se ha detenido inesperadamente.', 'Conuar Watchdog', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+        start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('ALERTA: Django Server no est' + [char]225 + ' en ejecuci' + [char]243 + 'n.`n`nEl servidor se ha detenido inesperadamente.', 'Conuar Watchdog', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
     )
 )
 if "!DS!"=="1" (
-    echo   [  OK  ]  start_django.bat    En ejecucion
+    echo   [  OK  ]  Django Server    En ejecucion
     set "DJANGO_ALERT=0"
 )
 if "!DS!"=="2" (
-    echo   [ WARN ]  start_django.bat    Duplicado eliminado
+    echo   [ WARN ]  Django Server    Duplicado detectado y eliminado
     set "DJANGO_ALERT=0"
-    start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Se detect' + [char]243 + ' y cerr' + [char]243 + ' una instancia duplicada de start_django.bat.`nSolo se permite una instancia a la vez.', 'Conuar Watchdog - Duplicado', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+    start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Se detect' + [char]243 + ' y cerr' + [char]243 + ' una instancia duplicada de Django Server.`nSolo se permite una instancia.', 'Conuar Watchdog - Duplicado', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
 )
 
 :: ---------- Node-RED ----------
-powershell -NoProfile -Command "$p = Get-CimInstance Win32_Process | Where-Object { $_.Name -eq 'cmd.exe' -and $_.CommandLine -like '*start_nodered*' } | Sort-Object CreationDate -Descending; if ($p.Count -eq 0) { exit 0 }; if ($p.Count -eq 1) { exit 1 }; [void](& taskkill /F /T /PID $p[0].ProcessId 2>&1); exit 2"
+powershell -NoProfile -Command "$p = Get-Process cmd -EA SilentlyContinue | Where-Object { $_.MainWindowTitle -eq 'Node-RED' }; if ($p.Count -eq 0) { exit 0 }; if ($p.Count -eq 1) { exit 1 }; $n = ($p | Sort-Object StartTime -Descending | Select-Object -First 1).Id; [void](& taskkill /F /T /PID $n 2>&1); exit 2"
 set "NS=!errorlevel!"
 
 if "!NS!"=="0" (
-    echo   [ DOWN ]  start_nodered.bat   NO en ejecucion
+    echo   [ DOWN ]  Node-RED         NO en ejecucion
     if "!NODERED_ALERT!"=="0" (
         set "NODERED_ALERT=1"
-        start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('ALERTA: start_nodered.bat no est' + [char]225 + ' en ejecuci' + [char]243 + 'n.`n`nNode-RED se ha detenido inesperadamente.', 'Conuar Watchdog', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+        start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('ALERTA: Node-RED no est' + [char]225 + ' en ejecuci' + [char]243 + 'n.`n`nEl servicio se ha detenido inesperadamente.', 'Conuar Watchdog', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
     )
 )
 if "!NS!"=="1" (
-    echo   [  OK  ]  start_nodered.bat   En ejecucion
+    echo   [  OK  ]  Node-RED         En ejecucion
     set "NODERED_ALERT=0"
 )
 if "!NS!"=="2" (
-    echo   [ WARN ]  start_nodered.bat   Duplicado eliminado
+    echo   [ WARN ]  Node-RED         Duplicado detectado y eliminado
     set "NODERED_ALERT=0"
-    start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Se detect' + [char]243 + ' y cerr' + [char]243 + ' una instancia duplicada de start_nodered.bat.`nSolo se permite una instancia a la vez.', 'Conuar Watchdog - Duplicado', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
+    start /B "" powershell -NoProfile -WindowStyle Hidden -Command "Add-Type -AssemblyName System.Windows.Forms; [System.Windows.Forms.MessageBox]::Show('Se detect' + [char]243 + ' y cerr' + [char]243 + ' una instancia duplicada de Node-RED.`nSolo se permite una instancia.', 'Conuar Watchdog - Duplicado', [System.Windows.Forms.MessageBoxButtons]::OK, [System.Windows.Forms.MessageBoxIcon]::Warning)"
 )
 
 echo.
