@@ -627,13 +627,19 @@ class PlcDataProcessor:
         """
         Procesa un ciclo PLC completo y crea/actualiza la inspección asociada.
 
-        Two-phase approach to prevent DB rollback leaving orphaned files:
-          Phase 1 (atomic): Create Inspection + InspectionPhoto rows in DB.
-                            Combine PNG+SVG -> _comb.png while files are in STAGING.
+        Three-phase approach:
+          Pre-phase (outside transaction): unify_photo_png() for all cycle photos.
+            SVG overlay is CPU-heavy (~2s/photo) and must NOT run inside a transaction;
+            a 200-photo cycle would otherwise hold MySQL locks open for ~6 minutes,
+            blocking MySQL Workbench and other connections.
+          Phase 1 (atomic): Create Inspection + InspectionPhoto rows in DB only.
           Phase 2 (post-commit): Move files from STAGING to PROCESSED.
 
         PDF generation is disabled; PDFs are created manually via the web UI.
         """
+        # === PRE-PHASE: Image processing (outside transaction) ===
+        precomputed_combs = self._preprocess_cycle_photos(cycle_rows)
+
         # === PHASE 1: Database operations (atomic) ===
         pending_moves = []
 
@@ -648,16 +654,16 @@ class PlcDataProcessor:
                     f"Inspector asignado a inspección {inspection.id}: {default_inspector.username}"
                 )
 
-            attached, pending_moves = self._link_cycle_photos(inspection, cycle_rows)
+            attached, pending_moves = self._link_cycle_photos(inspection, cycle_rows, precomputed_combs)
 
             if attached == 0:
                 logger.warning(
                     f"No se encontraron fotos para el ciclo {inspection.product_code}. "
                     "Se marcan las filas como procesadas sin crear inspección."
                 )
-                for raw in cycle_rows:
-                    raw.processed = True
-                    raw.save(update_fields=["processed"])
+                PlcDataRaw.objects.filter(
+                    id__in=[r.id for r in cycle_rows]
+                ).update(processed=True)
                 if created:
                     inspection.delete()
                 return False
@@ -673,9 +679,9 @@ class PlcDataProcessor:
             # Load arrow_details from CSV and create ArrowDetail rows
             self._import_arrow_details(inspection, cycle_rows)
 
-            for raw in cycle_rows:
-                raw.processed = True
-                raw.save(update_fields=["processed"])
+            PlcDataRaw.objects.filter(
+                id__in=[r.id for r in cycle_rows]
+            ).update(processed=True)
 
         # === PHASE 2: File operations (after DB commit) ===
         self._execute_pending_moves(pending_moves, inspection)
@@ -867,16 +873,22 @@ class PlcDataProcessor:
             logger.error("Error importando arrow details para inspección %s: %s", inspection.id, e)
             return 0
 
-    def _link_cycle_photos(self, inspection: Inspection, cycle_rows: List[PlcDataRaw]) -> Tuple[int, List[Tuple[Path, str]]]:
+    def _link_cycle_photos(self, inspection: Inspection, cycle_rows: List[PlcDataRaw],
+                            precomputed_combs: dict = None) -> Tuple[int, List[Tuple[Path, str]]]:
         """
-        Phase 1 (DB-only): Scan STAGING for matching PNG photos, create combined
-        images (_comb.png via PNG+SVG overlay), and insert InspectionPhoto rows.
-        Files remain in STAGING; the caller moves them after the transaction commits.
+        Phase 1 (DB-only): Scan STAGING for matching PNG photos and insert
+        InspectionPhoto rows. Must run inside transaction.atomic().
+
+        Image processing (unify_photo_png) is NOT done here — it was already done
+        in _preprocess_cycle_photos() before the transaction opened.
+        precomputed_combs: {photo_filename: comb_path_or_None} from that pre-phase.
 
         Returns:
             (linked_count, pending_moves) where pending_moves is a list of
             (source_path, file_type) tuples to move in Phase 2.
         """
+        if precomputed_combs is None:
+            precomputed_combs = {}
         linked = 0
         linked_photo_names = set()
         defects_found_in_photos = []
@@ -946,17 +958,8 @@ class PlcDataProcessor:
                     f"defecto_from_csv={defecto_from_csv}, defecto_encontrado={defecto_encontrado}"
                 )
 
-                # Combine PNG + SVG overlay -> _comb.png (while files are still in STAGING)
-                comb_path = None
-                try:
-                    logger.info(f"Combinando foto con SVG: {photo_path}")
-                    comb_path = unify_photo_png(photo_path)
-                    if comb_path:
-                        logger.info(f"Imagen combinada creada: {comb_path}")
-                    else:
-                        logger.info(f"Sin SVG para {photo_path.name}, se usará PNG original")
-                except Exception as e:
-                    logger.error(f"Error al combinar foto {photo_path}: {e}")
+                # Use pre-computed combined image (processed before transaction opened)
+                comb_path = precomputed_combs.get(photo_path.name)
 
                 # InspectionPhoto references the _comb.png if available, else the original PNG
                 if comb_path and comb_path.exists():
@@ -1031,11 +1034,7 @@ class PlcDataProcessor:
                     photo_timestamps.append(photo_timestamp)
                 defect_from_photo = self._extract_failure_from_photo_filename(photo_path)
                 defects_found_in_photos.append(defect_from_photo)
-                comb_path = None
-                try:
-                    comb_path = unify_photo_png(photo_path)
-                except Exception as e:
-                    logger.error(f"Final sweep – error al combinar foto {photo_path}: {e}")
+                comb_path = precomputed_combs.get(photo_path.name)
                 display_filename = (comb_path.name if comb_path and comb_path.exists()
                                     else photo_path.name)
                 relative_path = (
@@ -1056,7 +1055,7 @@ class PlcDataProcessor:
                     pending_moves.append((comb_path, 'comb_png'))
                 self.processed_photos.add(photo_path.name)
                 linked += 1
-                logger.info(f"Final sweep: foto vinculada → {photo_path.name}")
+                logger.info(f"Final sweep: foto vinculada -> {photo_path.name}")
 
         if defects_found_in_photos:
             inspection.defecto_encontrado = any(defects_found_in_photos)
@@ -1079,6 +1078,88 @@ class PlcDataProcessor:
             )
 
         return linked, pending_moves
+
+    # ------------------------------------------------------------------
+    # Pre-phase helpers: image processing outside transaction
+    # ------------------------------------------------------------------
+
+    def _is_file_complete(self, path: Path, min_age_seconds: float = 3.0) -> bool:
+        """Return True if the file has not been modified in the last min_age_seconds.
+        Prevents reading JPG/PNG files that the camera is still transferring."""
+        try:
+            age = time.time() - path.stat().st_mtime
+            return age >= min_age_seconds
+        except OSError:
+            return False
+
+    def _safe_unify(self, photo_path: Path) -> Optional[Path]:
+        """Run unify_photo_png with a file-completeness check. Returns comb_path or None."""
+        if not self._is_file_complete(photo_path):
+            logger.warning(
+                f"Foto reciente/incompleta (posiblemente en transferencia), "
+                f"omitiendo unificacion: {photo_path.name}"
+            )
+            return None
+        try:
+            comb = unify_photo_png(photo_path)
+            if comb:
+                logger.info(f"Imagen combinada creada: {comb.name}")
+            else:
+                logger.debug(f"Sin SVG para {photo_path.name}, se usara PNG original")
+            return comb
+        except Exception as e:
+            logger.error(f"Error al unificar foto {photo_path.name}: {e}")
+            return None
+
+    def _preprocess_cycle_photos(self, cycle_rows: List[PlcDataRaw]) -> dict:
+        """
+        Pre-phase (outside transaction): find all STAGING photos for this cycle
+        and run unify_photo_png() on each one.
+
+        unify_photo_png() takes ~2s per photo (SVG overlay).  Running it inside
+        transaction.atomic() would hold MySQL locks open for minutes on large cycles
+        (200 photos -> ~6 min), causing 'Too many connections' / SQL Logic Errors in
+        MySQL Workbench.  This method must be called before transaction.atomic().
+
+        Returns {photo_filename: comb_path_or_None}.
+        """
+        combs: dict = {}
+        if not self.staging_photo_path.exists():
+            return combs
+
+        # Determine NombreCiclo + ID_EC from the cycle rows
+        nombre_ciclo = ''
+        id_ec = ''
+        for raw in cycle_rows:
+            payload = getattr(raw, '_parsed_json', {})
+            nc = self._get_field_value(payload, 'NombreCiclo', ['nombre_ciclo'])
+            ie = self._get_field_value(payload, 'ID_EC', ['elemento_combustible'])
+            if nc and ie:
+                nombre_ciclo = nc
+                id_ec = ie
+                break
+
+        if not nombre_ciclo or not id_ec:
+            return combs
+
+        # Scan all photos matching the broad prefix (covers main loop + final sweep)
+        sweep_prefix = f"{nombre_ciclo}-{id_ec}-"
+        candidates: List[Path] = []
+        for ext in (".png", ".bmp", ".jpg", ".jpeg"):
+            for photo_file in self.staging_photo_path.glob(f"{sweep_prefix}*{ext}"):
+                if not photo_file.stem.endswith('_comb'):
+                    candidates.append(photo_file)
+        candidates.sort(key=lambda p: p.name)
+
+        if candidates:
+            logger.info(
+                f"Pre-fase imagen: procesando {len(candidates)} fotos para "
+                f"{nombre_ciclo}-{id_ec} fuera de la transaccion"
+            )
+        for photo_path in candidates:
+            combs[photo_path.name] = self._safe_unify(photo_path)
+
+        return combs
 
     def _execute_pending_moves(self, pending_moves: List[Tuple[Path, str]], inspection: Inspection):
         """
