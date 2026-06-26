@@ -12153,3 +12153,805 @@ WARNING 2026-06-24 12:10:51,475 Autologin check failed: (1205, 'Lock wait timeou
 INFO 2026-06-24 12:38:05,302 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
 INFO 2026-06-24 12:48:13,734 LOGOUT - User: system_inspector, IP: 127.0.0.1
 INFO 2026-06-24 12:48:13,751 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 12:57:40,293 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 12:57:40,676 Generating PDF for inspection 705644
+INFO 2026-06-24 12:57:40,676   Logo data URI: Present
+INFO 2026-06-24 12:57:40,676   Photo count: 215
+INFO 2026-06-24 12:57:40,676   Photos with data URIs: 215
+INFO 2026-06-24 12:58:48,511 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIR1-E3873-2F-090119_201200139_comb.pdf
+INFO 2026-06-24 12:58:48,511 PDF file size: 103856109 bytes
+INFO 2026-06-24 13:00:25,641 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:00:25,751 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:05:59,750 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:06:00,272 Generating PDF for inspection 705645
+INFO 2026-06-24 13:06:00,272   Logo data URI: Present
+INFO 2026-06-24 13:06:00,272   Photo count: 217
+INFO 2026-06-24 13:06:00,272   Photos with data URIs: 217
+INFO 2026-06-24 13:07:31,431 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3874-1F-130119_152156387_comb.pdf
+INFO 2026-06-24 13:07:31,449 PDF file size: 105280686 bytes
+INFO 2026-06-24 13:07:41,150 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:07:41,440 Generating PDF for inspection 705669
+INFO 2026-06-24 13:07:41,440   Logo data URI: Present
+INFO 2026-06-24 13:07:41,440   Photo count: 217
+INFO 2026-06-24 13:07:41,440   Photos with data URIs: 217
+INFO 2026-06-24 13:07:55,780 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3880-1F-140119_181906881.pdf
+INFO 2026-06-24 13:07:55,780 PDF file size: 9568532 bytes
+INFO 2026-06-24 13:08:22,157 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:08:23,901 Generating PDF for inspection 705648
+INFO 2026-06-24 13:08:23,901   Logo data URI: Present
+INFO 2026-06-24 13:08:23,901   Photo count: 217
+INFO 2026-06-24 13:08:23,901   Photos with data URIs: 217
+INFO 2026-06-24 13:09:20,034 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:09:21,581 Generating PDF for inspection 705668
+INFO 2026-06-24 13:09:21,581   Logo data URI: Present
+INFO 2026-06-24 13:09:21,583   Photo count: 217
+INFO 2026-06-24 13:09:21,586   Photos with data URIs: 217
+ERROR 2026-06-24 13:09:21,669 Exception during PDF generation for inspection 705668: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\parser.py", line 798, in pisaParser
+    src = pisaTempFile(src, capacity=context.capacity)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 79, in __init__
+    self.write(buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 140, in write
+    self._delegate.write(value)
+  File "C:\Users\usuario\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 500, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+INFO 2026-06-24 13:09:29,784 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:09:31,802 Generating PDF for inspection 705647
+INFO 2026-06-24 13:09:31,802   Logo data URI: Present
+INFO 2026-06-24 13:09:31,802   Photo count: 217
+INFO 2026-06-24 13:09:31,802   Photos with data URIs: 217
+ERROR 2026-06-24 13:09:31,859 Exception during PDF generation for inspection 705647: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\parser.py", line 798, in pisaParser
+    src = pisaTempFile(src, capacity=context.capacity)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 79, in __init__
+    self.write(buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 140, in write
+    self._delegate.write(value)
+  File "C:\Users\usuario\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 500, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+WARNING 2026-06-24 13:09:51,037 Failed to save PDF to disk: [Errno 28] No space left on device
+WARNING 2026-06-24 13:09:51,037 Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1261, in inspection_pdf
+    f.write(pdf)
+OSError: [Errno 28] No space left on device
+
+INFO 2026-06-24 13:10:13,506 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:10:14,937 Generating PDF for inspection 705649
+INFO 2026-06-24 13:10:14,937   Logo data URI: Present
+INFO 2026-06-24 13:10:14,937   Photo count: 217
+INFO 2026-06-24 13:10:14,937   Photos with data URIs: 217
+ERROR 2026-06-24 13:10:14,986 Exception during PDF generation for inspection 705649: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\parser.py", line 798, in pisaParser
+    src = pisaTempFile(src, capacity=context.capacity)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 79, in __init__
+    self.write(buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 140, in write
+    self._delegate.write(value)
+  File "C:\Users\usuario\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 500, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+INFO 2026-06-24 13:10:43,441 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,454 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,457 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,460 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,464 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,465 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,473 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,474 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,476 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,477 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,478 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,479 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:10:43,480 LOGOUT - User: system_inspector, IP: 127.0.0.1
+WARNING 2026-06-24 13:11:35,336 Autologin check failed: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+WARNING 2026-06-24 13:11:35,336 Autologin check failed: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+WARNING 2026-06-24 13:11:35,336 Autologin check failed: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+WARNING 2026-06-24 13:11:44,369 Autologin check failed: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+WARNING 2026-06-24 13:11:51,420 Autologin check failed: (1205, 'Lock wait timeout exceeded; try restarting transaction')
+INFO 2026-06-24 13:15:06,040 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 13:15:06,950 Generating PDF for inspection 705648
+INFO 2026-06-24 13:15:06,951   Logo data URI: Present
+INFO 2026-06-24 13:15:06,951   Photo count: 217
+INFO 2026-06-24 13:15:06,951   Photos with data URIs: 217
+ERROR 2026-06-24 13:15:07,089 Exception during PDF generation for inspection 705648: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\parser.py", line 798, in pisaParser
+    src = pisaTempFile(src, capacity=context.capacity)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 79, in __init__
+    self.write(buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 140, in write
+    self._delegate.write(value)
+  File "C:\Users\usuario\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 500, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,081 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 13:22:49,496 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 15:21:24,846 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 15:26:31,912 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 15:26:32,555 Generating PDF for inspection 705670
+INFO 2026-06-24 15:26:32,558   Logo data URI: Present
+INFO 2026-06-24 15:26:32,559   Photo count: 217
+INFO 2026-06-24 15:26:32,560   Photos with data URIs: 217
+ERROR 2026-06-24 15:26:32,608 Exception during PDF generation for inspection 705670: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\parser.py", line 798, in pisaParser
+    src = pisaTempFile(src, capacity=context.capacity)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 79, in __init__
+    self.write(buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 140, in write
+    self._delegate.write(value)
+  File "C:\Users\usuario\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 500, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+INFO 2026-06-24 15:28:30,488 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 15:28:30,925 Generating PDF for inspection 705648
+INFO 2026-06-24 15:28:30,931   Logo data URI: Present
+INFO 2026-06-24 15:28:30,933   Photo count: 217
+INFO 2026-06-24 15:28:30,934   Photos with data URIs: 217
+ERROR 2026-06-24 15:28:30,978 Exception during PDF generation for inspection 705648: [Errno 28] No space left on device
+Traceback (most recent call last):
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\main\views.py", line 1209, in inspection_pdf
+    pisa_status = pisa.CreatePDF(html, dest=buffer)
+                  ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 139, in pisaDocument
+    context = pisaStory(
+              ^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\document.py", line 75, in pisaStory
+    pisaParser(src, context, default_css, xhtml, encoding, xml_output)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\parser.py", line 798, in pisaParser
+    src = pisaTempFile(src, capacity=context.capacity)
+          ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 79, in __init__
+    self.write(buffer)
+  File "C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_env\Lib\site-packages\xhtml2pdf\files.py", line 140, in write
+    self._delegate.write(value)
+  File "C:\Users\usuario\AppData\Local\Programs\Python\Python311\Lib\tempfile.py", line 500, in func_wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+OSError: [Errno 28] No space left on device
+INFO 2026-06-24 17:58:16,334 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 17:58:16,403 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 17:59:17,863 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 17:59:18,001 Generating PDF for inspection 705671
+INFO 2026-06-24 17:59:18,001   Logo data URI: Present
+INFO 2026-06-24 17:59:18,001   Photo count: 217
+INFO 2026-06-24 17:59:18,002   Photos with data URIs: 217
+INFO 2026-06-24 17:59:21,381 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3882-1F-140119_211559379.pdf
+INFO 2026-06-24 17:59:21,381 PDF file size: 700364 bytes
+INFO 2026-06-24 18:01:54,526 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 18:01:55,040 Generating PDF for inspection 705670
+INFO 2026-06-24 18:01:55,041   Logo data URI: Present
+INFO 2026-06-24 18:01:55,041   Photo count: 217
+INFO 2026-06-24 18:01:55,041   Photos with data URIs: 217
+INFO 2026-06-24 18:02:15,263 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 18:02:15,914 Generating PDF for inspection 705648
+INFO 2026-06-24 18:02:15,914   Logo data URI: Present
+INFO 2026-06-24 18:02:15,915   Photo count: 217
+INFO 2026-06-24 18:02:15,915   Photos with data URIs: 217
+INFO 2026-06-24 18:02:27,485 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIR1-E3880-1F-140119_192511130_comb.pdf
+INFO 2026-06-24 18:02:27,486 PDF file size: 100748416 bytes
+INFO 2026-06-24 18:02:57,990 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3876-2F-130119_205924135_comb.pdf
+INFO 2026-06-24 18:02:57,990 PDF file size: 105406315 bytes
+INFO 2026-06-24 18:12:32,986 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:12:33,065 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:15:32,090 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-24 18:15:32,259 Generating PDF for inspection 705672
+INFO 2026-06-24 18:15:32,259   Logo data URI: Present
+INFO 2026-06-24 18:15:32,259   Photo count: 217
+INFO 2026-06-24 18:15:32,259   Photos with data URIs: 217
+INFO 2026-06-24 18:15:35,987 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIR1-E3882-001F-140119_220808843.pdf
+INFO 2026-06-24 18:15:35,987 PDF file size: 2354708 bytes
+INFO 2026-06-24 18:25:16,366 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:16,415 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,598 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,598 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,630 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,663 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,663 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,680 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:17,680 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:18,786 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:18,830 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:18,830 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:18,896 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:18,896 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:18,947 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:19,627 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:27,746 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:27,753 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:27,769 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:27,797 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:27,837 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:27,947 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,013 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,130 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,147 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,195 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,246 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,262 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:28,775 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:31,097 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:31,183 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:31,995 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:32,297 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:32,380 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:32,397 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:32,470 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:32,502 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:25:33,661 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:35:46,522 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:35:46,589 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:45:48,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:45:49,079 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:55:51,539 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 18:55:51,606 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:05:54,098 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:05:54,165 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:15:56,623 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:15:56,705 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:25:59,163 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:25:59,182 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:36:01,586 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:36:01,641 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:46:04,082 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:46:04,149 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:56:06,577 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 19:56:06,646 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:06:09,157 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:06:09,216 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:16:11,693 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:16:11,774 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:26:14,234 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:26:14,300 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:36:16,693 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:36:16,759 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:46:19,242 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:46:19,318 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:56:21,726 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 20:56:21,793 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:06:24,236 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:06:24,302 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:16:26,710 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:16:26,777 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:26:29,152 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:26:29,218 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:36:31,661 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:36:31,728 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:46:34,220 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:46:34,286 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:56:36,762 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 21:56:36,828 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:06:39,220 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:06:39,304 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:16:41,749 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:16:41,829 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:26:44,229 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:26:44,288 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:36:46,763 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:36:46,846 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:46:49,222 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:46:49,288 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:56:51,709 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 22:56:51,778 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:06:54,223 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:06:54,273 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:16:56,798 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:16:56,881 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:26:59,273 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:26:59,340 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:37:01,815 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:37:01,882 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:47:04,338 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:47:04,407 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:57:06,832 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-24 23:57:06,899 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:07:09,308 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:07:09,424 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:17:11,885 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:17:11,967 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:27:14,358 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:27:14,392 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:37:16,809 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:37:16,834 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:47:19,306 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:47:19,376 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:57:21,885 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 00:57:21,951 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:07:24,343 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:07:24,360 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:17:26,800 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:17:26,868 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:27:29,310 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:27:29,377 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:37:31,872 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:37:31,901 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:47:34,314 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:47:34,393 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:57:36,889 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 01:57:36,936 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:07:39,312 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:07:39,378 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:17:41,834 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:17:41,902 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:27:44,313 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:27:44,379 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:37:46,940 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:37:47,021 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:47:49,504 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:47:49,580 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:57:52,022 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 02:57:52,072 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:07:54,521 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:07:54,547 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:17:57,368 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:17:57,422 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:27:59,881 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:27:59,948 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:38:02,406 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:38:02,473 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:48:04,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:48:04,999 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:58:07,471 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 03:58:07,507 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:08:10,016 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:08:10,033 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:18:12,533 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:18:12,558 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:28:15,090 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:28:15,116 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:38:17,544 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:38:17,608 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:48:20,107 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:48:20,134 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:58:22,677 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 04:58:22,726 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:08:25,134 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:08:25,168 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:18:27,699 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:18:27,776 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:28:30,302 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:28:30,368 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:38:32,885 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:38:32,960 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:48:35,405 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:48:35,486 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:58:37,997 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 05:58:38,028 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:08:40,406 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:08:40,470 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:18:43,161 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:18:43,228 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:28:45,668 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:28:45,737 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:38:48,215 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:38:48,279 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:48:50,771 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:48:50,838 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:58:53,363 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 06:58:53,430 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:08:55,963 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:08:56,038 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:18:58,530 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:18:58,597 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:29:01,030 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:29:01,106 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:39:03,548 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:39:03,615 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:49:06,073 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:49:06,140 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:59:08,532 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 07:59:08,598 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:09:11,050 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:09:11,123 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:19:13,565 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:19:13,654 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:29:16,191 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:29:16,258 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:39:18,799 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:39:18,832 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:49:21,299 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:49:21,375 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:59:23,817 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 08:59:23,883 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:09:26,295 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:09:26,359 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:19:28,834 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:19:28,901 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:29:31,284 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:29:31,360 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:39:33,818 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:39:33,851 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:49:36,427 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:49:36,493 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:59:38,959 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 09:59:39,034 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:09:41,494 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:09:41,511 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:19:43,903 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:19:43,970 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:29:46,461 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:29:46,528 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:39:48,973 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:39:49,053 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:49:51,495 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:49:51,529 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:59:53,987 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 10:59:54,054 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:09:56,431 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:09:56,463 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:19:58,855 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:19:58,921 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:30:01,363 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:30:01,431 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:40:03,938 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:40:04,005 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:50:06,415 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 11:50:06,481 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:00:08,940 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:00:08,973 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:10:11,431 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:10:11,499 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:20:13,961 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:20:13,990 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:30:16,482 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:30:16,499 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:40:18,932 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:40:19,005 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:50:21,497 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 12:50:21,516 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:00:23,960 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:00:24,024 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:10:26,533 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:10:26,599 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:20:29,141 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:20:29,175 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:30:32,987 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:30:33,023 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:40:35,462 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:40:35,487 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:50:38,018 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 13:50:38,051 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:00:40,543 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:00:40,576 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:10:42,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:10:43,068 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:20:45,446 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:20:45,510 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:30:47,937 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:30:48,002 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:40:50,527 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:40:50,594 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:50:53,102 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 14:50:53,136 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:00:55,666 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:00:55,711 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:10:58,095 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:10:58,186 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:21:02,062 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:21:02,090 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:31:06,028 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:31:06,057 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:41:10,033 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:41:10,062 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:51:14,685 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 15:51:14,846 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:01:18,980 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:01:19,051 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:11:23,000 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:11:23,027 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:21:26,987 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:21:27,014 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:31:31,030 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:31:31,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:41:35,041 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:41:35,193 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:51:38,994 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 16:51:39,062 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:01:42,990 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:01:43,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:11:46,989 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:11:47,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:21:50,996 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:21:51,064 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:31:52,939 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:31:52,996 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:41:56,936 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:41:57,004 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:52:00,937 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 17:52:01,015 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:02:04,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:02:05,023 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:12:08,925 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:12:08,954 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:22:12,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:22:13,017 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:32:16,933 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:32:17,038 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:42:20,933 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:42:21,009 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:52:24,941 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 18:52:25,015 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:02:28,939 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:02:28,974 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:12:32,926 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:12:32,998 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:22:36,939 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:22:36,985 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:32:40,933 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:32:41,024 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:42:44,926 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:42:44,994 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:52:48,935 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 19:52:49,004 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:02:52,932 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:02:52,985 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:12:56,943 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:12:56,976 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:23:00,928 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:23:00,957 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:33:04,930 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:33:05,001 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:43:08,971 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:43:09,004 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:53:12,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 20:53:13,007 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:03:16,935 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:03:17,022 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:13:20,944 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:13:20,965 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:23:24,938 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:23:25,010 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:33:28,939 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:33:29,029 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:43:32,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:43:33,023 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:53:36,936 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 21:53:36,960 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:03:40,938 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:03:40,984 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:13:44,938 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:13:45,018 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:23:48,940 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:23:49,029 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:33:52,981 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:33:53,014 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:43:56,932 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:43:57,042 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:54:00,933 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 22:54:01,002 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:04:04,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:04:05,004 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:14:08,940 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:14:09,015 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:24:13,045 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:24:13,085 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:34:16,930 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:34:16,997 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:44:20,933 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:44:20,965 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:54:24,945 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-25 23:54:24,975 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:04:28,976 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:04:29,005 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:14:32,937 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:14:33,010 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:24:36,925 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:24:36,988 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:34:40,984 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:34:41,016 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:44:44,928 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:44:44,995 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:54:48,926 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 00:54:48,993 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:04:52,927 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:04:52,995 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:14:56,928 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:14:56,997 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:25:00,980 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:25:01,011 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:35:04,937 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:35:04,959 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:45:08,948 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:45:08,971 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:55:12,982 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 01:55:13,028 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:05:16,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:05:16,998 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:15:20,937 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:15:21,015 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:25:24,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:25:25,003 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:35:28,930 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:35:28,992 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:45:32,936 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:45:33,004 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:55:36,974 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 02:55:36,995 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:05:40,973 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:05:41,005 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:15:44,973 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:15:45,021 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:25:48,939 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:25:48,960 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:35:52,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:35:52,958 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:45:56,973 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:45:56,997 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:56:00,930 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 03:56:01,005 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:06:04,988 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:06:05,016 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:16:08,926 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:16:08,995 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:26:12,933 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:26:12,962 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:36:16,927 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:36:16,948 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:46:20,927 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:46:20,994 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:56:24,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 04:56:25,000 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:06:28,926 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:06:28,993 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:16:32,938 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:16:32,961 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:26:36,940 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:26:37,008 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:36:40,936 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:36:41,011 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:46:44,932 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:46:45,001 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:56:48,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 05:56:48,999 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:06:52,928 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:06:52,996 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:16:56,935 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:16:57,003 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:27:00,934 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:27:01,003 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:37:04,926 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:37:04,994 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:47:08,936 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:47:09,005 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:57:12,929 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 06:57:12,986 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:07:16,925 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:07:16,948 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:17:20,928 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:17:20,951 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:27:24,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:27:24,999 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:37:28,928 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:37:29,002 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:47:32,938 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:47:33,006 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:57:36,924 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 07:57:36,993 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:07:40,931 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:07:40,953 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:17:44,937 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:17:44,974 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:27:48,932 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:27:48,955 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:37:52,927 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:37:52,996 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 08:41:53,133 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-26 08:41:53,694 Generating PDF for inspection 705682
+INFO 2026-06-26 08:41:53,694   Logo data URI: Present
+INFO 2026-06-26 08:41:53,694   Photo count: 217
+INFO 2026-06-26 08:41:53,694   Photos with data URIs: 217
+INFO 2026-06-26 08:42:28,798 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3881-1F-150119_220905877_comb.pdf
+INFO 2026-06-26 08:42:28,798 PDF file size: 105133197 bytes
+INFO 2026-06-26 08:45:26,807 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-26 08:45:27,335 Generating PDF for inspection 705670
+INFO 2026-06-26 08:45:27,335   Logo data URI: Present
+INFO 2026-06-26 08:45:27,335   Photo count: 217
+INFO 2026-06-26 08:45:27,335   Photos with data URIs: 217
+INFO 2026-06-26 08:45:55,493 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAIIR1-E3880-1F-140119_192511130_comb.pdf
+INFO 2026-06-26 08:45:55,493 PDF file size: 100748406 bytes
+INFO 2026-06-26 08:49:33,870 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-26 08:49:34,404 Generating PDF for inspection 705668
+INFO 2026-06-26 08:49:34,404   Logo data URI: Present
+INFO 2026-06-26 08:49:34,404   Photo count: 217
+INFO 2026-06-26 08:49:34,406   Photos with data URIs: 217
+INFO 2026-06-26 08:50:09,187 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3878-1F-140119_004832632_comb.pdf
+INFO 2026-06-26 08:50:09,187 PDF file size: 103308137 bytes
+INFO 2026-06-26 08:52:22,489 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-26 08:52:23,110 Generating PDF for inspection 705649
+INFO 2026-06-26 08:52:23,110   Logo data URI: Present
+INFO 2026-06-26 08:52:23,110   Photo count: 217
+INFO 2026-06-26 08:52:23,110   Photos with data URIs: 217
+INFO 2026-06-26 08:53:03,365 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3879-1F-130119_222308383_comb.pdf
+INFO 2026-06-26 08:53:03,365 PDF file size: 105559060 bytes
+INFO 2026-06-26 08:55:10,175 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-26 08:55:10,657 Generating PDF for inspection 705648
+INFO 2026-06-26 08:55:10,657   Logo data URI: Present
+INFO 2026-06-26 08:55:10,657   Photo count: 217
+INFO 2026-06-26 08:55:10,658   Photos with data URIs: 217
+INFO 2026-06-26 08:55:43,992 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3876-2F-130119_205924135_comb.pdf
+INFO 2026-06-26 08:55:43,992 PDF file size: 105406258 bytes
+INFO 2026-06-26 08:57:24,103 Logo loaded and encoded for PDF: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\static\assets\logo_conuar1.jpeg
+INFO 2026-06-26 08:57:24,619 Generating PDF for inspection 705647
+INFO 2026-06-26 08:57:24,619   Logo data URI: Present
+INFO 2026-06-26 08:57:24,620   Photo count: 217
+INFO 2026-06-26 08:57:24,620   Photos with data URIs: 217
+INFO 2026-06-26 08:57:58,412 PDF also saved to disk: C:\Users\usuario\Documents\GitHub\Inspection_webapp\Conuar\conuar_webapp\media\inspection_reports\CNAII-E3877-2F-130119_193440886_comb.pdf
+INFO 2026-06-26 08:57:58,412 PDF file size: 105404343 bytes
+INFO 2026-06-26 09:18:53,176 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:28:57,999 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:28:58,041 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:39:01,991 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:39:02,049 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:49:05,978 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:49:06,057 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:59:09,979 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 09:59:10,058 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 10:09:13,973 LOGOUT - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 10:09:13,989 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
+INFO 2026-06-26 11:48:00,859 AUTOLOGIN - User: system_inspector, IP: 127.0.0.1
